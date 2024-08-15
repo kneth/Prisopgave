@@ -1,0 +1,101 @@
+%%%%%%%%%%%%%%%%%%%%%%%% -*- Mode: LaTeX -*- %%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% main.tex -- 
+%%
+%% Copyright (C) 1994 Mads Ipsen - mpi@osc.ki.ku.dk
+%%
+%% Author          : Mads Ipsen, Kenneth Geishiert
+%% Created On      : Sat Jan 15 15:18:39 1994
+%% Last Modified By: Mads Ipsen
+%% Last Modified On: Sun Jan 16 12:41:43 1994
+%% Update Count    : 16
+%% Revision History: None
+%%
+%% COMMENTS
+%% HISTORY
+%% Update History:86,1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentstyle[bchap,pstricks,pst-node,pst-plot,
+               fancybox,texdraw,epsf,12pt]{mpibook}
+\setlength{\parindent}{0mm}
+\setlength{\evensidemargin}{1.04cm}
+\setlength{\oddsidemargin}{1.04cm}
+\setlength{\topmargin}{0.225cm}
+\setlength{\textwidth}{14.0cm}
+\setlength{\textheight}{20cm}
+\setlength{\headsep}{2.375cm}
+\setlength{\footskip}{2.0cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition af ``hoved'' og ``fod''
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pageheaderlinetrue
+\evenpageheader{\bsf\leftmark}{}{}
+\oddpageheader{}{}{\bsf\rightmark}
+\evenpagefooter{\thepage}{}{}
+\oddpagefooter{}{}{\thepage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Definition af matematiske udtryk
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Tr{\mathop{\rm Tr}}
+\def\Re{\mathop{\rm Re}}
+\def\Im{\mathop{\rm Im}}
+\newcommand{\negsp}{\!\!\!\!\!}
+\newcommand{\mdash}{\mbox{--}}
+\newcommand{\ms}[1]{\mbox{\ \ #1 \ \ }}
+\newcommand{\lr}{\longrightarrow}
+\newcommand{\half}{\mbox{\footnotesize$\frac{1}{2}$}}
+\newcommand{\Z}{\mbox{\Bb Z}}
+\newcommand{\R}{\mbox{\Bb R}}
+\newcommand{\N}{\mbox{\Bb N}}
+\newcommand{\C}{\mbox{\Bb C}}
+\newcommand{\gmatrix}[1]{\mbox{\boldmath $#1$}}
+\renewcommand{\matrix}[1]{\mbox{${\bf #1}$}}
+\renewcommand{\vec}[1]{\mbox{${\bf #1}$}}
+\newcommand{\chem}[1]{\mbox{$\rm #1$}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PSFig Makroer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{psfig}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nye fonte
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newfont{\Bb}{msbm10 scaled\magstephalf}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Vi vil ha' \footnotesize i figur- og tabeltekster
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\capsize}{\footnotesize}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Indholdfortegnelse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{roman}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Her kommer s{\aa} alle kapitlerne og litteraturlisten
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{indled}
+\input{kap1}
+\input{kap2}
+\input{kap3}
+\input{kap4}
+\input{kap5}
+\input{kap6}
+\input{kap7}
+
+\addcontentsline{toc}{chapter}
+{\protect\numberline{}{Litteraturliste}}
+\bibliography{dynamic}
+\bibliographystyle{unsrt}
+
+\end{document}
+
+

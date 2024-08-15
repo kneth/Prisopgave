@@ -1,0 +1,961 @@
+% book.sty 13-Nov-89
+
+\typeout{Document Style `mpibook' <24 Nov 89>.}
+
+\def\@ptsize{0} \@namedef{ds@11pt}{\def\@ptsize{1}}
+\@namedef{ds@12pt}{\def\@ptsize{2}}
+\@twosidetrue \@mparswitchtrue \def\ds@draft{\overfullrule 5pt}
+\@options
+\input mpibk1\@ptsize.sty\relax
+
+
+\def\labelenumi{\theenumi.}
+\def\theenumi{\arabic{enumi}}
+\def\labelenumii{(\theenumii)}
+\def\theenumii{\alph{enumii}}
+\def\p@enumii{\theenumi}
+\def\labelenumiii{\theenumiii.}
+\def\theenumiii{\roman{enumiii}}
+\def\p@enumiii{\theenumi(\theenumii)}
+\def\labelenumiv{\theenumiv.}
+\def\theenumiv{\Alph{enumiv}}
+\def\p@enumiv{\p@enumiii\theenumiii}
+
+\def\labelitemi{$\bullet$}
+\def\labelitemii{\bf --}
+\def\labelitemiii{$\ast$}
+\def\labelitemiv{$\cdot$}
+
+\def\verse{\let\\=\@centercr
+ \list{}{\itemsep\z@ \itemindent -1.5em\listparindent \itemindent
+ \rightmargin\leftmargin\advance\leftmargin 1.5em}\item[]}
+\let\endverse\endlist
+\def\quotation{\list{}{\listparindent 1.5em
+ \itemindent\listparindent
+ \rightmargin\leftmargin\parsep 0pt plus 1pt}\item[]}
+\let\endquotation=\endlist
+\def\quote{\list{}{\rightmargin\leftmargin}\item[]}
+\let\endquote=\endlist
+
+\def\descriptionlabel#1{\hspace\labelsep \bf #1}
+\def\description{\list{}{\labelwidth\z@ \itemindent-\leftmargin
+ \let\makelabel\descriptionlabel}}
+\let\enddescription\endlist
+\newdimen\descriptionmargin
+\descriptionmargin=3em
+
+
+\def\titlepage{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \else \newpage \fi \thispagestyle{empty}\c@page\z@}
+\def\endtitlepage{\if@restonecol\twocolumn \else \newpage \fi}
+
+\arraycolsep 5pt \tabcolsep 6pt \arrayrulewidth .4pt \doublerulesep 2pt
+\tabbingsep \labelsep
+\skip\@mpfootins = \skip\footins
+\fboxsep = 3pt \fboxrule = .4pt
+
+\newcounter{part}
+\newcounter {chapter}
+\newcounter {section}[chapter]
+\newcounter {subsection}[section]
+\newcounter {subsubsection}[subsection]
+\newcounter {paragraph}[subsubsection]
+\newcounter {subparagraph}[paragraph]
+
+\def\thepart {\Roman{part}}
+\def\thechapter {\arabic{chapter}}
+\def\thesection {\thechapter.\arabic{section}}
+\def\thesubsection {\thesection.\arabic{subsection}}
+\def\thesubsubsection {\thesubsection .\arabic{subsubsection}}
+\def\theparagraph {\thesubsubsection.\arabic{paragraph}}
+\def\thesubparagraph {\theparagraph.\arabic{subparagraph}}
+\def\@chapapp{Kapitel}
+
+\def\part{\cleardoublepage \thispagestyle{plain} \if@twocolumn \onecolumn
+\@tempswatrue \else \@tempswafalse \fi \hbox{}\vfil \secdef\@part\@spart}
+
+\def\@part[#1]#2{\ifnum \c@secnumdepth >-2\relax \refstepcounter{part}
+\addcontentsline{toc}{part}{\thepart \hspace{1em}#1}\else
+\addcontentsline{toc}{part}{#1}\fi \markboth{}{}
+ {\centering \ifnum \c@secnumdepth >-2\relax \huge\bf Part \thepart \par
+\vskip 20pt \fi \Huge \bf #2\par}\@endpart}
+\def\@endpart{\vfil\newpage \if@twoside \hbox{} \thispagestyle{empty}
+ \newpage
+ \fi \if@tempswa \twocolumn \fi}
+\def\@spart#1{{\centering \Huge \bf #1\par}\@endpart}
+
+
+\def\@pnumwidth{1.55em}
+\def\@tocrmarg {2.55em}
+\def\@dotsep{4.5}
+\setcounter{tocdepth}{2}
+
+
+\def\tableofcontents{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{Indholdsfortegnelse\@mkboth{Indholdsfortegnelse}{Indholdsfortegnelse}}
+ \@starttoc{toc}\if@restonecol\twocolumn\fi}
+\def\l@part#1#2{\addpenalty{-\@highpenalty}
+ \addvspace{2.25em plus 1pt} \begingroup
+ \@tempdima 3em \parindent \z@ \rightskip \@pnumwidth \parfillskip
+-\@pnumwidth
+ {\large \bf \leavevmode #1\hfil \hbox to\@pnumwidth{\hss #2}}\par
+ \nobreak \global\@nobreaktrue \everypar{\global\@nobreakfalse\everypar{}}
+\endgroup}
+\def\l@chapter#1#2{\addpenalty{-\@highpenalty}
+ \vskip 1.0em plus 1pt \@tempdima 1.5em \begingroup
+ \parindent \z@ \rightskip \@pnumwidth
+ \parfillskip -\@pnumwidth
+ \bf \leavevmode \advance\leftskip\@tempdima \hskip -\leftskip #1\nobreak\hfil
+\nobreak\hbox to\@pnumwidth{\hss #2}\par
+ \penalty\@highpenalty \endgroup}
+
+\def\l@section{\@dottedtocline{1}{1.5em}{2.3em}}
+\def\l@subsection{\@dottedtocline{2}{3.8em}{3.2em}}
+\def\l@subsubsection{\@dottedtocline{3}{7.0em}{4.1em}}
+\def\l@paragraph{\@dottedtocline{4}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{5}{12em}{6em}}
+\def\listoffigures{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{List of Figures\@mkboth
+ {LIST OF FIGURES}{LIST OF FIGURES}}\@starttoc{lof}\if@restonecol
+ \twocolumn\fi}
+\def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+\def\listoftables{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+ \fi\chapter*{List of Tables\@mkboth
+ {LIST OF TABLES}{LIST OF TABLES}}\@starttoc{lot}\if@restonecol
+ \twocolumn\fi}
+\let\l@table\l@figure
+
+
+\def\thebibliography#1{\chapter*{Litteraturliste\@mkboth
+ {Litteraturliste}{Litteraturliste}}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy\clubpenalty4000\widowpenalty4000
+ \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+
+\newif\if@restonecol
+\def\theindex{\@restonecoltrue\if@twocolumn\@restonecolfalse\fi
+\columnseprule \z@
+\columnsep 35pt\twocolumn[\@makeschapterhead{Index}]
+ \@mkboth{INDEX}{INDEX}\thispagestyle{plain}\parindent\z@
+ \parskip\z@ plus .3pt\relax\let\item\@idxitem}
+\def\@idxitem{\par\hangindent 40pt}
+\def\subitem{\par\hangindent 40pt \hspace*{20pt}}
+\def\subsubitem{\par\hangindent 40pt \hspace*{30pt}}
+\def\endtheindex{\if@restonecol\onecolumn\else\clearpage\fi}
+\def\indexspace{\par \vskip 10pt plus 5pt minus 3pt\relax}
+
+\def\footnoterule{\kern-3\p@
+ \hrule width .4\columnwidth
+ \kern 2.6\p@}
+\@addtoreset{footnote}{chapter}
+\long\def\@makefntext#1{\parindent 1em\noindent
+ \hbox to 1.8em{\hss$^{\@thefnmark}$}#1}
+
+
+\setcounter{topnumber}{2}
+\def\topfraction{.7}
+\setcounter{bottomnumber}{1}
+\def\bottomfraction{.3}
+\setcounter{totalnumber}{3}
+\def\textfraction{.2}
+\def\floatpagefraction{.5}
+\setcounter{dbltopnumber}{2}
+\def\dbltopfraction{.7}
+\def\dblfloatpagefraction{.5}
+
+\long\def\@makecaption#1#2{
+ \vskip 10pt
+ \setbox\@tempboxa\hbox{#1. #2}
+ \ifdim \wd\@tempboxa >\hsize #1. #2\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil}
+ \fi}
+
+
+\newcommand{\capsize}{\normalsize}
+\newcommand{\capfont}{\rm}
+\newcounter{figure}[chapter]
+\def\thefigure{\thechapter.\@arabic\c@figure}
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{\capsize\capfont Figur \thefigure}
+\def\figure{\@float{figure}}
+\let\endfigure\end@float
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+\newcounter{table}[chapter]
+\def\thetable{\thechapter.\@arabic\c@table}
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+\def\fnum@table{\capsize\capfont Tabel \thetable}
+\def\table{\@float{table}}
+\let\endtable\end@float
+\@namedef{table*}{\@dblfloat{table}}
+\@namedef{endtable*}{\end@dblfloat}
+
+\def\maketitle{\begin{titlepage}
+ \let\footnotesize\small \let\footnoterule\relax \setcounter{page}{0}
+ \null
+ \vfil
+ \vskip 60pt \begin{center}
+ {\LARGE \@title \par} \vskip 3em {\large \lineskip .75em
+ \begin{tabular}[t]{c}\@author
+ \end{tabular}\par}
+ \vskip 1.5em {\large \@date \par} \end{center} \par
+\@thanks
+\vfil
+\null
+\end{titlepage}
+\setcounter{footnote}{0} \let\thanks\relax
+\gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\maketitle\relax}
+
+
+\mark{{}{}}
+
+\def\ps@headings{\let\@mkboth\markboth
+\def\@oddfoot{}\def\@evenfoot{}\def\@evenhead{\rm \thepage\hfill \sl
+\leftmark}\def\@oddhead{\hbox{}\sl \rightmark \hfil \rm\thepage}
+\def\chaptermark##1{\markboth {
+{\ifnum
+%\uppercase{\ifnum
+\c@secnumdepth
+>\m@ne
+%\@chapapp \ \thechapter. \ \fi ##1}}{}}
+\fi ##1}}{}}
+\def\sectionmark##1{\markright
+{{\ifnum \c@secnumdepth >\z@
+ \thesection \ \fi ##1}}}}
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+\def\@oddhead{\hbox{}\sl\rightmark \hfil
+\rm\thepage}\def\@oddfoot{}\def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox
+{}}\def\@evenfoot{}\def\chaptermark##1{}\def\sectionmark##1{}%
+\def\subsectionmark##1{}}
+
+
+\def\today{\ifcase\month\or
+ January\or February\or March\or April\or May\or June\or
+ July\or August\or September\or October\or November\or December\fi
+ \space\number\day, \number\year}
+\@addtoreset{equation}{chapter}
+\def\theequation{\thechapter.\arabic{equation}}
+
+
+\ps@headings \pagenumbering{arabic} \onecolumn
+
+% Provide access to the boldface san serif type style for LaTeX.  Once you
+% have included "bsf" as a style option, you can use the \bsf command to
+% select the boldface san serif style, just as you would select the usual
+% boldface Roman style with \bf, EXCEPT:
+%
+%       The various fonts defined here are all "loaded on demand".  As
+%       discussed in the LaTeX book, Section C.14.4, a loaded on demand
+%       font is subject to two restrictions when used in math mode:
+%
+%       - The font must be used OUTSIDE of math mode before it is used
+%         INSIDE of math mode.  The \load command can be used to get
+%         around this restriction.
+%
+%       - Only a single font size is available within math mode - the
+%         display, text, script and scriptscriptfonts will all be the
+%         same.  This can be avoided ONLY by changing the definitions
+%         given here to pre-load the appropriate fonts; see LFONTS.TEX
+%         for further information.  (Alternatively, \@getfont could be
+%         made more clever.)  Note that pre-loading the fonts could cause
+%         you to fill font space with fonts you never really use.
+%
+% In order to allow other style files that need access to \bsf to input this
+% file safely, it is designed so that an attempt to input it a second time -
+% or, more exactly, when command "\bsf" is already defined - is ignored.
+%
+% This file can be adapted easily to define other font type styles.  The real
+% limit is likely to come from the requirement that each style so defined must
+% be given a unique family number - TeX only supports 16 families and LaTeX
+% as usually configured already uses 10.  The right way to avoid this problem
+% is to modify \@getfont so that it ignores a family number of -1.  Fonts
+% so specified would not be usable in math mode, but that's no big deal; you
+% don't WANT to use tons of non-math fonts in math mode anyway.
+%
+% As currently written, this file assumes that you have boldface san serif
+% fonts available at the following point sizes:
+%
+%       lcmssb8
+%       lcmssb8 at 9pt
+%       cmssdc10
+%       cmssdc10 at 11pt
+%       cmssdc10 at 12pt
+%       cmssdc10 at 17pt
+%       cmssdc10 at 25pt
+%
+% All but the last of these should be commonly available.  I'm not sure about
+% the last one; LFONTS.TEX does not assume the availability of ANY 25 pt fonts
+% other than Roman.  If necessary, change the definition of \bsfxxv@ to
+% \@subfont\bsf\rm.  (Alternatively, if you have boldface sans serif fonts
+% at sizes smaller than 8pt, you might want to change the definitions of
+% \bsfv@, \bsfvi@, and \bsfvii@.)
+%
+% Technical note:  It is possible to do without the \bsf<size>@ macros by
+% including their contents, with a whole bunch of \@prtct's, within the
+% \@addfontinfo definitions.  This is a pain to do, and probably doesn't end
+% up saving any space anyway.  This way costs you a bunch of extra macros,
+% but it's a LOT easier to understand!
+%
+% Written by Jerry Leichter (LEICHTER-JERRY@CS.YALE.EDU)
+% Modified, 27-Jan-89 by Jerry Leichter
+%       Fixed typos in file name for lcmssb8.
+% Modified, 16-Jun-89 by Jerry Leichter
+%       Changed family name for consistency.  Fixed a typo in the definition
+%       for 9pt, introduced by the 27-Jan fix.  Sigh, such a *simple* file....
+
+\expandafter\ifx\csname bsf\endcsname\relax             %Once only, please
+% Note:  It's a pain to use \@ifundefined here - we don't want to pass the
+% rest of the definitions as an argument, but we can't easily use \endinput
+% since, with docsty, we can't control where the line breaks occur.
+
+\def\bsf{\protect\pbsf}
+\newfam\bsffam
+\@addfontinfo\@vpt{\@prtct\bsfv@}
+  \def\bsfv@{\def\pbsf{\@subfont\bsf\bf}}
+\@addfontinfo\@vipt{\@prtct\bsfvi@}
+  \def\bsfvi@{\def\pbsf{\@subfont\bsf\bf}}
+\@addfontinfo\@viipt{\@prtct\bsfvii@}
+  \def\bsfvii@{\def\pbsf{\@subfont\bsf\bf}}
+\@addfontinfo\@viiipt{\@prtct\bsfviii@}
+  \def\bsfviii@{\def\pbsf{\@getfont\pbsf\bsffam\@viiipt{lcmssb8}}}
+\@addfontinfo\@ixpt{\@prtct\bsfx@}
+  \def\bsfx@{\def\pbsf{\@getfont\pbsf\bsffam\@ixpt{lcmssb8\@halfmag}}}
+\@addfontinfo\@xpt{\@prtct\bsfx@}
+  \def\bsfx@{\def\pbsf{\@getfont\pbsf\bsffam\@xpt{cmssdc10}}}
+\@addfontinfo\@xipt{\@prtct\bsfxi@}
+  \def\bsfxi@{\def\pbsf{\@getfont\pbsf\bsffam\@xipt{cmssdc10\@halfmag}}}
+\@addfontinfo\@xiipt{\@prtct\bsfxii@}
+  \def\bsfxii@{\def\pbsf{\@getfont\pbsf\bsffam\@xiipt{cmssdc10\@magscale1}}}
+\@addfontinfo\@xivpt{\@prtct\bsfxiv@}
+  \def\bsfxiv@{\def\pbsf{\@getfont\pbsf\bsffam\@xivpt{cmssdc10\@magscale2}}}
+\@addfontinfo\@xviipt{\@prtct\bsfxvii@}
+  \def\bsfxvii@{\def\pbsf{\@getfont\pbsf\bsffam\@xviipt{cmssdc10\@magscale3}}}
+\@addfontinfo\@xxpt{\@prtct\bsfxx@}
+  \def\bsfxx@{\def\pbsf{\@getfont\pbsf\bsffam\@xxpt{cmssdc10\@magscale4}}}
+\@addfontinfo\@xxvpt{\@prtct\bsfxxv@}
+  \def\bsfxxv@{\def\pbsf{\@getfont\pbsf\bsffam\@xxvpt{cmssdc10\@magscale5}}}
+\fi
+
+%NAME: equations.sty
+% This file, equations.sty (August 1988), contains a collection of macros
+% to aid in constructing displayed equations in LaTeX.  Written by
+%   Charles Karney
+%   Plasma Physics Laboratory   Phone:   +1 609 243 2607
+%   Princeton University        MFEnet:  Karney@PPC.MFEnet
+%   PO Box 451                  ARPAnet: Karney%PPC.MFEnet@NMFECC.ARPA
+%   Princeton, NJ 08543-0451    Bitnet:  Karney%PPC.MFEnet@ANLVMS.Bitnet
+% with some ideas and macros borrowed from John Hobby and Stephen Gildea.
+%
+% Modified by Ian Green:
+% enqarrray bug removed by img CUED, 24-Nov-91 (img@eng.cam.ed.ac.uk)
+%  (\yesnumber didn't work in eqnarray* env)
+%
+% modified by img MRG 9-Jun-92 to allow \uselabel command to give the
+% label that you want on each line of an eqnarray:
+% \begin{eqnarray}
+%  blah \uselabel{\ref{bogosity}}
+% \end{eqnarray}
+% note that \uselabel doesn't perform a \yeslabel, so you`ll need to
+% use one if you're in an {eqnarray*} environment. (img@ai.ed.ac.uk)
+
+% --------------------USER DOCUMENTATION--------------------
+
+% Use this as a style option, e.g.,
+%     \documentstyle[equations]{article}
+% These probably don't work in conjunction with the leqno option.
+
+% This implements the following:
+
+% (1) \yesnumber turns on an equation number in an eqnarray* environment
+% (just as \nonumber turns it off in an eqnarray environment).  E.g.,
+%     \begin{eqnarray*}
+%        a &=& b \\
+%          & & + c \\
+%          & & + d \\
+%          & & + e \\
+%          & & + f \\
+%          & & + g \yesnumber
+%     \end{eqnarray*}
+
+% (2) The eqalign environment is just like Plain TeX's \eqalign.  E.g.,
+%     \begin{equation}
+%           \begin{eqalign}
+%              a &= b, \\
+%              c &= d.
+%           \end{eqalign}
+%     \end{equation}
+% Note that \begin{equation} \end{equation} or equivalent is needed.
+
+% (3) The eqalignno environment is just like Plain TeX's \eqalignno.  E.g.,
+%     \begin{eqalignno}
+%        a &= b, \label{foo}\\
+%        c &= d. \label{bar}
+%     \end{eqalignno}
+% Note the absence of \begin{equation} \end{equation}.  \nonumber can be used
+% to suppress the equation number.  eqalignno* is the same except that the
+% equation numbers are suppressed (unless a \yesnumber appears).
+
+% (4) The eqaligntwo environment is a two-equation per line equivalent of
+% eqalignno.  E.g.,
+%     \begin{eqaligntwo}
+%        a &= b, & x &= y, \label{foo} \\
+%        c &= d, & z &= w. \label{bar}
+%     \end{eqaligntwo}
+% eqaligntwo* is defined similarly.
+
+% (5) The cases environment is just like Plain TeX's \cases.  E.g.,
+%     \begin{equation}
+%        u(x) =
+%           \begin{cases}
+%             0, & for $x < 0$,
+%             1, & for $x \ge 0$.
+%           \end{cases}
+%     \end{equation}
+% Note the first column is treated as math, the second column as text.
+
+% (6) I've borrowed John Hobby's modifications to the eqnarray environment
+% (to fix up the spacing around the operator), and to the \big, \bigg, etc.
+% operators (to make them scale with the point size).
+
+% (7) I've borrowed Stephen Gildea's subequations environment, and fixed it
+% so that it ignores spaces after the environment and so that you can refer
+% both to the overall set of equations and to individual subequations.  E.g.,
+%     \begin{subequations} \label{foo}
+%       \begin{eqalignno}
+%          a &= b, \label{foo-a} \\
+%          c &= d, \label{foo-b}
+%       \end{eqalignno}
+%       text text text text ...
+%       \begin{equation}
+%          e = f. \label{foo-c}
+%       \end{equation}
+%     \end{subequations}
+% Now \ref{foo}, \ref{foo-a}, \ref{foo-b}, \ref{foo-c}, produce 1, 1a, 1b,
+% 1c.
+
+% --------------------END OF USER DOCUMENTATION--------------------
+
+% Fix up eqnarray* so that \yesnumber and \nonumber do the obvious things
+\newif\if@defeqnsw \@defeqnswtrue
+\newif\if@mylabelsw
+
+% This is John Hobby's (hobby@research.att.com) version to fix up the spacing.
+\def\eqnarray{\stepcounter{equation}\let\@currentlabel=\theequation
+\if@defeqnsw\global\@eqnswtrue\else\global\@eqnswfalse\fi
+\global\@mylabelswfalse
+\tabskip\@centering\let\\=\@eqncr
+$$\halign to \displaywidth\bgroup\hfil\global\@eqcnt\z@
+  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne
+  \hfil$\displaystyle{{}##{}}$\hfil
+  &\global\@eqcnt\tw@ $\displaystyle{##}$\hfil
+  \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+
+\def\yesnumber{\global\@eqnswtrue}
+\def\uselabel#1{\global\@mylabelswtrue\global\def\my@label{#1}}
+
+\def\@@eqncr{\let\@tempa\relax\global\advance\@eqcnt by \@ne
+    \ifcase\@eqcnt \def\@tempa{& & & &}\or \def\@tempa{& & &}\or
+     \def\@tempa{& &}\or \def\@tempa{&}\else\fi
+     \@tempa \if@eqnsw\if@mylabelsw{\rm (\my@label)}\relax
+		      \else\@eqnnum\stepcounter{equation}\fi\fi
+	\global\@mylabelswfalse
+	\if@defeqnsw\global\@eqnswtrue\else\global\@eqnswfalse\fi
+     \global\@eqcnt\z@\cr}
+
+% Several formulas like \eqalign (to go inside \begin{equation}
+% \end{equation} or $$ $$.
+
+\def\@eqnacr{{\ifnum0=`}\fi\@ifstar{\@yeqnacr}{\@yeqnacr}}
+
+\def\@yeqnacr{\@ifnextchar [{\@xeqnacr}{\@xeqnacr[\z@]}}
+
+\def\@xeqnacr[#1]{\ifnum0=`{\fi}\cr \noalign{\vskip\jot\vskip #1\relax}}
+
+\@namedef{eqnarray*}{\@defeqnswfalse\eqnarray}
+\@namedef{endeqnarray*}{\endeqnarray\@defeqnswtrue}
+
+\def\eqalign{\null\,\vcenter\bgroup\openup1\jot \m@th \let\\=\@eqnacr
+\ialign\bgroup\strut
+\hfil$\displaystyle{##}$&$\displaystyle{{}##}$\hfil\crcr}
+\def\endeqalign{\crcr\egroup\egroup\,}
+
+% \cases
+
+\def\cases{\left\{\,\vcenter\bgroup\normalbaselines\m@th \let\\=\@eqnacr
+    \ialign\bgroup$##\hfil$&\quad##\hfil\crcr}
+\def\endcases{\crcr\egroup\egroup\right.}
+
+% Several formulas like \eqalignno (doesn't need the $$ $$)
+
+\def\eqalignno{\stepcounter{equation}\let\@currentlabel=\theequation
+\if@defeqnsw\global\@eqnswtrue\else\global\@eqnswfalse\fi
+\let\\=\@eqncr
+$$\displ@y \tabskip\@centering \halign to \displaywidth\bgroup
+  \global\@eqcnt\@ne\hfil
+  $\@lign\displaystyle{##}$\tabskip\z@skip&\global\@eqcnt\tw@
+  $\@lign\displaystyle{{}##}$\hfil\tabskip\@centering&
+  \llap{\@lign##}\tabskip\z@skip\crcr}
+
+\def\endeqalignno{\@@eqncr\egroup
+      \global\advance\c@equation\m@ne$$\global\@ignoretrue}
+
+
+% Here's the eqalignno* environment:
+
+\@namedef{eqalignno*}{\@defeqnswfalse\eqalignno}
+\@namedef{endeqalignno*}{\endeqalignno}
+
+% Two formulas like \eqalignno (doesn't need the $$ $$)
+
+\def\eqaligntwo{\stepcounter{equation}\let\@currentlabel=\theequation
+\if@defeqnsw\global\@eqnswtrue\else\global\@eqnswfalse\fi
+\let\\=\@eqncr
+$$\displ@y \tabskip\@centering \halign to \displaywidth\bgroup
+  \global\@eqcnt\m@ne\hfil
+  $\@lign\displaystyle{##}$\tabskip\z@skip&\global\@eqcnt\z@
+  $\@lign\displaystyle{{}##}$\hfil\qquad&\global\@eqcnt\@ne
+  \hfil$\@lign\displaystyle{##}$&\global\@eqcnt\tw@
+  $\@lign\displaystyle{{}##}$\hfil\tabskip\@centering&
+  \llap{\@lign##}\tabskip\z@skip\crcr}
+
+\def\endeqaligntwo{\@@eqncr\egroup
+      \global\advance\c@equation\m@ne$$\global\@ignoretrue}
+
+\@namedef{eqaligntwo*}{\@defeqnswfalse\eqaligntwo}
+\@namedef{endeqaligntwo*}{\endeqaligntwo}
+
+% subequations
+%%% File: subeqn.sty
+%%% The subequations environment %%%
+%
+% Within the subequations environment, the only change is that
+% equations are labeled differently.  The number stays the same,
+% and lower case letters are appended.  For example, if after doing
+% three equations, numbered 1, 2, and 3, you start a subequations
+% environmment and do three more equations, they will be numbered
+% 4a, 4b, and 4c.  After you end the subequations environment, the
+% next equation will be numbered 5.
+%
+% Both text and equations can be put inside the subequations environment.
+%
+% If you make any improvements, I'd like to hear about them.
+%
+% Stephen Gildea
+% MIT Earth Resources Lab
+% Cambridge, Mass. 02139
+% mit-erl!gildea
+% gildea@erl.mit.edu
+%
+\newtoks\@stequation
+
+\def\subequations{\refstepcounter{equation}%
+  \edef\@savedequation{\the\c@equation}%
+  \@stequation=\expandafter{\theequation}%   %only want \theequation
+  \edef\@savedtheequation{\the\@stequation}% %expanded once
+  \edef\oldtheequation{\theequation}%
+  \setcounter{equation}{0}%
+  \def\theequation{\oldtheequation\alph{equation}}}
+
+\def\endsubequations{%
+  \setcounter{equation}{\@savedequation}%
+  \@stequation=\expandafter{\@savedtheequation}%
+  \edef\theequation{\the\@stequation}%
+  \global\@ignoretrue}
+
+% More from John Hobby
+% Fix Plain's \bigl, \Bigl, etc. macros so that they try to scale with
+% LaTeX size changes.  This uses the fact that \@setsize sets \ht\strutbox
+% to be 70% of the normal unstretched baselineskip.
+
+\def\big#1{{\hbox{$\left#1\vcenter to1.428\ht\strutbox{}\right.\n@space$}}}
+\def\Big#1{{\hbox{$\left#1\vcenter to2.142\ht\strutbox{}\right.\n@space$}}}
+\def\bigg#1{{\hbox{$\left#1\vcenter to2.857\ht\strutbox{}\right.\n@space$}}}
+\def\Bigg#1{{\hbox{$\left#1\vcenter to3.571\ht\strutbox{}\right.\n@space$}}}
+
+% newequation.sty
+%
+% 12 Jan 91  Created.
+%            clayton@thumper.bellcore.com
+%
+% newequation.sty defines the \newequation command, which defines
+% new equation environments.  The command format is
+%
+%    \newequation{name}{format}
+%
+% where "name" is the name of the new equation environment and "format"
+% is the format of the equation number.  For example,
+%
+%    \newequation{define}{(D\arabic{define})}
+%
+% The new environment follows Latex's numbered sections convention:
+% there's a counter called "name" and a command called \the"name" with
+% "format" as its initial definition.  See section 5.3 in the Latex
+% user's guide for more on numbering.
+\def \newequation#1#2{
+   \@definecounter{#1}
+   \@namedef{the#1}{\hbox{#2}}
+   \@namedef{#1}{$$\refstepcounter{#1}}
+   \@namedef{end#1}{
+      \eqno \csname the#1\endcsname $$\global\@ignoretrue
+      }
+   }
+%
+% And heres some latex stuff for printing equations, numbered
+% with either small and capitol letters
+% I.e.
+%
+\newequation{Alphaeq}{(\Alph{Alphaeq})}
+\newcommand{\Lettereq}[2]{
+	\setcounter{Alphaeq}{#1}
+	\addtocounter{Alphaeq}{-1}
+	\begin{Alphaeq}
+	 #2
+	\end{Alphaeq}
+}
+
+\newequation{alphaeq}{(\alph{alphaeq})}
+\newcommand{\lettereq}[2]{
+	\setcounter{alphaeq}{#1}
+	\addtocounter{alphaeq}{-1}
+	\begin{alphaeq}
+	 #2
+	\end{alphaeq}
+}
+
+% Common abbreviations
+% (Remember to put '\ ' after if an interword space is
+%  desired rather than end-of-sentence space. Same for '.etc)' ).
+\newcommand{\eg}{{\em e.g.}}            % e.g.
+\newcommand{\ie}{{\em i.e.}}            % i.e.
+\newcommand{\etc}{{\em etc.}}           % etc.
+\newcommand{\vs}{{\em vs.}}             % vs.
+\newcommand{\Eg}{{\em E.g.}}            % E.g.
+\newcommand{\Ie}{{\em I.e.}}            % I.e.
+\newcommand{\Etc}{{\em Etc.}}           % Etc.
+\newcommand{\Vs}{{\em Vs.}}             % Vs.
+
+% \boxfigure{pos}{wid}{text}:  A figure with a box around it
+%
+% pos   the usual figure placement arg: eg. htbp
+% wid   the width of the figure, in some units: eg. 5in
+% text  the contents of the figure, including picture/caption/label/etc
+%
+\newlength{\boxwidth}
+
+\newcommand{\boxfigure}[4]{
+	\begin{figure}[#1]
+		\renewcommand{\capfont}{\bf}
+		\setlength{\boxwidth}{#2}
+		\centering
+		\framebox[\boxwidth]{
+			\begin{minipage}{#2}
+			#3
+			\end{minipage}
+		}
+		\ \\ \
+		\begin{minipage}{\textwidth}
+		  #4
+		\end{minipage}
+	\end{figure}
+}
+\newcommand{\boxed}[2]{
+               \setlength{\boxwidth}{#1}
+               \addtolength{\boxwidth}{-2\fboxsep}
+               \addtolength{\boxwidth}{-2\fboxrule}
+		\framebox[\boxwidth][t]{
+		 \begin{minipage}[t]{#1}
+		  #2
+		 \end{minipage}
+		\renewcommand{\capfont}{\rm}
+		      }}
+
+
+\newlength{\fullboxwidth}
+\setlength{\fullboxwidth}{\textwidth}
+\addtolength{\fullboxwidth}{-2\fboxsep}
+\addtolength{\fullboxwidth}{-2\fboxrule}
+
+% headerfooter.sty 9 Dec 88
+
+% Use with LaTeX version 2.09:
+% \documentstyle[headerfooter]{article}
+
+% Copyright (c) 1987 by Stephen Gildea
+% Permission to copy all or part of this work is granted, provided
+% that the copies are not made or distributed for resale, and that
+% the copyright notice and this notice are retained.
+%
+% THIS WORK IS PROVIDED ON AN "AS IS" BASIS.  THE AUTHOR PROVIDES NO
+% WARRANTY WHATSOEVER, EITHER EXPRESS OR IMPLIED, REGARDING THE WORK,
+% INCLUDING WARRANTIES WITH RESPECT TO ITS MERCHANTABILITY OR FITNESS
+% FOR ANY PARTICULAR PURPOSE.
+
+% If you make any improvements, I'd like to hear about them.
+
+% Stephen Gildea
+% MIT Earth Resources Lab
+% Cambridge, Mass. 02139
+% mit-erl!gildea
+% gildea@erl.mit.edu
+
+% \pageheader{LEFT}{CENTER}{RIGHT}
+% \pagefooter{LEFT}{CENTER}{RIGHT}
+
+% There is no reason why these commands should not be available
+% to the user.  Of course, I did fancy up the interface a bit.
+% By mit-erl!gildea 11 October 1986
+% minor changes 14 Oct 87 gildea
+% added \pageheaderlinetrue feature 9 Dec 88 gildea
+
+% All of these commands take three arguments, which are printed at
+% the left, center, and right of each page.  All three args must be
+% provided even if some of them are empty.  The odd and even
+% variations are only useful if you are using the twoside option.
+
+% Example: \pagefooter{}{\thepage}{}
+
+% Say \pageheaderlinetrue if you want the header underlined.
+
+\newif\ifpageheaderline	\pageheaderlinefalse
+
+\newdimen\pageheaderlineskip  \pageheaderlineskip=1.26pt
+
+\def\@headerline#1#2#3{%
+	\ifpageheaderline
+          \vbox{\hbox to \textwidth{\rlap{#1}\hss{#2}\hss\llap{#3}}%
+          \vskip\pageheaderlineskip \hrule}%
+        \else{\rlap{#1}\hss{#2}\hss\llap{#3}}\fi}
+
+\newcommand\oddpageheader[3]{\def\@oddhead{\@headerline{#1}{#2}{#3}}}
+
+\newcommand\evenpageheader[3]{\def\@evenhead{\@headerline{#1}{#2}{#3}}}
+
+\newcommand\oddpagefooter[3]{\def\@oddfoot{\rlap{#1}\hss{#2}\hss\llap{#3}}}
+
+\newcommand\evenpagefooter[3]{\def\@evenfoot{\rlap{#1}\hss{#2}\hss\llap{#3}}}
+
+\newcommand\pageheader[3]{%
+	\oddpageheader{#1}{#2}{#3}\evenpageheader{#1}{#2}{#3}}
+
+\newcommand\pagefooter[3]{%
+	\oddpagefooter{#1}{#2}{#3}\evenpagefooter{#1}{#2}{#3}}
+
+
+%     C I T E . S T Y
+%
+%     version 3.2  (Mar 1993)
+%
+%     Compressed, sorted lists of numerical citations: [11-16]
+%     see also OVERCITE.STY and DRFTCITE.STY
+%
+%     Copyright (C) 1989-1993 by Donald Arseneau
+%     These macros may be freely transmitted, reproduced, or modified for
+%     non-commercial purposes provided that this notice is left intact.
+%
+%     Instructions follow \endinput.
+%  ------------------------------------
+%
+%  \citen contains the code that parses the list of names, ignoring
+%  spaces after commas, writes the aux file \citation, and formats the
+%  number list.  \citen can be used by itself to give citation numbers
+%  without the other formatting; e.g., "See also ref.~\citen{junk}."
+%
+\def\citen{\protect\@p@citen}
+
+\def\@p@citen#1{%
+\edef\@tempa{\@ignspaftercomma,#1, \@end, }% ignore spaces in parameter list
+\edef\@tempa{\expandafter\@ignendcommas\@tempa\@end}%
+\if@filesw \immediate \write \@auxout {\string \citation {\@tempa}}\fi
+\@tempcntb\m@ne    % \@tempcntb tracks highest number
+\let\@h@ld\relax   % nothing held from list yet
+\let\@citea\@empty % no punctuation preceding first
+\let\@celt\over    % not expandable, but identifiable
+\def\@cite@list{}% % empty list to start
+\@for \@citeb:=\@tempa \do{\@make@cite@list}% make a sorted list of numbers
+% After sorted citelist is made, execute it to compress citation ranges.
+\@tempcnta\m@ne    % no previous number
+\let\@celt\@compress@cite \@cite@list % output number list with compression
+\@h@ld}% output anything held over
+
+% For each citation, check if it is defined and if it is a number.
+% if a number: insert it in the sorted \@cite@list
+% otherwise: output it immediately.
+%
+\begingroup \catcode`\_=8 % Just in case it was changed
+\gdef\@make@cite@list{%
+ \expandafter\let \expandafter\@B@citeB
+          \csname b@\@citeb\@extra@b@citeb \endcsname
+ \ifx\@B@citeB\relax % undefined: output ? and warning
+    \@citea {\bf ?}\let\@citea\citepunct
+    \@warning {Citation `\@citeb' on page \thepage\space undefined}%
+    \global\@namedef{b@\@citeb\@extra@b@citeb}{?}% remove this line to ...
+ \else %  defined                               % ... repeat warnings
+    \ifcat _\ifnum\z@<0\@B@citeB _\else A\fi % a positive number, put in list
+       \@tempcnta\@B@citeB \relax
+       \ifnum \@tempcnta>\@tempcntb % new highest, add to end (efficiently)
+          \edef\@cite@list{\@cite@list \@celt{\@B@citeB}}%
+          \@tempcntb\@tempcnta
+       \else % arbitrary number: insert appropriately
+          \edef\@cite@list{\expandafter\@sort@celt \@cite@list \@gobble @}%
+       \fi
+    \else % citation is not a number, output immediately
+       \@citea   %.%.% \thecitation{%
+       \@B@citeB %.%.% }%
+       \let\@citea\citepunct
+ \fi\fi}
+\endgroup % restore _ catcode
+
+% Check if each number follows previous and can be put in a range
+%
+\def\@compress@cite#1{%  % This is executed for each number
+  \advance\@tempcnta\@ne % Now \@tempcnta is one more than the previous number
+  \ifnum #1=\@tempcnta   % Number follows previous--hold on to it
+     \ifx\@h@ld\relax    % first pair of successives
+        \edef \@h@ld{\@citea %.%.% \thecitation{%
+            #1%.%.%}%
+        }%
+     \else               % compressible list of successives
+        \edef \@h@ld{\hbox{--}\penalty\@highpenalty %.%.% \thecitation{%
+               #1%.%.%}%
+        }%
+%        use \hbox to avoid easy \exhyphenpenalty breaks
+     \fi
+  \else   %  non-successor -- dump what's held and do this one
+     \@h@ld \@citea %.%.%\thecitation{%
+     #1%.%.%}%
+     \let\@h@ld\relax
+  \fi \@tempcnta#1\let\@citea\citepunct
+}
+
+% \@sort@celt inserts number (\@tempcnta) into list of \@celt{num} (#1{#2})
+% \@celt must not be expandable; list should end with two vanishing tokens.
+%
+\def\@sort@celt#1#2{\ifx \@celt #1% parameters are \@celt {num}
+     \ifnum #2<\@tempcnta % number goes later in list
+        \@celt{#2}%
+        \expandafter\expandafter\expandafter\@sort@celt % continue
+     \else % number goes here
+        \@celt{\number\@tempcnta}\@celt{#2}% stop comparing
+  \fi\fi}
+
+%%    To put space after the comma, use:
+\def\citepunct{,\penalty\@highpenalty\hskip.13emplus.1emminus.1em}%
+%%    For no space after comma, use:
+%% \def\citepunct{,\penalty\@highpenalty}%
+%%
+
+% Make \cite robust. \@p@cite is the default \cite.
+%
+\def\cite{\protect\@p@cite}
+
+\def\@p@cite{\@ifnextchar [{\@tempswatrue\@citex}{\@tempswafalse\@citex[]}}
+
+%  Make \@citex refer to \citen:
+%
+\def\@citex[#1]#2{\@cite{\@p@citen{#2}}{#1}}%
+
+%  Replacement for \@cite.  Give one normal space before the citation,
+%  set high penalties for linebreaks,
+%
+\def\@cite#1#2{\leavevmode\unskip
+  \ifnum\lastpenalty=\z@ \penalty\@highpenalty \fi % highpenalty before
+  \ [{\multiply\@highpenalty 3 % triple-highpenalties within list
+% \if@tempswa Ref.\penalty\@M\ \fi % nice format: [Ref. 5, table 3]
+      #1\if@tempswa,\penalty\@highpenalty\ #2\fi % and triple before note.
+    }]\spacefactor\@m}
+
+% for ignoring spaces in the input:
+\def\@ignspaftercomma#1, {\ifx\@end#1\@empty\else
+   #1,\expandafter\@ignspaftercomma\fi}
+\def\@ignendcommas,#1,\@end{#1}
+
+\let\nocitecount\relax  % in case \nocitecount was used for drftcite
+
+\@ifundefined{@extra@b@citeb}{\def\@extra@b@citeb{}}{}
+%  in case no fancy bib package (chapterbib) define this
+
+\endinput
+%
+%
+%                        CITE.STY
+%
+%   Modify LaTeX's normal citation mechanism to:
+%
+%   o Sort citation numbers into ascending order; print non-numbers before
+%     numbers.  Compress lists of three or more consecutive numbers to one
+%     number range which can be split, with difficulty, after the dash.
+%     All numbers should be greater than zero.
+%     E.g., if you used to get [7,5,6,?,4,9,8,Einstein,6], then this style
+%     will give you [?,Einstein,4-6,6-9].
+%
+%   o Allow, but strongly discourage, line breaks within a series of
+%     citations.  Each number is separated by a comma and a small space.
+%     A break at the beginning of an optional note is discouraged also.
+%
+%   o Always put an interword space before the citation and allow a
+%     highpenalty break there (unless you specifically forbid it with ~).
+%     E.g.,   Something really stupid \cite{Larry,Curly,Moe}.
+%                                    ^-- This space doesn't matter.
+%
+%   o Ignore spaces after the commas in the parameter list.
+%
+%   o define \citen to get just the numbers (and write to the aux file)
+%     without the brackets and extra formatting.
+%
+%   o `Citation...undefined' warnings are only given once per undefined
+%     citation tag.  In the text, missing numbers are represented with a
+%     bold `?' at the first occurrence, and with a normal `?' thenceforth.
+%
+%   Linebreaks are allowed with triple-highpenalties after dashes
+%   and commas; these may have to be taken if TeX sees no other
+%   viable breakpoints.  If you think citations are being split
+%   unnecessarily, try using \sloppy or a sloppypar environment.
+%
+%   Although each \cite command sorts its numbers, better compression
+%   into ranges can usually be achieved by carefully selecting the order
+%   of the \bibitem entries, or the order of initial citations when using
+%   bibtex.  Having the entries presorted will also save processing time,
+%   especially for long lists of numbers.
+%
+%   \thecitation is a hook to modify the appearence of the numbers;
+%   it normally does nothing, and is commented out with %.%.%, so
+%   all numbers are printed normally (arabic).  This can be changed by
+%   removing the string "%.%.%" from this file and defining \thecitation
+%   in the document preamble.  Some suggestions:
+%     \newcommand \thecitation [1]{\romannumeral{#1}} % roman numerals
+%     \newcommand \thecitation [1]{(#1)} % parenthesized numbers
+%     \newcommand \thecitation [1]{#1.}  % periods after numbers
+%
+%   \@extra@b@citeb is a hook for other style files to further specify
+%   citations; for example, to number by chapter.
+%
+%   See also overcite.sty and drftcite.sty for superscript and draft
+%   (draught) mode citations.
+%
+%   ROBUST!
+%
+% Version 1991: Ignore spaces after commas in the parameter list. Move most of
+% \citen into \@cmpresscites for speed.
+% Version 1992: Use \citepunct for commas so it is easier to change.
+%
+% Version 3.0 (1992):  Rewrite, including sorting.  Make entries like "4th"
+% be treated properly as text.
+% 3.1: bug fixes (Joerg-Martin Schwarz also convinced me to use \ifcat)
+% and show \thecitation hook.
+% 3.2: Supress repetitions of warning messages. Include \@extra@b@citeb hook.
+%
+% Send problem reports to asnd@Reg.triumf.ca
+%
+% test integrity:
+% brackets:  round, square, curly, angle:   () [] {} <>
+% backslash, slash, vertical, at, dollar, and: \ / | @ $ &
+% hat, grave, acute (apostrophe), quote, tilde, under:   ^ ` ' " ~ _

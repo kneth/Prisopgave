@@ -1,0 +1,1305 @@
+\chapter{Quenching af kemiske oscillatorer}
+\label{cha:Quench}
+For at unders{\o}ge og n{\ae}rme sig en dybere
+forst{\aa}else af de underliggende meka\-nis\-mer, der
+giver anledning til en manifestation af kompleks dynamik i
+kemiske reaktioner, er det fundamentalt at finde et s{\ae}t
+elementar reaktioner, der kan udg{\o}re en forklaringsramme
+for de egenskaber, den kemiske reaktion udviser i den
+eksperimentelle situation. Et s{\aa}dant s{\ae}t elementar
+reaktioner kaldes en reaktionsmekanisme.
+
+\vspace{4.0mm}
+Under en r{\ae}kke fors{\o}gsbetingelser, der tillader, at
+den enkelte elementarreaktion kan unders{\o}ges isoleret,
+analyseres dennes dynamiske egenskaber. Dette giver ofte
+anledning til, at hastighedskonstanten, der er associeret
+med den p{\aa}g{\ae}ldende elementarreaktion, kan
+estimeres. Netto ender man med et s{\ae}t af reaktioner,
+der udg{\o}r en model over det forl{\o}b af delreaktioner
+og kemiske omdannelser, som reaktanterne i bruttoreaktionen
+underg{\aa}r, inden bruttoreaktionens endelige produkter
+dannes.
+
+\vspace{4.0mm}
+I den forstand, kan vi tillade os at betragte en model for
+en kemisk reaktion som en ``funktion'' af de fysiske
+st{\o}rrelser, der definerer den p{\aa}g{\ae}ldende model
+\cite{HopfQuench}. Skematisk kan denne betragtning
+opstilles som f{\o}lgende
+
+\begin{itemize}
+ \item Det s{\ae}t af elementarreaktioner, der udg{\o}r
+  selve modellens ``skelet''.
+ \item Hastighedskonstanterne, der bestemmer det dynamiske
+  forl{\o}b af s{\aa}vel de enkelte delreaktioner som selve
+  bruttoreaktionen.
+ \item Koncentrationen af de kemiske stoffer, der
+  indg{\aa}r i reaktionen.
+\end{itemize}
+
+I unders{\o}gelsen af en kemisk reaktions dynamiske
+egenskaber vil dette trin, ``udarbejdelse og bestemmelse af
+grundlaget for en realistisk model\-beskrivelse'', ofte
+v{\ae}re det f{\o}rste led i en s{\aa}dan analyse. For at
+afpr{\o}ve v{\ae}rdien af en s{\aa}dan model kan dennes
+evne til at reproducere eksperimentelle tidsr{\ae}kke for
+eksempel afpr{\o}ves. Ved integration af de
+hastighedsudtryk model\-len definerer, kan man numerisk
+fors{\o}ge at simulere en r{\ae}kke af de egenskaber, den
+kemiske reaktion udviser eksperimentelt. Disse
+sammenligninger forbliver dog let af kvalitativ karakter og
+har ofte en yderligere begr{\ae}nsning, idet man i de
+f{\ae}rreste situationer er i stand til at m{\aa}le
+koncentrationen af samtlige dynamiske stoffer.
+
+\vspace{4.0mm}
+Sammenligningen mellem model og eksperiment vil derfor
+hyppigt v{\ae}re forbeholdt et eller to stoffer. Det er
+derfor v{\ae}sentligt at unders{\o}ge, hvorvidt en
+kvantitativ sammenligning af en r{\ae}kke af model\-lens og
+den ``virkelige'' reaktions dynamiske karakteristika kan
+foretages. Endvidere er en teori, der tillader en
+beskrivelse af de dynamiske egenskaber for samtlige stoffer
+i reaktionen, n{\o}dvendig.
+
+\vspace{4.0mm}
+Her indtager teorien om quenching af kemiske oscillationer
+en v{\ae}sentlig rolle, idet den for s{\aa}vel model som
+eksperiment tillader en kvantitativ bestemmelse af en
+r{\ae}kke af den oscillerende reaktions karakteristiske
+egenskaber. I korte tr{\ae}k bygger denne p{\aa}
+eksistensen af en opsplitning af faserummet i en stabil og
+en ustabil mangfoldighed. Ved tils{\ae}tning af de stoffer,
+der deltager i den kemiske reaktion, kan den oscillerende
+tidsopf{\o}rsel midlertidig stoppes, idet den tilsatte
+stofm{\ae}ngde skifter systemets position i faserummet fra
+den stabile mangfoldighed til den ustabile mangfoldighed.
+
+\vspace{4.0mm}
+Vi vil her g{\o}re rede for det teoretiske grundlag bag
+denne id\'{e} for til sidst at give en r{\ae}kke eksempler
+p{\aa} dennes anvendelser i det eksperimentelle arbejde. En
+grundig og generel introduktion til emnet findes ogs{\aa} i
+\cite{GenQuench}.
+
+\section{Quenching teori}
+Helt generelt lader vi den kemiske reaktions dynamik
+v{\ae}re beskrevet ved den kintiske ligning
+
+\begin{equation}
+ \dot{\bf c} = {\bf f}({\bf c},j_0)
+ \label{eq:GeneralKinetic}
+\end{equation}
+
+hvor ${\bf c}$ og $j_0$ henholdsvis symboliserer
+koncentrationen af de indg{\aa}ende stoffer og flowet
+gennem CSTR-kammeret.
+
+\vfill
+\vspace{4.0mm} 
+Vi antager nu, at der for denne differentialligning
+eksisterer en v{\ae}rdi $j_0^{\rm Hopf}$ for flowet $j_0$
+s{\aa}ledes, at systemet underg{\aa}r en superkritisk
+Hopfbifurkation. Matematisk betyder dette, at et par af
+kompleks konjugerede egenv{\ae}rdier for Jacobimatricen
+tilfredstiller f{\o}lgende to kriterier
+
+\begin{itemize}
+\item De to kompleks konjugerede egenv{\ae}rdier 
+      $\lambda_{1,2}(j_0)=\alpha\pm i\omega$ opfylder for 
+      $j_0=j_0^{\rm Hopf}$ 
+      $$
+       \lambda_{1,2}(j_0^{\rm Hopf}) = \pm i\omega
+      $$
+\item Den afledede af $\lambda_{1,2}(j_0)$ skal opfylde
+      $$
+       \left.\frac{d\lambda_{1,2}(j_0)}{dj_0}\right|_{j_0^{\rm Hopf}} 
+       \neq 0
+      $$
+\end{itemize}
+
+\boxfigure{t}{\textwidth}{
+ \vspace{-0.25cm}
+ \begin{minipage}{5.5cm}
+  \input{fig21a}
+ \end{minipage}
+ \ \hfill \
+ \begin{minipage}{6cm}
+  \input{fig21b}
+ \end{minipage}
+ \vspace{-1cm}
+}
+{
+\caption{\protect\capsize
+Den kvalitative opf{\o}rsel af det kompleks konjugerede par
+af egenv{\ae}rdier $\lambda_{1,2}=\alpha\pm i\omega$.
+Pilene p{\aa} de to kurver angiver den retning, i hvilken
+$\lambda_{1,2}$ {\ae}ndrer sig for voksende v{\ae}rdier af
+flowparameteren $j_0$. For $j_0 < j_0^{\rm Hopf}$ er
+$\alpha<0$ og fikspunktet ${\bf c}_f$ er stabilt. I punktet
+$j_0 = j_0^{\rm Hopf}$ krydser $\lambda_{1,2}$ $Im$-aksen,
+fikspunktet mister sin stabilitet og en stabil
+gr{\ae}nsecyklus er dannet svarende til $j_0 > j_0^{\rm
+Hopf}$.}
+\label{fig:eigval}
+}
+
+Fysisk svarer dette til en situation, hvor systemets
+tidsopf{\o}rsel for $j_0 < j_0^{\rm Hopf}$ er beskrevet ved
+et simpelt stabilt fikspunkt ${\bf c}_f$. For $j_0 >
+j_0^{\rm Hopf}$ bliver dette fikspunkt ustabilt, samtidig
+med en stabil gr{\ae}nsecyklus opst{\aa}r. Den kvalitative
+opf{\o}rsel af de to kompleks konjugerede egenv{\ae}rdier
+er illustreret i figur~\ref{fig:eigval}. Vi indf{\o}rer nu
+f{\o}lgende notation for de egenvektorer og
+egenv{\ae}rdier, der er til\-knyt\-tet Jacobimatricen. Lad
+$\lambda_1,\ldots,\lambda_n$ v{\ae}re de $n$
+egenv{\ae}rdier og lad ydermere disse v{\ae}re ordnet efter
+
+
+\begin{equation}
+ Re \lambda_n \leq \ldots \leq Re \lambda_1
+\end{equation}
+
+Specielt ser vi, at t{\ae}t p{\aa} Hopfbifurkationen vil 
+$\lambda_{1,2}$ v{\ae}re af formen
+
+\begin{equation}
+ \lambda_{1,2} = \alpha \pm i\omega
+\end{equation}
+
+De egenvektorer, der er tilknyttet egenv{\ae}rdierne,
+symboliseres ved ${\bf e}_1,\ldots,{\bf e}_n$. Her svarer
+vektorerne ${\bf e}_1$ og ${\bf e}_2$ til henholdsvis real-
+og imagin{\ae}rdel af de to komplekst konjugerede
+egenvektorer ${\bf e}_{\pm}$ h{\o}rende til
+egenv{\ae}rdierne $\lambda_{1,2}$. Idet den oscillerende
+dynamik for{\aa}rsages af disse komplekst konjugerede
+egenv{\ae}rdier $\lambda_{1,2} = \alpha \pm i\omega$,
+indf{\o}res endvidere f{\o}lgende notation for ${\bf
+e}_{\pm}$
+
+\begin{equation}
+ {\bf e}_{\pm} = {\bf e}_1 \mp i{\bf e}_2 = {\bf u} \mp i{\bf v}
+\end{equation}
+
+For $|j_0-j_0^{\rm Hopf}|<\epsilon$, hvor $\epsilon$ er
+lille, vil systemets tidsopf{\o}rsel ${\bf c}(t)$ med god
+tiln{\ae}rmelse kunne approksimeres ved udtrykket
+
+\begin{equation}
+ {\bf c}(t) = {\bf c}_f + a \left[ {\bf u}\cos \omega t + {\bf v}\sin \omega t \right]
+            = {\bf c}_f + {\bf r}(t)
+ \label{eq:oscdyn}
+\end{equation}
+
+V{\ae}lges nu et referencestof karakteriseret ved indeks
+{\em ref\/} s{\aa}ledes, at ${\bf u}$ og ${\bf v}$ bliver
+nomeret efter
+
+\begin{equation}
+ u_{\em \/} = 1  \mbox{\ \ og\ \ } v_{\em \/} = 0
+\end{equation}
+
+ser vi, at ligning~\ref{eq:oscdyn} netop angiver
+tidsudviklingen for koncentrationen af de $n$ kemiske
+stoffer s{\aa}ledes, at disses faser alle er beskrevet
+relativt til reference\-stoffets fase. Endvidere
+medf{\o}rer den valgte normering, at skalaren $a$ svarer
+til sving\-ningsamplituden for det valgte referencestof.
+V{\ae}lger vi nu at m{\aa}le samtlige af de $n$
+koncentrationer i enheder af denne referenceamplitude,
+finder vi slutteligt, at oscillationerne for de
+indg{\aa}ende koncentrationer er beskrevet ved udtrykket,
+
+\begin{equation}
+ {\bf r}(t) = \left[ {\bf u}\cos \omega t + {\bf v}\sin \omega t \right]
+ \label{eq:oscdynnom}
+\end{equation}
+
+hvor udtrykket er yderligere simplificeret, idet vi har valgt 
+fikspunktet ${\bf c}_f$ som koncentrationrummets origo. Omvendt
+kan tidsudviklingen for hver af de $n$ stoffer ogs{\aa} beskrives
+ved udtrykket 
+
+\begin{equation}
+ r_k(t) = a_k \cos (\omega t-\theta_k)
+ \label{eq:oscdynfase}
+\end{equation}
+
+hvor $a_k$ og $\theta_k$ beskriver henholdsvis amplituden af 
+det $k$'te stof m{\aa}lt i enheder af referencestoffets amplitude
+og sving\-ningsfasen af det $k$'te stof i forhold til fasen af
+referencestoffet. Sammenholdes ligning~\ref{eq:oscdynnom} med 
+ligning~\ref{eq:oscdynfase} ses, at vektorerne ${\bf u}$ og 
+${\bf v}$ entydigt fastl{\ae}gger de skal{\ae}re st{\o}rrelser $a_k$ og 
+$\theta_k$ som
+
+\begin{subequations}
+ \begin{eqalignno}
+  a_k       &= {\rm abs}(u_k+iv_k) \\
+  \theta_k  &= \arg (u_k+iv_k)
+ \end{eqalignno}
+ der yderligere kan reduceres til det simple udtryk
+ \begin{equation}
+  u_k+iv_k = a_k e^{i\theta_k}
+ \end{equation}
+\label{eq:uv_atheta}
+\end{subequations}
+
+Disse ligninger viser, at vektorerne ${\bf u}$ og ${\bf v}$
+entydigt fastl{\ae}gger tidsvariationen af de $n$ kemiske stoffer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Skematisk quenching
+%% type        : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\newlength{\mylength}
+\begin{center}
+  \begin{pspicture}(0,0)(14,7)
+   \psellipse[linewidth=1.2pt,
+              border=1pt,
+              fillstyle=solid,
+              fillcolor=lightgray](7.0,3.5)(2.5,1.0)
+%   \psgrid[](0,0)(0,0)(14,7)
+   \setlength{\mylength}{-0.155cm}
+   \psline[origin={-7,-3.5},
+           linewidth=1.2pt,
+           linestyle=dashed,
+           dash=3pt 2pt]{-}(8\mylength,5\mylength)
+   \setlength{\mylength}{0.324cm}
+   \psline[linewidth=1.2pt,origin={-3,-1}]{-}(8\mylength,5\mylength)
+   \psline[linewidth=1.2pt]{-}(7.0,3.5)(11.0,6.0)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(9.49,3.5)(9.49,5.05)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(7.0,3.5)(8.0,2.6)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(7.0,3.5)(4.6,3.2)
+   \pscircle*[](7,3.5){0.075}
+   \rput[lc]{*0}(9.6,4.25){\footnotesize ${\bf q}$}
+   \rput[bc]{*0}(7.6,3.10){\footnotesize ${\bf u}$}
+   \rput[bc]{*0}(5.8,3.42){\footnotesize ${\bf v}$}
+   \rput[bl]{*0}(6.7,3.56){\footnotesize ${\bf c}_f$}
+   \rput[bl]{*0}(11.1,6.1){\footnotesize $E^s$}
+  \end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize
+Figuren illustrere skematisk det teoretiske grundlag bag en
+quenching. Gr{\ae}nsecyklusen, der er genereret via en
+subkritisk Hopfbifurkation, udsp{\ae}ndes af real- og
+imagin{\ae}rdelen ${\bf u}$ og ${\bf v}$ af den komplekse
+egenvektor. Ved tils{\ae}tning af en stof\-blanding,
+karakteriseret ved vektoren ${\bf q}$, flyttes sytstemet i
+faserummet fra gr{\ae}nsecyklusen til det stabile underrum
+$E^s$. I faserummet vil systemet nu bev{\ae}ge sig langs
+$E^s$ mod det station{\ae}re punkt ${\bf c}_f$, men da
+$E^s$ aldrig kan rammes n{\o}jagtigt, vil systemmet atter
+spiralerer ud til gr{\ae}nsecyklusen. Vi betegner et
+s{\aa}dant midlertidigt stop af oscillationerne som {\em en
+quenching\/}. }
+\label{fig:skemaquenching}
+}
+\normalsize
+
+\vspace{4.0mm}
+De oscillationer, vi observerer t{\ae}t p{\aa} den
+superkritiske Hopfbifurkation, svarer i
+koncentrationsrummet til en elliptisk gr{\ae}nsecyklus
+liggende i et sving\-ningsplan udsp{\ae}ndt af vektorerne
+${\bf u}$ og ${\bf v}$. T{\ae}t p{\aa} bifurkationspunktet
+vil dette sving\-ningsplan tiln{\ae}rme den ustabile
+mangfoldighed $W^u$ til det nu ustabile station{\ae}re
+punkt ${\bf c}_f$. Ydermere vil dette fikspunkts stabile
+mangfoldighed $W^s$ kunne tiln{\ae}rmes ved spannet af de
+reelle egenvektorer ${\bf e}_3,\ldots,{\bf e}_n$. Det
+line{\ae}re underrum, der udsp{\ae}ndes af disse reelle
+egenvektorer, kaldes det stabile underrum og betegnes ofte
+$E^s$.
+
+\vspace{4.0mm}
+Lad os nu antage, at en blanding af stofferne i en given
+fase $\phi_k$ med en given m{\ae}ngde ${\bf q}_k$
+tils{\ae}ttes s{\aa}ledes, at systemets position i
+faserummet flyt\-tes fra svigningsplanet til et punkt i det
+stabile underrum $E^s$. Eftersom enhver bev{\ae}gelse i
+$E^s$ er karakteriseret ved en linearkombination af
+eksponentielle henfald langs de reelle egenvektorer ${\bf
+e}_3,\ldots,{\bf e}_n$, vil denne situation betyde, at
+koncentrations sving\-ningerne stoppes. Vi kalder et
+s{\aa}dant stop for en {\em quenching}\footnote{{\em
+Quench}: stoppe, slukke, stille, d{\ae}mpe ell.
+undertrykke}, karakteriseret ved henholdsvis
+quenchingvektoren ${\bf q}_k$ og quenching\-fasen $\phi_k$.
+
+\vspace{4.0mm}
+Da enhver vektor i $E^s$ aldrig vil kunne rammes eksakt i
+et s{\aa}dant quenchingeks\-peri\-ment, vil quenchingen
+v{\ae}re af midlertidig karakter, hvorfor systemet efter et
+vist tidsrum atter spiralerer tilbage i sving\-ningsplanet.
+Den teoretiske id\'{e} bag quenching eksperimentet samt
+quenchingens karakteristiske eksperimentelle manifestation
+er illustreret henholdsvis i figur~\ref{fig:skemaquenching}
+og \ref{fig:eksquenching}.
+
+\boxfigure{t}{\textwidth}{
+ \vspace{5cm}
+}
+{
+\caption{\protect\capsize
+         Eksperimentel quenching udf{\o}rt i BZ-reaktionen
+         udf{\o}rt ved tils{\ae}tning af HBrO$_2$.}
+\label{fig:eksquenching}
+}
+
+\vspace{4.0mm}
+Matematisk kan kriteriet for en succesfuld quenching
+formuleres pr{\ae}cist. Lad ${\bf q}_k$ og $\phi_k$
+v{\ae}re henholdsvis quenchingvektor og -fase i en succesiv
+serie af eksperimenter. Lad ydermere ${\bf t}$ v{\ae}re en
+vektor i det stabile underrum $E^s$. Quenchingbetingelsen
+kan da udtrykkes som
+
+\begin{equation}
+ {\bf q}_k + {\bf r}(\phi_k) = {\bf t},
+ \mbox{\ \ hvor\ \ } {\bf t} \in E^s.
+ \label{eq:quenchkrit}
+\end{equation}
+
+Antag nu at $m$ quenchingeksperimenter er udf{\o}rt. Hertil
+defineres matricen ${\bf Q}$, hvis s{\o}jler svarer til de
+$m$ quenchingvektorer ${\bf q}_k$. Elementet $q_{jk}$ i
+${\bf Q}$ beskriver dermed den m{\ae}ngde stof, der
+benyttedes af det $j$'te stof ved den $k$'te quenching. Det
+viser sig at v{\ae}re mere fordelagtigt at beskrive
+quenchingvektorerne i den basis, der udsp{\ae}ndes af
+egenvektorerne ${\bf e}_1,\ldots,{\bf e}_n$. Definerer vi
+matricerne ${\bf P}$ og ${\bf \Lambda}$
+
+\begin{equation}
+ {\bf P} = \left[{\bf e}_1\ldots{\bf e}_n\right]
+ \mbox{\ \ og\ \ }
+ {\bf \Lambda} = 
+ \left[
+ \begin{array}{ccc}
+  \lambda_1 & & \\
+  & \ddots &    \\
+  & & \lambda_n 
+  \end{array}
+ \right] 
+\end{equation}
+
+ser vi udfra overvejelserne
+
+\begin{equation}
+ \begin{array}{rcl}
+             {\bf J}{\bf P} & = &             {\bf P}{\bf \Lambda}\\
+ {\bf P}^{-1}{\bf J}{\bf P} & = &                    {\bf \Lambda}\\
+ {\bf P}^{-1}{\bf J}        & = & {\bf \Lambda}{\bf P}^{-1}
+ \end{array}
+\end{equation}
+
+at r{\ae}kkerne ${\bf e}^k$ i matricen ${\bf P}^{-1}$ er 
+venstreegenvektorer til Jacobimatricen $\bf J$. Disse $n$ r{\ae}kker 
+udg{\o}r en s{\aa}kaldt biorthogonal basis til basen af reelle
+egenvektorer, idet f{\o}lgende egenskab oplagt er opfyldt,
+
+\begin{equation}
+{\bf e}^j \cdot {\bf e}_k = \delta_{jk}
+\label{eq:kronecker}
+\end{equation}
+
+hvor $\delta_{jk}$ er det s{\ae}dvanlige Kronecker delta.
+Vi ser, at hver af disse venstre\-egenvektorer ${\bf e}^k$
+definerer en projektion\footnote{Denne egenskab ved ${\bf
+e}^j$ indses umiddelbart ved f{\o}lgende overvejelse. Lad
+${\bf x}$ v{\ae}re en vektor i koncentrationsrummet, dvs.\
+${\bf x} = \sum_{k=1}^n a_k{\bf e}_k$. Vi har da, at ${\bf
+e}^j \cdot {\bf x} = \sum_{j=1}^n a_k {\bf e}^j \cdot {\bf
+e}_k = a_j$, hvilket netop er lig komponenten af ${\bf x}$
+langs med vektoren ${\bf e}_j$.} af enhver vektor i
+koncentrationsrummet p{\aa} h{\o}jreegenvektoren ${\bf
+e}_k$. Generelt finder vi, at komponenten $R_{jk}$ af den
+$k$'te quenchingvektor langs den $j$'te h{\o}jreegenvektor
+bliver
+
+\begin{equation}
+ R_{jk} = {\bf e}^j \cdot {\bf q}_k 
+\end{equation}
+
+Specielt findes quenchingvektorernes komponenter i 
+svigningsplanet som,
+
+\begin{subequations}
+ \begin{eqalignno}
+  R_{1k}  &= {\bf e}^1 \cdot {\bf q}_k = 
+             {\bf e}^1 \cdot \left[ {\bf t} - {\bf r}(\phi_k) \right]
+             = -\cos \phi_k\\
+  R_{2k}  &= {\bf e}^2 \cdot {\bf q}_k = 
+             {\bf e}^2 \cdot \left[ {\bf t} - {\bf r}(\phi_k) \right]
+             = -\sin \phi_k
+ \end{eqalignno}
+ \label{eq:oscplankomp}
+\end{subequations}
+
+hvor vi har udnyttet venstreegenvektorernes biorthogonale egenskab.
+Af lig\-ning\-erne
+
+\begin{subequations}
+ \begin{eqalignno}
+  \left[ e^{11}\ldots e^{1n} \right]{\bf Q} &=
+  \left[ \cos\phi_1\ldots\cos\phi_n \right] \\
+  \left[ e^{21}\ldots e^{2n} \right]{\bf Q} &=
+  \left[ \sin\phi_1\ldots\sin\phi_n \right] 
+ \end{eqalignno}
+ \label{eq:genquench}
+\end{subequations}
+
+ses, at $n$ line{\ae}rt uafh{\ae}ngige quenchinger entydigt
+fastl{\ae}gger vektorerne ${\bf e}^1$ og ${\bf e}^2$. Dette
+resultat er generelt, men tillader ofte anvendelsen af en
+v{\ae}sentlig simplificering, idet quenchingfors{\o}g af
+praktiske grunde ofte udf{\o}res ved tils{\ae}tning af
+opl{\o}sninger, der kun indeholder et enkelt af de $n$
+stoffer. I denne sammenh{\ae}ng taler man om quenching
+langs med koncentrationsakserne. I dette tilf{\ae}lde
+reduceres indholdet af quenchingvektoren til en skalar
+$q_k$, hvorfor lig\-ning~\ref{eq:genquench} kan reduceres til
+
+\begin{subequations}
+ \begin{eqalignno}
+  e^{1k} &= -\frac{\cos\phi_1}{q_k} \\
+  e^{2k} &= -\frac{\sin\phi_1}{q_k} 
+ \end{eqalignno}
+ \label{eq:simquench}
+\end{subequations}
+
+I analogi med vektorerne ${\bf u}$ og ${\bf v}$, der
+fastlagde amplituderne og faserne af stofferne, ses en
+lignende sammenh{\ae}ng at g{\o}re sig g{\ae}ldende mellem
+venstre\-egenvektorerne ${\bf e}^1$, ${\bf e}^2$ og
+quenchingvektorene og quenching\-faserne. Vi finder nemlig
+f{\o}lgende sammenh{\ae}ng
+
+\begin{subequations}
+ \begin{eqalignno}
+  q_k       &= {\rm abs}(-e^{1k}-ie^{2k}) \\
+  \phi_k    &= \arg (-e^{1k}-ie^{2k})
+ \end{eqalignno}
+
+  der analogt med lig\-ning~\ref{eq:uv_atheta} yderligere
+  kan reduceres til det simplere udtryk
+
+ \begin{equation}
+  -e^{1k}-ie^{2k} = q_k e^{i\phi_k}
+ \end{equation}
+\label{eq:e1e2_qphi}
+\end{subequations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Skematisk quenching ved fortynding
+%% type        : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newsavebox{\psfigure}
+\sbox{\psfigure}{
+ \psset{xunit=0.7cm,yunit=0.8cm}
+ \newlength{\x} \newlength{\y}
+ \begin{pspicture}(0,0)(14,7)
+   \psellipse[linewidth=1.2pt,
+              border=1pt,
+              fillstyle=solid,
+              fillcolor=lightgray](7.0,3.5)(2.5,1.0)
+%   \psgrid[](0,0)(0,0)(14,7)
+   \setlength{\mylength}{-0.155cm}
+   \setlength{\x}{0.7\mylength}
+   \setlength{\y}{0.8\mylength}
+   \psline[origin={-7,-3.5},
+           linewidth=1.2pt,
+           linestyle=dashed,
+           dash=3pt 2pt]{-}( 8\x,5\y)
+   \setlength{\mylength}{0.324cm}
+   \setlength{\x}{0.7\mylength}
+   \setlength{\y}{0.8\mylength}
+   \psline[linewidth=1.2pt,origin={-3,-1}]{-}(8\x,5\y)
+   \psline[linewidth=1.2pt]{-}(7.0,3.5)(11.0,6.0)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(7.0,3.5)(7.0,4.5)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(7.0,3.5)(4.6,3.2)
+   \pscircle*[](7,3.5){0.075}
+   \rput[lc]{*0}(7.1,4.00){\footnotesize ${\bf u}$}
+   \rput[bc]{*0}(5.8,3.42){\footnotesize ${\bf v}$}
+   \rput[bl]{*0}(11.1,6.1){\footnotesize $E^s$}
+  \end{pspicture}
+}
+\boxfigure{t}{\textwidth}
+{
+\begin{center}
+  \begin{pspicture}(0,0.4)(14,7.4)
+   \rput[cc]{*0}(7.48,4.5){\usebox{\psfigure}}
+   \psset{xunit=1cm,yunit=1cm}
+%   \psgrid[](0,0)(0,0)(14,7)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(2,2)(8,1)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(2,2)(2,6)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(2,2)(5,5)
+   \setlength{\mylength}{-0.3cm}
+   \psline[linewidth=0.8pt,
+           linestyle=dotted,
+           dotsep=2pt,
+           origin={-9.4,-4.5}]{-}(7.4\mylength,2.5\mylength)
+   \setlength{\mylength}{-0.12cm}
+   \psline[linewidth=0.8pt,
+           arrowinset=0,
+           origin={-7.106,-3.725}]{->}(7.4\mylength,2.5\mylength)
+   \psline[linewidth=0.8pt,
+           linestyle=dotted,
+           dotsep=2pt]{-}(2,2)(6.218,3.425)
+   \rput[bc]{*0}(8.0,4.1){\footnotesize ${\bf q}$}
+   \rput[cl]{*0}(8.1,1.0){\tiny [HBrO$_2$]}
+   \rput[bc]{*0}(2.0,6.1){\tiny [Ce$^{4+}$]}
+   \rput[bl]{*0}(5.1,5.1){\tiny [Br$^-$]}
+  \end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize
+Skematisk illustration af grundlaget for at udf{\o}\-re
+quenchingeksperimenter ved fortynding af
+reaktionsblandingen. Ved en tils{\ae}tning af
+opl{\o}sningsmidlet (ofte vand) flyttes sytstemet fra et
+givet punkt p{\aa} gr{\ae}nsecyklusen mod origo i
+faserummet. For en bestemt fase og st{\o}rrelse af denne
+fortyndingsperturbation vil systemet ramme det stabile
+underum $E^s$ svarende til, at oscillationerne midlertidigt
+stoppes. Vi betegner denne situation som {\em quenching ved
+fortynding\/}.}
+\label{fig:dilquenching}
+}
+
+Disse hovedresultater foruds{\ae}tter alle, at quenchingen
+af den kemiske oscillator foretages ved en tils{\ae}tning
+af enten et eller flere af de stoffer, der deltager i
+reaktionsforl{\o}bet. Der eksisterer dog ogs{\aa} en
+mulighed for at quenche de kemiske sving\-ninger ved en
+simpel fortynding med reaktionssolventet. Geo\-metrisk
+svarer dette til en bev{\ae}gelse i koncentrationsrummet
+langs med vektoren ${\bf c}_f+{\bf r}(t)$ med retning mod
+koncentrationsrummets nulvektor, som illustreret i
+figur~\ref{fig:dilquenching}. Betingelsen for at quenche
+ved fortynding kan udtrykkes som
+
+\begin{equation}
+ {\bf q}_d = -d({\bf c}_f+{\bf r}(\phi_d)) = {\bf t}-{\bf r}(\phi_d)
+\end{equation}
+
+hvor $d$ er den relative fortynding. For at simplificere 
+notationen s{\ae}ttes 
+
+\begin{eqnarray}
+g_d = -{\bf e}^1 \cdot {\bf c}_f \nonumber\\
+h_d = -{\bf e}^2 \cdot {\bf c}_f \nonumber
+\end{eqnarray}
+
+Vi kan nu, helt analogt med den forrige fremgansm{\aa}de, beskrive
+quenchingvektorens komponenter i sving\-ningsplanet som
+
+\begin{subequations}
+ \begin{eqalignno}
+  {\bf e}^1 \cdot {\bf q}_d &= 
+  -d{\bf e}^1 \cdot ({\bf c}_f+{\bf r}(\phi_d)) = -\cos\phi_d \\
+  {\bf e}^2 \cdot {\bf q}_d &= 
+  -d{\bf e}^2 \cdot ({\bf c}_f+{\bf r}(\phi_d)) = -\sin\phi_d 
+ \end{eqalignno}
+\end{subequations}
+
+Disse lig\-ninger kan ved hj{\ae}lp af en ekstra udnyttelse
+af venstreegenvektorernes bi\-orthogonalitet samt nogle
+f{\aa} simple aritmetriske manipulationer yderligere
+omskrives til
+
+\begin{subequations}
+ \begin{eqalignno}
+  d g_d = (d-1)\cos\phi_d \\
+  d h_d = (d-1)\sin\phi_d 
+ \end{eqalignno}
+\end{subequations}
+
+Heraf indser man f{\o}rst og fremmest
+
+\begin{equation}
+ d = \frac{1}{1-\sqrt{g_d^2+h_d^2}}
+\end{equation}
+
+hvorfor vi som endeligt resultat finder
+
+\begin{subequations}
+ \begin{eqalignno}
+  {\bf q}_d = -\frac{{\bf c}_f+{\bf r}(\phi_d)}{1-\sqrt{g_d^2+h_d^2}}\\
+  \phi_d    =  \arg (-g_d-ih_d)  
+ \end{eqalignno}
+ \label{eq:dilquench}
+\end{subequations}
+
+Afslutningsvis runder vi dette teoretiske afsnit af med at
+beskrive, hvilken yderligere information der kan opn{\aa}s
+ved at udf{\o}re ekstra quenching\-eks\-peri\-menter, efter
+at $n$ line{\ae}rt uafh{\ae}ngige quenchingvektorer og
+dertil h{\o}r\-ende faser m{\aa}tte v{\ae}re bestemt. Lad
+os derfor antage, at vi eksperimentelt har udf{\o}rt en
+s{\aa}dan ekstra quenching svarende til quenchingvektoren
+${\bf q}_{ex}$ og -fasen $\phi_{ex}$. Da $n$ line{\ae}rt
+uafh{\ae}ngige allerede er bestemt, kan ${\bf q}_{ex}$
+skrives som en linearkombination af disse, dvs.
+
+\begin{equation}
+ {\bf q}_{ex} = \sum_{k=1}^n a_k{\bf q}_k
+\end{equation}
+
+I egenbasen ${\bf e}_1,\ldots,{\bf e}_n$ beskrives
+den ekstra quenching som 
+
+\begin{equation}
+ {\bf R}_{ex} = 
+ {\bf P}{\bf q}_{ex} = 
+ {\bf P}\sum_{k=1}^n a_k{\bf q}_k =
+ \sum_{k=1}^n a_k{\bf R}_k
+\end{equation}
+
+Idet $R_{ex}^1$ og $R_{ex}^2$ skal opfylde kravet
+$(R_{ex}^1)^2+(R_{ex}^2)^2 = 1$, fastl{\ae}gges
+koefficienterne $a_1,\ldots,a_n$ udfra normeringskravet
+
+\begin{equation}
+ \left[ \sum_{k=1}^n a_k R_{1k} \right]^2 +
+ \left[ \sum_{k=1}^n a_k R_{2k} \right]^2 = 1
+\end{equation}
+
+Ydermere finder vi udfra lig\-ning~\ref{eq:oscplankomp} f{\o}lgende
+sammenh{\ae}ng mellem quenching\-fasen $\phi_{ex}$ og de $n$ andre
+faser $\phi_k$
+
+\begin{subequations}
+ \begin{eqalignno}
+  \cos\phi_{ex} &= \sum_{k=1}^n a_k \cos\phi_k\\
+  \sin\phi_{ex} &= \sum_{k=1}^n a_k \sin\phi_k
+ \end{eqalignno}
+ \label{eq:addquench}
+\end{subequations}
+
+Disse overvejelser viser, at en ekstra quenching ikke
+indeholder nogen yderligere information, idet dennes
+st{\o}rrelse og fase p{\aa} forh{\aa}nd er bestemt udfra de
+$n$ line{\ae}rt uafh{\ae}ngige quenchinger. P{\aa} trods af
+dette faktum, har resultatet dog en v{\ae}sentlig og meget
+praktisk anvendelse. {\O}nsker vi for eksempel, i det
+tilf{\ae}lde hvor de $n$ forrige quenchinger er udf{\o}rt
+langs koordinatakserne, at udf{\o}re en quenching ved
+samtidig tils{\ae}tning af lige store m{\ae}ngder af to
+stoffer ($a_1=a_2$), ses lig\-ning~\ref{eq:addquench} at
+reducere til
+
+\begin{subequations}
+ \begin{eqalignno}
+  \cos\phi_{ex} &= a_1 (\cos\phi_1 + \cos\phi_2)\\
+  \sin\phi_{ex} &= a_1 (\sin\phi_1 + \sin\phi_2)
+ \end{eqalignno}
+\end{subequations}
+
+hvorfor $\phi_{ex}$ ved division af $\sin\phi_{ex}$ med
+$\cos\phi_{ex}$ og anvendelse af de tri\-go\-no\-me\-triske
+additionsformler findes som
+
+\begin{eqalignno}
+ \phi_{ex} = \frac{\phi_1 + \phi_2}{2}+p\pi, 
+ \mbox{\ \ hvor\ \ } p\in \mbox{\Bb Z}
+\end{eqalignno}
+
+Heraf ses f{\o}lgende: Hvis to stoffer quencher med
+m{\ae}ngderne ${\bf q}_1$ og ${\bf q}_2$ med tilh{\o}rende
+faser $\phi_1$ og $\phi_2$, da findes et reelt tal $a$,
+s{\aa}ledes at tils{\ae}tningen $a({\bf q}_1+{\bf q}_2)$
+vil quenche i en fase svarende til middelv{\ae}rdien af
+$\phi_1$ og $\phi_2$.
+
+\vspace{4.0mm}
+Da enhver eksperi\-mentel anvendelse af quenchingteorien
+foruds{\ae}tter en antag\-else om koncentrationsrummets
+dimension, angiver dette resultat en vigtig m{\aa}de,
+hvorp{\aa} rigtigheden af denne antagelse kan afpr{\o}ves i
+praksis. Ofte vil man her finde en d{\aa}rlig
+korrespondance mellem teori og praksis svarende til et alt
+for lavt esti\-mat af systemets dimension. For
+model\-beregninger vil s{\aa}danne udregninger
+selvf{\o}lgelig ikke tilvejebringe nogen interessant
+information, da dimensionen af model\-len i sagens natur er
+kendt p{\aa} forh{\aa}nd. Vi skal senere se en r{\ae}kke
+eksempler p{\aa}, hvorledes denne metode har v{\ae}ret
+anvendt i eksperimentelt arbejde.
+
+\section{Eksperimentel rekonstruktion af kemiske oscillationer}
+Som n{\ae}vnt tidligere, tilbyder
+quenching\-eksperi\-menter umiddelbart et
+sam\-men\-lig\-ningsgrundlag mellem model\-ler for den
+kemiske reaktion og de eksperimentelle data. Teorien
+tillader derudover en anden v{\ae}sentlig anvendelse, idet
+quenchingdata kan udnyttes til at rekonstruere en r{\ae}kke
+af de geo\-metriske st{\o}rrelser, der karakteriserer
+systemets indlejring og opf{\o}rsel i
+kon\-cen\-tra\-tions\-rummet.
+
+\vspace{4.0mm}
+Lad os derfor antage, at den unders{\o}gte kemiske reaktion
+har dimensionen $n$. Yderligere antages det, at
+koncentrationen af $n-2$ af disse $n$ stoffer kan m{\aa}les
+eksperimentelt. Med andre ord kan et passende referencestof
+udv{\ae}lges blandt disse $n-2$ stoffer, hvorved amplituden
+og fasen af de resterende $n-3$ stoffer kan m{\aa}les i
+forhold til referencestoffet efter de tidligere beskrevne
+retningslinier. Udfra lig\-ning~\ref{eq:uv_atheta} ser vi
+alts{\aa}, at opfyldelsen af de n{\ae}vnte kriterier
+medf{\o}rer, at komponenterne i vektorerne ${\bf u}$ og
+${\bf v}$ kan bestemmes bortset fra to komponenter,
+svarende til de to restende stoffer, hvis koncentration
+eksperimentelt ikke er m{\aa}lelig.
+
+\vspace{4.0mm}
+Udf{\o}res nu $n$ quenchingeksperimenter, svarende til en
+bestemmelse af $n$ quen\-ching\-amplituder og $n$
+tilh{\o}rende faser, giver dette anledning til, at
+venstreegenvektorerne ${\bf e}^1$ og ${\bf e}^2$ kan
+bestemmes. Sammenholder vi den opn{\aa}ede information med
+lig\-ning~\ref{eq:kronecker}, ser vi, at betingelserne
+
+\begin{equation}
+ \begin{array}{rcrcl}
+  {\bf e}^1 \cdot {\bf u} & = & {\bf e}^1 \cdot {\bf e}_1 & = & 1\\
+  {\bf e}^1 \cdot {\bf v} & = & {\bf e}^1 \cdot {\bf e}_2 & = & 0\\
+  {\bf e}^2 \cdot {\bf u} & = & {\bf e}^2 \cdot {\bf e}_1 & = & 0\\
+  {\bf e}^2 \cdot {\bf v} & = & {\bf e}^2 \cdot {\bf e}_2 & = & 1
+ \end{array}
+ \label{eq:uvdet}
+\end{equation}
+
+pr{\ae}cist fastl{\ae}gger de ubekendte komponenter i
+vektorerne ${\bf u}$ og ${\bf v}$. Disse resultater viser
+alts{\aa}, at hvis koncentrationen af $n-2$ stoffer er
+eksperimentel m{\aa}lelig, da kan sving\-ningsplanet ${\rm
+sp}\{{\bf u},{\bf v}\}$ i koncentrationsrummet bestemmes
+udfra $n$ quenchingeksperimenter. Endvidere fastl{\ae}gger
+de m{\aa}lte quenchingdata venstreegenvektorerne, hvorfor
+transientrummet $E^s$, udsp{\ae}ndt af de reelle
+egenvektorer, er bestemt udfra
+lig\-ning~\ref{eq:kronecker}.
+
+\vspace{4.0mm}
+Vi b{\o}r dog bem{\ae}rke, at basen ${\bf e}_3,\ldots,{\bf
+e}_n$, der her er benyttet til at beskrive $E^s$, i det
+generelle tilf{\ae}lde ikke er tilg{\ae}ngelig udfra
+quenchingdata\footnote{I tilf{\ae}ldet $n=3$ kan ${\bf
+e}_3$ dog godt bestemmes, idet transientrummet i dette
+tilf{\ae}lde opfylder $\dim E^s=1$.}. Ydermere ser vi, at
+\'{e}n ekstra quenching, udf{\o}rt ved fortynding af
+opl{\o}sningsmidlet, vil bidrage til at fastl{\ae}gge
+v{\ae}rdien for det station{\ae}re punkt ${\bf c}_f$,
+hvilket fremg{\aa}r af lig\-ning~\ref{eq:dilquench}.
+
+\vspace{4.0mm}
+Da rekonstruktionen tillader en beskrivelse af variationen
+af koncentrationen af de $n$ stoffer p{\aa}
+gr{\ae}nsecyklusen ${\bf r}(t)$, vil samtlige komponenter i
+fortyndingsvektoren ${\bf q}_d$ v{\ae}re kendt.
+Ligning~\ref{eq:dilquench} reducerer hermed til to
+lig\-ninger med to ube\-kend\-te, svarende til de
+station{\ae}re koncentrationer af de to stoffer, der
+eksperimentelt ikke er m{\aa}lelige. Hermed er det
+station{\ae}re punkt ${\bf c}_f$ fuldst{\ae}ndigt bestemt.
+
+\vspace{4.0mm}
+Vi afslutter disse to forholdsvis lange afsnit med en kort
+opsummering af resultaterne i form af to skematiske
+strategier for henholdsvis model\-beregniger af
+quenchingdata og eksperimentel rekonstruktion udfra
+quenchingdata.
+
+\subsubsection{Model beregninger}
+\begin{itemize}
+\begin{enumerate}
+ \item Udregn v{\ae}rdien af $j_0^{\rm Hopf}$ og bestem
+  Jacobimatricen ${\bf J}$.
+ \item Udregn ${\bf e}_1,\ldots,{\bf e}_n$ og norm\'{e}r
+  disse, idet et passende referencestof udv{\ae}lges.
+ \item Bestem ${\bf P}^{-1}$ og dermed venstreegenvektorerne
+  ${\bf e}_1,\ldots,{\bf e}_n$. Quenchingvektorerne ${\bf
+  q}_k$ og -faserne $\phi_k$ kan dermed bestemmes udfra
+  lig\-ning~\ref{eq:simquench}.
+ \item For at bestemme data for fortyndingseksperimenter udregnes
+  det station{\ae}re punkts v{\ae}rdi ${\bf c}_f(j_0^{\rm
+  Hopf})$ i Hopfbifurkationspunktet, hvor\-ved ${\bf q}_d$ og
+  $\phi_d$ kan beregnes udfra lig\-ning~\ref{eq:dilquench}.
+\end{enumerate}
+\end{itemize}
+
+\subsubsection{Eksperimentel rekonstruktion}
+\begin{itemize}
+\begin{enumerate}
+ \item Udv{\ae}lg et passende referencestof. $n-2$ af komponenterne
+       i ${\bf u}$ og ${\bf v}$ kan nu bestemmes.
+ \item Udfra $n$ quenchingeksperimenter udregnes nu 
+       ventreegenvektorerne ${\bf e}^1$ og ${\bf e}^2$ 
+       ved hj{\ae}lp af lig\-ning~\ref{eq:simquench}.
+ \item De resterende to komponenter i ${\bf u}$ og ${\bf v}$
+       udregnes udfra lig\-ning~\ref{eq:uvdet}, hvilket 
+       fastl{\ae}gger sving\-ningsplanet.
+ \item Udf{\o}res en ekstra quenching ved fortynding, 
+       kan ${\bf c}_f$ udregnes ved udnyttelse af 
+       lig\-ning~\ref{eq:dilquench}.
+\end{enumerate}
+\end{itemize}
+
+\section{Anvendelse af quenchingteorien}
+Efter denne teoretiske diskussion, vil vi nu pr{\ae}sentere
+nogle resultater fra den fysiske og kemiske litteratur, der
+illustrerer nogle af de mange anvendelser quenchingteorien
+kan indg{\aa} i.
+
+\vspace{4.0mm}
+En af de v{\ae}sentligste forskningsm{\ae}ssige indsatser i
+beskrivelsen af oscillerende kemiske reaktioner har
+v{\ae}ret fors{\o}get p{\aa} at opstille en realistisk
+model samt at bestemme et s{\ae}t hastighedskonstanter, der
+kan redeg{\o}re for det brede spektrum af egenskaber som
+BZ-reaktionen udviser. Et af de v{\ae}sentligste og
+f{\o}rste skridt i denne retning skyldes Field,
+K\"{o}r\"{o}s og Noyes, der i 1972 formulerede den
+s{\aa}kaldte FKN-mekanisme \cite{FKNorig}. Det s{\ae}t
+hastighedskonstanter, der er tilknyttet FKN-mekanismen, er
+sidenhen blevet revurderet af Field og F\"{o}rsterling i
+1986 \cite{ffrate}, hvor et s{\ae}t modificerede
+hastighedskonstanter foresl{\aa}s (disse to s{\ae}t
+hastighedskonstanter kaldes i det f{\o}lgende for
+henholdsvis FKN-s{\ae}ttet og FF-s{\ae}ttet). Ved en
+r{\ae}kke passende reduktioner kan FKN-mekanismen omskrives
+til den 3-dimensionale Oregonator model, der var den
+f{\o}rste model, der kvalitativt kunne gengive en r{\ae}kke
+af de f{\ae}nomener, der eksperimentelt observeres i
+BZ-reaktionen. Under anvendelse af en simplificerende
+notation kan Oregonator model\-len skrives som
+ 
+\begin{eqnarray} 
+ \label{eq:orgdiff}
+ A + Y + 2H & \stackrel{k_1}{\lr} & X + U     \nonumber \\
+ X + Y + H  & \stackrel{k_2}{\lr} & 2U        \nonumber \\
+ 2X         & \stackrel{k_5}{\lr} & U + A + H           \\ 
+ A + X + H  & \stackrel{k_6}{\lr} & 2X + 2Z   \nonumber \\ 
+ Z          & \stackrel{k_7}{\lr} & gY + C    \nonumber  
+\end{eqnarray}  
+
+hvor
+
+$$
+ A = \mbox{BrO$_3^-$, }\;
+ H = \mbox{H$^+$, }\;
+ U = \mbox{HOBr, }\;
+ X = \mbox{HBrO$_2$, }\;
+ Y = \mbox{Br$^-$ og }
+ Z = \mbox{Ce$^{4+}$.}
+$$
+
+Konstanterne $k_1$, $k_2$, $k_5$ og $k_6$ er forholdsvist
+velbestemte, hvorimod v{\ae}rdien af den st{\o}kiometriske
+faktor $g$ og hastighedskonstanten $k_7$ stadig er genstand
+for megen diskussion. I den situation, hvor man {\o}nsker
+at optimere eller tilpasse egenskaberne ved Oregonator
+model\-len til eksperimentel data, vil disse to parametre
+v{\ae}re oplagte at v{\ae}lge som ``justeringsknapper''.
+Det er blandt andet i denne situation, at quenchingteorien
+viser sin styrke, idet den muligg{\o}r en sammenlig\-ning
+mellem en r{\ae}kke eksakte st{\o}rrelser (quenching\-faser,
+quenchingamplituder, sving\-ningsfrekvenser, etc.\ ), der er
+tilg{\ae}ngelige fra b{\aa}de eksperi\-menter og
+model\-simuleringer. Med denne strategi for {\o}je, {\o}nsker
+vi nu med udgangpunkt i en r{\ae}kke resultater fra
+\cite{HopfQuench} at diskutere fordele s{\aa}vel som
+ulemper ved tre forskellige model\-ler for BZ-reaktionen.
+ 
+\vspace{4.0mm}
+I \cite{HopfQuench} er egenskaberne ved f{\o}lgende tre model\-ler 
+for BZ-reaktionen blevet unders{\o}gt
+
+\begin{center}
+  \begin{description}
+    \item[M3] Oregonator model\-len
+    \item[M4] Showalter, Noyes og Bar-Eli model\-len
+    \item[M5] En udvidet Oregonator model
+  \end{description}
+\end{center}
+
+Disse tre model\-ler fremg{\aa}r alle af
+tabel~\ref{tab:modeller}, hvor v{\ae}rdien af
+hastighedskonstanterne for de enkelte elementarreaktioner
+er angivet for b{\aa}de FKN-s{\ae}ttet og FF-s{\ae}ttet.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% tabel
+%%
+%% beskrivelse : Tabel over modeldata for M3, M4 og M5
+%% tex         : tab11.tex
+%% type        : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{landfloat}{table}{\rotateright}
+\renewcommand{\capfont}{\bf}
+\begin{center}
+ \input{tab21}
+\end{center}
+\caption{\protect\capsize
+  Tabellen stammer fra \protect\cite{HopfQuench} og angiver
+  data for de tre model\-ler M3, M4 og M5. F{\o}lgende
+  forkortelser er anvendt for de forskellige kemiske
+  stoffer: A = BrO$_3^-$, C = Ce$^{3+}$, H = H$^+$, K =
+  H$_2$O, P = produkt uden indflydelse p{\aa} selve
+  reaktionerne, U = HBrO, W = BrO$_2$, X = HBrO$_2$, Y =
+  Br$^-$, Z = Ce$^{4+}$. FKN og FF henviser til de to
+  forskellige s{\ae}t hastighedskonstanter, der er
+  foresl{\aa}et af Field, K\"{o}r\"{o}s og Noyes
+  \protect\cite{FKNorig}, og Field og F\"{o}rsterling
+  \protect\cite{ffrate}. Enhederne for
+  hastighedskonstanterne er afledt af mol/l og tid
+  \mbox{pr.\ sekund} og f{\o}lger af de enkelte hastighedsudtryk.}
+  \label{tab:modeller}
+  \renewcommand{\capfont}{\rm}
+\end{landfloat}
+
+\vspace{4.0mm}
+Som det fremg{\aa}r af tabel~\ref{tab:modeller}, s{\aa}
+indeholder model\-lerne M3, M4 og M5 alle konstanter, hvis
+numeriske v{\ae}rdi endnu ikke har v{\ae}ret
+tilg{\ae}ngelig via eksperimentelle m{\aa}linger. Som
+udgangpunkt er v{\ae}rdierne for disse derfor valgt, s{\aa}
+v{\ae}rdien for $j_t$ i de respektive model\-ler giver
+anledning til den bedst mulige overensstemmelse mellem
+model\-lernes forudsigelse af quenching\-faser og amplituder og
+de {\ae}kvivalente eksperimentelle data. Herved f{\aa}s det
+datas{\ae}t, der er angivet i tabel~\ref{tab:initdata}, der
+i \cite{HopfQuench} har tjent som udgangspunkt for
+udregning af Hopfbifurkationsdiagrammer.
+
+\begin{table}[t]
+ \renewcommand{\capfont}{\bf}
+ \capsize
+ \begin{minipage}{8cm}
+ \begin{center}
+  \begin{tabular}{|l|l|l|l|}                  \hline\hline
+         & \multicolumn{1}{|c}{M3} 
+         & \multicolumn{1}{|c|}{M4} 
+         & \multicolumn{1}{c|}{M5}                    \\ \hline
+   $k_7$ & $0.167$               & $0.158$   & $0.29$ \\ \hline
+   $k_8$ &                       & $0.1229$  &        \\ \hline
+   $k_9$ &                       & $0.226$   &        \\ \hline
+   $g  $ & $0.7905$              & $0.28$    & $0.59$ \\ \hline
+   $j_t$ & $2.99 \times 10^{-5}$ & $3.56 \times 10^{-5}$ & $3.40 \times 10^{-5}$ \\ \hline
+   $j_f$ & $0.141$               & $0.168$   & $0.030$\\ \hline
+   $j_c$ & $0.513$               & $0.507$   & $0.479$\\ \hline\hline
+  \end{tabular}
+ \end{center} 
+ \end{minipage}
+ \ \hfill \
+ \begin{minipage}{5cm}
+ \caption{\protect\capsize
+  Parametervalg for \protect\\model\-lerne M3-M5 for det s{\ae}t 
+  af konstanter for hvilket kendte v{\ae}rdier ikke 
+  er tilg{\ae}ngelige. Parameters{\ae}ttet for hver af
+  model\-lerne er valgt s{\aa} quen\-ching\-fa\-ser
+  og -amplituder er optimale i forhold til de
+  eksperimentelt {\ae}kvivalente data.
+ }
+ \end{minipage}
+ \label{tab:initdata}
+ \normalsize
+ \renewcommand{\capfont}{\rm}
+\end{table} 
+ 
+\vspace{4.0mm}
+De eksperimentelle data for BZ-reaktionen og analoge
+numeriske data for model\-lerne M3-M5 fremg{\aa}r af
+tabel~\ref{tab:data}. Ved sammenlig\-ning med de
+eksperimentelle data ser vi, at model\-lerne kvalitativt
+giver anledning til det samme m{\o}nster i de udregnede
+quenchingdata. HBrO$_2$ quencher med fasen $92^\circ$,
+hvor\-imod de andre stoffer alle har en fase indenfor
+intervallet $[-128^\circ;-104^\circ]$. Indenfor en
+afvigelse p{\aa} en enkelt st{\o}rrelsesorden ser vi
+endvidere, at quen\-ching\-amplituderne for de tre
+model\-ler er i rimelig overensstemmelse med de
+eksperimentelt fundne. Dog er v{\ae}rdien for $q($HBrO$_2)$
+i M5 urealistisk h{\o}j, hvilket skyldes en form for
+udartning eller degeneration i den p{\aa}g{\ae}ldende
+model. Vi vil senere i afsnit~\ref{sec:QuenchUdart}
+redeg{\o}re teoretisk for dette f{\ae}nomen. Ydermere er
+det v{\ae}sentligt at notere den ringe lighed mellem den
+eksperimentelle sving\-ningsfrekvens $\omega_0$ og de
+numerisk bestemte frekvenser.
+
+\vspace{4.0mm}
+Med udgangspunkt i data fra tabel~\ref{tab:initdata} har
+man i \cite{HopfQuench} udregnet en r{\ae}kke
+Hopfbifurkationsdiagrammer for model\-lerne M3-M5. Idet
+Hopfpunktet kontinueres som funktion af parameters{\ae}ttet
+$(j_t,\mu)$ (hvor $\mu = k_7, k_8, k_9, g $), kan
+resultaterne kort opsummeres som f{\o}lgende
+
+\begin{itemize}
+ \item {\bf M3 }($\mu = k_7, g $)\\
+ Meget lille {\ae}ndring af quenchingdata under variation
+ af $g$. Hopfbifurkation ved den termodynamiske gren
+ er altid superkritisk ved valg af FF-s{\ae}ttet, hvorimod
+ denne altid er subkritisk med FKN-s{\ae}ttet.
+ \item {\bf M4 }($\mu = k_7, k_8, k_9, g $)\\
+ Det samme som ved M3, dog med den forskel at quenchingdata
+ varierer kraftig for h{\o}je v{\ae}rdier af $j_t$.
+ \item {\bf M5 }($\mu = k_7, g $)\\
+ Hopfkurven for parametervalget $(j_t,g)$ danner en lukket
+ kurve, hvorfor der for samme v{\ae}rdi af $j_t$ eksisterer
+ to Hopfpunkter svarende til to forskellige v{\ae}rdier af
+ $g$. Endvidere udvises der store forskelle i quenchingdata
+ for de to v{\ae}rdier af $g$, der til samme v{\ae}rdi af
+ $j_t$ giver anledning til to Hopfbifurkationer fra den
+ termodynamiske gren. 
+\end{itemize}
+
+\begin{table}[t]
+ \renewcommand{\capfont}{\bf}
+ \begin{center}
+  \input{tab22}
+ \end{center}
+ \caption{\protect\capsize
+  Tabellen sammenholder eksperimentelle v{\ae}rdier for
+  quenchingdata med {\ae}kvivalente v{\ae}rdier for de tre
+  model\-ler {\bf M3}, {\bf M4} og {\bf M5}. Specielt
+  bem{\ae}rkes den ekstremt h{\o}je quenchingamplitude for
+  HBrO i model {\bf M5}. Dette hidr{\o}rer fra en
+  s{\aa}kaldt udartning af den p{\aa}g{\ae}ldende
+  quenchingvektor, hvilket vil blive diskuteret i detaljer
+  i afsnit~\protect\ref{sec:QuenchUdart}. Der henvises til
+  teksten for en uddybende diskussion og sammenlig\-ning af
+  de {\o}vrige data. }
+ \label{tab:data}
+ \renewcommand{\capfont}{\rm}
+\end{table} 
+
+Vi har set, hvorledes disse model\-ler kan gengive eller
+reproducere en r{\ae}kke eksperimentelle egenskaber ved
+BZ-reaktionen. Som det da ogs{\aa} understreges i
+\cite{HopfQuench}, er disse overensstemmelser udelukkende
+semikvantitative, da en kvantitativ korrelation stadig
+mangler mellem model og eksperiment. Endvidere er
+model\-lerne langt bedre til at reproducere eksperimentelle
+data ved benyttelse af FF-hastighedskonstanter, hvorfor
+dette valg af hastighedskonstanter m{\aa} anses for at
+v{\ae}re bedre end FKN-s{\ae}ttet. De n{\ae}vnte resultater
+peger endvidere imod, at dimensionen af de unders{\o}gte
+model\-ler ($\dim = 3,4,5$) er for lille. Med andre ord er
+det temmelig plausibelt, at et st{\o}rre antal dynamiske
+variable b{\o}r indrages i en model\-lering af
+BZ-reaktionen, f{\o}r mere realistiske resultater kan
+opn{\aa}s.
+
+\section{Udartning af quenchingvektorer}
+\label{sec:QuenchUdart}
+Afslutningsvis vil vi nu diskutere {\aa}rsagen til, at
+model M5 indeholder en v{\ae}sentlig mangel. Som det
+fremg{\aa}r af tabel~\ref{tab:data}, er quenchingamplituden
+for HBrO enorm ($q($HBrO$)$ $= 20900$), hvilket skyldes, at
+quenchingvektoren $q($HBrO$)$ stort set er indeholdt i
+transientrummet $E^s$. I denne forbindelse taler man om en
+udartning af quenchingvektoren. Det viser sig, at dette
+f{\ae}nomen kan formuleres og forklares meget pr{\ae}cist
+udfra nogle simple teoretiske over\-vejelser. Da denne
+teoretiske diskussion endnu ikke har v{\ae}ret
+pr{\ae}senteret i den fysiske eller kemiske litteratur,
+helliger vi derfor de n{\ae}ste par linier til en mere
+abstrakt pr{\ae}sentation af problemet. Dern{\ae}st
+illustreres, hvorledes udartningen manifesteres i M5, samt
+hvorledes M5 forholdsvist simpelt kan modificeres
+s{\aa}ledes, at udartningen forsvinder.
+
+\vspace{4.0mm}
+Vi {\o}nsker nu at udlede et tilstr{\ae}kkeligt kriterium,
+der, hvis det er opfyldt, medf{\o}rer, at et stof ikke kan
+quenche en kemisk oscillation. Hertil betragter vi en
+kemisk reaktion, hvis kinetik er beskrevet ved
+lig\-ning~\ref{eq:GeneralKinetic} s{\aa}ledes, at denne
+net\-op har gennemg{\aa}et en superkritisk Hopfbifurkation.
+Formel\-udtrykkene og koncentrationerne af de $n$ stoffer,
+der deltager i reaktionen, betegnes med $s_1,\ldots,s_n$
+henholdsvis $c_1,\ldots,c_n$. Lad os nu antage, at den
+tilh{\o}rende Jacobimatrix er af formen
+
+\begin{equation}
+  {\bf J} =
+  \left[
+  \begin{array}{cccc}
+   x & \cdots & x & 0 \\
+   \vdots & & & \vdots\\
+   x & \cdots & x & 0 \\
+   x & \cdots & x & x 
+  \end{array}
+  \right]
+  \label{eq:JacobiDegen}
+\end{equation}
+
+hvor $x$ angiver et vilk{\aa}rligt element forskelligt fra
+nul. Heraf ses at den $n$'te enhedsvektor ${\bf e}_n$ er
+egenvektor til ${\bf J}$, idet 
+
+\begin{equation}
+  {\bf J} {\bf e}_n = x {\bf e}_n
+\end{equation}
+
+${\bf e}_n$ ligger alts{\aa} i det stabile underrum $E^s$.
+Men da ${\bf e_n}$ jo endvidere udsp{\ae}nder
+koncentrationskoordinaten for det $n$'te stof $s_n$, vil
+enhver tils{\ae}tning af $s_n$ i faserummet v{\ae}re
+beskrevet ved en bev{\ae}gelse parallel med $E^s$. Heraf
+kan vi slutte, at det til en vilk{\aa}rlig fase og
+amplitude vil v{\ae}re umuligt at quenche med $s_n$, da vi
+aldrig vil kunne ramme $E^s$ ved en s{\aa}dan
+tils{\ae}tning. Denne situation er illustreret geometrisk i
+figur~\ref{fig:QuenchUdart}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Skematisk illustration af udartning af
+%%               quenchingvektor
+%% makroer     : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\begin{center}
+ \begin{pspicture}(0,0)(11,7)
+%  \psgrid(0,0)(0,0)(11,8)
+  \psset{fillstyle=solid,fillcolor=lightgray}
+  \psset{shadowcolor=gray}
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(2,2)(8,1)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(2,2)(2,6)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(2,2)(5,5)
+  \psline[linewidth=0.8pt](7,4)(9,6)
+  \rput[cc]{-25}(7.0,4.0){\psellipse[shadow=true,shadowangle=45](0.0,0.0)(1.50,0.40)}
+  \psline[dotsep=1.5pt,linestyle=dotted](7.3,4.3)(7,4)
+  \psline[linewidth=0.8pt](5.5,2.5)(7,4)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(5.641,4.634)(7.141,6.134)
+  \rput[cl]{*0}(8.1,1.0){\tiny [HBrO$_2$]}
+  \rput[bc]{*0}(2.0,6.1){\tiny [Ce$^{4+}$]}
+  \rput[bl]{*0}(5.1,5.1){\tiny [Br$^-$]}
+  \rput[tc]{*0}(7.8,3.2){\footnotesize $\gamma$}
+  \rput[tl]{*0}(6.45,5.35){\footnotesize ${\bf q}$}
+  \rput[bl]{*0}(9.05,6.0){\footnotesize $E^s$}
+ \end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize
+Skematisk illustrering af udartning af en quenchingvektor i
+en kemisk oscillation. Det stabile underrum $E^s$
+sk{\ae}rer gr{\ae}nsecyklusens plan nedefra parallelt med
+en af koncentrationsakserne (Br$^-$ er her valgt som
+eksempel). Ligegyldigt hvilken fase og amplitude, der
+v{\ae}lges ved tils{\ae}tningen ${\bf q}$ af det
+p{\aa}g{\ae}ldende stof, vil tils{\ae}tningen aldrig kunne
+ramme $E^s$.}
+\label{fig:QuenchUdart}
+}
+
+\vspace{4.0mm}
+Hvilken rolle spiller stoffet $s_n$ i den kemiske
+reaktion, hvis Jacobimatricen har det n{\ae}vnte
+udseende? Lad os besvare dette sp{\o}rgsm{\aa}l ved at
+betragte hvilke typer af reaktioner $s_n$ ikke kan deltage
+i. F{\o}rst forestiller vi os, at $s_n$ er reaktant i en
+reaktion s{\aa}ledes, at et af de $n-1$ andre stoffer
+produceres i denne reaktion. Vi har alts{\aa}
+
+\begin{equation}
+  \ldots + s_n + \ldots \stackrel{k}{\longrightarrow}
+  \ldots + s_j + \ldots, \;\;\; j \in \{1,\ldots,n-1 \}
+\end{equation}
+
+I hastighedsudtrykket for $s_j$ forekommer alts{\aa} et
+led af typen $k c_n$ svarende til f{\o}lgende bidrag til
+Jacobimatricen
+
+\begin{equation}
+  \frac{\partial \dot{c}_j}{\partial c_n} = \ldots + k + \ldots
+\end{equation}
+
+Dette er i modstrid med den form vi antog Jacobimatricen
+havde. Kan man ikke quenche med en given forbindelse, da
+kan denne forbindelse ikke v{\ae}re reaktant i en reaktion,
+i hvilken andre af de dynamiske stoffer produceres. Med
+helt samme teknik kan man yderligere vise, at $s_n$ heller
+ikke kan deltage i nogen reaktion, s{\aa}ledes at de andre
+dynamiske stoffer ogs{\aa} indg{\aa}r som reaktanter. Dette
+giver f{\o}lgende resultat
+
+\begin{itemize}
+  \item Et stof, der deltager i en kemisk oscillation, kan
+  ikke quenche, hvis dette ikke ogs{\aa} forbruges i en
+  reaktion, i hvilken mindst et af de andre stoffer
+  indg{\aa}r enten som reaktant eller produkt.
+\end{itemize}
+
+F.eks.\ ser vi, at et flow af et stof igennem et
+CSTR-kammer ikke er nok til, at det p{\aa}g{\ae}ldende stof
+kan quenche. Vi m{\aa} kr{\ae}ve, at stoffet som reaktant
+er involveret i mindst en af de reaktioner, de andre
+stoffer deltager i.
+
+\vspace{4.0mm}
+I model M5 s{\aa} vi tidligere, hvorledes
+quenchingvektorens amplitude for HBrO var
+uforholdsm{\ae}ssig stor. Dette faktum kan forklares ved
+hj{\ae}lp af den netop gennemg{\aa}ede teori. Lad os
+betragte de tre reaktioner i hvilke HBrO indg{\aa}r
+
+\begin{eqnarray}
+  \mbox{A + Y + 2H} & \rightleftharpoons & \mbox{X + U  } \nonumber\\
+  \mbox{X + Y + H } & \rightleftharpoons & \mbox{2U   }   \\
+  \mbox{2X        } & \rightleftharpoons & \mbox{U + A + H}\nonumber
+\end{eqnarray}
+
+hvor U = [HBrO], A = [BrO$_3^-$], X = [HBrO$_2$] og Y =
+[Br$^-$] (for yderligere detaljer se
+tabel~\ref{tab:modeller}). Umiddelbart synes de
+tilbageg{\aa}ende reaktioner i disse tre reaktioner at
+tilfredsstille de n{\ae}vnte krav for at kunne quenche med
+HBrO, idet alle disse forbruger HBrO under indflydelse af
+andre dynamiske stoffer (X og Y). Problemet er her, at alle
+tre reaktioner er s{\aa} langsomme, at den
+p{\aa}g{\ae}ldende egenvektor ${\bf e}_{\mbox{\tiny HBrO}}$
+kun f{\aa}r en meget lille komponent i komplimentet til
+$E^s$. Teoretisk betyder dette, at vi skal bev{\ae}ge os
+``meget'' langt ud langs ${\bf e}_{\mbox{\tiny HBrO}}$,
+f{\o}rend denne rammer det stabile underum $E^s$.
+
+\vspace{4.0mm}
+Da HBrO kan quenche eksperimentelt, og da
+hastighedskonstanterne for de tre tilbageg{\aa}ende
+reaktioner alle er velbestemte eksperimentelt, antyder
+dette, at der i BZ-reaktionen n{\o}dvendigvis m{\aa}
+forekomme en hurtig reaktion, der forbruger HBrO. Dette
+faktum er udnyttet i model M4, hvor to s{\aa}danne
+reaktioner, R8 og R9, er tilf{\o}jet. Derved fjernes den
+n{\ae}vnte udartning, og en langt bedre overensstemmelse
+mellem den eksperimentelle og beregnede st{\o}rrelse af
+quenchingamplituden opn{\aa}s (1.58 vs.\ 1.009).
+
+
+
+
+
+
+

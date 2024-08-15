@@ -1,0 +1,934 @@
+% Sidst opdateret: 14/1 1994
+\chapter{Analyse af tidsr{\ae}kker}
+Analyser af tidsr{\ae}kker kan give mange interessante
+oplysninger om et ikke-line{\ae}rt dynamisk system. I dette
+kapitel vil vi give et overblik over de forskellige
+metoder, som er i brug.
+
+\vspace{4.0mm}
+Tidsr{\ae}kkeanalyse er ikke kun anvendelig i studiet af
+oscillerende kemiske reaktioner, men kan bruges inden for
+alle de omr{\aa}der, som besk{\ae}ftiger sig med
+ikke-line{\ae}re dynamiske systemer.
+
+\vspace{4.0mm}
+En tidsr{\ae}kke kan kort defineres som en f{\o}lge af tal
+(eller vektorer). Man vil ofte forestille sig en
+tidsr{\ae}kke som f{\o}lgen $\vec{x}_1, \ldots, \vec{x}_N$,
+hvor indekset hentyder til en disketisering af tiden.
+P{\aa} den m{\aa}de kan tidsr{\ae}kken ogs{\aa} skrives som
+$\vec{f}(t_1), \ldots, \vec{f}(t_N)$.
+
+\vspace{4.0mm}
+Tidsr{\ae}kker fremkommer derfor naturligt ved et
+eksperiment. Man m{\aa}ler med passende mellemrum
+forskellige st{\o}rrelser; i kemien kunne det v{\ae}re
+koncentrationen af et bestemt stof. Man ser ogs{\aa} ofte,
+at diskretiseringen af tiden er foretaget s{\aa}ledes, at
+m{\aa}lingerne foretages med lige store mellemrum, hvilket
+vi i dette kapitel har antaget.
+
+\vspace{4.0mm}
+Andre grene af naturvidenskaberne og de teknologiske
+videnskaber anvender ogs{\aa} forskellige teknikker til
+analyse af tidsr{\ae}kker. F.eks.\ er det en generel (og
+velkendt) metode i statistik, men ofte arbejder
+statistikere ikke med systemer, som kan udvise en kaotisk
+opf{\o}rsel [\citen{chatfield}]. Inden for
+signalbehandling findes der ogs{\aa} en del forskellige
+teknikker, som kan bruges eller bliver brugt
+[\citen{NumRec,Bendat71,Gold69,Lawes84}].
+
+\newpage
+\section{Fourier-metoder}
+Som n{\ae}vnt i indledningen, findes der indenfor
+signalbehandling forskellige metoder. En af de vigtigste er
+klassen af Fouriermetoder (ogs{\aa} kaldet
+spektralmetoder). Selv om disse metoder ogs{\aa} anvendes i
+andre sammenh{\ae}nge end denne afhandlings emne, vil vi
+dog komme med et par eksempler p{\aa} deres styrke.
+
+\vspace{4.0mm}
+Grundideen i Fouriermetoderne er at skrive tidsr{\ae}kken
+$\{x_j\}_{j=0}^{n-1}$ som en Fourierr{\ae}kke
+[\citen{Prag:Arno}]. Med andre ord, {\o}nsker vi at finde
+koefficienter $\{d_j\}_{j=0}^{n-1}$ s{\aa}
+
+\begin{equation}
+  \label{tid:FFT}
+  x_k = \sum_{j=0}^{n-1} d_j e^{2\pi i j/n}.
+\end{equation}
+
+Ovenst{\aa}ende er ikke en Fourierr{\ae}kken, men derimod
+en endelig r{\ae}kke. En egentligt Fourierr{\ae}kke er
+givet ved [\citen{MatF}]
+
+\[
+  \sum_{n \in \Z} c_n e^{inx},
+\]
+
+hvor koefficienterne $c_n$ er givet ved
+
+\[
+c_n = \frac{1}{2\pi}\int_{-\pi}^{\pi} f(x)e^{-inx} dx.
+\]
+
+Ovenst{\aa}ende r{\ae}kke er defineret for periodiske
+funktioner, dvs.\ funktioner som opfylder $f(x+2\pi) =
+f(x)$.
+
+\vspace{4.0mm}
+{\em Fast Fourier Transform} algoritmen er en meget
+effektiv metode til at finde koefficienterne i ligning
+\ref{tid:FFT}. I [\citen{NumRec}] beskrives en
+implementation af denne metode. Som det kan ses af ligning
+\ref{tid:FFT}, er tidsr{\ae}kken blevet transformeret fra
+tidsdom{\ae}net til frekvensdom{\ae}net. Det
+Fouriertransformerede signal kaldes ofte for et spektrum.
+
+\vspace{4.0mm}
+Tidsr{\ae}kken kan have forskellige opf{\o}rsler, og ud fra
+det Fouriertransformerede signal er det muligt at finde ud
+af r{\ae}kkens opf{\o}rsel. Nedenfor har vi opremset de
+forskellige opf{\o}rsler og deres spektra [\citen{Prag:Arno}]
+
+\begin{description}
+  \item[Periodisk] En periodisk tidsr{\ae}kke vil have en
+  hovedfrekvens samt alle dens overtoner, dvs.\ spektraet
+  vil have en st{\ae}rk linie ved $f$ og svage linier ved
+  $n\cdot f$. For en uendelig lang tidsr{\ae}kke vil
+  linierne v{\ae}re Diracs deltafunktion, men for en
+  endelig r{\ae}kke vil linierne have en endelig bredde.
+  Bredden $h$ er givet ved $h\ge \frac{2\pi}{n\Delta t}$,
+  hvor $n$ er antallet af datapunkter og $\Delta t$ er
+  tiden mellem to m{\aa}linger. Figur \ref{tid:SinPer}
+  viser grafen for $\sin \frac{j\pi}{50}$ for $j =
+  1,\ldots, 1000$ og dens spektrum.
+
+
+    \boxfigure{t}{\textwidth}{
+      \begin{center}
+        \begin{pspicture}(0,-0.6)(14,5)
+          %  \psgrid[](0,0)(0,0)(14,10)
+          \rput[tl]{*0}( 1.0,4.3){\input{per}}
+          \rput[tl]{*0}( 7.8,4.3){\input{per-fft}}
+        \end{pspicture}
+      \end{center}
+    } 
+    {
+    \caption{\protect\capsize
+             En periodisk funktion og dens Fourier-spektrum.}
+    \protect\label{tid:SinPer}
+    }
+
+  Hvis vi ser p{\aa} et mere realistisk eksempel som
+  R\"{o}sslers model, ser vi det samme som f{\o}r. R\"{o}sslers 
+  model best{\aa}r af tre
+  s{\ae}dvanlige differentialligninger:
+
+    \begin{eqnarray*}
+      \frac{dx}{dt} &=& -y-z \\
+      \frac{dy}{dt} &=& x+ay \\
+      \frac{dz}{dt} &=& bx-cz+xz
+    \end{eqnarray*}
+
+  V{\ae}lges $a=0.60$, $b=0.3$ og $c=4.5$ f{\aa}r vi en
+  periodisk l{\o}sning, som vi ser p{\aa} figur
+  \ref{tid:RossPer}. Det tilh{\o}rende spektrum indeholder
+  en grundfrekvens og alle dens overtoner.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Fouriertransformation af Roessler tidsserier 
+%% plt         : roes.plt
+%% dat         : roes1.dat, roes2.dat, roes3.dat, roes4.dat
+%% tex         : roesa.tex, roesb.tex, roesc.tex, roesd.tex
+%% makroer     : TeXDraw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\begin{center}
+ \begin{pspicture}(0,-0.8)(14,10)
+%  \psgrid[](0,0)(0,0)(14,10)
+  \rput[tl]{*0}( 1.2,9.2){\input{roesa}}
+  \rput[tl]{*0}( 7.6,9.2){\input{roesb}}
+  \rput[tl]{*0}( 1.2,4.3){\input{roesc}}
+  \rput[tl]{*0}( 7.6,4.3){\input{roesd}}
+  \rput[tc]{*0}( 4.1,5.0){\footnotesize tid/s}
+  \rput[tc]{*0}(10.5,5.0){\footnotesize tid/s}
+  \rput[tc]{*0}( 4.1,0.1){\footnotesize frekvens/s$^{-1}$}
+  \rput[tc]{*0}(10.5,0.1){\footnotesize frekvens/s$^{-1}$}
+  \rput[cc]{*0}( 6.4,8.8){\footnotesize a)}
+  \rput[cc]{*0}(12.8,8.8){\footnotesize b)}
+  \rput[cc]{*0}( 6.4,3.9){\footnotesize c)}
+  \rput[cc]{*0}(12.8,3.9){\footnotesize d)}
+  \rput[cc]{*0}( 0.5,7.3){\rotateleft{\footnotesize $x$}}
+  \rput[cc]{*0}( 0.5,2.4){\rotateleft{\footnotesize $\log_{10}$ amplitude}}
+ \end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize
+        En periodisk og kaotisk l{\o}sning til
+        R\"{o}sslers model med de tilh{\o}rende Fourierspektra
+        ($a=0.60$ og $a=0.32$).}
+\label{tid:RossPer}
+}
+
+
+  \item[Kompleks] En tidsr{\ae}kke, som har en kompleks
+  periodisk opf{\o}rsel har ofte mere end en hovedfrekvens.
+  Dertil kommer diverse overtoner. Kvotienten mellem
+  hovedfrekvenser er dog altid et rationelt tal.
+
+  \item[Kvasiperiodisk] Et kvasiperiodisk system har to
+  inkommensurable fre\-kven\-ser, hvilket ogs{\aa} kommer
+  til udtryk i dets spektrum. Der vil v{\ae}re to
+  grundfrekvenser, $f_1$ og $f_2$, hvis kvotient er et
+  irrationelt tal ($\frac{f_1}{f_2} \not\in \Z$). Dette
+  spektrum best{\aa}r ogs{\aa} af grundfrekvensernes
+  overtoner ($n\cdot f_1$ og $n\cdot f_2$) samt
+  linearkombinationerne ($nf_1 + mf_2$). Figur
+  \ref{tid:SinKvasi} viser en kvasiperiodisk funktion,
+  $\sin\frac{j\pi}{50} + \sin\frac{j\sqrt{2}\pi}{50}$ for
+  $j=1,\ldots,1000$ og dens spektrum.
+
+    \boxfigure{t}{\textwidth}{
+      \begin{center}
+        \begin{pspicture}(0,-0.6)(14,5)
+          %  \psgrid[](0,0)(0,0)(14,10)
+          \rput[tl]{*0}( 1.0,4.3){\input{quasi}}
+          \rput[tl]{*0}( 7.6,4.3){\input{quasi-ff}}
+        \end{pspicture}
+      \end{center}
+      } 
+    {\caption{\protect\capsize
+        En kvasiperiodisk funktion og dens spektrum.\label{tid:SinKvasi}}}
+
+  \item[Kaotisk] En tidsr{\ae}kke som er kaotisk, har et
+  bredt b{\aa}ndagtigt spektrum, dvs.\ der er uendeligt
+  mange grundfrekvenser, samt deres overtoner. R\"{o}sslers
+  model er i stand til at udvise en kaotisk opf{\o}rsel,
+  f.eks.\ n{\aa}r $a=0.32$. Figur \ref{tid:RossPer} viser
+  den kaotiske opf{\o}rsel og det tilh{\o}rende spektrum.
+
+\end{description}
+
+\section{Rekonstruktion af tiltr{\ae}kkere}\label{tid:gendan}
+Det er s{\aa} godt som aldrig muligt at m{\aa}le alle
+komponenterne i et system. Derfor er det ogs{\aa}
+umiddelbart umuligt at bestemme systemets tiltr{\ae}kker.
+Dette forhold ser vi ofte i kemiske reaktionssystemer. I
+BZ-reaktionen forekommer en meget stor m{\ae}ngde af
+forbindelser, hvor mange af disse er til stede i s{\aa}
+sm{\aa} koncentrationer, at det i praksis er umuligt at
+m{\aa}le dem. Det eksperimentelle udstyr er ikke i stand
+til at detektere s{\aa} lave koncentrationer. Mange kemiske
+forbindelser kan ogs{\aa} have meget korte levetider,
+f.eks.\ vil radikaler ofte reagere meget hurtigt. I
+BZ-reaktionen indg{\aa}r en stribe radikaler,
+f.eks.\ \chem{BrO_2\cdot} og \chem{Br\cdot} [\citen{FieldBurger}].
+Men der findes dog to metoder, som kan rekonstruere
+tiltr{\ae}kkeren. Det drejer sig om f{\o}lgende to metoder
+
+\begin{enumerate}
+\item Tidsforsinkelsesmetoden (eng. {\em Time Delay}).
+\item Singular-Value Decomposition.
+\end{enumerate}
+
+Ingen af disse metoder er i stand til at rekonstruere
+tiltr{\ae}kkeren i dens op\-rinde\-lige form, men den
+rekonstruerede har samme topologiske egenskaber som den
+oprindelige. Med topologiske egenskaber mener vi
+dimensioner, Lyapunoveksponenter, Floqueteksponenter, etc.
+
+\vspace{4.0mm}
+Vi begynder med nogle resultater, som vi f{\aa}r brug for
+n{\aa}r selve rekonstruktionen skal diskuteres.
+ 
+\subsection{Autokorrelationsfunktionen}
+Autokorrelationsfunktionen er en funktion, som kan give
+oplysninger om st{\o}jen i tidsr{\ae}kken.
+Autokorrelationsfunktionen, $B$, for en diskret r{\ae}kke
+er defineret ved [\citen{Prag:Arno}]
+
+\begin{equation}
+B(t) \equiv \frac{\sum_{i=1}^N x(t_i+t)x(t_i)}{\sum_{i=1}^Nx(t_i)^2},
+\end{equation}
+hvor $\{x(t_i)\}_{i=1}^N$ er tidsr{\ae}kken. 
+
+I [\citen{chatfield}] diskuteres f{\o}l\-gen\-de seks
+forskellige op\-f{\o}rs\-ler af
+auto\-korrela\-tions\-funk\-tio\-nen\footnote{Mere
+pr{\ae}cist diskuteres autokorrelationskoefficienterne, men
+forskellen er minimal. Disse koefficienter er defineret ved
+
+\[
+r_k =
+\frac{\sum_{i=1}^{N-k}(x(t_i)-\overline{x})(x(t_{i+k})-\overline{x})}{\sum_{i=1}^N(x(t_i)-\overline{x})^2},
+\]
+
+hvor $\overline{x}$ er middelv{\ae}rdien.}.
+
+\begin{description}
+\item[St{\o}j] 
+  Hvis tidsr{\ae}kken best{\aa}r af hvid st{\o}j, dvs.\
+  v{\ae}rdierne er uafh{\ae}ngige af hinanden, s{\aa} vil
+  funktionen g{\aa} hurtigt mod nul. Figur \ref{tid:Rand}
+  viser en tidsr{\ae}kke, som best{\aa}r af en r{\ae}kke
+  tilf{\ae}ldige tal. Figuren viser yderligere r{\ae}kkens
+  autokorrelationsfunktionen. Som det ses g{\aa}r
+  den hurtigt mod nul.
+
+  \boxfigure{t}{\textwidth}{
+    \begin{center}
+      \begin{pspicture}(0,-0.6)(14,5)
+        %  \psgrid[](0,0)(0,0)(14,10)
+        \rput[tl]{*0}( 1.0,4.3){\input{random}}
+        \rput[tl]{*0}( 7.6,4.3){\input{rand-aut}}
+      \end{pspicture}
+    \end{center}
+    }
+  {\caption{\protect\capsize
+      En r{\ae}kke af tilf{\ae}ldige tal i intervallet [2;4] og r{\ae}kkens
+      autokorrelationsfunktion.\label{tid:Rand}}} 
+  
+\item[Sammenh{\ae}ng p{\aa} kort sigt] 
+  Hvis der er en kortsigtet sammen\-h{\ae}ng i
+  r{\ae}k\-ken, s{\aa} vil funktionen g{\aa} mod nul, men
+  for lave argumenter vil funktionen antage relativt store
+  v{\ae}rdier.
+\item[Alternerende r{\ae}kker]
+  N{\aa}r tidsr{\ae}kken har en tendens til at oscillere
+  (p{\aa} en irregul{\ae}r m{\aa}de) vil funktionen
+  ogs{\aa} oscillere. Den vil dog g{\aa} mod nul.
+\item[Tendenser] En tidsr{\ae}kke kan have en tendens,
+  det vil sige, at den vil vokse (eller aftage). Dette
+  kaldes ogs{\aa} for en ikke-station{\ae}r r{\ae}kke. I
+  dette tilf{\ae}lde vil funktionen ikke g{\aa} mod nul.
+\item[S{\ae}sonm{\ae}ssige fluktuationer] 
+  Dette er ogs{\aa} en form for oscillerende
+  tids\-r{\ae}k\-ke. Oscillationerne for tidsr{\ae}kken er
+  regul{\ae}re, og vi kan tale om oscillationernes
+  frekvens. N{\aa}r dette er tilf{\ae}ldet, s{\aa} vil
+  autokorrelationsfunktionen ogs{\aa} svinge med den samme
+  frekvens. Figur \ref{tid:SinCorr} viser
+  autokorrelationsfunktionen svarende til tidsr{\ae}kken
+  vist i figur \ref{tid:SinPer}. Vi ser, at
+  autokorrelationsfunktionen svinger p{\aa} en
+  regelm{\ae}ssig m{\aa}de.
+
+  \boxfigure{t}{\textwidth}{
+    \begin{center}
+      \begin{pspicture}(0,-0.6)(14,5)
+%          \psgrid[](0,0)(0,0)(14,10)
+        \rput[tl]{*0}( 4.0,4.3){\input{corr}}
+      \end{pspicture}
+    \end{center}
+    }
+  {\caption{\protect\capsize
+      Autokorrelationsfunktionen for en oscillerende
+      r{\ae}kke.\label{tid:SinCorr}}}
+\end{description} 
+
+\subsection{Singular-Value Decomposition}
+\label{tid:SVD}
+Et velkendt resultat fra line{\ae}r algebra er, at en
+vilk{\aa}rlig $m\times n$ matrix kan faktoriseres som
+
+\[
+\matrix{A} = \matrix{P}\matrix{D}\matrix{Q},
+\]
+
+hvor $\matrix{P}$ er en unit{\ae}r $m\times m$ matrix,
+$\matrix{D}$ er en $m \times n$ diagonal matrix og
+$\matrix{Q}$ er en unit{\ae}r $n \times n$ matrix
+[\citen{NumAna:KC,NumRec}]. Matricen $\matrix{D}$ har
+alts{\aa} formen
+
+\[
+  \matrix{D} = \left( \begin{array}{ccc}
+                \sigma_1 &  & 0 \\
+                         & \ddots &  \\
+                0        &  & \sigma_n  
+             \end{array} \right).
+\]
+
+Tallene $\sigma_1, \ldots, \sigma_n$ kaldes matricens
+singul{\ae}re v{\ae}rdier. Disse $\sigma$'er er
+egen\-v{\ae}r\-dier til $\matrix{A}^*\matrix{A}$. Den
+ovenst{\aa}ende ``singular-value decomposition'' er ikke
+entydighed. Eksempelvis er opbygningen af matricen
+$\matrix{D}$ ikke fastlagt p{\aa} forh{\aa}nd. Ofte
+v{\ae}lges dog en ordning s{\aa} $\sigma_1 \ge \cdots \ge
+\sigma_n$.
+
+\vspace{4.0mm}
+En af de vigtigste egenskaber ved {\em singular-value
+decomposition} er, at vi er i stand til at finde rangen
+(antallet af line{\ae}rt uafh{\ae}ngige s{\o}jler) af en
+matrix. Det er netop s{\aa}dan, at rangen er lig antallet
+af singul{\ae}re v{\ae}rdier, som er forskellige fra nul.
+Grunden er, at de egenvektorer til $\matrix{A}^*\matrix{A}$
+med egenv{\ae}rdi nul, udsp{\ae}nder nulrummet til
+$\matrix{A}$. Der er $n-r$ af disse egenvektorer, mens der
+er $r$ egenvektorer med en egenv{\ae}rdi forskellig fra
+nul. Spannet af $\matrix{A}$ udsp{\ae}ndes af disse
+egenvektorer, og dimensionen af dette rum er $r$, da der
+for en vilk{\aa}rlig matrix g{\ae}lder $n={\rm
+rg}\matrix{A}+{\rm dim}\, {\rm ker} \matrix{A}$.
+
+I [\citen{NumRec}] omtales en implementation af {\em
+sigular-value decomposition}, s{\aa}ledes at den kan
+foretages numerisk.
+
+\subsection{Tidsforsinkelsesmetoden}
+\label{tid:delay}
+Som allerede n{\ae}vnt findes der to metoder til
+rekonstruktion af tiltr{\ae}kkere. Vi vil nu beskrive den
+f{\o}rste.
+
+\vspace{4.0mm}
+Inden vi beskriver selve rekonstruktionsmetoden er vi
+n{\o}dsaget til f{\o}rst at indf{\o}re et nyt begreb og
+beskrive en vigtig s{\ae}tning [\citen{Broomhead86}]. Vi
+begynder med begrebet ``indlejring''. Ved indlejringen
+$\Phi$ forst{\aa}r vi en afbildning, som opfylder
+
+\begin{enumerate}
+  \item 
+    $\Phi$ er en glat afbildning af en mangfoldighed $M$ p{\aa} en
+    mangfoldighed $U$, s{\aa} $\Phi(M) \subset U$ er en glat
+    delmangfoldighed af $U$.
+  \item
+    $\Phi$ er en diffeomorfi mellem $M$ og $\Phi(M)$, dvs.\ b{\aa}de
+    $\Phi$, $\Phi^{-1}$ og deres afledede er kontinuerte.
+\end{enumerate} 
+
+Lad os nu se p{\aa} et system af $m$ differentialligninger, dvs.\
+
+\begin{equation}
+  \label{tid:ODE}
+  \frac{d\vec{x}}{dt} = \vec{F}(\vec{x}),
+\end{equation}
+
+hvor $\vec{F}$ er en afbildning af $\R^m$ p{\aa} $\R^m$.
+L{\o}sningen til ligning \ref{tid:ODE}, dvs.\ $\vec{x}(t)$,
+beskriver en mangfoldighed $M$ med dimensionen $m$. Takens
+s{\ae}tning [\citen{Broomhead86}] siger, at der findes en
+indlejring af $M$ i et euklidisk rum med dimensionen $2m+1$
+defineret ved
+
+\[
+  \Phi_{\vec{F},v}(\vec{y}) = (v(\vec{y}), v(\phi_1(\vec{y})),
+  \cdots, v(\phi_{2m}(\vec{y}))),
+\]
+
+hvor $v$ er en glat afbildning p{\aa} mangfoldigheden, og
+$\phi_t$ er flowet h{\o}rende til $\vec{F}$. Afbildningen
+$v$ repr{\ae}senterer tidsr{\ae}kken.
+
+\boxfigure{t}{\textwidth}{
+  \begin{center}
+    \begin{pspicture}(0,0.6)(14,11)
+%     \psgrid[](0,0)(0,0)(14,11)
+      \rput[tl]{*0}(1.0,10.3){\input{cos-sin}}
+      \rput[tl]{*0}(7.9,10.3){\input{cos-del2}}
+      \rput[tl]{*0}(4.3,5.3 ){\input{cos-del1}}
+      \rput[cc]{*0}(0.5,10.5){\footnotesize a)}
+      \rput[cc]{*0}(7.5,10.5){\footnotesize b)}
+      \rput[cc]{*0}(3.5,5.5){\footnotesize c)}
+    \end{pspicture}
+  \end{center}
+}
+{
+\caption{\protect\capsize Den originale tiltr{\ae}kker
+         (a) og to rekonstruerede (b og c). Den ene (c) har en
+         tidsforskydning, s{\aa} vi f{\aa}r den oprindelige
+         tiltr{\ae}kker tilbage.}
+\label{tid:cirkel}
+}
+
+\vspace{4.0mm}
+En praktisk implementation af metoden er beskrevet i
+[\citen{Prag:Arno}]. Vi ser igen p{\aa} tidsr{\ae}kken
+$\{\vec{x}(t_i)\}_{i=1}^{N}$ og v{\ae}lger en
+tidsforsinkelse, der betegnes med $d$. Vi kan konstruere en
+banekurvematrix $\matrix{Y}$ ved
+
+\begin{equation}
+\label{tid:banekurvematr}
+  \matrix{Y} = \left( \begin{array}{c}
+                y_1 \\
+                \vdots \\
+                y_n
+             \end{array}
+      \right),
+\end{equation}
+
+hvor $y_i = (\vec{x}(t_i), \vec{x}(t_{i+d}), \ldots,
+\vec{x}(t_{i+(n-1)d}))$. Vektoren $y_i$ vil beskrive
+til\-tr{\ae}k\-ke\-rens topologiske egenskaber. Problemet
+ved metoden er at g{\ae}tte p{\aa} et passende $d$ og et
+passende $n$, fordi dimensionen af tiltr{\ae}kkeren ikke er
+kendt p{\aa} forh{\aa}nd. Hvis den var det, ville der
+g{\ae}lde $n=2m+1$. Men hvis vi m{\aa}ler $m$ komponenter
+af tiltr{\ae}kkeren, m{\aa} vi i det mindste kr{\ae}ve
+$n\ge 2m+1$.
+
+\vspace{4.0mm}
+Lad os illustrere metoden med et eksempel, som findes er
+beskrevet i [\citen{Schuster}]. Det virkelige system er
+givet ved vektoren $(\cos(2\pi t), \sin(2\pi t))$, dvs.\
+systemet er beskrevet ved en bev{\ae}gelse p{\aa}
+enhedscirklen, se figur \ref{tid:cirkel}. Lad os antage, at
+det kun er muligt at m{\aa}le den ene komponent, f.eks.\
+den f{\o}rste. Vores m{\aa}linger er diskrete, og 
+tidsr{\ae}kken bliver da $\{\cos(2\pi t_i)\}_{i=1}^N$. Vi
+rekonstruerer systemet ved at konstruere vektorer p{\aa}
+formen $(\cos(2\pi t_i), \cos 2\pi t_{i+d})$. For et
+vilk{\aa}rligt valgt $d$ vil det rekonstruerede system
+v{\ae}re en ellipse, men v{\ae}lges $d$ s{\aa}ledes, at
+$\cos(t_{i+d}) = \sin(t_i)$, ser vi, at det virkelige
+system er blevet rekonstrueret ud fra en tidsr{\ae}kke.
+
+\vspace{4.0mm}
+Et andet og mere realistisk eksempel er f{\o}lgende. Vi har
+foretaget en simulering af Oregonatoren, som er en
+3-dimensional model af BZ-reaktionen. Figur
+\ref{tid:Oregon} viser den ``rigtige'' tiltr{\ae}kker,
+dvs.\ den tiltr{\ae}kker som er fremkommet ved denne
+simulering. Men kender vi kun den ene komponent, kan vi i
+stedet for udf{\o}re en rekonstruktion af tidsr{\ae}kken.
+Da vi kender \'{e}n komponent, skal indlejringsdimensionen
+mindst v{\ae}re 3. Figuren viser ogs{\aa} den
+rekonstruerede tiltr{\ae}kker. Som det ses, er der stor
+forskel p{\aa} de to tiltr{\ae}kkere, men
+den rekonstruerede tiltr{\ae}kker er dog en lukket kurve
+ligesom den oprindelige tiltr{\ae}kker.
+
+\vspace{4.0mm}
+Som n{\ae}vnt ovenfor, s{\aa} er problemet med metoden at
+bestemme indlejringsdimensionen, $n$, og tidsforsinkelsen,
+$d$. Den sidste parameter bestemmes ofte vha.\
+autokorrelationensfunktionen. Det f{\o}rste nul i
+autokorrelationsfunktionen bruges som forsinkelse
+[\citen{Prag:Arno}]. Dette giver naturligvis problemer,
+n{\aa}r der er st{\o}j i tidsr{\ae}kken. Dette l{\o}ses ved
+at fasts{\ae}tte et st{\o}jniveau (f.eks.\ p{\aa} 2 \%), og
+n{\aa}r v{\ae}rdien af autokorrelationsfunktionen kommer
+under dette niveau, betrages funktionen som nul.
+
+\vspace{4.0mm}
+Bestemmelse af indlejringsdimensionen kan g{\o}res ved at
+lade $n$ vokse indtil ingen banekurver l{\ae}ngere
+sk{\ae}rer hinanden svarende til, at en l{\o}sning til en
+differentialligning ikke kan sk{\ae}re sig selv
+[\citen{falconer90}].
+
+\vspace{4.0mm}
+Ingen af de to parametre kan under nogen omst{\ae}ndigheder
+bestemmes s{\ae}rlig godt. Det vil give problemer senere,
+n{\aa}r man {\o}nsker at beregne forskellige st{\o}rrelser
+for systemet.
+
+\boxfigure{tbp}{\textwidth}{
+ \begin{center}
+  \begin{pspicture}(0,0)(14,11.4)
+%   \psgrid[](0,0)(0,0)(14,11.4)
+   \rput[cc]{*0}(7.0,8.3){\input{oregon}}
+   \psline[arrowinset=0]{->}(2.4,6.72)(2.4,10.7)
+   \rput[cc]{*0}(7.0,2.3){\input{oregon-1}}
+   \psline[arrowinset=0]{->}(2.41,1.71)(2.41,5.7)
+   \rput[ct]{*0}(5.1,1.1){\footnotesize $x_1$}
+   \rput[cl]{*0}( 10,1.4){\footnotesize $x_2$}
+   \rput[cr]{*0}(2.3,3.5){\footnotesize $x_3$}
+   \rput[ct]{*0}(5.1,6.1){\footnotesize [Br$^-$]}
+   \rput[cl]{*0}( 10,6.4){\footnotesize [HBrO$_2$]}
+   \rput[cr]{*0}(2.3,8.6){\footnotesize [Ce$^{4+}$]}
+   \rput[cl]{*0}(10,4.2){
+    \tiny $x_1\in [1\cdot 10^{-7};3\cdot 10^{-7}]$}
+   \rput[cl]{*0}(10,3.8){
+    \tiny $x_2\in [1\cdot 10^{-7};7\cdot 10^{-7}]$}
+   \rput[cl]{*0}(10,3.4){
+    \tiny $x_3\in [0;4\cdot 10^{-7}]$}
+   \rput[cl]{*0}(10,9.4){
+    \tiny [Br$^-$] $\in [1\cdot 10^{-7};3\cdot 10^{-7}]$}
+   \rput[cl]{*0}(10,9.0){
+    \tiny [HBrO$_2$] $\in [1\cdot 10^{-7};7\cdot 10^{-7}]$}
+   \rput[cl]{*0}(10,8.6){
+    \tiny [Ce$^{4+}$] $\in [0;4\cdot 10^{-7}]$}
+  \end{pspicture}
+ \end{center}
+}
+{
+\caption{\protect\capsize
+Den ``sande'' tiltr{\ae}kker og en rekonstrueret
+tiltr{\ae}kker ud fra tidsr{\ae}kken med en forsinkelse
+p{\aa} 5 sekunder. De angivede intervaller angiver max.\ og 
+min.\ v{\ae}rdier for de respektive akser.}
+\label{tid:Oregon}
+}
+
+\newpage
+\subsection{SVD-metoden} 
+I SVD-metoden bruger man den f{\o}romtalte {\em Singular
+Value Decomposition}. Banekurvematricen $\matrix{Y}$ fra
+ligning \ref{tid:banekurvematr} dekomponeres, dvs.\ den
+skrives som
+
+\begin{equation}
+ \matrix{Y} = \matrix{U}\matrix{S}\matrix{V},
+\end{equation} 
+
+jvf.\ afsnit \ref{tid:SVD}. Indlejringsdimensionen $n$
+v{\ae}lges f{\o}rst s{\aa} stor som mulig, dvs.\ s{\aa}
+stor som en given computer er i stand til at h{\aa}ndtere.
+
+\vspace{4.0mm}
+For en st{\o}jfri tidsr{\ae}kke vil de singul{\ae}re
+v{\ae}rdier, $\sigma_i$, aftage og indekset p{\aa} den
+f{\o}rste, som er nul, svare til indlejringsdimensionen,
+da dette er rangen af $\matrix{Y}$. Dette g{\ae}lder
+naturligvis ikke, n{\aa}r tidsr{\ae}kken indeholder
+st{\o}j. I dette tilf{\ae}lde vil de singul{\ae}re
+v{\ae}rdier aftage mod en endelig v{\ae}rdi, som er
+forskellig fra nul. Men st{\o}jen kan filtreres fra ved at
+danne en ny matrix, $\matrix{X}$, som indeholder s{\o}jler
+h{\o}rende til singul{\ae}re v{\ae}rdier, som er st{\o}rre
+end st{\o}jniveauet (i praksis v{\ae}lger man en br{\o}kdel
+af den st{\o}rste singul{\ae}re v{\ae}rdi). Man kan derefter
+foretage en ny singul{\ae}r dekomposition af den nye matrix
+$\matrix{X}$, og p{\aa} den m{\aa}de bestemme
+indlejringsdimensionen af tiltr{\ae}kkeren.
+
+\section{Lyaponoveksponenter}
+\label{tid:LCE}
+Der er en stor interesse i at beregne Lyaponoveksponenter
+for ikke-line{\ae}re dynamiske systemer.
+Lyaponoveksponenterne giver information om opf{\o}rslen af
+systemet. Nedenst{\aa}ende tabel viser sammenh{\ae}ngen
+mellem et systems opf{\o}rsel og fortegnene\footnote{``$+$''
+st{\aa}r for positive v{\ae}rdier, ``$-$'' for negative
+v{\ae}rdier, og ``0'' for v\ae rdien 0. Eksponenterne er
+ordnet i aftagende r{\ae}kkef{\o}lge.} for dets
+Lyaponoveksponenter.
+
+\vspace{4.0mm}
+\begin{tabular}[h]{ll}
+Spektrum         & Opf{\o}rsel  \\ \hline
+$(-,-,\cdots )$  & Stabil knude eller fokus \\
+$(0,-,\cdots )$  & Stabil gr{\ae}nsecyklus \\
+$(0,0,-,\cdots )$ & Torus-svingning (med inkommensurable frekvenser) \\
+$(+,0,-\cdots )$ & Kaos \\
+$(+,+,0,-,\cdots )$ & Hyperkaos \\ \hline 
+\end{tabular} 
+
+\vspace{4.0mm}
+Flere metoder er beskrevet i litteraturen
+[\citen{WSSV,Prag:Arno,Kruel,Farmer92}], men vi vil her
+koncentrere os om den, som er beskrevet i [\citen{Kruel}].
+Metoden tager sit udgangspunkt i et system, som er
+beskrevet ved et system af s{\ae}dvanlige 1.\ ordens
+differentialligninger
+
+\[
+  \frac{d\vec{c}}{dt} = \vec{F}(\vec{c}).
+\]
+L{\o}sningen til denne differentialligning kan beskrives ved et {\em
+flow} $\matrix{\phi}_t$ p{\aa} formen
+
+\[
+  \vec{c}(t) = \matrix{\phi}_t \vec{c}_0,
+\]
+
+hvor $\vec{c}_0$ er begyndelsesbetingelserne. En lille\footnote{``Lille'' 
+betyder her, at $\|\delta\vec{c}\| \ll
+\|\vec{c}\|$, hvor $\|\cdot\|$ er en passende norm.}
+afvigelse $\delta\vec{c}$ fra $\vec{c}$ er
+
+\[
+  \frac{\delta\vec{c}}{dt} = \matrix{J}(\vec{c}(t))\delta\vec{c},
+\]
+
+hvor $\matrix{J}$ er Jacobimatricen. L{\o}sningen til denne
+ligning er $\delta\vec{c}(t) =
+\matrix{U}_{\vec{c}_0}^t\delta\vec{c}_0$, hvor $\matrix{U}$
+er fundamentalmatricen givet ved $\matrix{U}^t =
+e^{\matrix{J}t}$ [\citen{Perko}]. Lad os antage, at vi har
+$d$ vektorer, $\vec{e}_i$ for $i=1,\ldots,d$, og hver
+vektor repr{\ae}senterer en afvigelse. Disse afvigelser kan
+ogs{\aa} udtrykkes som $\vec{e}_i =
+\matrix{U}_{\vec{c}_0}^t\vec{e}_i(0)$. Den st{\o}rste
+Lyaponoveksponent kan derved udregnes ved
+
+\begin{equation}
+\lambda(\matrix{e}^1, c_0) = \lim_{t\rightarrow\infty}
+\frac{1}{t}\ln \frac{{\rm Vol}(\vec{e}^1(t))}{{\rm Vol}(\vec{e}^1(0))},
+\end{equation}
+
+hvor ${\rm Vol}(\vec{e}^1)$ er l{\ae}ngden af vektoren
+$\vec{e}_1$. Mere generelt g{\ae}lder der, at ${\rm Vol}$
+er det $d$-dimensionale volumen udsp{\ae}ndt af vektorerne
+$\vec{e}_1, \ldots, \vec{e}_d$. Eller mere formelt
+
+\[
+  {\rm Vol}(\vec{e}^d) = \|\vec{e}_1 \times \cdots \times \vec{e}_d\|.
+\]
+
+For at undg{\aa} at metoden divergerer, s{\aa} anbefaler
+Kruel {\em et al.\/} [\citen{Kruel}] at fremstille en ny
+basis for tangentrummet, som er udsp{\ae}ndt af vektorerne
+$\vec{e}_1, \ldots, \vec{e}_d$. En velkendt metode fra
+line{\ae}r algebra er Gram-Schmidt orthonormalisering, som
+giver en basis, hvor vektorerne er normerede (de har alle
+l{\ae}ngden 1) og parvis orthogonale (de st{\aa}r parvis
+vinkelrette p{\aa} hinanden). Gram-Schmidt
+orthonormaliseringen er beskrevet (og bevist) i
+[\citen{Mat1LA}], mens [\citen{NumRec} s.\ 66] viser, at
+``singular-value decomposition'' kan bruges til at
+konstruere en orthonormal basis. Numerisk set er denne
+metode at foretr{\ae}kke, da en implementation direkte fra
+en l{\ae}rebog som [\citen{Mat1LA}] vil akkumulere
+afrundningsfejl.
+
+\vspace{4.0mm}
+N{\aa}r basisvektorerne er orthogonale, men ikke
+n{\o}dvendigvis normerede, kan det volume, som de
+udsp{\ae}nder, beregnes ved
+
+\begin{equation}
+  {\rm Vol}(\matrix{e}^d, t) = \prod_{i=1}^d \|e_i^{j+1}\|,
+\end{equation}
+hvor $e_i^{j+1}$ er givet ved
+
+\[
+  e_i^{j+1} = \matrix{U}_{c_0}^te_i^j - \sum_{k=1}^{i-1}(e_k^{j+1}
+\matrix{U}_{c_0}^t e_k^{j+1}) e_k^{j+1}.
+\]
+
+Den $i$'te Lyaponoveksponent kan udregnes ved
+
+\begin{equation}
+  \lambda_i = \lim_{k\rightarrow\infty}\frac{1}{k\Delta
+t_{GSO}}\sum_{j=1}{k} \ln \| e_i^{j+1} \|,
+\end{equation}
+
+hvor $\Delta t_{GSO}$ er intervallet mellem to
+orthogonaliseringer.
+
+\vspace{4.0mm}
+Tangentrummet er jo ikke givet p{\aa} forh{\aa}nd for en
+eksperimentel tidsr{\ae}kke. Det vil sige, at afbildningen
+$\matrix{U}_{c_0}^t$ ikke eksisterer {\em a priori}. Det er
+derfor n{\o}d\-ven\-digt at foretage en approksimation.
+Denne approksimation s{\o}ger at finde en afbildning
+$\matrix{A}_j$, som opfylder
+
+\begin{equation}
+  z^i = \matrix{A}_j y^i,
+\end{equation}
+
+hvor $z^i = c_{k_i+m} - c_{j+m}$ og $y^i = c_{k_i} - c_j$.
+Med andre ord er $y^i$ den initiale afvigelse fra
+tiltr{\ae}kkeren, mens $z^i$ er afvigelsen efter $k$
+tidsskridt. Punkterne $\vec{c}_{k_i}$ er formelt givet ved
+
+\begin{equation}
+  \{ \vec{c}_{k_i} | \|\vec{c}_{k_i} - \vec{c}_j\| \le
+  \epsilon_{\mbox{max}} \},
+\end{equation}
+
+hvor $i=1,\ldots,N$ og $\epsilon_{\mbox{max}}$ er en given
+afstand. Afbildningen eller matricen $\matrix{A}_j$ kan
+findes ved [\citen{Kruel}]
+
+\begin{equation}
+  \sum_{l=1}^d \left[ a_{kl} \left(\underbrace{\frac{1}{N}\sum_{i=1}^N
+y_k^i y_l^i}_{v_{lk}} \right) \right] =
+\underbrace{\frac{1}{N}\sum_{i=1}^Ny_l^i z_k^i}_{c_{kl}},
+\end{equation}
+
+eller
+
+\[ \matrix{A}_j = \matrix{C}\matrix{V}^{-1}. \]
+
+Denne metode til at beregne Lyapunoveksponenter har
+v{\ae}ret afpr{\o}vet i [\citen{Kruel}]. Testeksemplerne
+har v{\ae}ret R\"{o}sslers model, Lorenz' ligninger og
+Brusselatoren. Metoden giver v{\ae}rdier for
+Lyapunoveksponenterne, som ligger meget t{\ae}t ved de
+eksakte v\ae rdier. Generelt giver metoden de rigtige
+fortegn for Lyapunov-eksponenterne, men ogs{\aa}
+st{\o}rrelsesordnen for eksponenterne er korrekte.
+Forfatterne bem{\ae}rker selv, at usikkerheden er st{\o}rst
+for de negative eksponenter. Metoden ser ogs{\aa} ud til at
+v{\ae}re robust mod st{\o}j i tidsr{\ae}kken. Metoden er
+ogs{\aa} blevet brugt p{\aa} eksperimentelle
+tidsr{\ae}kker. Her var der tale om isotermisk oxidation af
+carbonmonoxid p{\aa} en platinkatalysator.
+
+\vspace{4.0mm}
+Det viser sig, at dette system er i stand til at udvise
+b{\aa}de periodisk og kaotisk opf{\o}rsel. Begge
+opf{\o}rsler f{\aa}r man en intuitiv fornemmelse for,
+n{\aa}r man ser p{\aa} tidsr{\ae}kken, hvilket yderligere 
+bekr{\ae}ftes ved at benytte den her beskrevne numeriske metode.
+I [\citen{Prag:Arno}] beskrives Lyapunovspektra,
+der dog er for BZ-reaktionen, hvor den eksperimentelle
+opstilling er en CSTR med et inflow i tre
+kanaler (\chem{(COOH)_2CH_2}/\chem{Ce^{3+}}, \chem{KBrO_3}
+og \chem{H_2SO_4}). Flowhastigheden benyttes som
+kontrolparameter. Figur \ref{tid:ArnoBZ} viser et
+eksperimentelt bifurkationsdiagram.
+
+\boxfigure{t}{\textwidth}{
+\vspace{10cm}
+}
+{
+\caption{\protect\capsize
+Ekspetimentelt bifurkationsdiagram for BZ-reaktionen fra
+\protect\cite{Prag:Arno}.}
+\label{tid:ArnoBZ}
+}
+
+Figuren benytter f{\o}lgende signaturer: $P_i$ st{\aa}r for
+en periodisk opf{\o}rsel med perioden $i$, $C$ st{\aa}r for
+kaos, mens Faray refererer til komplekse svingninger, som
+har to grundfrekvenser med en rationel kvotient.
+
+\vspace{4.0mm}
+Kruel {\em et al.\/} [\citen{Kruel}] har implementeret
+ovenst{\aa}ende metode og har endvidere stillet
+programpakken til r{\aa}dighed for
+offentligheden. Programmet kan f{\aa}s ved anonymt ftp fra
+maskinen {\tt ftp.phys-chemie.uni-wuerzburg.de} p{\aa}
+Internettet. Der f{\o}lger testeksempler og
+brugervejledning med programmet.
+  
+\section{Dimensioner}
+\label{tid:dim}
+En tiltr{\ae}kker har ofte en meget kompleks struktur.
+Dette er motivationen for at beregne eller estimere
+dimensionen af en tiltr{\ae}kker. Tiltr{\ae}kkere i
+kaotiske systemer har en fraktal geometri, og derfor vil
+dimensionen ikke v{\ae}re heltallig.
+
+\vspace{4.0mm}
+Der findes mange forskellige dimensionsm{\aa}l i den
+fraktale geometri, men vi vil her diskutere
+korrelationsdimensionen, som er defineret ved
+[\citen{Prag:Arno}],
+
+\begin{equation}
+  D_{{\rm corr}} \equiv -\lim_{e\rightarrow 0} \frac{\log\sum_{i=1}^N
+P_i^2}{\log e},
+\end{equation}
+
+hvor $P_i$ er sandsynligheden for at finde en tilstand i
+den $i$'te hyperkugle med diameter $e$, idet
+tilstandsrummet opdeles i hyperkugler af en given
+st{\o}rrelse. Figur \ref{tid:sfaerer} skitserer ideen. De
+stiplede linier beskriver tiltr{\ae}kkeren, mens cirklerne
+illustrerede omtalte hyperkugler.
+
+\boxfigure{t}{\textwidth}{
+  \psfig{file=tid-dim.ps,height=5cm,width=13cm}
+}{\caption{\protect\capsize
+Hyperkugler og en tiltr{\ae}kker (de stiplede linier). \label{tid:sfaerer}}}
+
+Et andet dimensionsm{\aa}l er informationsdimensionen, som
+er defineret ved
+
+\begin{equation}
+  D_{\rm info} \equiv -\lim_{e\rightarrow 0} \frac{H(e)}{\log e},
+\end{equation}
+
+hvor $H(e)$ er informationsentropien $H(e) = -\sum_{i=1}^N P_i \log P_i$.
+Informationsentropien er et begreb, der stammer fra
+informationsteori [\citen{Topsoe:Info,Jaynes}].
+
+\vspace{4.0mm}
+Det er muligt at vise, at $D_{\rm corr} \le D_{\rm info}$.
+For et system med kaotisk opf{\o}rsel g{\ae}lder der, at
+dimensionen af tiltr{\ae}kkeren er st{\o}rre end 2, 
+jvf.\ Poincar\'{e}-Bendixsons s{\ae}tning \cite{LichtLieb}.
+
+\vspace{4.0mm}
+For at estimere disse dimensioner er det bekvemt at
+indf{\o}re to st{\o}rrelser, nemlig $C_{\rm corr}$ og
+$C^i_\infty$. Disse to st{\o}rrelser er defineret ved
+
+\begin{eqnarray*}
+  C_{\rm corr}(e) &\equiv&
+\frac{1}{N_{\rm ref}}\frac{1}{N}\sum_{i=1}^{N_{\rm ref}}\sum_{j=1}^{N}
+T(e-\|\vec{x}_i-\vec{x}_j\|) \\
+  C^i_\infty (e) &\equiv& \frac{1}{N}\sum_{j=1}^{N}
+T(e-\|\vec{x}_i-\vec{x}_j\|), 
+\end{eqnarray*}
+
+hvor $\|\cdot\|$ er en passende norm og $N_{\rm ref}$ er
+antallet af referencepunkter, som skal bruges i beregningen
+($N_{\rm ref} < N$). N{\aa}r et punkt ligger t{\ae}ttere
+p{\aa} referencepunktet end $e$, skal punktet t{\ae}lles
+med jvf.\ definitionen af dimensionerne, hvor
+sandsynligheden indg{\aa}r. Dette kan simpelt beskrives med
+Heavysides enhedsfunktion
+
+\[
+  T(x) =
+    \begin{cases}
+       0, & for $x < 0$, \\
+       1, & ellers.
+    \end{cases}
+\] 
+
+De to dimensionsm{\aa}l kan derved udregnes ved
+[\citen{Prag:Arno}]
+
+\begin{eqnarray}
+  D_{\rm corr} &=& \lim_{N\rightarrow\infty}\lim_{e\rightarrow 0} 
+\frac{\log C_{\rm corr}(e)}{\log e}, \\
+  D_{\rm info} &=& \lim_{N\rightarrow\infty}\lim_{e\rightarrow 0}
+\frac{\log C_\infty\prime}{\log e},
+\end{eqnarray}
+
+hvor $\log C\prime_\infty = \frac{1}{N_{\rm ref}} \sum_{i=1}^{N_{\rm ref}} \log
+C^i_\infty (e)$. 
+
+\vspace{4.0mm}
+At finde dimensionerne svarer med andre ord til at finde
+$C_{\rm corr}$ og $C\prime_\infty$ som funktion af $e$.
+Numerisk kan dette g{\o}res ved at lade $e$ vokse
+eksponentiel, og afbilde henholdsvis $C_{\rm corr}$ og
+$C\prime_\infty$ mod $e$. Dimensionerne kan derefter
+afl{\ae}ses som h{\ae}ldningen af graferne. Denne procedure
+er n{\o}dvendig for alle de mulige v{\ae}rdier af
+indlejringsdimensionen, se afsnit \ref{tid:gendan}.
+
+\section{Anvendelse af metoderne}
+I de foreg{\aa}ende afsnit har vi beskrevet forskellige
+metoder til analyse af tids\-r{\ae}k\-ker. Men lad os kort
+forklare, hvordan de forskellige metoder h{\ae}nger sammen.
+
+\vspace{4.0mm}
+Vi forestiller os, at vi har foretaget et eksperiment, og
+fra dette eksperiment har m{\aa}lt en tidsr{\ae}kke. Det
+f{\o}rste vi g{\o}r, er at rekonstruere tiltr{\ae}kkeren.
+Det har vi to metoder til at g{\o}re, se afsnit
+\ref{tid:SVD} og afsnit \ref{tid:delay}.
+
+\vspace{4.0mm}
+Vi arbejder nu videre med den rekonstruerede
+tiltr{\ae}kker. Vi er her i stand til at unders{\o}ge to
+ting - Lyapunoveksponenter og dimensioner. Disse metoder er
+beskrevet i hhv.\ afsnit \ref{tid:LCE} og \ref{tid:dim}.
+
+\vspace{4.0mm}
+Vi kunne ogs{\aa} n{\o}jes med at se p{\aa} den
+eksperimentelle tidsr{\ae}kke. Ved at Fouriertransformere
+komponenterne i r{\ae}kken, er vi i stand til at se om
+r{\ae}kken er periodisk, kvasiperiodisk eller kaotisk.
+
+

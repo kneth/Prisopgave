@@ -1,0 +1,1586 @@
+\chapter{Oscillationer i kemiske reaktioner}
+En lang r{\ae}kke matematiske metoder har v{\ae}ret anvendt
+til at beskrive ikke-line{\ae}re f{\ae}nomener i kemisk
+kinetik. Med hensyn til beskrivelse og
+stabili\-tets\-ana\-lyse af oscillationer og mere
+kompliceret dynamisk opf{\o}rsel har specielt en r{\ae}kke
+bidrag fra Poincar\'{e} og Lyapunov \cite{PoinOrig} vist
+sig at v{\ae}re af stor betydning. Endvidere har en
+ana\-lyse af line{\ae}re differentiallig\-ninger med
+periodiske koefficienter af Floquet i forrige
+{\aa}rhundrede vist sig at kunne danne grundlag for at
+bestemme periodiske banekurvers stabilitet. Vi vil i dette
+afsnit fors{\o}ge at redeg{\o}re for indholdet i disse
+teorier, samtidig med at disse uddybes med en r{\ae}kke
+eksempler.
+
+\section{Floquetteori og periodiske l{\o}sninger}
+Lad os antage, at den kinetiske lig\-ning
+
+\begin{equation}
+ \dot{\bf c} = {\bf f}({\bf c},\mu)  
+ \label{eq:OdeBasic}
+\end{equation}
+
+har en $T$-periodisk l{\o}sning $\varphi_t({\bf c}_p)$
+s{\aa}ledes, at denne tilfredsstiller
+
+\begin{equation}
+ \varphi_t({\bf c}_p) = \varphi_{t+T}({\bf c}_p)
+\end{equation}
+
+Her angiver $T$ alts{\aa} den tid, det tager sy\-stemet at
+returnere til punktet ${\bf c}_p$ i faserummet. Lad
+ydermere $\gamma$ angive den banekurve som $\varphi_t({\bf
+c}_p)$ beskriver i faserummet. Vi {\o}nsker nu at foretage
+en generel line{\ae}r stabilitets\-ana\-lyse af denne
+l{\o}sning for herved at opstille den periodiske
+l{\o}snings eksakte stabilitets\-kriterier. Dette g{\o}res
+ved at betragte en infinitesimal perturbation $\epsilon$ af
+den periodiske l{\o}sning v{\ae}k fra banekurven $\gamma$
+og ana\-lysere dennes tidsudvikling i gr{\ae}nsen $t
+\rightarrow \infty$. Formelt kan perturbationens variation
+som funktion af tiden udtrykkes som
+
+\begin{equation}
+ \epsilon(t) = \varphi_t({\bf c}_p+\epsilon) - \varphi_{t}({\bf c}_p)
+\end{equation}
+
+Ved Taylorudvikling af $\epsilon$ omkring ${\bf c}_p$ til
+f{\o}rste orden finder man
+
+\begin{eqnarray}
+ \epsilon(t) & = &
+ \varphi_t({\bf c}_p) + 
+ \left.
+ \frac{\partial \varphi_t({\bf c}_0)}{\partial {\bf c}_0}
+ \right|_{{\bf c}_p}\negsp\epsilon - 
+ \varphi_t({\bf c}_p) \nonumber\\
+ & = &
+ \left.
+ \frac{\partial \varphi_t({\bf c}_0)}{\partial {\bf c}_0}
+ \right|_{{\bf c}_p}\negsp\epsilon
+ \label{eq:basicmono}
+\end{eqnarray}
+
+Tidsudviklingen for perturbationen $\epsilon$ er alts{\aa} fuldst{\ae}ndigt
+bestemt udfra matricen 
+
+$$
+ \left.\frac{\partial \varphi_t({\bf c}_0)}
+ {\partial {\bf c}_0}\right|_{{\bf c}_p}
+$$ 
+
+der ofte angives ved symbolet ${\bf M}(t)$. Dennes
+v{\ae}rdi ${\bf M}(T)$ for $t=T$ kaldes for
+monodromimatricen og skal senere vise sig at udg{\o}re
+hovedredskabet i de stabilitetskriterier, vi er p{\aa} vej
+til at udlede. Den form, hvormed ${\bf M}(t)$ er angivet i
+lig\-ning~\ref{eq:basicmono} er dog ikke s{\ae}rlig
+hensigtsm{\ae}ssig at arbejde videre med. Vi skal derfor
+bestemme en differentiallig\-ning, der angivet med de rette
+begyndelsesbetingelser netop har ${\bf M}(t)$ som
+l{\o}sning. Hertil betragtes den generelle l{\o}sning
+$\varphi_t({\bf c}_0)$ til lig\-ning~\ref{eq:basicmono}.
+Differentieres den generelle l{\o}sning b{\aa}de med hensyn
+til tiden $t$ og begyndelsesbetingelserne ${\bf c}_0$,
+finder man
+
+\begin{eqnarray}
+ \frac{\partial}{\partial {\bf c}_0}
+ \frac{d \varphi_t({\bf c}_0)}{dt} & = &
+ \frac{\partial {\bf f}(\varphi_t({\bf c}_0),\mu)}
+      {\partial {\bf c}_0} \Rightarrow  \nonumber\\
+ & &                                    \nonumber\\
+ \frac{d}{dt}
+ \frac{\partial\varphi_t({\bf c}_0)}{\partial{\bf c}_0} & = &
+ \frac{\partial {\bf f}(\varphi_t({\bf c}_0),\mu)}
+      {\partial \varphi_t({\bf c}_0)}
+ \frac{\partial \varphi_t({\bf c}_0)} {\partial {\bf c}_0}
+ \label{eq:monotempdiff}
+\end{eqnarray}
+
+S{\ae}ttes ${\bf c}_0$ nu lig punktet ${\bf c}_p$ p{\aa}
+den periodiske banekurve $\gamma$, ses at
+lig\-ning~\ref{eq:monotempdiff} er {\ae}kvivalent med
+differentiallig\-ningen
+
+\begin{equation}
+ \dot{{\bf M}} = \left.{\bf J}\right|_{\varphi_t({\bf c}_p)} {\bf M}, 
+ \mbox{\ \ hvor \ \ } {\bf M}(0) = {\bf I}
+ \label{eq:monodiff}
+\end{equation}
+
+hvor ${\bf J}$ angiver Jacobimatricens v{\ae}rdi taget
+langs med gr{\ae}nsecyklusen.
+Lig\-ning~\ref{eq:monotempdiff} er alts{\aa} en line{\ae}r
+differentiallig\-ning med periodiske koefficienter, da
+v{\ae}rdien af ${\bf J}$ netop er periodisk langs med
+l{\o}sningen $\varphi_t({\bf c}_0)$. Egenskaberne ved denne
+familie af differentiallig\-ninger, der for f{\o}rste gang
+blev unders{\o}gt af Floquet, viser sig at v{\ae}re af stor
+betydning for den kommende stabilitetsana\-lyse, hvorfor vi
+vil ofre et par linier p{\aa} at opn{\aa} en st{\o}rre
+indsigt i s{\aa}danne lig\-ninger. Floquet teoremet
+udsiger, at for differentiallig\-ningen
+
+\begin{equation}
+ \dot{\bf v} = A(t){\bf v}, \mbox{\ \ hvor \ \ }
+ A(t) = A(t+T)
+ \label{eq:floquetdiff}
+\end{equation}
+
+vil enhver l{\o}sning ${\bf v}(t)$ kunne skrives som
+produktet af en periodisk matrix ${\bf P}(t)$ og
+eksponentialfunktionen til en konstant matrix ${\bf B}$:
+
+\begin{equation}
+ {\bf v}(t) = {\bf P}(t) e^{{\bf B}t}.
+\end{equation}
+
+Lad nu ${\bf v}_1,\ldots,{\bf v}_n$ v{\ae}re $n$
+line{\ae}rt uafh{\ae}ngige l{\o}sninger til
+lig\-ning~\ref{eq:floquetdiff}. Herved defineres den
+fundamentale l{\o}snings matrix ${\bf V}(t)$ som
+
+\begin{equation}
+{\bf V}(t) = \left[{\bf v}_1,\ldots,{\bf v}_n\right]
+\end{equation}
+
+hvor ${\bf v}_i$ alts{\aa} udg{\o}r den $i$'te s{\o}jle i
+matricen ${\bf V}(t)$. Betragtes nu ${\bf V}(t+T)$ ser vi
+via variabelskiftet $\tau=t+T$, at
+
+\begin{equation}
+\dot{\bf V}(\tau) = {\bf A}(t) {\bf V}(\tau)
+\end{equation}
+
+hvorfor ${\bf V}(t+T)$ ogs{\aa} er en l{\o}sning til
+lig\-ning~\ref{eq:floquetdiff}. Med andre ord m{\aa} der
+alts{\aa} findes et basisskift ${\bf C}$, s{\aa}ledes at
+
+\begin{equation}
+{\bf V}(t+T) = {\bf V}(t){\bf C}
+\end{equation}
+
+Lad nu ${\bf M}(t)$ v{\ae}re en fundamental
+l{\o}sningsmatrix med egenskaben ${\bf M}(0) = {\bf I}$.
+Generelt m{\aa} der for ${\bf M}(t)$ if{\o}lge de
+ovenst{\aa}ende betragtninger g{\ae}lde
+
+$$
+ {\bf M}(t+T) = {\bf M}(t) {\bf C} 
+$$ 
+
+der ved inds{\ae}ttelse af $t=0$ giver
+
+\begin{equation}
+ {\bf M}(T) = {\bf C} 
+\end{equation}
+
+Vi har alts{\aa} ${\bf M}(t+T)={\bf M}(t){\bf M}(T)$,
+hvorfor vi med et simpelt induktionsargument slutter
+
+\begin{equation}
+ {\bf M}(nT) = {\bf M}^n(T)
+\end{equation}
+
+Lad nu $\Psi_1(T),\ldots,\Psi_n(T)$ og
+$\lambda_1(T),\ldots,\lambda_n(T)$ v{\ae}re henholdsvis
+egenvektorer og egenv{\ae}rdier til matricen ${\bf M}(T)$.
+Per definition har vi alts{\aa}
+
+\begin{eqnarray}
+ {\bf M}(T) \Psi_j(T)  & = & \lambda_j(T) \Psi_j(T)   \Rightarrow \nonumber\\ 
+{\bf M}(nT) \Psi_j(T) = 
+{\bf M}^n(T)\Psi_j(T)  & = & \lambda^n_j(T) \Psi_j(T) \Rightarrow \nonumber\\ 
+	 \lambda_j(nT) & = & \lambda^n_j(T)  
+ \label{eq:expfunk}
+\end{eqnarray}
+
+Da lig\-ning~\ref{eq:expfunk} netop er
+funktionallig\-ningen for eksponentialfunktionen, m{\aa}
+$\lambda_j(T)$ alts{\aa} tilfredsstille
+
+\begin{equation}
+ \lambda_j(T) = e^{\sigma_j T},\mbox{\ \ }
+ \sigma_j = \alpha_j + i\beta_j + p\frac{2\pi}{T},
+ \label{eq:floq-mult-exp}
+\end{equation}
+
+hvor $p \in \Z$. $\lambda_j(T)$ og $\sigma_j$ kaldes
+henholdsvis Floquetmultiplikatorer og Floqueteksponenter.
+Man b{\o}r bem{\ae}rke, at Floqueteksponenterne ikke er
+entydigt fastlagt svarende til et multiplum
+$\frac{2\pi}{T}$. Lad os nu betragte vektorfunktionerne
+${\bf v}_1(t),\ldots,{\bf v}_n(t)$ defineret ved
+
+\begin{equation}
+ {\bf v}_j(t) = {\bf M}(t) \Psi_j
+\end{equation}
+
+hvor vi specielt bem{\ae}rker, at systemet af
+l{\o}sningsvektorer $\left[{\bf v}_1(t),\ldots,{\bf
+v}_n(t)\right]$ udg{\o}r en fundamental l{\o}sningsmatrix
+til lig\-ning~\ref{eq:floquetdiff}. Udfra betragtningen
+
+\begin{eqnarray} {\bf v}_j(t+T) & = & {\bf M}(t+T)            \Psi_j
+\nonumber\\ & = & {\bf M}(t){\bf M}(T)    \Psi_j
+\nonumber\\ & = & e^{\sigma_j T}{\bf M}(t)\Psi_j
+\nonumber\\ {\bf v}_j(t+T) & = & e^{\sigma_j T}{\bf v}_j(t)
+\end{eqnarray}
+
+ser vi, at ${\bf v}_j(t)$ er $T$-periodisk bortset fra en
+eksponential faktor. Definerer vi derfor vektorfunktionen
+${\bf p}_j(t)$ som
+
+\begin{equation}
+ {\bf p}_j(t) = e^{-\sigma_j t}{\bf v}_j(t)
+\end{equation}
+
+ser vi udfra overvejelserne
+
+\begin{eqnarray}
+ {\bf p}_j(t+T) & = & e^{-\sigma_j (t+T)}{\bf v}_j(t+T)    \nonumber\\
+		& = & e^{-\sigma_j t} e^{-\sigma_j T} 
+		      e^{ \sigma_j T}{\bf v}_j(t)          \nonumber\\
+		& = & e^{-\sigma_j t}{\bf v}_j(t)          \nonumber\\
+ {\bf p}_j(t+T) & = & {\bf p}_j(t)
+\end{eqnarray}
+
+at ${\bf p}_j(t)$ er $T$-periodisk, hvorfor
+vektorfunktionen ${\bf v}_j(t)$ netop kan skrives som et
+produkt mellem en periodisk funktion og en eksponential
+faktor. Med denne viden kan vi nu drage de {\o}nskede
+konklusioner vedr{\o}rende stabiliteten af den periodiske
+l{\o}sning $\varphi_t({\bf c}_p)$. Antager vi nu, at
+egenvektorene $\Psi_1(T),\ldots,\Psi_n(T)$ udg{\o}r en
+basis i \R$^n$, f{\o}lger det, at tidsudviklingen af
+perturbationen $\epsilon$ kan skrives som
+
+\begin{eqnarray}
+ \epsilon (t)& = & {\bf M}(t) \epsilon                \nonumber\\
+	     & = & {\bf M}(t) \sum_{j=1}^n a_j \Psi_j \nonumber\\
+ \epsilon (t)& = & \sum_{j=1}^n a_j {\bf p}_j(t) e^{\sigma_j t}
+ \label{eq:PertExpan}
+\end{eqnarray}
+
+hvorfor l{\o}sningen $\varphi_t({\bf c}_p)$ netop er
+stabil, hvis der for alle $j\in\{1,\ldots,n\}$ g{\ae}lder
+
+\begin{equation}
+ \left| \lambda_j(T) \right| < 1 \mbox{\ \ eller \ \ }
+ \sigma_j < 0
+\end{equation}
+
+Omvendt er $\varphi_t({\bf c}_p)$ ustabil, hvis mindst et
+$j\in\{1,\ldots,n\}$ tilfredsstiller
+
+\begin{equation}
+ \left| \lambda_j(T) \right| \geq 1 \mbox{\ \ eller \ \ }
+ \sigma_j \geq 0
+\end{equation}
+
+\boxfigure{t}{\textwidth}
+{
+ \input{fig51.tex}
+}
+{
+\caption{\protect\capsize
+	 Stabilitetskriterier for en periodisk l{\o}sning til
+	 en s{\ae}dvanlig differentiallig\-ning:
+	 a) \ $\mid \lambda_j(T) \mid < 1$ og
+	 b) \ $Re\, \sigma_j < 0$.}
+\label{fig:stab}
+}
+
+Disse stabilitetsresultater kan bekvemt illustreres
+grafisk som vist i figur~\ref{fig:stab}. 
+
+\vspace{4.0mm}
+Om disse Floquetmuliplikatorer og -eksponenter g{\ae}lder
+der ydermere, at en enkelt af disse altid tilfredsstiller
+$\lambda=1$ og $\sigma=0$. Umiddelbart virker denne
+egenskab intuitivt naturlig, idet vi jo altid kan foretage
+perturbationen i gr{\ae}nsecyklusens retning, svarende til
+at vi forbliver p{\aa} gr{\ae}nsecyklusen. Beviset for
+dette er meget simpelt, men er sj{\ae}ldent forekommende i
+litteraturen, hvorfor gangen i dette vil blive illustreret
+her.
+
+\vspace{4.0mm}
+Lad $\epsilon_0$ v{\ae}re en perturbation af
+gr{\ae}nsecyklusen $\gamma$ s{\aa}ledes, at denne blot
+``rammer'' et andet punkt p{\aa} $\gamma$ (se
+figur~\ref{fig:lambda=1}). Formelt kan tidsudviklingen
+$\epsilon (t)$ af perturbationen udtrykkes som
+
+\begin{equation}
+\epsilon (t) = \varphi_t({\bf c}_p+\epsilon_0) - \varphi_t({\bf c}_p)
+\end{equation}
+
+Men da perturbationen udelukkende svarer til et skift fra
+\'{e}t punkt p{\aa} $\gamma$ til et andet, betyder dette,
+at der findes et tidsrum $dt$, s{\aa}ledes at
+$\varphi_{t+dt}({\bf c}_p) = \varphi_t({\bf
+c}_p+\epsilon_0)$. Med andre ord har vi alts{\aa}
+
+\begin{equation}
+ \epsilon (t) = \varphi_{t+dt}({\bf c}_p) - \varphi_t({\bf c}_p)
+\end{equation}
+
+Men da $\varphi_{t}({\bf c}_p)$ jo var $T$-periodisk,
+m{\aa} der alts{\aa} g{\ae}lde
+
+\begin{equation}
+ \epsilon (t) = \epsilon (t+T)
+\end{equation}
+
+Tidsudviklingen for $\epsilon (t)$ kan, som vi tidligere
+har vist, skrives som $\epsilon (t) = {\bf
+M}(t)\epsilon_0$, hvorfor der specielt til tiden $t+T$
+g{\ae}lder
+
+\begin{equation}
+ \epsilon (t+T) = {\bf M}(t){\bf M}(T)\epsilon_0
+\end{equation}
+
+Men da $\epsilon (t) = \epsilon (t+T)$, f{\aa}r vi, at der
+m{\aa} g{\ae}lde
+
+\begin{equation}
+  \epsilon (t+T) = {\bf M}(t){\bf M}(T)\epsilon_0 = 
+  \epsilon (t) = {\bf M}(t)\epsilon_0
+\end{equation}
+
+Denne relation udtrykker netop, at ${\bf M}(T)\epsilon_0 =
+\epsilon_0$, hvorfor perturbationen $\epsilon_0$ er en
+Floquetegenvektor til monodromimatricen med tilh{\o}rende
+Floquet\-multi\-plikatorer og -eksponenter $\lambda=1$ og
+$\sigma=0$. Dette faktum er af stor betydning for numeriske
+bestemmelser af s{\aa}vel monodromimatricen og de
+tilh{\o}rende Floquetmultiplikatorer og eksponenter, idet
+dette tillader en vurdering af den numeriske
+n{\o}jagtighed, med hvilken disse er bestemt.
+
+\boxfigure{t}{\textwidth}{
+ \vspace{-2cm}
+ \input{fig52}
+ \vspace{-1cm}
+}
+{
+\caption{\protect\capsize
+Skematisk bevis for at en af Floquetmultiplikatorerne
+opfylder $\lambda=1$. Et punkt p{\aa} banekurven
+$\varphi_t({\bf c}_p)$ perturberes i gr{\ae}nsecyklusens
+retning med $\epsilon_0$, hvorfor det resulterende punkt
+kan beskrives ved $\varphi_{t+dt}({\bf c}_p)$.}
+\label{fig:lambda=1}
+}
+
+\section{Bifurkationer af periodiske l{\o}sninger}
+Lad os stadig betragte den periodiske l{\o}sning
+$\varphi_t({\bf c}_p)$ til differentiallig\-ningen
+$\dot{\bf c} = {\bf f}({\bf c},\mu)$, idet vi nu lader
+vores vektorfelt, der beskriver kinetiken af det kemiske
+sy\-stem, v{\ae}re afh{\ae}ngig af en kontrol- eller
+bifurkationsparameter $\mu$. I dette tilf{\ae}lde vil
+gr{\ae}nsecyklusen $\gamma$ og de tilh{\o}rende
+Floquetmultiplikatorer $\lambda_1,\ldots,\lambda_n$ og
+eksponenter if{\o}lge det implicitte funktionsteorem
+v{\ae}re ana\-lytiske funktioner af $\mu$, s{\aa}l{\ae}nge
+monodromimatricen ikke er singul{\ae}r. En s{\aa}dan
+singularitet kan forekomme ved, at en eller flere af
+multiplikatorerne krydser enhedscirklen i det komplekse
+plan. Denne situation kan kvalitativt forekomme p{\aa} tre
+forskellige m{\aa}der (fig~\ref{fig:perbif}) svarende til
+tre forskellige bifurkationstyper.
+
+\vspace{4.0mm}
+Vi skal ikke her komme n{\ae}rmere ind p{\aa} disses
+pr{\ae}cise matematiske karakteri\-sering, men henviser i
+stedet til \cite{Marek}. Kvalitativt kan de tre
+bifurkationstyper beskrives som f{\o}lger
+
+\boxfigure{t}{\textwidth}
+{
+ \input{fig53.tex}
+}
+{
+\caption{\protect\capsize
+	 De mulige sk{\ae}ringer mellem Floquetmultiplikatoren 
+         $\lambda_j$ og enhedscirklen i det komplekse plan:
+	 a) \ \ $\lambda_j = \alpha_j \pm i\beta_j$, \
+	 b) \ \ $\lambda_j = -1$ and
+	 c) \ \ $\lambda_j = +1$.
+}
+
+\label{fig:perbif}
+}
+
+\begin{itemize}
+ \item {\em Torusbifurkationen}\\
+ To komplekskonjugerede multiplikatorer krydser 
+ enhedscirklen i det komplekse plan. Den tidligere 
+ stabile gr{\ae}nsecyklus bliver ustabil og bifurkerer 
+ ud p{\aa} en torus.
+ 
+ \item {\em Periodefordoblingsbifurkationen}\\
+ En multiplikator krydser $-1$ langs den reelle akse. 
+ Gr{\ae}nsecyklusen bliver ustabil og bifurkerer ud p{\aa} et
+ M\"{o}biusb{\aa}nd svarende til en periodefordobling.
+ 
+\item {\em Generaliseret pitchfork (gaffelgrens)
+ bifurkation}\\
+ En multiplikator krydser $+1$ langs den reelle akse.
+ Gr{\ae}nsecyklusen er nu ustabil og to nye uafh{\ae}ngige og
+ stabile gr{\ae}nsecykluser opst{\aa}r. 
+\end{itemize}
+
+Den geometriske tolkning af disse tre bifurkationer er
+illustreret i figur~\ref{fig:perbifgeo}. Af de n{\ae}vnte
+tre bifurkationstyper viser det sig, at torusbifurkationen
+og periodefor\-doblingsbifurkationen begge indtager en
+v{\ae}sentlig rolle i de m{\aa}der, hvorp{\aa} kaos kan
+introduceres i dynamiske sy\-stemer.
+
+\vspace{4.0mm}
+Ydermere g{\ae}lder det, at den m{\aa}de, hvorp{\aa} kaos
+genereres i det dynamiske sy\-stem, har en universal
+karakter, der genfindes i s{\aa}vel s{\ae}dvanlige
+differentiallig\-ninger ($\dot{\bf x} = {\bf f}({\bf x}),
+\mbox{\ }{\bf x}\in\R^n, \mbox{\ }{\bf f}:
+\R^n\mapsto\R^n$) som diskrete afbildninger (${\bf x}_{i+1}
+= {\bf f}({\bf x}_i),\mbox{\ } {\bf x}_n\in\R^n, \mbox{\
+}{\bf f}: \R^n\mapsto\R^n$). Vi skal se, at ligesom det
+irrationelle tal $\pi$ er indeholdt i stort set enhver
+manipulation indenfor den klassiske geometri, s{\aa} er
+dynamiske sy\-stemers natur p{\aa} samme m{\aa}de
+karakteriseret af en r{\ae}kke ana\-loge konstanter.
+
+\vspace*{\fill}
+
+\boxfigure{htbp}{\textwidth}{
+ \vspace{16cm}
+}
+{
+\caption{\protect\capsize
+Illustration af a) torusbifurkationen, b)
+periodefordoblingsbifurkationen og c) generaliseret
+pitchfork bifurkation.}
+\label{fig:perbifgeo}
+}
+
+\vspace*{\fill}
+
+\newpage
+\subsection{Periodefordoblings-bifurkationen}
+For at give et klart og forholdsvist simpelt eksempel
+p{\aa} et dynamisk sy\-stem, der indeholder
+periodefordoblinger, vil vi betragte en reel diskret
+afbildning $f_a(x)$ af enhedsintervallet p{\aa}
+enhedsintervallet
+
+\begin{equation}
+ f_a(x) = ax(1-x), \mbox{\ } a \in [0;4]
+\end{equation}
+
+kaldet {\em den logistiske afbildning}. Denne ``simple''
+model, der blandt andet er blevet anvendt til at beskrive
+variationer i biologiske populationer, blev gennem en
+r{\ae}kke pionerarbejder af Mitchell Feigenbaum i 1978
+\cite{Feig1,Feig2} vist at besidde en r{\ae}kke egenskaber,
+der senere er blevet bevist at v{\ae}re
+universelle/generelle for de n{\ae}vnte typer af dynamiske
+sy\-stemer. Lad os derfor foretage en ana\-lyse af den
+logistiske afbildning med henblik p{\aa} at beskrive disse
+universelle egenskaber.
+
+\vspace{4.0mm}
+Umiddelbart ser vi, at den logistiske afbildning har
+f{\o}lgende ikke-trivielle fikspunkt\footnote{Dvs.\ $f(x_f)=x_f$
+og $x_f \neq 0$} $x_f$.
+
+\begin{equation}
+ x_f = \frac{a-1}{a}
+\end{equation}
+
+Vi {\o}nsker nu at diskutere stabiliteten af $x_f$, dvs.,
+for hvilke v{\ae}rdier af para\-meteren $a$ g{\ae}lder
+
+\begin{equation}
+ \lim_{n \rightarrow \infty} f^n_a(x_f + \delta x) = x_f
+\end{equation}
+
+Taylorudvikler vi nu $f^n_a(x_f + \delta x)$ omkring $x_f$
+til f{\o}rste orden f{\aa}s ved anvendelse af
+k{\ae}dereglen
+
+\begin{eqnarray}
+ f^n_a(x_f + \delta x) & \simeq & f^n_a(x_f) + 
+ \left.\frac{df_a^n}{dx}\right|_{x_f} \negsp\delta x                \nonumber\\
+ & = & x_f + \left.\frac{df_a^n}{dx}\right|_{x_f}  \negsp\delta x\nonumber\\
+ & = & x_f + \left(\left.\frac{df_a}{dx}\right|_{x_f}\right)^{\!\! n}\delta x
+\end{eqnarray}
+
+Af disse udregninger konkluderes, at fikspunktet $x_f$ er
+stabilt, hvis kravet $|f_a'(x_f)| < 1$ er opfyldt. Da
+$f_a'(x_f)=2-a$ ses, at $x_f$ er stabilt for $a \in [1;3]$.
+Sp{\o}rgsm{\aa}let er nu, hvad der sker med dynamikken for
+$f_a(x)$ for $a>3$? Dette lader sig bedst besvare ved
+hj{\ae}lp af en grafisk argumentation.
+
+\vspace{4.0mm}
+Lad os f{\o}rst indf{\o}re notationen $a_0$ for $a=3$. Idet
+der oplagt g{\ae}lder $f(x_f)=x_f \Rightarrow f^n(x_f)=x_f$
+for $n=0,1,2,\ldots$, ser vi, at fikspunktet
+$\frac{a-1}{a}$ ogs{\aa} vil v{\ae}re stabilt for den
+dobbeltiterede afbildning $f^2_a(x)$ for $a<a_0$
+(figur~\ref{fig:LogGraf}a). For $a=a_0$ vil kurven $y=x$
+v{\ae}re tangent til $f^2_a(x)$ i $x_f$, da
+$(f^2_{a=a_0}(x_f))' = f_{a=a_0}'(x_f) f_{a=a_0}'(x_f) =
+(-1)(-1) = 1$ (figur~\ref{fig:LogGraf}b). For $a>a_0$
+``l{\o}ftes'' den {\o}verste del af $f_a^2(x)$ over $y=x$,
+hvorimod den nederste del s{\ae}nkes ned under $y=x$
+(figur~\ref{fig:LogGraf}c). Herved er genereret to nye
+stabile fikspunkter $x_1$ og $x_2$ for $f^2_a(x)$, samtidig
+med fikspunktet $x_f=\frac{a-1}{a}$ nu er ustabilt. $x_1$
+og $x_2$ vil udg{\o}re en m{\ae}ngde, hvorp{\aa} $f_a(x)$
+er periodisk, da der g{\ae}lder
+
+\begin{equation}
+ \begin{array}{lcl}
+  f_a(x_1) & = & x_2 \\
+  f_a(x_2) & = & x_1 
+ \end{array}
+ \label{eq:Pitch}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                        %
+% Figure for logistic map, three plots,  %
+% fig11a, fig11b, fig11c                 %
+%                                        %
+% gnuplot file: fig11.plt                %
+% LaTeX   file: fig11a.tex               %
+%               fig11b.tex               %
+%               fig11c.tex               %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\vspace{0.15cm}
+ \hspace*{-1.4cm}
+ \begin{minipage}{4cm}
+  \input{fig54a.tex}
+ \end{minipage}
+ \begin{minipage}{4cm}
+  \input{fig54b.tex}
+ \end{minipage}
+ \begin{minipage}{4cm}
+  \input{fig54c.tex}
+ \end{minipage}
+ \vspace{-0.8cm}
+}
+{
+\caption{\protect\capsize
+Illustration af pitchforkbifurkationen for den logistiske
+afbildning for parameterv{\ae}rdien $a=3$. Grafen for den
+dobbeltiterede afbildning $f^2_a(x)$ b{\aa}de l{\o}ftes
+over og s{\ae}nkes under kurven $y=x$, hvorved to
+periodiske punkter genereres. Det tidligere stabile
+fikspunkt $x_f$ er nu ustabilt.}
+\label{fig:LogGraf}
+}
+
+Det skift, der er indtr{\aa}dt i dynamikken for den
+logistiske afbildning $f_a(x)$, kaldes en
+pitchforkbifurkation (eller gaffelgrensbifurkation). Vi ser
+ogs{\aa} af lig\-ning~\ref{eq:Pitch}, at
+pitchforkbifurkationen er {\ae}kvivalent med forekomsten af
+en periodefordobling i sy\-stemets dynamik.
+
+\vspace{4.0mm}
+Hele den argumentation, vi har anvendt p{\aa} $f_a(x)$, kan
+nu gentages for den dobbeltiterede afbildning $f_a^2(x)$,
+idet der eksisterer et $a_1 \in ]a_0;4]$, s{\aa}ledes at
+$f_a^2(x)$ underg{\aa}r en pitchforkbifurkation i $a=a_1$.
+De to fikspunkter $x_1$ og $x_2$ bliver alts{\aa} ustabile
+under generering af fire punkter, $x_1,\ldots,x_4$, p{\aa}
+hvilke $f_{a_1}(x)$ vil v{\ae}re 4-periodisk.
+
+
+\vspace{4.0mm}
+Helt generelt viser det sig, at der i den logistiske
+afbildning optr{\ae}der en kaskade af s{\aa}danne
+pitchforbifurkationer for de respektive iterater af
+$f_a^{2^p}(x)$ for v{\ae}rdierne $a_p$, hvor $p =
+0,1,2,\ldots$. F{\o}lgen af bifurkationsv{\ae}rdier
+$a_0,a_1,a_2,\ldots$ er endvidere konvergent med
+gr{\ae}nsev{\ae}rdien $a_\infty$, svarende til at
+``gr{\ae}nse\-cyklu\-ser\-nes'' periode g{\aa}r mod uendelig.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Illustration af konvergens mod
+%%               Feigenbaums konstant
+%% makroer     : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+ \begin{pspicture}(0,0)(9,2)
+%  \psgrid[](0,0)(0,0)(9,2)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(0.0,1.0)(8.0,1.0)
+  \psline[linewidth=0.8pt]{-}(0.6,0.9)(0.6,1.1)
+  \psline[linewidth=0.8pt]{-}(3.3,0.9)(3.3,1.1)
+  \psline[linewidth=0.8pt]{-}(4.6,0.9)(4.6,1.1)
+  \psline[linewidth=0.8pt]{-}(5.2,0.9)(5.2,1.1)
+  \psline[linewidth=0.8pt]{-}(6.8,0.9)(6.8,1.1)
+  \rput[tc]{*0}(0.6,0.7){\footnotesize $a_0$}
+  \rput[tc]{*0}(3.3,0.7){\footnotesize $a_1$}
+  \rput[tc]{*0}(4.6,0.7){\footnotesize $a_2$}
+  \rput[tc]{*0}(5.2,0.7){\footnotesize $a_3$}
+  \rput[tc]{*0}(6.8,0.7){\footnotesize $a_{\infty}$}
+  \rput[tc]{*0}(6.0,0.7){\footnotesize $\ldots$}
+  \rput[cc]{*0}(8.5,1.0){\footnotesize $a$}
+ \end{pspicture}
+\end{center}
+
+Ydermere og nok s{\aa} vigtigt g{\ae}lder der i gr{\ae}nsen
+$p \rightarrow \infty$ f{\o}lgende geometriske forhold
+
+\begin{equation}
+ \delta = \lim_{p \rightarrow \infty}
+	  \frac{a_p - a_{p-1}}{a_{p+1}-a_p}
+\end{equation}
+
+Konstanten $\delta$ er universel og kaldes for 
+{\em Feigenbaums konstant}. Ad numerisk vej er denne
+bestemt til
+
+\begin{equation}
+ \delta = 4.6692016091\ldots
+\end{equation}
+
+\subsection{Torusbifurkationen}
+\label{sec:TorusBif}
+Langt mere kompliceret og stadig ikke fuldt forst{\aa}et er
+torusbifurkationen. Som tidligere beskrevet svarer denne
+til, at to komplekskonjugerede Floquetmultiplikatorer
+$\lambda_{\pm}$ sk{\ae}rer enhedscirklen i det komplekse
+plan. Skriver vi $\lambda_{\pm}$ som $e^{\pm i T_0}$ og de
+tilh{\o}rende komplekse Floquetegenvektorer som $\Psi_\pm$,
+ser vi, at den bev{\ae}gelse, der beskrives af en
+perturbation $\epsilon(t)$ indeholdt i det ustabile
+Floquetrum ${\rm span}(\Re\Psi_+,\Im\Psi_)$, vil v{\ae}re
+lig
+
+\begin{equation}
+ \epsilon(t) = \lambda_+ {\bf p}(t) = e^{i T_0t} {\bf p}(t)
+ \label{eq:TorusPert}
+\end{equation}
+
+hvor den til $\lambda_+$ h{\o}rende Floqueteksponent
+$\sigma_+$ alts{\aa} opfylder $\sigma_+ = i T_0$. Endvidere
+ser vi, at faktoren $e^{i T_0}$ er periodisk med perioden
+$\frac{2\pi}{T_0}$. Pertubationen $\epsilon(t)$ kan nu
+opf{\o}re sig p{\aa} to m{\aa}der
+
+\begin{itemize}
+  \item Hvis der findes $p,q \in \Z$ s{\aa}
+  $T_0 = \frac{2\pi}{T}\frac{p}{q}$, da siges $T$ og $T_0$
+  at v{\ae}re rationelt afh{\ae}ngige. I dette tilf{\ae}lde
+  er $\epsilon(t)$ alts{\aa} periodisk, da der g{\ae}lder
+
+  \begin{eqnarray}
+    \epsilon(t+qT) & = & e^{i T_0t}e^{i T_0qT} {\bf
+    p}(t)\nonumber\\ & = & e^{i T_0t}e^{i
+    T_0\frac{2\pi}{T_0}p} {\bf p}(t)\nonumber\\ & = & e^{i
+    T_0t}e^{i 2\pi p} {\bf p}(t)\nonumber\\ & = & e^{i
+    T_0t}{\bf p}(t)\nonumber\\ & = & \epsilon(t)
+  \end{eqnarray}
+
+  Bev{\ae}gelsen vil alts{\aa} v{\ae}re en lukket kurve
+  p{\aa} en torus, hvorfor vi taler om en {\em resonant}
+  eller {\em fasel{\aa}st\/} dynamik.
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \item For $T_0 \neq \frac{2\pi}{T}\frac{p}{q}$ for alle
+  $p,q \in \Z$ vil banekurven p{\aa} torusen aldrig kunne
+  v{\ae}re lukket, og da denne ydermere ikke kan sk{\ae}re
+  sig selv, er bev{\ae}gelsen {\em t{\ae}t} p{\aa} torusen.
+  I denne situation taler vi om en {\em kvasiperiodisk}
+  bev{\ae}gelse.
+\end{itemize}
+
+Udfra disse betragtninger er det forholdsvist let at
+forestille sig, at en serie af s{\aa}danne
+torusbifurkationer vil kunne f{\o}re til en meget kompleks
+dynamik i faserummet. Det var pr{\ae}cis s{\aa}danne
+betragtninger, der i 1944 ledte den russiske fysiker L.D.
+Landau til at foresl{\aa}, at en uendelig r{\ae}kke af
+ikke-resonante torusbifurkationer kunne f{\o}re til en
+kaotisk opf{\o}rsel af det dynamiske sy\-stem\footnote{I 1944
+blev ordet ``kaos'' ikke anvendt som videnskabelig term,
+hvorfor Landau benyttede sig af begrebet ``turbulens''.
+Senere har det dog vist sig, at disse begreber bliver brugt
+synonymt for beskrivelsen af komplekse f{\ae}nomener i
+rumlige fysiske/kemiske sy\-stemer} i kraft af indf{\o}rslen
+af et uendeligt antal fundamentalfrekvenser
+$\omega_1,\ldots,\omega_\infty$ \cite{Landau}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Illustration af Landaus hypotese
+%% makroer     : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\vspace{-0.5cm}
+ \begin{pspicture}(0,0)(14,4)
+%  \psgrid[](0,0)(0,0)(14,4)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(0.8,1.0)(12.6,1.0)
+  \psline[linewidth=0.8pt]{-}( 2.1,0.9)( 2.1,1.1)
+  \psline[linewidth=0.8pt]{-}( 4.8,0.9)( 4.8,1.1)
+  \psline[linewidth=0.8pt]{-}( 7.5,0.9)( 7.5,1.1)
+  \psline[linewidth=0.8pt]{-}(11.2,0.9)(11.2,1.1)
+  \psellipse[linewidth=0.6pt](7.5,2.5)(0.5,0.23)
+  \psellipse[linewidth=0.6pt](7.5,2.5)(0.9,0.50)
+
+  \psarc[linewidth=0.6pt](7.5,2.15){0.135}{90}{270}
+  \psarc[linewidth=0.6pt,
+         linestyle=dotted,
+         dotsep=0.6pt](7.5,2.15){0.135}{270}{90}
+  \pscircle[linewidth=0.6pt](4.8,2.5){0.5}
+  \pscircle*[](2.1,2.5){0.1}
+  \rput[tc]{*0}( 2.1,0.7){\footnotesize $a_0$}
+  \rput[tc]{*0}( 4.8,0.7){\footnotesize $a_1$}
+  \rput[tc]{*0}( 7.5,0.7){\footnotesize $a_2$}
+  \rput[tc]{*0}(11.2,0.7){\footnotesize $a_{\infty}$}
+  \rput[tc]{*0}(9.35,0.7){\footnotesize $\ldots$}
+  \rput[cc]{*0}(11.2,2.5){\tiny $\{\omega_1,\ldots,\omega_\infty \}$}
+  \rput[cc]{*0}(9.9,2.5){\tiny $\ldots$}
+  \rput[br]{*0}( 4.4,2.8){\tiny $\omega_1$}
+  \rput[br]{*0}(6.78,2.8){\tiny $\omega_1$}
+  \rput[cc]{*0}(7.2,2.18){\tiny $\omega_2$}
+  \rput[cc]{*0}(13.1,1.0){\footnotesize $a$}
+  \psline[linewidth=0.6pt,arrowinset=0]{->}(2.9,2.5)(3.63,2.5)
+  \psline[linewidth=0.6pt,arrowinset=0]{->}(5.6,2.5)(6.33,2.5)
+  \psline[linewidth=0.6pt,arrowinset=0]{->}(8.7,2.5)(9.43,2.5)
+ \end{pspicture}
+\end{center}
+\vspace{-0.6cm}
+
+Umiddelbart virker Landaus hypotese plausibel, da det
+dynamiske sy\-stems opf{\o}rsel vil v{\ae}re uhyre
+kompliceret under tilstedev{\ae}relse af et stort antal
+fundamentalfrekvenser. Eksperimentelt er denne hypotese dog
+aldrig blevet bekr{\ae}ftet, da en uendelig kaskade af
+torusbifurkationer tydeligt ville vise sig gennem en
+Fouriertransformation, idet ingen diskrete linier ville
+optr{\ae}de i de resulterende spektra. Dette er eksempelvis
+afkr{\ae}ftet i det klassiske Rayleigh-B\'{e}rnard
+eksperiment, hvor kaos/turbulens allerede indtr{\ae}der
+efter den anden torusbifurkation.
+
+\vspace{4.0mm}
+Forklaringen herp{\aa} viser sig at v{\ae}re indeholdt i
+Ruelle-Newhouse-Takens teo\-remet \cite{RTN}, der stringent
+forklarer hvorledes kaos kan v{\ae}re forbundet med
+torus\-bifurkationen. Dette teorem udsiger, at i faserummet
+for et dynamisk sy\-stem med $\dim > 3$, hvis dynamik er
+beskrevet p{\aa} en torus gene\-reret efter to successive
+torusbifurkationer, vil der med positiv sandsynlighed
+eksistere en stabil kaotisk tiltr{\ae}kker. Mere l{\o}st betyder
+dette, at et sy\-stem, der underg{\aa}r to successive
+torusbifurkationer, efter alt at d{\o}mme vil havne p{\aa}
+en kaotisk tiltr{\ae}kker.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Illustration af Ruelle-Takens-Newhouse teormet
+%% makroer     : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+ \begin{pspicture}(0,0)(14,4)
+%  \psgrid[](0,0)(0,0)(14,4)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(0.8,1.0)(12.6,1.0)
+  \psline[linewidth=0.8pt]{-}( 2.1,0.9)( 2.1,1.1)
+  \psline[linewidth=0.8pt]{-}( 4.8,0.9)( 4.8,1.1)
+  \psline[linewidth=0.8pt]{-}( 7.5,0.9)( 7.5,1.1)
+  \psline[linewidth=0.8pt]{-}(11.2,0.9)(11.2,1.1)
+  \psellipse[linewidth=0.6pt](7.5,2.5)(0.5,0.23)
+  \psellipse[linewidth=0.6pt](7.5,2.5)(0.9,0.50)
+
+  \psarc[linewidth=0.6pt](7.5,2.15){0.135}{90}{270}
+  \psarc[linewidth=0.6pt,
+         linestyle=dotted,
+         dotsep=0.6pt](7.5,2.15){0.135}{270}{90}
+  \pscircle[linewidth=0.6pt](4.8,2.5){0.5}
+  \pscircle*[](2.1,2.5){0.1}
+  \rput[tc]{*0}( 2.1,0.7){\footnotesize $a_0$}
+  \rput[tc]{*0}( 4.8,0.7){\footnotesize $a_1$}
+  \rput[tc]{*0}( 7.5,0.7){\footnotesize $a_2$}
+  \rput[tc]{*0}(11.2,0.7){\footnotesize $a_{\rm crit}$}
+  \rput[cc]{*0}(13.1,1.0){\footnotesize $a$}
+  \rput[cc]{*0}(11.55,2.5){
+    \tiny$\left\{\mbox{\begin{minipage}{3.5cm}
+     {$3T$-torus med frekven-\\
+      ser $\omega_1$, $\omega_2$ og $\omega_3$ vil\\
+      med positiv sandsynlighed\\
+      henfalde til ``strange\\
+      attractor'' ved en infinitesi-\\
+      mal perturbation.}
+      \end{minipage}
+      }\right.$\normalsize}
+  \rput[br]{*0}( 4.4,2.8){\tiny $\omega_1$}
+  \rput[br]{*0}(6.78,2.8){\tiny $\omega_1$}
+  \rput[cc]{*0}(7.2,2.18){\tiny $\omega_2$}
+  \psline[linewidth=0.6pt,arrowinset=0]{->}(2.9,2.5)(3.63,2.5)
+  \psline[linewidth=0.6pt,arrowinset=0]{->}(5.6,2.5)(6.33,2.5)
+  \psline[linewidth=0.6pt,arrowinset=0]{->}(8.7,2.5)(9.43,2.5)
+ \end{pspicture}
+\end{center}
+
+For en mere uddybende diskussion af torusbifurkationen og
+dennes sammen\-h{\ae}ng med kaos se
+f.eks.\ \cite[s.\ 94-98]{Marek2} eller
+\cite[s.\ 147-149]{Schuster}.
+
+\vspace{4.0mm}
+Efter i en vis forstand temmelig teoretiske diskussion
+{\o}nsker vi nu at diskutere et eksempel i form af en model
+for en kemisk reaktion. Det er vores h{\aa}b, at dette
+eksempel viser, hvor n{\o}dvendig teoretiske overvejelser
+er for p{\aa} tilfredstillende vis at kunne forst{\aa} de
+ikke-line{\ae}re egenskaber, der optr{\ae}der i komplekse
+reaktionssy\-stemer.
+
+\section{Et model eksempel -- {\em Brusselatoren}}
+Vi {\o}nsker nu at pr{\ae}sentere en kemisk model samt en
+modificering af denne, der udviser en r{\ae}kke af de
+f{\ae}nomener, som blev pr{\ae}senteret i forrige af\-snit.
+I 1968 formulerede den belgiske kemiker og senere
+Nobelprismodtager Ilya Prigogine i samarbejde med R.\
+Lefever en meget simplificeret model for et kemisk
+reaktionssy\-stem kaldet {\em Brusselatoren}
+\cite{Prig1,Prig2}. Denne model har sidenhen v{\ae}ret
+anvendt i en lang r{\ae}kke sammenh{\ae}nge p{\aa} trods af
+det faktum, at det s{\ae}t elementar\-reaktioner, der
+udg{\o}r modellens skelet, er urealistisk i en fysisk eller
+kemisk sammenh{\ae}ng.
+
+\vspace{4.0mm}
+Ikke desto mindre besidder Brusselatoren sin egen styrke,
+idet den kan ana\-lyseres eksakt og hermed kan bidrage til
+en st{\o}rre og dybere indsigt i en r{\ae}kke af de
+egenskaber, der udvises af mere komplicerede og realistiske
+modeller s{\aa}vel som i virkelige kemiske sy\-stemer.
+
+\vspace{4.0mm}
+Brusselatoren er $2$-dimensional og beskriver omdannelsen
+af to reaktanter $A$ og $B$ til produkterne $D$ og $E$.
+Omdannelsen finder sted via fire elementar\-reaktioner, der
+involverer to intermediater $X$ og $Y$\footnote{I dette
+tilf{\ae}lde skelner vi ikke mellem en kemisk forbindelse
+$X_i$ eller dennes koncentration [$X_i$], hvorfor vi i
+begge tilf{\ae}lde benytter notationen $X_i$.}
+
+\begin{subequations}
+ \begin{eqalignno}
+  A      &\stackrel{k_1}{\lr} X     \\
+  B + X  &\stackrel{k_2}{\lr} Y + D \\
+  2X + Y &\stackrel{k_3}{\lr} 3X \label{brus-auto} \\
+  X      &\stackrel{k_4}{\lr} E
+ \end{eqalignno}
+ \label{eq:brus}
+\end{subequations}
+
+Reaktion~\ref{brus-auto} er autokatalytisk (to $X$
+molekyler omdannes i samme reaktion til tre $X$ molekyler).
+I Brusselatoren er tilstedev{\ae}relsen af et
+autokatalytisk trin n{\o}dvendigt, for at modellen kan
+udvise oscillationer. Dette beh{\o}ver dog ikke at v{\ae}re
+sandt i det generelle tilf{\ae}lde, idet forekomsten af
+oscillationer ogs{\aa} kan v{\ae}re bestemt af andre
+egenskaber ved den p{\aa}g{\ae}ld\-ende model. Antager vi
+nu, at $A$ og $B$ er konstante, samt at
+hastighedskonstanterne tilfredsstiller $k_1=k_2=k_3=k_4=1$
+(svarende til at sy\-stemet er gjort dimensionsl{\o}st),
+vil de kinetiske lig\-ninger for Brusselatoren tage formen
+
+\begin{equation}
+ \begin{array}{lcl}
+  \dot{X} & = & A - (B+1)X + X^2Y \\
+  \dot{Y} & = & BX - X^2Y
+ \end{array}
+ \label{eq:bruseq}
+\end{equation}
+
+I det f{\o}lgende vil vi benytte konstanten $B$ som
+bifurkationsparameter med det m{\aa}l for {\o}je at
+bestemme den v{\ae}rdi $B_c$ af $B$, for hvilken der
+optr{\ae}der en Hopfbifurkation i Brusselatoren. Det er
+forholdvist simpelt at indse, at punktet
+$(X_f,Y_f)=(A,\frac{B}{A})$ udg{\o}r Brusselatorens eneste
+station{\ae}re punkt. Udregner vi nu Jacobimatricen ${\bf
+J}$ for lig\-ning~\ref{eq:bruseq} i det station{\ae}re
+punkt $(A,\frac{B}{A})$, f{\aa}s
+
+\begin{equation}
+ {\bf J}_{(A,\frac{B}{A})} =
+ \left[
+ \begin{array}{cr}
+  -(B+1)+2XY &  X^2 \\
+      B-2XY  & -X^2
+ \end{array}
+ \right]
+ =
+ \left[
+ \begin{array}{cr}
+  B-1 &  A^2 \\
+  -B  & -A^2
+ \end{array}
+ \right]
+\end{equation}
+
+Idet vi nu bygger p{\aa}, at egenv{\ae}rdierne
+$\lambda_{1,2}$ for en $2 \times 2$ matrix, ${\bf A}$, kan
+udtrykkes som $\lambda_{1,2} = \frac{1}{2}(\Tr{\bf A} \pm
+\sqrt{\Tr^2{\bf A} -4\det{\bf A}})$, ser vi, at betingelsen
+$\Tr {\bf A} = 0$ under foruds{\ae}tningen $\det {\bf A}>0$
+tvinger $\lambda_{1,2}$ til at v{\ae}re rent imagin{\ae}re.
+Da $\Tr {\bf J}_{(A,\frac{B}{A})} = 0 \Rightarrow B_c =
+1+A^2$, ser vi, at egenv{\ae}rdierne for denne v{\ae}rdi af
+$B$ tilfredstiller
+
+\begin{equation}
+ \lambda_{1,2}(B_c) = \pm i A
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : tre faseprotr{\ae}tter for Brusselator
+%% plt         : fig27.plt
+%% dat         : fig27a.dat, fig27b.dat, fig27c.dat
+%% tex         : fig27a.ps, fig27b.ps, fig27c.ps
+%% type        : PSTricks, EPSF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\capfont}{\bf}
+\begin{figure}[tbp]
+\begin{center}
+  \begin{pspicture}(0,0)(14,5)
+%   \psgrid[](0,0)(0,0)(14,5)
+   \rput[bl]{*0}(0.10,0.3){%
+                           \epsfxsize= 4.57cm 
+                           \epsfysize= 4.30cm 
+                           \epsffile{fig57a.ps}}
+   \rput[bl]{*0}(4.60,0.3){%
+                           \epsfxsize= 4.57cm 
+                           \epsfysize= 4.30cm 
+                           \epsffile{fig57b.ps}}
+   \rput[bl]{*0}(9.10,0.3){%
+                           \epsfxsize= 4.57cm 
+                           \epsfysize= 4.30cm 
+                           \epsffile{fig57c.ps}}
+  \rput[bl]{*0}( 4.0,4.0){\footnotesize a)}
+  \rput[bl]{*0}( 8.5,4.0){\footnotesize b)}
+  \rput[bl]{*0}(13.0,4.0){\footnotesize c)}
+  \rput[bc]{*0}( 2.5,4.8){\footnotesize $B < B_c$}
+  \rput[bc]{*0}( 7.0,4.8){\footnotesize $B > B_c$}
+  \rput[bc]{*0}(11.5,4.8){\footnotesize $B \gg B_c$}
+  \end{pspicture}
+\end{center}
+\vspace{-1.0cm}
+\caption{\protect\capsize
+	 Eksempler p{\aa} faseportr{\ae}tter for Brusselatoren
+	 for tre kvalitativt forskellige valg af 
+	 parameteren $B$. a) $B<B_c$ b) $B>B_c$ og c) $B \gg B_c$.
+	}
+\label{fig:BrusEks}
+\end{figure}
+\renewcommand{\capfont}{\rm}
+
+Da der ydermere g{\ae}lder 
+
+\begin{equation}
+ \left.\frac{d\Re\lambda_{1,2}}{dB}\right|_{B_c} =
+ \half (\Tr {'} \pm (\Tr{^2}-4\det)^{-\frac{1}{2}})(\Tr{'}\Tr) =
+ \half \neq 0
+\end{equation}
+
+slutter vi alts{\aa}, at Brusselatoren underg{\aa}r en
+Hopfbifurkation for $B=B_c=1+A^2$. For $B<B_c$ vil
+sy\-stemets dynamik svare til en spiralerende
+bev{\ae}gelse ind mod det stabile station{\ae}re punkt. For
+$B>B_c$ er det station{\ae}re punkt nu ustabilt og en
+stabil gr{\ae}nsecyklus $\gamma$ er dannet i faserummet.
+For v{\ae}rdier af $B$ t{\ae}t p{\aa} $B_c$ er
+gr{\ae}nsecyklusens svingninger sinusformede med amplitude
+${\cal A}$ og frekvens $\omega$ givet som
+
+\begin{subequations}
+ \begin{eqalignno}
+  {\cal A}(B) &= \sqrt{B-B_c}  \\
+  \omega(B)   &= A
+ \end{eqalignno}
+\end{subequations}
+
+For $B \gg B_c$ udviser Brusselatoren mere komplicerede
+ikke-line{\ae}re svingninger, der dog stadig er simple i en
+vis forstand, da disse er $1$-periodiske for samtlige valg
+af $B>B_c$. Faseportr{\ae}tter for de tre situationer
+$B<B_c$, $B>B_c$ og $B \gg B_c$ er vist i
+figur~\ref{fig:BrusEks}.
+
+\vspace{4.0mm}
+I den oprindelige udgave af Brusselatoren
+(lig\-ning~\ref{eq:brus}) optr{\ae}der der ingen komplekse
+f{\ae}nomener i form af periodefordoblings\-bifurkationer,
+to\-rus\-svingninger eller kaos. Det er dog ikke s{\ae}rlig
+sv{\ae}rt at udvide Brusselatoren til en
+h{\o}jere-dimensional model, i hvilken alle disse
+f{\ae}nomener er tilstede. For at illustrere dette
+pr{\ae}senterer vi nu et uddrag af en r{\ae}kke resultater,
+s{\aa}ledes som disse er behandlet i \cite{Marek2}.
+
+\vspace{4.0mm}
+Lad os betragte et sy\-stem af to koblede Brusselatorer,
+svarende til en model\-lering af den eksperimentelle
+situation, hvor to CSTR-kamre er forbundet s{\aa}ledes, at
+disse indbyrdes kan udveksle stof ved diffusion (se
+fig~\ref{fig:KobBrus}). Lader vi nu $x_1$, $y_1$ og $x_2$,
+$y_2$ v{\ae}re koncentrationerne af stofferne $X$ og $Y$ i
+kammer~1 henholdsvis kammer~2 og benyttes betegnelsen $D_1$
+og $D_2$ for intensiteten af den diffusionsbestemte
+masseudveksling af $X$ og $Y$, finder vi, at det koblede
+sy\-stems kinetik kan beskrives ved f{\o}lgende
+4-dimensionale differentiallig\-ning
+
+\boxfigure{t}{\textwidth}
+{
+ \vspace{0.5cm} 
+ \small
+  \input{fig55}
+ \vspace{-0.8cm}
+}
+{
+\caption{\protect\capsize
+	 Skematisk illustration af den situation, hvor to
+	 Brusselatorer t{\ae}nkes indbyrdes koblet gennem 
+	 masseudveksling via diffusion.}
+\label{fig:KobBrus}
+}
+
+\begin{equation}
+ \begin{array}{lcll}
+  \dot{x_1} & = & A - (B+1)x_1 + x_1^2y_1 & + D_1(x_2-x_1)\\
+  \dot{y_1} & = & Bx_1 - x_1^2y_1         & + D_2(y_2-y_1)\\
+  \dot{x_2} & = & A - (B+1)x_2 + x_2^2y_2 & + D_1(x_1-x_2)\\
+  \dot{y_2} & = & Bx_2 - x_2^2y_2         & + D_2(y_1-y_2)\\
+ \end{array}
+ \label{eq:KobletBrusEq}
+\end{equation}
+
+Der kan foretages en lang r{\ae}kke matematiske
+overvejelser vedr{\o}rende den symmetri, der er indlejret i
+lig\-ning~\ref{eq:KobletBrusEq}. For eksempel er denne
+invariant under transformationen ${\bf S}$
+
+\begin{equation}
+ {\bf S} =
+ \left[
+ \begin{array}{llll}
+  0 & 0 & 1 & 0\\
+  0 & 0 & 0 & 1\\
+  0 & 1 & 0 & 0\\
+  1 & 0 & 0 & 0
+ \end{array}
+ \right]
+\end{equation}
+
+S{\aa}danne symmetriovervejelser er generelt af stor
+betydning under beregnings- og fortolkningsfasen af
+bifurkations- og l{\o}sningsdiagrammer for s{\ae}dvanlige
+differentiallig\-ninger, idet disse tillader en v{\ae}sentlig
+simplificering af det p{\aa}\-g{\ae}ld\-ende problem. Vi
+vil dog ikke komme n{\ae}rmere ind p{\aa} dette omr{\aa}de
+her, men henviser istedet til \cite{Marek2} for en mere
+uddybende diskussion.
+
+\begin{table}[tbp]
+ \renewcommand{\capfont}{\bf}
+ \begin{minipage}{5cm}
+ \begin{center}
+  \begin{tabular}{|c|c|c|}                  \hline\hline
+   $i$ & $D_1^i$       & $\delta_i$ \\ \hline
+   0   & $1.172 000 0$ & $5.882$    \\ \hline
+   1   & $1.189 399 3$ & $5.882$    \\ \hline
+   2   & $1.192 388 1$ & $4.347$    \\ \hline
+   3   & $1.193 075 6$ & $4.699$    \\ \hline
+   4   & $1.193 221 9$ &            \\ \hline\hline
+  \end{tabular}
+ \end{center} 
+ \end{minipage}
+ \ \hfill \
+ \begin{minipage}{8cm}
+ \caption{\protect\capsize
+   Tabellen viser v{\ae}rdier $D_1^i$ for
+   diffusions\-konstanten $D_1$, for hvilke den koblede
+   Brusselator underg{\aa}r en periodefordobling. Endvidere
+   er angivet et numerisk estimat af forholdet $\delta_i =
+   \frac{D_1^{i+1}-D_1^{i}}{D_1^{i+2}-D_1^{i+1}}$, der ses
+   at konvergere mod Feigenbaums konstant
+   $\delta=4.6692016091\ldots$. De angivede data stammer
+   fra \protect\cite{Marek2}. }
+ \label{tab:PerdobData}
+\end{minipage}
+\end{table} 
+\renewcommand{\capfont}{\rm}
+
+\vspace{4.0mm}
+I stedet {\o}nsker vi at diskutere de omr{\aa}der i
+parameterrummet $(B,D_1)$, for hvilke den koblede
+Brusselator model giver anledning til periodefordoblings-
+og torusbifurkationer. I det f{\o}lgende s{\ae}tter vi
+$A=2$ og $\frac{D_1}{D_2}=0.1$ og unders{\o}ger
+egenskaberne ved lig\-ning~\ref{eq:KobletBrusEq} under
+variation af $B$ og $D_1$ ($B,D_1 > 0$). S{\ae}tter vi
+$B=5.9$, finder man udfra numeriske beregninger, at en
+superkritisk Hopfbifurkation forekommer i
+lig\-ning~\ref{eq:KobletBrusEq} for $D_1=0.0904$. Den
+herved opst{\aa}ede gr{\ae}nsecyklus genneml{\o}ber
+derp{\aa} en kaskade af periodefordoblinger for en
+r{\ae}kke successive for{\o}gelser af $D_1$ som illustreret
+i tabel~\ref{tab:PerdobData}.
+
+\vspace{4.0mm}
+At de angivne v{\ae}rdier for $D_1$ faktisk
+repr{\ae}senterer en serie af periodefordoblinger er
+illustreret i figur~\ref{fig:Perdob}, hvor en r{\ae}kke
+numeriske integrationer af lig\-ning~\ref{eq:KobletBrusEq}
+er vist svarende til en r{\ae}kke valg af parameteren
+$D_1$, s{\aa}ledes at $D_1 \in [D_1^{i};D_1^{i+1}]$. Som
+det v{\ae}sentligste resultat ser vi dog, at det numerisk
+bestemte forhold
+
+\begin{equation}
+ \delta_i = \frac{D_1^{i+1}-D_1^{i}}{D_1^{i+2}-D_1^{i+1}}
+\end{equation}
+
+for $i=3$ p{\aa} nydeligste vis er i overensstemmelse med
+den v{\ae}rdi af $\delta$, der er bestemt for den
+logistiske afbildning. Til sidst bem{\ae}rkes, at for
+$D_1>1.194>D_1^4$ vil den koblede Brusselator udvise
+kaotisk opf{\o}rsel.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Periodefordobling i koblet Brusselator:
+%%               T, 2T, 4T, 8T
+%% plt         : fig26.plt
+%% dat         : fig26a.dat, fig26b.dat, fig26c.dat, fig26d.dat
+%% tex         : fig26a.tex, fig26b.tex, fig26c.tex, fig26d.tex
+%% makroer     : TeXDraw, PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\begin{center}
+ \begin{pspicture}(0,-0.4)(14,10)
+%  \psgrid[](0,0)(0,0)(14,10)
+  \rput[tl]{*0}( 1.2,9.2){\input{fig56a}}
+  \rput[tl]{*0}( 7.6,9.2){\input{fig56b}}
+  \rput[tl]{*0}( 1.2,4.4){\input{fig56c}}
+  \rput[tl]{*0}( 7.6,4.4){\input{fig56d}}
+  \rput[tc]{*0}( 4.1,0.1){\footnotesize tid/s}
+  \rput[tc]{*0}(10.5,0.1){\footnotesize tid/s}
+  \rput[cc]{*0}( 6.3,8.7){\footnotesize a)}
+  \rput[cc]{*0}(12.7,8.7){\footnotesize b)}
+  \rput[cc]{*0}( 6.3,3.9){\footnotesize c)}
+  \rput[cc]{*0}(12.7,3.9){\footnotesize d)}
+  \rput[cb]{*0}( 4.0,9.4){\footnotesize periode $T$}
+  \rput[cb]{*0}(10.4,9.4){\footnotesize periode $2T$}
+  \rput[cb]{*0}( 4.0,4.6){\footnotesize periode $4T$}
+  \rput[cb]{*0}(10.4,4.6){\footnotesize periode $8T$}
+  \rput[cc]{*0}( 0.5,7.3){\rotateleft{\footnotesize $x_1$}}
+  \rput[cc]{*0}( 0.5,2.4){\rotateleft{\footnotesize $x_1$}}
+ \end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize
+Eksempler p{\aa} tidsr{\ae}kker opn{\aa}et ved numerisk
+integration af lig\-ning~\protect\ref{eq:KobletBrusEq},
+svarende til en r{\ae}kke successive periodefordoblinger i
+den koblede Brusselator under variation af
+diffusionskonstanten $D_1$. De valgte parameterv{\ae}rdier
+for $D_1$ er: $1.160$, $1.180$, $1.191$ og $1.1928$ i
+r{\ae}kkefl{\o}gen a) til d).}
+\label{fig:Perdob}
+}
+
+\vspace{4.0mm}
+Vi vender nu blikket mod et s{\ae}t parameterv{\ae}rdier,
+for hvilke der ind\-tr{\ae}der en torusbifurkation i den
+koblede Brusselator. Vi s{\ae}tter $B=5.5$ og unders{\o}ger
+opf{\o}rslen i intervallet $0.052 < D_1 < 0.053$. For
+$D_1>0.05295$ er l{\o}sningerne til
+lig\-ning~\ref{eq:KobletBrusEq} simple svingninger. For
+$D_1=0.05295$ optr{\ae}der en torusbifurkation, der giver
+anledning til kvasiperiodisk bev{\ae}gelse. For lavere
+v{\ae}rdier af $D_1$ bliver bev{\ae}gelsen resonant, idet
+dynamikken fasel{\aa}ser p{\aa} torusen i form af en
+$3T$-periodisk svingning. Formindskes $D_1$ yderligere,
+bliver bev{\ae}gelsen igen kvasiperiodisk, en deformation
+af torusen indtr{\ae}der, hvorp{\aa} en rent kaotisk
+opf{\o}rsel iagttages. Den m{\aa}de, hvorp{\aa} sy\-stemets
+dynamik manifisterer sig i intervallet $0.052 < D_1 <
+0.053$, er kort opridset i tabel~\ref{tab:TorusData}.
+
+\capsize
+\begin{table}[htbp] 
+ \renewcommand{\capfont}{\bf}
+ \begin{center} 
+  \begin{tabular}{|c|l|}                        \hline\hline
+   $D_1$ {\em interval} & \multicolumn{1}{c|}{\em tiltr{\ae}kker type} \\ \hline
+   $D_1 > 0.05295     $ & simple svingninger   \\ \hline
+   $0.05295 \mdash 0.05246$ & kvasiperiodisk bane p{\aa} en torus \\ \hline
+   $0.05246 \mdash 0.05244$ & $3T$-periodisk fasel{\aa}st kurve 
+			      p{\aa} en torus\\ \hline
+   $0.05244 \mdash 0.05238$ & kvasiperiodisk bane p{\aa} en torus \\ \hline
+   $0.05238 \mdash 0.05206$ & strange attractor               \\ \hline
+   $D_1 < 0.05206$          & station{\ae}rt punkt           \\\hline\hline
+  \end{tabular}
+ \end{center} 
+ \caption{\protect\capsize
+  De angivne data stammer fra \protect\cite{Marek2} og
+  angiver de stabile tiltr{\ae}kkere, der forekommer for
+  den koblede Brusselator i intervallet for forskellige
+  v{\ae}rdier af diffusionskonstanten $D_1$.}
+ \label{tab:TorusData}
+\renewcommand{\capfont}{\rm}
+\end{table} 
+\normalsize
+
+\vspace{4.0mm}
+Vi har set, hvorledes en r{\ae}kke teoretiske forudsigelser
+kan genfindes i en for\-holds\-vis simpel model for et
+kemisk reaktionssy\-stem. Afslutningsvis vil vi beskrive,
+hvilke af de diskuterede st{\o}rrelser, der er
+tilg{\ae}ngelige udfra eksperimentelle m{\aa}linger.
+
+\section{Eksperimentel bestemmelse af
+Floquet\-multiplikatorer og -eks\-ponenter}
+
+Et v{\ae}sentligt
+problem vedr{\o}rende eksperimentel bestemmelse af de
+karakteristiske Floquetst{\o}rrelser skyldes, at der endnu
+ikke eksisterer et teoretisk grundlag, der kobler indholdet
+af de eksperimentelle data til en teoretisk beskrivelse af
+de kemiske oscillationer i et ikke-line{\ae}rt
+parameteromr{\aa}de. Derudover har det vist sig, at
+s{\aa}vel observation som stabilisering af
+bifurkationsf{\ae}nomener, svarende til de tre
+bifurkationstyper beskrevet i forrige af\-snit, stiller
+store krav til n{\o}jagtigheden af det eksperimentelle
+kontrol- og m{\aa}leudstyr.
+
+\vspace{4.0mm}
+Blandt andet af disse {\aa}rsager, har det indtil videre
+ikke v{\ae}ret muligt eksperimentelt at tilvejebringe en
+situation, hvor torusbifurkationer og
+periodefordoblingsbifurkationer i kemiske sy\-stemer har
+kunnet unders{\o}ges tilfredsstillende. F{\ae}nomenerne har
+dog v{\ae}ret observeret eksperi\-mentelt, men af praktiske
+{\aa}rsager er disse meget sv{\ae}re at stabilisere.
+Eksempelvis er en periodefordobling i BZ-reaktionen
+observeret (se \cite{BZPeriodDoubling} for en n{\ae}rmere
+beskrivelse).
+
+\vspace{4.0mm}
+Befinder man sig derimod i det line{\ae}re
+parameteromr{\aa}de i n{\ae}rheden af en superkritisk
+Hopfbifurkation, er det dog muligt at give en vurdering af
+st{\o}rrelses\-ordenen af den Floqueteksponent, der
+beskriver bev{\ae}gelser omkring gr{\ae}nse\-cyklusens
+plan. Vi har tidligere i kapitel~\ref{cha:Quench}
+set, at den gr{\ae}nse\-cyklus, som beskriver de kemiske
+oscillationer lige efter sy\-stemet har gennemg{\aa}et en
+superkritisk Hopfbifurkation, med god tiln{\ae}rmelse
+beskrives af udtrykket
+
+\begin{equation}
+ {\bf c}(t) = {\bf c}_f +
+ a \left[ {\bf u}\cos \omega t + {\bf v}\sin \omega t \right]
+\end{equation}
+
+hvor $({\bf u},{\bf v})$ udg{\o}r henholdsvis real- og
+imagin{\ae}rdel af de to komplekse egenvektorer til
+Jacobimatricen. $\omega$ er imagin{\ae}rdelen i den
+komplekse egenv{\ae}rdi $\alpha + i \omega$ h{\o}rende til
+egenvektoren ${\bf u} - i{\bf v}$. Perturberes et
+s{\aa}dant sy\-stem ved tils{\ae}tning af en blanding af
+reaktionens reaktanter, s{\aa}ledes at perturbationsvektoren
+er rettet mod det station{\ae}re punkt ${\bf c}_f$, vil den
+resulterende udspiralering i n{\ae}rheden af ${\bf c}_f$
+v{\ae}re beskrevet ved udtrykket
+
+\begin{equation}
+ {\bf c}(t) = {\bf c}_f + a e^{\alpha t} 
+ \left[ {\bf u}\cos \omega t + {\bf v}\sin \omega t \right]
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Skematisk illustration af to bev{\ae}gelsestyper
+%%               mod gr{\ae}nsecyklus
+%% makroer     : PSTricks, PST-Plot
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\newcommand{\temp}{\mbox{\scriptsize ${\bf c}(t)$}}
+\begin{center}
+   \begin{pspicture}(0,0)(14,4)
+%   \psgrid[](0,0)(0,0)(14,4)
+   \psline[linewidth=1.2pt,
+           fillstyle=solid,
+           fillcolor=lightgray]{-}(1.0,1.0)(5.0,1.0)(8.0,3.0)(4.0,3.0)(1.0,1.0)
+   \psline[origin={-5,0},
+           fillstyle=solid,
+           fillcolor=lightgray,
+           linewidth=1.2pt]{-}(1.0,1.0)(5.0,1.0)(8.0,3.0)(4.0,3.0)(1.0,1.0)
+   \scriptsize
+   \rput[cb]{*0}( 4.0,3.2){\scriptsize a)}
+   \rput[cb]{*0}( 9.0,3.2){\scriptsize b)}
+   \rput[br]{*0}( 7.2,2.6){\scriptsize $E^u$}
+   \rput[br]{*0}(12.2,2.6){\scriptsize $E^u$}
+   \rput[cc]{*0}( 2.5,1.2){\scriptsize $\gamma$}
+   \rput[lc]{*0}( 8.8,1.72){\scriptsize $\gamma$}
+   \rput[tc]{*0}( 7.68,2.58){\white\temp}
+   \rput[tc]{*0}(10.70,1.92){\temp}
+   \rput[tc]{*0}( 5.68,2.58){\temp}
+   \parametricplot[linewidth=1.2pt,origin={-4.5,-2},plotpoints=100]{0}{360}%
+    {t cos 1.5 t sin mul add %
+     0.8 t sin mul}
+   \parametricplot[origin={-4.5,-2},plotpoints=100]{0}{1440}%
+    {t cos 1.5 t sin mul add 2.71 0.002 t mul neg exp mul %
+     0.8 t sin mul 2.71 0.002 t mul neg exp mul}
+   \parametricplot[arrows=->,
+                   arrowinset=0,
+                   arrowsize=1.5pt 2.25,
+                   origin={-4.5,-2},
+                   plotpoints=2]{180}{179}%
+    {t cos 1.5 t sin mul add 2.71 0.002 t mul neg exp mul %
+     0.8 t sin mul 2.71 0.002 t mul neg exp mul}
+   \parametricplot[arrows=->,
+                   arrowinset=0,
+                   arrowsize=1.5pt 2.25,
+                   origin={-4.5,-2},
+                   plotpoints=2]{540}{539}%
+    {t cos 1.5 t sin mul add 2.71 0.002 t mul neg exp mul %
+     0.8 t sin mul 2.71 0.002 t mul neg exp mul}
+
+   \parametricplot[linewidth=1.2pt,origin={-9.5,-2},plotpoints=100]{0}{360}%
+    {0.5 t cos 1.5 t sin mul add mul %
+     0.4 t sin mul}
+   \parametricplot[origin={-9.5,-2},plotpoints=300]{0}{1080}%
+    {0.5 t cos 1.5 t sin mul add mul 
+     2.71 0.0025 t mul neg exp 1.3 mul 1 add mul %
+     0.4 t sin mul
+     2.71 0.0025 t mul neg exp 1.3 mul 1 add mul}
+   \parametricplot[arrows=->,
+                   arrowinset=0,
+                   arrowsize=1.5pt 2.25,
+                   origin={-9.5,-2},
+                   plotpoints=2]{20}{21}%
+    {0.5 t cos 1.5 t sin mul add mul 
+     2.71 0.0025 t mul neg exp 1.3 mul 1 add mul %
+     0.4 t sin mul
+     2.71 0.0025 t mul neg exp 1.3 mul 1 add mul}
+   \parametricplot[arrows=->,
+                   arrowinset=0,
+                   arrowsize=1.5pt 2.25,
+                   origin={-9.5,-2},
+                   plotpoints=2]{380}{381}%
+    {0.5 t cos 1.5 t sin mul add mul
+     2.71 0.0025 t mul neg exp 1.3 mul 1 add mul %
+     0.4 t sin mul
+     2.71 0.0025 t mul neg exp 1.3 mul 1 add mul}
+  \end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize 
+Skematisk illustration af de to typiske konvergensformer
+mod en stabil gr{\ae}nsecyklus, $\gamma$, genereret ved en
+superkritisk Hopfbifurkation. a) viser bev{\ae}gelsen fra
+det station{\ae}re ud mod $\gamma$, hvorimod b) illustrerer
+bev{\ae}gelsen udenfor $\gamma$ ind mod denne.}
+\label{fig:LimitCycPert}
+}
+
+Vi forestiller os nu, at perturbationen er rettet v{\ae}k
+fra gr{\ae}nsecyklus p{\aa} en s{\aa}dan m{\aa}de, at denne
+stadig foreg{\aa}r i $({\bf u},{\bf v})$-planet. Systemets
+responderende bev{\ae}gelse p{\aa} denne perturbation vil
+stadig v{\ae}re en spiralering tilbage til
+gr{\ae}nsecyklusen, men vil nu v{\ae}re beskrevet af et
+udtryk, der involverer \'{e}n af de $n$
+Floquet\-eksponenter\footnote{Floquetmultiplikatoren og
+-eksponenten, der er associeret med denne bev{\ae}gelse,
+vil her blive symoliseret ved $\lambda_2$ henholdsvis
+$\sigma_2$} (se figur~\ref{fig:LimitCycPert} for en
+illustration af disse to f{\ae}nomener). F{\o}lger vi
+notationen fra lig\-ning~\ref{eq:PertExpan}, vil denne
+bev{\ae}gelse alts{\aa} kunne udtrykkes som
+
+\begin{equation} 
+ {\bf c} (t) = {\bf c}_f + a {\bf p}_2(t) e^{\sigma_2 t} 
+\end{equation} 
+
+hvor den periodiske funktion ${\bf p}_2(t)$ m{\aa} kunne
+skrives som 
+
+\begin{equation}
+ {\bf p}_2(t) = \left[ {\bf u}\cos \omega t + 
+ {\bf v}\sin \omega t \right].
+\end{equation}
+
+Vi vil nu vise, hvilken relation der er g{\ae}ldende mellem
+Floqueteksponenten $\sigma_2$ og realdelen $\alpha$ af den
+komplekse egenv{\ae}rdi $\alpha + i \omega$. Dette
+sp{\o}rgsm{\aa}l er f.eks.\ besvaret i
+\cite{GinzburgLandau}, hvor den {\o}nskede relation
+fremkommer som et af resultaterne i forbindelse med en
+beskrivelse af m{\o}nsterdannelse og turbulens i kemiske
+reaktions\-sy\-stemer ved hj{\ae}lp af den komplekse
+Ginzburg-Landau lig\-ning. Sammenh{\ae}ngen kan dog
+ogs{\aa} vises ved udnyttelse af normalformsteoremet (se
+\cite{GuckenheimerHolmes} for en n{\ae}rmere beskrivelse af
+dette). Denne tiln{\ae}rmelse til problem\-stil\-lingen vil
+blive foretrukket her, da denne endnu ikke er blevet
+beskrevet i litteraturen.
+
+\vspace{4.0mm}
+Vi forestiller os nu, at vi udelukkende er interesserede i
+at beskrive det kemiske sy\-stems dynamik i $({\bf u},{\bf
+v})$-planet, der som bekendt udsp{\ae}nder
+gr{\ae}nsecyklus. Antager vi yderligere, at sy\-stemet
+befinder sig tilpas t{\ae}t p{\aa} en superkritisk
+Hopfbifurkation, da kan man vise \cite{GuckenheimerHolmes},
+at den dynamik, der er indeholdt i den kinetiske lingning
+$\dot{\bf c} = {\bf f}({\bf c},\mu)$, i $({\bf u},{\bf
+v})$-planet med god approksimation vil v{\ae}re beskrevet
+af det $2$-dimensionale differentiallig\-ningssy\-stem
+
+\begin{equation}
+ \begin{array}{lll}
+  \dot{x} & = & x(\mu - (x^2 + y^2)) - \omega y\\
+  \dot{y} & = & y(\mu - (x^2 + y^2)) + \omega x
+ \end{array}
+ \label{eq:SuperHopf}
+\end{equation}
+
+hvor vi har valgt ${\bf c}_f$ som origo i rummet span$({\bf
+u},{\bf v})$. Systemet~\ref{eq:SuperHopf} kaldes for
+normalformen for den superkritiske Hopfbifurkation og har
+det trivielle station{\ae}re punkt $(0,0)$ med
+tilh{\o}rende Jacobimatrix
+
+\begin{equation}
+ {\bf J}_{(0,0)} = 
+ \left[
+ \begin{array}{rr}
+  \mu    & -\omega \\
+  \omega &  \mu
+ \end{array}
+ \right]
+\end{equation}
+
+Heraf ses, at lig\-ning~\ref{eq:SuperHopf} netop underg{\aa}r
+en superkritisk Hopfbifurkation for parameterv{\ae}rdien
+$\mu=0$. Videre ser vi, at de to egenv{\ae}rdier for
+${\bf J}_{(0,0)}$ tilfredsstiller $\lambda_{1,2} = \mu \pm
+i \omega$, hvorfor realdelen $\alpha$ for det oprindelige
+sy\-stem opfylder $\alpha = \mu$. Vi {\o}nsker nu at bestemme
+Floqueteksponenten for den periodisk stabile l{\o}sning,
+der findes til lig\-ning~\ref{eq:SuperHopf} for $\mu > 0$.
+Transformeres lig\-ning~\ref{eq:SuperHopf} til pol{\ae}re
+koordinater $(r,\theta)$, s{\aa}ledes at $x=r \cos \theta$
+og $y=r \sin \theta$, vil sy\-stemet i den pol{\ae}re basis
+v{\ae}re beskrevet af lig\-ningerne
+
+\begin{equation}
+ \begin{array}{lll}
+  \dot{r}      & = & r(\mu - r^2)\\
+  \dot{\theta} & = & \omega 
+ \end{array}
+ \label{eq:SuperHopfPolar}
+\end{equation}
+
+der med begyndelsesbetingelserne $r(0)=\sqrt{\mu}$ og
+$\theta (0) = 0$ har l{\o}sningen $r(t) = \sqrt{\mu}$ og
+$\theta (t) = \omega t$. Vi ser specielt, at $r(t)$ er
+konstant, hvilket netop betyder, at denne l{\o}sning svarer
+til en periodisk gr{\ae}nsecyklus i (x,y)-planet givet ved
+
+\begin{subequations}
+ \begin{eqalignno}
+  x(t) &= \sqrt{\mu} \cos \omega t\\
+  y(t) &= \sqrt{\mu} \sin \omega t
+ \end{eqalignno}
+ \label{eq:SuperHopfSol}
+\end{subequations}
+
+med amplituden $\sqrt{\mu}$ og perioden
+$\frac{2\pi}{\omega}$. Udregnes nu Jacobimatricen for
+lig\-ning~\ref{eq:SuperHopf} under inds{\ae}ttelse af
+lig\-ning~\ref{eq:SuperHopfSol}, findes f{\o}lgende
+differentiallig\-ning til bestemmelse af monodromimatricen
+${\bf M}(T)$
+
+\begin{equation}
+ \dot{\bf M} = -
+ \left[
+ \begin{array}{cc}
+  2\mu \cos^2\omega t & \sin 2\omega t + \omega \\
+  \sin 2\omega t - \omega & 2\mu \sin^2\omega t
+ \end{array}
+ \right]
+ {\bf M}, \mbox{\ \ hvor \ \ } {\bf M}(0) = {\bf I}
+\end{equation}
+
+Udnytter vi nu Abels identitet\footnote{Se 
+f.eks.\ \cite[s.\ 198]{Saaty} for et bevis for Abels identitet }
+
+\begin{equation}
+ \det {\bf M}(T) = 
+ \det {\bf M}(0) 
+ \exp \left[\int_0^T \Tr {\bf J}(\tau) d\tau\right]
+\end{equation}
+
+samt at $\det {\bf M}(T) = \lambda_1\lambda_2 = \lambda_2 =
+e^{\sigma_2 T}$ (da $\lambda_1 = 1$), finder vi f{\o}lgende
+resultat for Floqueteksponenten $\sigma_2$
+
+\begin{equation}
+ \lambda_2 = \det {\bf M}(T) = 
+ \exp -2\mu\int_0^T\negsp  d\tau = e^{-2\mu T} \Rightarrow
+ \sigma_2 = -2 \mu
+\end{equation}
+
+Med andre ord vil realdelen $\alpha$ og Floqueteksponenten
+$\sigma_2$ tilstr{\ae}kkelig t{\ae}t p{\aa} den
+superkritiske Hopfbifurkation forholde sig til hinanden som
+
+\begin{equation}
+ \frac{\alpha}{\sigma_2} = -2
+\end{equation}
+
+Dette resultat er verificeret ved numeriske beregninger
+\cite{SpecRapport} og har yderligere v{\ae}ret anvendt til
+bestemmelse af $\sigma_2$ udfra eksperimentelle data
+\cite{GinzburgLandau}.
+

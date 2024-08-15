@@ -1,0 +1,1397 @@
+\pageheaderlinetrue
+\evenpageheader{\bsf\leftmark}{}{}
+\oddpageheader{}{}{\bsf\rightmark}
+\evenpagefooter{\thepage}{}{}
+\oddpagefooter{}{}{\thepage}
+
+\chapter{Historisk indledning}
+\label{cha:Historie}
+\pagenumbering{arabic}
+\section{Kemisk kinetik}
+{\em Kemisk kinetik\/} omhandler tidsforl{\o}bet af kemiske
+reaktioner. N{\aa}r en reaktion finder sted, {\ae}ndrer
+koncentrationerne af de implicerede stoffer sig. Visse
+reaktioner foreg{\aa}r langsomt, hvorimod andre finder sted
+n{\ae}sten momentant. Til en given reaktion kan vi knytte
+en reaktions\-hastighed, der beskriver hvor meget de
+enkelte stoffers koncentration {\ae}ndres pr.\ tidsenhed.
+Den hastighed, hvormed stoffernes koncentration {\ae}ndres
+som funktion af tiden, defineres ved en
+differentialkvotient $\frac{dc_i}{dt}$, hvor $c_i$ angiver
+koncentrationen af det $i$'te stof til tiden $t$. Betragter
+vi for eksempel reaktionen
+
+\begin{equation}
+  {\rm A} + {\rm B}  \rightarrow {\rm C} + {\rm D}
+  \label{eq:VerySimpleReaction}
+\end{equation}
+
+f{\aa}s f{\o}lgende sammenh{\ae}ng mellem
+hastigheds\-udtrykkene for de fire stoffer A, B, C og D
+
+\begin{equation}
+ - \frac{d{\rm [A]}}{dt} =
+ - \frac{d{\rm [B]}}{dt} =
+   \frac{d{\rm [C]}}{dt} =
+   \frac{d{\rm [D]}}{dt}
+\end{equation}
+
+I kemisk kinetik er det oftest fordelagtigt at unders{\o}ge
+s{\aa}kaldte {\em elementarreaktioner\/}, da
+hastigheds\-udtrykkene for s{\aa}danne er specielt simple.
+Lidt l{\o}st kan vi definere en elementarreaktion som en
+reaktion, {\em hvis reaktions\-lig\-ning repr{\ae}senterer
+det faktiske fysiske forl{\o}b, efter hvilken reaktionen
+finder sted\/}. Ofte vil elementarreaktioner enten v{\ae}re
+{\em uni\/}- eller {\em bimolekyl{\ae}re\/}, svarende til
+at disse enten beskriver en spontan omdannelse af et enkelt
+atom/molekyle eller et sammenst{\o}d mellem to
+atomer/molekyler. Antager vi eksempelvis, at
+reaktion~\ref{eq:VerySimpleReaction} er en
+elementarreaktion, da vil reaktionen i det
+p{\aa}g{\ae}ldende reaktions\-medium realiseres ved et
+sammenst{\o}d mellem et A og et B molekyle under dannelse
+af et C og et D molekyle. Derimod vil en reaktion som
+
+{
+\newcommand{\ho}        {\mbox{H$_2$O}}
+\newcommand{\permn}     {\mbox{MnO$^-_4$}}
+\newcommand{\mn}        {\mbox{Mn$^{2+}$}}
+\newcommand{\bromid}    {\mbox{Br$^-$}}
+\newcommand{\brom}      {\mbox{Br$_2$}}
+\newcommand{\prot}      {\mbox{H$^+$}}
+\begin{equation}
+ 2 \permn + 10 \bromid + 16 \prot \rightleftharpoons 
+ 2 \mn    + 5  \brom + 8 \ho
+\end{equation}
+
+ikke v{\ae}re nogen elementarreaktion, da den tilknyttede
+omdannelse rimeligvis ikke finder sted via et samtidigt
+sammenst{\o}d mellem 2 \permn-ioner, 10 \bromid-ioner og 16
+protoner.} I dette tilf{\ae}lde fors{\o}ger man i stedet at
+dekomponere reaktionen i et s{\ae}t elementarreaktioner,
+efter hvilket reaktionen menes at kunne forl{\o}be. Et
+s{\aa}dant s{\ae}t elementarreaktioner kaldes {\em en
+reaktions\-meka\-nis\-me\/}. Bestemmelsen af en
+reaktions\-mekanisme er ofte et meget kompliceret
+puslespil, der involverer et omfattende eksperimentelt
+arbejde. Vi vil senere i kapitel~\ref{cha:PertStat} se
+eksempler p{\aa}, hvorledes man udfra en r{\ae}kke
+teoretiske overvejelser kan bestemme reaktions\-mekanismen
+for visse typer af kemiske reaktioner.
+
+\vspace{4.0mm}
+{
+\newcommand{\brint}     {\mbox{H$_2$}}
+\newcommand{\iod}       {\mbox{I$_2$}}
+\newcommand{\hi}        {\mbox{HI}}
+\newcommand{\reactionarrow}[2]
+{\begin{array}{c}
+  \mbox{\scriptsize $#1$} \\[-1.5mm]
+  \rightleftharpoons      \\[-2.5mm]
+  \mbox{\scriptsize $#2$} 
+\end{array}}
+
+Som n{\ae}vnt tidligere er de hastigheds\-udtryk, der
+knyttes til en elementarreaktion forholdsvis ukomplicerede,
+idet disse opfylder en s{\aa}kaldt {\em
+potenslov\-kinetik\/}. Vi kan nemlig med rimelighed antage,
+at den hastighed, hvormed et stofs koncentration
+{\ae}ndres, er proportional med koncentrationen af de
+reagerende stoffers koncentration opl{\o}ftet til deres
+respektive st{\o}kiometriske koeffi\-cienter.
+Proportionalitetskonstanten, der knyttes til et s{\aa}dant
+hastig\-heds\-udtryk, kaldes en {\em
+hastig\-heds\-konstant\/}. For at afmystificere dette en
+smule betragter vi et klassisk eksempel, nemlig reaktionen
+mellem hydrogen og iod i gasfase~\cite{KAJensen}
+
+\begin{equation}
+  \brint + \iod \reactionarrow{k_1}{k_{-1}} \hi
+\end{equation}
+
+Her angiver $k_1$ og $k_{-1}$ hastigheds\-konstanterne for
+den fremadg{\aa}ende henholds\-vis tilbageg{\aa}ende
+reaktion. F{\o}lger vi de n{\ae}vnte foreskrifter for
+potenslovs\-kinetik, da bliver hastigheds\-udtrykket for
+\brint
+
+\begin{equation}
+  \frac{d[\brint]}{dt} = -k_1 [\brint][\iod] + k_{-1}[\hi]^2
+\end{equation}
+
+Hastighedsudtrykkene for \iod~og \hi~findes ved en
+lignende fremgangsm{\aa}de. 
+}
+
+\vspace{4.0mm}
+{\O}nsker man at beskrive tidsudviklingen for en
+vilk{\aa}rlig kemisk reaktion, er det n{\o}dvendigt, at der
+for den p{\aa}g{\ae}ldende reaktion er opstillet en
+reaktions\-mekanisme. For denne mekanisme udregnes samtlige
+involverede stoffers ha\-stig\-heds\-udtryk ved hj{\ae}lp
+af de indg{\aa}ende elementarreaktioner. Dette giver
+normalt anledning til et system af koblede ikke-line{\ae}re
+1.~ordens differentiallig\-ninger. P{\aa} kompakt form har
+vi, at en kemisk reaktions kinetik er beskrevet ved
+
+\begin{equation}
+  \dot{\bf c} = {\bf f}({\bf c}),
+  \ms{hvor} {\bf c} \in \R^n 
+  \ms{og} {\bf f}: \R^n \mapsto \R^n
+  \label{eq:GeneralRateEq}
+\end{equation}
+
+hvor vektoren ${\bf c}$ angiver koncentrationerne,
+$c_1,\ldots,c_n$, af de stoffer, der deltager i reaktionen.
+Vektorfunktionen ${\bf f}$ vil oftest v{\ae}re et
+vektorpolynomie i koncentrationerne $c_1,\ldots, c_n$, men
+kan dog ogs{\aa} indeholde andre funktionstyper. 
+
+\vspace{4.0mm}
+Det er differentiallig\-ninger af denne type, der idag
+spiller den st{\o}rste rolle ved kvalitative s{\aa}vel som
+kvantitative sammenlig\-ninger mellem empiriske data fra
+kemiske reaktioner og modeller for disse. S{\aa}danne
+ikke-line{\ae}re 1.\ ordens differentiallig\-ninger kan kun
+yderst sj{\ae}ldent l{\o}ses analytisk, hvorfor
+computer\-simuleringer ofte benyttes, n{\aa}r lig\-ningernes
+egen\-skaber skal analyseres.
+
+\vspace{4.0mm}
+Egenskaberne ved s{\aa}danne ikke-line{\ae}re
+differentiallig\-ninger kan v{\ae}re utrolig komplicerede,
+hvilket vi i de efterf{\o}lgende kapitler skal se mange
+eksempler p{\aa}. Det er dog f{\o}rst inden for de sidste
+tyve {\aa}r, at videnskaben rigtigt er blevet klar over den
+mangfoldighed af kompleks opf{\o}rsel, der kan gemme sig
+bag differentiallig\-ninger af ovenst{\aa}ende type. I
+starten af dette {\aa}rhundrede var der n{\ae}ppe nogen,
+der havde forestillet sig, at en kemisk reaktion ville
+kunne besidde nogen af disse egen\-skaber. Lad os derfor
+kaste et blik p{\aa} den m{\aa}de hvorp{\aa} kemiske
+reaktioner opfattedes p{\aa} den tid.
+
+\vspace{4.0mm}
+Allerede i slutningen af forrige {\aa}rhundrede foretager
+den franske matematiker Henri Poincar\'{e} en r{\ae}kke
+epokeg{\o}rende studier af dynamiske systemers natur
+\cite{PoinOrig} med henblik p{\aa} at forst{\aa} mekaniske
+systemer i fysikken. Det er derfor rimeligt at antage, at
+man p{\aa} dette tidspunkt er klar over, at
+differentiallig\-ninger med oscillerende l{\o}sninger har
+en betydning i fysikkens beskrivelse af verden. En lignende
+analogi genfindes dog ikke i det samtidige kemiske
+verdensbillede.
+
+\vspace{4.0mm}
+Den kemiske reaktion opfattes som et forl{\o}b af ``en
+r{\ae}kke stramt knyttede b{\aa}nd'', der ul{\o}seligt er
+knyttet til reaktionens vej mod ligev{\ae}gt. En kemisk
+reaktion betragtes som v{\ae}rende uden frihedsgrader og
+tillades derfor \'{e}n og kun \'{e}n passage mod
+ligev{\ae}gt. I 1921 skriver Walther Nernst i tiende oplag
+af ``Theoretische Chemie'' \cite{Nernst} f{\o}lgende
+
+\begin{quote}
+  ``\ldots\ Integration \label{`cite:Nernst'} af
+  differentiallig\-ningen for den kemiske omdannelse giver
+  i alle tilf{\ae}lde det resultat, at ligev{\ae}gt
+  f{\o}rst bliver oprettet efter uendelig lang tid;
+  f{\o}rst for $t=\infty$ bliver $\frac{dx}{dt}=0$; et
+  kemisk system tilstr{\ae}ber, ligesom et st{\ae}rkt
+  d{\ae}mpet pendul, aperiodisk mod
+  ligev{\ae}gts\-tilstanden. En overskridelse af dette
+  m{\aa}l er faktisk uforenelig med vores samlede
+  betragtninger af kemiske processer; dette ville betyde,
+  at under s{\aa}danne omst{\ae}ndigheder ville en
+  reaktions betydning afh{\ae}nge af systemets forhistorie,
+  s{\aa}ledes f.eks.\ for to absolut identiske l{\o}sninger
+  ville reaktionen kunne forl{\o}be i modsat retning, idet
+  den ene n{\ae}rmede sig ligev{\ae}gt og den anden sk{\o}d
+  sig ud over. Faktum er, at en s{\aa}dan reaktion endnu
+  aldrig er blevet iagttaget\footnote{Citatet er oversat
+  fra tysk af Christa Trandum.}.''
+\end{quote}
+
+Nernst argumenterer, at hvis en kemisk reaktion skal have
+et forl{\o}b, s{\aa}ledes at denne ``rammer'' ved siden af
+ligev{\ae}gts\-punktet, da ville reaktionen til forskellige
+tids\-rum passere den samme tilstand, men i forskellige
+retninger. Umiddelbart giver dette da ogs{\aa} en modstrid.
+Opfattes en kemisk reaktions natur som v{\ae}rende
+deterministisk, er reaktionens opf{\o}rsel bagud og frem i
+tiden til enhver tid entydigt bestemt udfra reaktionens
+nuv{\ae}rende tilstand. Hvis reaktionen passerer
+ligev{\ae}gts\-punktet, m{\aa} denne n{\o}dvendigvis p{\aa}
+et tids\-punkt vende tilbage mod dette, da reaktionen under
+alle omst{\ae}ndigheder skal konvergere mod
+ligev{\ae}gts\-punktet for $t\rightarrow\infty$. Dette
+betyder, at koncentrationen af de stoffer, der deltager i
+reaktionen, til to forskellige ``reaktions\-retninger'' vil
+antage samme v{\ae}rdier.
+
+\vspace{4.0mm}
+Nernst p{\aa}peger udfra dette, at en kemisk reaktion, der
+``rammer ved siden af'' ligev{\ae}gts\-tilstanden, vil
+passere to identiske tilstande med forskellig fortid og
+fremtid, hvilket forekommer absurd. Ideen bag dette
+r{\ae}sonnement er illustreret skematisk i
+figur~\ref{fig:Nernst}a.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Illustration af Nernsts ide + fysisk pendul
+%% type        : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\vspace{0.5cm}
+\begin{center}
+  \begin{pspicture}(0,0)(12,5)
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Nernsts ligev{\ae}gt
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \rput[br]{*0}(1.0,4.5){\footnotesize a)}
+    \rput[br]{*0}(3.9,2.1){\footnotesize eq.}
+    \rput[c ]{*0}(2.95,-0.4){\footnotesize koncentration}
+    \psbezier[linewidth=1.8pt,arrowinset=0]{->}(0.5,4)(7.5,2)(6.5,1.5)(0.5,1)
+%   \psgrid[subgriddiv=1,griddots=10,gridlabels=7pt](0,0)(0,0)(12,5)
+    \psline[linearc=0.1,linewidth=1.8pt,arrowinset=0]{->}(1.0,0.2)(5.4,0.2)(5.4,0)(0.5,0)
+    \pscircle*[](4,2){0.075}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %% Fysisk pendul
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psline[linewidth=1.8pt]{-}(9.5,0.5)(9.5,4)(11.5,1.5)
+    \pscircle*[](11.5,1.5){0.1}
+    \pswedge[linestyle=dashed,dash=3pt 2pt](9.5,4){1.25}{270}{308.66}
+    \rput[tc]{*0}(9.9,2.7){\footnotesize $\theta$}
+    \rput[br]{*0}(8.5,4.5){\footnotesize b)}
+  \end{pspicture}
+\end{center}
+\vspace{0.5cm}
+}
+{
+\caption{\protect\capsize
+a) Skematisk gengivelse af Nernsts argument for at
+oscillationer ikke kan forekomme i kemiske reaktioner. Den
+{\o}verste kurve viser en reaktionskoordinat, der skyder
+forbi ligev{\ae}gtspunktet. Dette betyder at
+koncentrationen af de stoffer, der deltager i reaktionen,
+til to forskellige punkter p{\aa} reaktionskoordinaten
+m{\aa} antage samme v{\ae}rdier. Dette er illustreret ved
+den nederste kurve. Til to ens s{\ae}t koncentrationer
+findes s{\aa}ledes to forskellige l{\o}sninger til det
+deterministiske kemiske system. b) Det hamiltonske pendul.}
+\label{fig:Nernst}
+}
+
+\vspace{4.0mm}
+Lad os fors{\o}ge at sammenligne denne situation med det
+hamiltonske pendul fra fysikken. Betragter vi pendulet i
+positionen $\theta$, kan vi godt tillade pendu\-let at
+passere dette punkt i to forskellige retninger svarende
+til, at pendulets tilstand f{\o}rst er fuldst{\ae}ndigt
+defineret, n{\aa}r b{\aa}de dets position $\theta$ og
+hastighed $\dot{\theta}$ er opgivet
+(figur~\ref{fig:Nernst}b).
+
+\vspace{4.0mm}
+P{\aa} Nernsts tid var det endnu ikke kendt, at en given
+reaktion sj{\ae}ldent forl{\o}ber via selve
+reaktions\-lig\-ningen, men derimod finder sted via et
+kompliceret samspil mellem en r{\ae}kke intermedi{\ae}re
+reaktioner svarende til den tidligere omtalte
+reaktions\-mekanisme. Det er tilstedev{\ae}relsen af disse
+intermedi{\ae}re reaktioner og stoffer mellem reaktionens
+start- og sluttilstand, der for{\aa}rsager Nernsts forkerte
+r{\ae}sonnement. Disse intermedi{\ae}re tilstande og dermed
+et ekstra s{\ae}t frihedsgrader tillader reaktionen ``at
+skyde over ligev{\ae}gts\-punktet''. Vi skal senere se,
+hvorledes en reaktion under de rette betingelser faktisk
+kan blive ved med ``at skyde over ligev{\ae}gts\-punktet''.
+
+\vspace{4.0mm}
+Lad os ved hj{\ae}lp af et simpelt og klassisk
+l{\ae}rebogseksempel i kemisk kinetik fors{\o}ge at
+illustrere den natur, som kemiske reaktioner i starten af
+dette {\aa}rhundrede tillagdes \cite[s.\ 690]{Alberty}. Vi
+forestiller os en reaktant A, der via et intermediat B
+omdannes til stoffet C. Opskriver vi
+reaktions\-lig\-ningerne for denne simple unimolekyl{\ae}re
+omdannelse f{\aa}s
+
+\begin{equation}
+  {\rm A} \stackrel{k_1}{\longrightarrow}
+  {\rm B} \stackrel{k_2}{\longrightarrow} 
+  {\rm C}
+  \label{eq:Unimolecular}
+\end{equation}
+
+hvor $k_1$ og $k_2$ er hastigheds\-konstanterne for de to
+reaktioner. 
+
+\newpage
+Ved hj{\ae}lp af potenslov\-kinetik f{\aa}s
+f{\o}lgende tre hastigheds\-udtryk for de tre stoffer
+
+\begin{eqnarray}
+  \frac{dA}{dt} & = & - k_1 A       \nonumber\\
+                &   &               \nonumber\\
+  \frac{dB}{dt} & = & k_1 A - k_2 B          \\
+                &   &               \nonumber\\
+  \frac{dC}{dt} & = & k_2 B         \nonumber
+  \label{eq:DerivativeABC}
+\end{eqnarray}
+
+L{\o}ser vi nu disse tre koblede differentiallig\-ninger, med
+begyndelsesbeting\-el\-ser\-ne $A(0) = A_0$ og $B(0) = C(0) = 0$
+til tiden $t=0$, finder vi, at tidsudviklingen for de tre
+stoffer bliver
+
+\begin{eqnarray}
+  A(t) & = & A_0 e^{-k_1 t}                   \nonumber\\
+  B(t) & = & A_0 \frac{k_1}{k_2-k_1} 
+  \left[ e^{-k_1 t} - e^{-k_2 t} \right]               \\
+  C(t) & = & A_0 \left[ 1 + \frac{1}{k_1-k_2} 
+  (k_2 e^{-k_1 t} - k_1 e^{-k_2 t}) \right]   \nonumber
+\end{eqnarray}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : tidsudvikling for unimolekyl{\ae}r reaktion
+%% plt         : fig40.plt
+%% tex         : fig40.tex
+%% type        : TeXDraw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\begin{center}
+ \vspace{1cm}
+  \input{fig10}
+ \vspace{1cm}
+\end{center}
+}
+{
+\caption{\protect\capsize Afbildning af hvorledes
+koncentrationen af de tre stoffer A, B og C {\ae}ndres som
+funktion af tiden under et reaktions\-forl{\o}b beskrevet
+ved reaktions\-lig\-ningerne~\protect\ref{eq:Unimolecular}.
+I dette eksempel er v{\ae}rdierne $k_1 = {\rm 0.10~s}^{-1}$
+og $k_2 = {\rm 0.05~s}^{-1}$ valgt for de to
+hastigheds\-konstanter.}
+\label{fig:UnimolecularPlot}
+}
+
+For et s{\ae}t v{\ae}rdier for $k_1$ og $k_2$ er disse tre
+koncentrationer afbildet som funktion af tiden i
+figur~\ref{fig:UnimolecularPlot}. Af figuren fremg{\aa}r,
+at samtlige stoffers koncentration konvergerer mod et
+ligev{\ae}gtspunkt svarende til, at disse ikke {\ae}ndrer
+sig i tiden.
+
+\vspace{4.0mm}
+Havde vi yderligere inkluderet de modsatrettede reaktioner
+i lig\-ning~\ref{eq:Unimolecular} og dermed gjort modellen
+mere realistisk ville denne have v{\ae}ret beskrevet ved
+f{\o}lgende reaktioner
+
+{
+\newcommand{\reactionarrow}[2]
+{
+\begin{array}{c}
+  \mbox{\scriptsize $#1$} \\[-1.5mm]
+  \rightleftharpoons      \\[-2.5mm]
+  \mbox{\scriptsize $#2$} 
+\end{array}
+}
+
+\begin{equation}
+  {\rm A} \reactionarrow {k_1}{k_2} 
+  {\rm B} \reactionarrow {k_3}{k_4} {\rm C} 
+  \label{eq:UnimolecularReversible}
+\end{equation}
+}
+
+Her ville vi atter have fundet, at systemets
+koncentrationer i gr{\ae}nsen \mbox{$t \rightarrow \infty$}
+ville konvergere mod et s{\ae}t af gr{\ae}nsev{\ae}rdier,
+der opfylder udtrykkene for de to ligev{\ae}gts\-konstanter
+
+\begin{equation}
+  \frac{B_{\rm eq}}{A_{\rm eq}} = \frac{k_1}{k_2} \ms{og}
+  \frac{C_{\rm eq}}{B_{\rm eq}} = \frac{k_3}{k_4}
+  \label{eq:EquiConst}
+\end{equation}
+
+P{\aa} trods af en st{\o}rre kompleksitet i det s{\ae}t
+differentiallig\-ninger, der be\-skri\-ver tidsudviklingen
+for reaktion~\ref{eq:UnimolecularReversible}, ville vi
+stadig have fundet, at systemets langtidsopf{\o}rsel ville
+v{\ae}re beskrevet ved et ligev{\ae}gts\-punkt. Videre
+ville vi analogt med observationerne fra
+figur~\ref{fig:UnimolecularPlot} ogs{\aa} have fundet, at
+de kurver, der beskriver selve tidsudviklingen, ville
+v{\ae}re af en forholdsvis simpel karakter.
+
+\section{Lotka-Volterra modellen}
+\label{sec:LotkaSection}
+Denne opfattelse af kemisk kinetik og tidsudviklingen i et
+reaktions\-forl{\o}b var ener{\aa}dende indenfor kemisk
+reaktionskinetik indtil midten af 50'erne. Man opfatter
+forl{\o}bet af en kemisk reaktion som v{\ae}rende bygget op
+af en simpel transientperiode, langs hvilken
+koncentrationerne af de kemiske stoffer konvergerer mod
+deres respektive ligev{\ae}gts\-v{\ae}rdier. Til trods for
+dette har der alligevel tidligere v{\ae}ret publiceret
+artikler, der beskriver kemiske modelsystemer, hvis
+opf{\o}rsel er i strid med ovenst{\aa}ende opfattelse.
+
+\vspace{4.0mm}
+Her har den model, der idag kendes under navnet
+``Volterra-Lotka modellen'', v{\ae}ret af st{\o}rre
+betydning. Modellen forkastes dog af samtidens
+eta\-ble\-rede kemi\-kere som v{\ae}rende spekulativ
+matematik uden ``virkeligt'' kemisk indhold. Ironisk nok
+bet{\o}d dette, at modellens kemiske betydning ogs{\aa}
+blev forkastet af dennes ophavsm{\ae}nd. Retrospektivt kan
+dette faktisk kun beklages, da det viser sig, at
+``Volterra-Lotka modellen'' besidder mange af de typiske
+egen\-skaber, der karakteriserer de komplekse kemiske
+reaktioner, der kendes idag. P{\aa} grund af dennes
+historiske betydning vil ``Volterra-Lotka modellen'' blive
+gennemg{\aa}et her.
+
+\vspace{4.0mm}
+I 1910 publicerer kemikeren Alfred J.\ Lotka en r{\ae}kke
+resultater \cite{Lotka1}, hvor han studerer f{\o}lgende
+reaktions\-mekanisme
+
+\begin{subequations}
+ \begin{eqalignno}
+  {\rm a} & \rightarrow {\rm A}\\
+  {\rm A} & \stackrel{k_1}{\rightarrow} {\rm B}\\
+  {\rm B} & \stackrel{k_2}{\rightarrow} {\rm C}
+ \end{eqalignno}
+ \label{eq:LotkaSimple}
+\end{subequations}
+
+
+hvor $k_1$ og $k_2$ er hastigheds\-konstanter.
+Koncentrationen $H$ af stoffet a antages at v{\ae}re s{\aa}
+stor, at denne kan betragtes som v{\ae}rende konstant under
+reaktions\-forl{\o}bet. Endvidere antages, at stoffet B har
+en autokatalytisk effekt p{\aa} sin egen dannelse, hvorfor
+produktionen af stoffet B er proportional med
+koncentrationen af B. For ovenst{\aa}ende
+reaktions\-mekanisme f{\aa}s f{\o}lgende s{\ae}t af
+hastigheds\-udtryk
+
+\begin{subequations}
+ \begin{eqalignno}
+  \frac{dA}{dt} & = H - k_1 A B \\
+  \frac{dB}{dt} & = k_1 A B - k_2 B
+ \end{eqalignno}
+ \label{eq:LotkaSimpleRate}
+\end{subequations}
+
+hvor $A$ og $B$ er koncentrationerne af stofferne A og B,
+og $H$ er en konstant. Lotka v{\ae}lger nu at transformere
+differentiallig\-ningssystemet~\ref{eq:LotkaSimpleRate} via
+f{\o}lgende variabelskift
+
+\begin{subequations}
+ \begin{eqalignno}
+  T & = k_1 t           \\
+  h & = \frac{H}{k_1}   \\
+  K & = \frac{k_2}{k_1}
+ \end{eqalignno}
+\label{eq:LotkaTransform}
+\end{subequations}
+
+der f{\o}rer til systemet 
+
+\begin{subequations}
+ \begin{eqalignno}
+  \frac{dA}{dt} & = h - A B   \label{eq:Trans-a} \\
+  \frac{dB}{dt} & = A B - K B \label{eq:Trans-b}
+ \end{eqalignno}
+\end{subequations}
+
+S{\ae}ttes ligningerne~\ref{eq:Trans-a}~og~\ref{eq:Trans-b}
+lig nul, ses dette system for $t \rightarrow \infty$ at
+konvergere mod ligev{\ae}gts\-koncentrationerne
+
+\begin{equation}
+  A_{\rm eq} = K \ms{og}  B_{\rm eq} = \frac{h}{K}
+  \label{eq:LotkaSimpleEqui}
+\end{equation}
+
+Lotka unders{\o}ger nu systemets opf{\o}rsel infinitesimalt
+t{\ae}t p{\aa} ligev{\ae}gts\-\-punktet $(K,\frac{h}{K})$
+ved hj{\ae}lp af variabelskiftet
+
+\begin{subequations}
+  \begin{eqalignno}
+   x = A - A_{\rm eq} \\
+   y = B - B_{\rm eq}
+  \end{eqalignno}
+\end{subequations}
+
+Indf{\o}res denne transformation f{\aa}s
+
+\begin{subequations}
+  \begin{eqalignno}
+    \frac{dx}{dt} & = -xy - Ky - \frac{h}{K}x \\
+    \frac{dy}{dt} & =  xy +      \frac{h}{K}x 
+  \end{eqalignno}
+\end{subequations}
+
+Da $x$ og $y$ betragtes t{\ae}t p{\aa}
+ligev{\ae}gts\-punktet~\ref{eq:LotkaSimpleEqui}, ses der
+bort fra h{\o}jere\-ordens\-led af typen $xy$, hvorfor
+systemets opf{\o}rsel omkring ligev{\ae}gts\-punktet kan
+udtrykkes ved f{\o}lgende line{\ae}re differentiallig\-ning
+
+\begin{equation}
+  \left[ \begin{array}{c} \dot{x} \\ \dot{y} \end{array} \right] =
+  \left[ \begin{array}{rc}
+          -\frac{h}{K} & -K \\
+           \frac{h}{K} &  0
+  \end{array} \right]
+  \left[ \begin{array}{c} x \\ y \end{array} \right]
+  \label{eq:LinearLotka}
+\end{equation}
+
+Lotka v{\ae}lger at omskrive dette til to uafh{\ae}ngige
+2.\ ordens differentiallig\-ninger, som derefter l{\o}ses
+analytisk. Denne fremgangsm{\aa}de viser sig, at v{\ae}re
+en smule uhensigts\-m{\ae}ssig, da vores m{\aa}l med at
+gennemg{\aa} Lotkas model udelukkende er at drage nogle
+kvalitative konklusioner vedr{\o}rende systemets
+opf{\o}rsel t{\ae}t p{\aa} ligev{\ae}gt. I stedet kan vi
+n{\o}jes med at betragte $2 \times 2$ matricen i
+lig\-ning~\ref{eq:LinearLotka}. Denne har egenv{\ae}rdierne
+
+\begin{equation}
+  \lambda_{1,2} = 
+  \frac{ -\frac{h}{K} \pm \sqrt{\left(\frac{h}{K}\right)^2-4h}}{2}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Lotka f{\o}rste model, faseprotr{\ae}t
+%% plt         : fig41.plt
+%% dat         : fig41.dat
+%% tex         : fig41.tex
+%% type        : TeXDraw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\begin{center}
+ \vspace{1cm}
+ \input{fig11}
+ \vspace{1cm}
+\end{center}
+}
+{
+\caption{\protect\capsize Faseprotr{\ae}t for Lotkas
+f{\o}rste model for f{\o}lgende parameterv{\ae}rdier: $a$ =
+10 og $b$ = 10. L{\o}sningskurverne foretager en
+spiralerende bev{\ae}gelse ind mod ligev{\ae}gtspunktet.
+}
+\label{fig:PlotSimpleLotka}
+}
+
+Kr{\ae}ver vi, at betingelsen $2K > \sqrt{h} > 0$ er
+opfyldt vil $\lambda_{1,2}$ v{\ae}re et komplekst tal
+med formen $-\alpha \pm i \omega$, hvor $\alpha$ og
+$\omega$ begge er st{\o}rre end nul. For disse
+egenv{\ae}rdier sikrer teorien om line{\ae}re
+differentiallig\-ninger os nu, at systemets opf{\o}rsel vil
+v{\ae}re en spiralerende bev{\ae}gelse ind mod
+ligev{\ae}gts\-punktet sammensat af en oscillation med
+vinkelfrekvens $\omega$ og et eksponentielt henfald
+$e^{-\alpha t}$. Disse egen\-skaber ved det
+p{\aa}g{\ae}ldende system er illustreret i
+figur~\ref{fig:PlotSimpleLotka} i form af et
+faseportr{\ae}t i $(x,y)$-planet.
+
+\vspace{4.0mm}
+Lotkas model beskriver en kemisk reaktion, hvis forl{\o}b
+imod kemisk ligev{\ae}gt er karakteriseret ved
+oscillationer af koncentrationerne af de involverede
+kemi\-ske stoffer. Som tidligere n{\ae}vnt er dette
+f{\ae}nomen i 1910 helt ukendt og stik imod enhver
+videnskabsmands sunde fornuft. Lotka udviser da ogs{\aa}
+megen skepsis overfor dette mystiske f{\ae}nomen, idet han
+afslutter artiklen med f{\o}lgende kommentar
+
+\begin{quote}
+  ``\ldots\ No reaction is known which follows the above
+  law, and as a matter of fact the case here considered was
+  suggested by the consideration of matters lying outside
+  the field of physical chemistry''. \cite{Lotka1}
+\end{quote}
+
+Man kunne umiddelbart fristes til at tro, at en s{\aa}dan
+opfattelse ville virke afskr{\ae}kkende med hensyn til at
+unders{\o}ge s{\aa}danne kemiske modeller n{\ae}rmere.
+Ikke desto mindre publicerer Lotka ti {\aa}r senere endnu
+en artikel om emnet \cite{Lotka2}, hvis resultater m{\aa}
+anses for at v{\ae}re endnu mere opsigts\-v{\ae}kkende,
+end dem vi hidtil har diskuteret.
+
+\vspace{4.0mm}
+Lotka diskuterer f{\o}lgende situation: Betragt et uendelig
+stort reservoir af et stof C og antag yderligere, at
+stoffet A dannes autokatalytisk udfra C. Lad stoffet B
+blive dannet autokatalytisk udfra A og lad endvidere B
+blive fjernet via en unimolekyl{\ae}r reaktion. Hvilken
+afh{\ae}ngighed af tiden vil koncentrationerne af de
+indg{\aa}ende kemiske stoffer udvise i dette system? For at
+besvare dette sp{\o}rgsm{\aa}l opstiller Lotka analogt med
+forrige eksempel systemets kinetiske lig\-ninger
+
+\begin{subequations}
+  \begin{eqalignno}
+   \frac{dA}{dt} & = k_1 A - k_2 A B \\
+   \frac{dB}{dt} & = k_2 A B - k_3 B
+  \end{eqalignno}
+  \label{eq:LotkaRate}
+\end{subequations}
+
+Differentiallig\-ningssystemet~\ref{eq:LotkaRate} har
+ligev{\ae}gts\-punktet
+
+\begin{equation}
+  A_{\rm eq} = \frac{k_3}{k_2} \ms{og}
+  B_{\rm eq} = \frac{k_1}{k_2}
+  \label{eq:LotkaEqui}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Volterra-Lotka model, faseprotr{\ae}t
+%% plt         : fig42.plt
+%% dat         : fig42.dat
+%% tex         : fig42.tex
+%% type        : TeXDraw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\begin{center}
+ \vspace{1cm}
+  \input{fig12}
+ \vspace{1cm}
+\end{center}
+}
+{
+\caption{\protect\capsize 
+Faseportr{\ae}t for Volterra-Lotka lig\-ningerne for
+f{\o}lgende valg af de indg{\aa}ende
+hastigheds\-konstanter: $k_1$ = 10, $k_2$ = 1, $k_3$ = 1.
+Samtlige l{\o}sningskurver beskriver en lukket
+(oscillerende) bane omkring ligev{\ae}gstpunktet.
+\label{fig:LotkaVolterraPlot}}
+}
+
+Divideres $\frac{dA}{dt}$ med $\frac{dB}{dt}$ i
+lig\-ning~\ref{eq:LotkaRate} f{\aa}s 
+
+\begin{equation}
+  \frac{dA}{dB} = \frac{k_1 A - k_2 A B}{k_2 A B - k_3 B}
+\end{equation}
+
+der ved separation af variablene $A$ og $B$ integreres til
+
+\begin{equation}
+  F(A,B) = k_1 \ln B - k_2 B + k_3 \ln A - k_2 A = K
+  \label{eq:MorseFunction}
+\end{equation}
+
+hvor $K$ er en reel konstant. Man kan vise, at $F(A,B)$ er
+en s{\aa}kaldt Morse-funktion, hvoraf man kan slutte, at
+l{\o}sningskurverne til lig\-ning~\ref{eq:MorseFunction}
+vil v{\ae}re lukkede, svarende til at samtlige l{\o}sninger
+til det oprindelige
+differentiallig\-ningssystem~\ref{eq:LotkaRate} m{\aa}
+v{\ae}re periodiske (for et bevis for Morses lemma samt en
+anvendelse af dette p{\aa} Lotkas lig\-ninger, se
+\cite{Verhulst}).
+
+\vspace{4.0mm}
+Lotkas kemiske model\-system beskriver en situation, hvor
+en reaktion, via et reservoir af reaktanter, holdes v{\ae}k
+fra ligev{\ae}gt resulterende i en periodisk bev{\ae}gelse
+omkring ligev{\ae}gts\-punktet~\ref{eq:LotkaEqui}. Dette
+r{\ae}sonnement forekommer ikke i Lotkas artikel, hvor han
+ligeledes forkaster modellens fysiske og kemiske relevans,
+idet han i stedet henviser til dennes anvendelighed
+indenfor biologiske systemer\footnote{I 1925 publicerer
+Lotka en artikel i hvilken
+differentialligningerne~\protect\ref{eq:LotkaRate} benyttes
+til at beskrive den indbyrdes kamp mellem bytte og rovdyr i
+et {\o}kosystem \cite{LotkaBio}. Omtrent samtidig (1926)
+beskrives dette system p{\aa} n{\ae}sten identisk vis af
+den italienske matematiker \mbox{V.\ Volterra}
+\cite{Volterra}. ``Lotka-Volterra'' modellen regnes for den
+f{\o}rste s{\aa}kaldte ``predator-prey'' model. S{\aa}danne
+modeller anvendes idag hyppigt til at beskrive biologiske
+populationer.}, hvor oscillerende f{\ae}nomener p{\aa}
+dav{\ae}rende tidspunkt var yderst vel\-kendte. Systemets
+opf{\o}rsel i $(A,B)$-planet er illustreret i
+figur~\ref{fig:LotkaVolterraPlot}.
+
+\vspace{4.0mm}
+Lotkas afstandtagen fra sin egen models kemiske
+anvendelighed skal nok f{\o}rst og fremmest ses i et
+naturvidenskabshistorisk lys. P{\aa} Lotkas tid forstod man
+til fulde at beskrive kemisk ligev{\ae}gt, hvorimod teorien
+for ikke-ligev{\ae}gts\-systemer var et fuldst{\ae}ndigt
+ubeskrevet blad. Termodynamikkens 2.~hoved\-s{\ae}tning
+fremstod i sin endelige form omkring 1847-51. Som bekendt
+postulerer denne, at ethvert lukket fysisk system vil
+bev{\ae}ge sig mod termodynamisk ligev{\ae}gt. Dette
+bidrager ogs{\aa} med en forst{\aa}else for, hvorfor Lotka
+v{\ae}grede sig ved at formulere en kemisk
+reaktions\-mekanisme, der, set i et historisk perspektiv,
+umiddelbart var i klar modstrid med termodynamikkens 2.\
+hoveds{\ae}tning.
+
+\vspace{4.0mm}
+Til sidst b{\o}r det nok ogs{\aa} i al almindelighed
+bem{\ae}rkes, at man n{\ae}ppe kan fritage forskere en vis
+form for underdanighed og respekt i forhold til
+autoriteterne indenfor en given videnskabelig disciplin.
+N{\aa}r en s{\aa} respekteret og ber{\o}mmet person som
+Nernst, der tilmed modtog Nobelprisen i 1920 siger, at en
+kemisk reaktion ikke kan oscillere; ja, s{\aa} kan den den
+simpelthen bare ikke oscillere.
+
+\section{Kemisk kinetik idag}
+\label{ModernKinetics}
+Der skulle g{\aa} n{\ae}sten 50 {\aa}r f{\o}r man
+inds{\aa}, at Volterra-Lotka lig\-ningerne faktisk ikke
+strider mod termodynamikkens 2.\ hoveds{\ae}tning, idet
+Volterra-Lotka lig\-ningerne jo {\em ikke\/} beskriver et
+lukket system. Tilstedev{\ae}relsen af et uendeligt
+reservoir af reaktanter sikrer netop, at systemet altid er
+langt fra ligev{\ae}gt. Sammenligner man de egen\-skaber,
+man idag finder i komplekse kemiske reaktioner, viser det
+sig, at en stor del af disse i grove tr{\ae}k kan
+genfindes i Volterra-Lotka lig\-ningerne. Vi kan nemlig
+betragte den kemiske reaktion, der ligger til grund for
+disse som findende sted i en {\aa}ben reaktor, hvortil der
+tilf{\o}res en j{\ae}vn str{\o}m af reaktanter, samtidig
+med at overskydende produkter pumpes ud.
+
+\vspace{4.0mm}
+Fortolkes Lotkas model s{\aa}ledes ses en oplagt analogi
+til den eksperimentelle ops{\ae}tning, der kaldes for en
+{\em CSTR-ops{\ae}tning\/} (Continously Flow Stirred Tank
+Reactor). Skematisk best{\aa}r en CSTR-ops{\ae}tning af en
+reaktions\-celle med en omr{\o}ringspropel, der sikrer
+homogenitet af opl{\o}sningen. Reaktionscellen er
+yder\-ligere udstyret med haner, gennem hvilke reaktanter
+og produkter henholdsvis pum\-pes ind og ud.
+CSTR-opstillingen har vist sig yderst anvendelig til at
+studere ke\-miske reaktioner, idet denne netop udg{\o}r et
+{\aa}bent system. Den studerede reaktion kan derfor i et
+vilk{\aa}rligt tidsrum holdes langt fra ``ligev{\ae}gt'',
+hvorved en ellers transient opf{\o}rsel kan bevares.
+CSTR-opstillingen er skitseret i figur~\ref{fig:CSTRFigur}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% skematisk CSTR-opstilling
+%%
+%% fig43.tex
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+ \vspace{3.0mm}
+ \input{fig13.tex}
+}
+{
+\caption{\protect\capsize Skematisk illustration af
+CSTR-opstillingen. Reaktanter ledes ind gennem A og B og
+overskydende produkter udpumpes gennem C. L{\ae}seren
+henvises til \cite{CSTRfig} for en mere detaljeret
+beskrivelse af CSTR-opstillingen og dennes eksperimentelle
+realiseren.}
+\label{fig:CSTRFigur}
+}
+
+
+{
+\newcommand{\hso}        {\mbox{H$_2$SO$_4$}}
+\newcommand{\malon}      {\mbox{CH$_2$(COOH)$_2$}}
+\newcommand{\nabro}      {\mbox{NaBrO$_3$}}
+\newcommand{\bromat}     {\mbox{BrO$_3^-$}}
+\newcommand{\prot}       {\mbox{H$^+$}}
+\newcommand{\brmalon}    {\mbox{BrCH(COOH)$_2$}}
+\newcommand{\cotwo}      {\mbox{CO$_2$}}
+\newcommand{\ho}         {\mbox{H$_2$O}}
+\newcommand{\cesalt}     {\mbox{Ce(NO$_3$)$_6$(NH$_4$)$_2$}}
+
+\vspace{4.0mm}
+I 1950 foretager den russike kemiker B.\ P.\ Belousov en
+unders{\o}gelse af katalyse i Krebs' cyklus med henblik
+p{\aa} at modellere denne \cite{BZ-History}. Hvis
+reaktionen i stedet for proteinbundne metalkomplekser
+udskiftes med ceriumioner, opdagede Belousov til sin store
+overraskelse, at reaktionsopl{\o}sningen periodisk skifter
+mellem en farvel{\o}s og en gullig farve.
+
+\vspace{4.0mm}
+I 1951 fors{\o}ger Belousov efter en grundig
+unders{\o}gelse af dette f{\ae}nomen at publicere disse
+resultater, men hans artikel bliver forkastet. Hans arbejde
+for\-taber sig dog ikke i fuldst{\ae}ndig glemsel, og i
+1961 forts{\ae}tter kemikeren A.\ M.\ Zhabotinsky med at
+studerer denne mystiske reaktion. I l{\o}bet af de
+n{\ae}ste {\aa}r publiceres mindst ti artikler om
+reaktionen i Sovjetunionen, men f{\o}rst i 1967 beskrives
+denne for f{\o}rste gang i den vestlige
+litteratur\footnote{Det ville nok v{\ae}re forkert at kalde
+BZ-reaktionen for ``den f{\o}rste'' kemiske oscillator. I
+stedet er betegnelsen ``den f{\o}rst accepterede'' nok mere
+passende. Allerede i 1921 opdagede W.\ C.\ Bray den
+f{\o}rste egentlige kemiske oscillator \protect\cite{Bray},
+der idag kendes under navnet ``Bray-Liebhafsky reaktionen''
+(se afsnit~\ref{sec:OscOversigt}). Bray beskyldtes
+imidlertid af sin samtid for eksperimentel sjusk og
+dovenskab \protect\cite{EpsteinHistory}, og hans arbejde
+delte samme sk{\ae}bne som Lotkas og opn{\aa}ede f{\o}rst
+anerkendelse efter BZ-reaktionens
+opdagelse.}\cite{Degn1,Degn2}.
+
+\vspace{4.0mm}
+Siden har reaktionen, der af indlysende grunde har f{\aa}et
+navnet Belou\-sov-Zhabotinsky reaktionen (BZ reaktionen),
+v{\ae}ret genstand for en stor forsk\-nings\-aktivitet.
+Denne reaktion har yderligere afsl{\o}ret et stort antal af
+mere komplicerede former for opf{\o}rsel end de f{\o}rst
+observerede simple sving\-ninger.
+
+\vspace{4.0mm}
+Normalt studerer man BZ-reaktionen ved at blande stofferne
+\hso, \nabro, \malon~(ma\-lonsyre) og \cesalt~\-under
+omr{\o}ring. En tidsr{\ae}kke svarende til det f{\ae}nomen,
+som oprindeligt observeredes af Belousov, fremg{\aa}r af
+figur~\ref{fig:BZTypes}a. Netto svarer selve reaktionen til
+en oxidation af malonsyre med bromat i et surt vandigt
+reaktions\-medium
+
+\begin{eqnarray}
+  2 \bromat + 3 \malon + 2 \prot \longrightarrow \nonumber\\
+  2 \brmalon + 3 \cotwo + 4 \ho
+  \label{eq:BZEquation}
+\end{eqnarray}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% figur med original BZ-tidsserie 
+%% figur spiral dannelse
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{t}{\textwidth}
+{
+\ \vspace{5cm} \ 
+}
+{
+\caption{\protect\capsize
+a) Potentiometriske m{\aa}linger af $\log\mbox{[Br$^-$]}$
+og $\log\mbox{[Ce(IV)]/[Ce(III)]}$ udf{\o}rt p{\aa}
+BZ-reaktionen (figuren stammer fra \protect\cite{FKNorig}).
+b) Roterende spiralm{\o}nster i et tyndt lag opl{\o}sning
+indeholdende reagenser fra BZ-reaktionen (figuren
+stammer fra \protect\cite{WinfreeSpirals}).}
+\label{fig:BZTypes}
+}
+
+\vspace{4.0mm}
+Efter reaktionens ``opdagelse'' fremkom i 1972
+den s{\aa}kaldte Field-K\"{o}r\"{o}s-Noyes model
+(FKN-modellen) \cite{FKNorig}, der var det f{\o}rste
+egentlige forslag til en reaktions\-mekanisme, der
+kvalitativt kunne redeg{\o}re for tilstede\-v{\ae}relsen af
+simple sving\-ninger i BZ-reaktionen.
+
+\vspace{4.0mm}
+Senere fandtes eksperimentelt, at BZ-reaktionen udover de
+simple sving\-ninger ogs{\aa} kunne udvise en langt mere
+kompleks opf{\o}rsel i form af periodefordoblede,
+kvasiperiodiske og kaotiske sving\-ninger. Ogs{\aa} under
+heterogene forhold udviser BZ-reaktionen
+bem{\ae}rkelses\-v{\ae}rdige egen\-skaber, idet man under
+s{\aa}danne forhold bl.a.\ har observeret m{\o}n\-ster- og
+spiraldannelse (figur~\ref{fig:BZTypes}b), samt s{\aa}\-kaldt
+kemisk tubulens.
+
+\vspace{4.0mm}
+BZ-reaktionen er dog ikke l{\ae}ngere den eneste kendte
+reaktion med de n{\ae}vnte egen\-skaber. Idag kendes mange
+reaktioner, der alle udviser komplekse sving\-ninger. Uden
+at g{\aa} helt i detaljer vil vi i det n{\ae}ste afsnit
+give en kort oversigt og diskussion af de vigtigste
+oscillerende reaktioner, der kendes idag.
+
+\section{Oversigt over kemiske oscillatorer}
+\label{sec:OscOversigt}
+\subsection{Bray-Liebhafsky-reaktionen}
+{
+\newcommand{\htooto} {\mbox{H$_2$O$_2$ }}
+\newcommand{\iodat}  {\mbox{IO$_3^-$ }}
+\newcommand{\hiodat} {\mbox{HIO$_3$ }}
+\newcommand{\iod}    {\mbox{I$_2$ }}
+\newcommand{\oxy}    {\mbox{O$_2$ }}
+\newcommand{\htoo}   {\mbox{H$_2$O }}
+
+I 1911 studerede Auger \cite{Auger} den iodat katalyserede
+dekomposition af hydrogenperoxid H$_2$O$_2$, der senere af
+Bray i 1921 vistes at oscillere \cite{Bray}. Auger
+opstillede de to reaktioner
+
+\begin{eqnarray}
+  &&5~\htooto +~\iod \rightleftharpoons 2~\hiodat +~4~\htoo\\
+  &&5~\htooto +~2~\hiodat \rightleftharpoons \iod +~5~\oxy +~6~\htoo
+\end{eqnarray}
+
+der netto svarer til den vel\-kendte dekomposition
+
+\begin{equation}
+  2~\htooto \rightleftharpoons 2~\htoo +~\oxy
+\end{equation}
+
+Oscillationer kan f.eks.\ observeres ved hj{\ae}lp af en
+iodid f{\o}lsom elektrode, idet I$^-$-ioner indg{\aa}r som
+intermediat i Bray-Liebhafsky-reaktionen. En detaljeret
+mekanisme blev i 1976 foresl{\aa}et for
+Bray-Liebhafsky-reaktionen \cite{BrayModel}. 
+}
+
+\subsection{Briggs-Rauscher-reaktionen}
+{
+\newcommand{\htooto} {\mbox{H$_2$O$_2$ }}
+\newcommand{\iodat}  {\mbox{IO$_3^-$ }}
+\newcommand{\malon}  {\mbox{CH$_2$(COOH)$_2$ }}
+\newcommand{\maloni} {\mbox{CHI(COOH)$_2$ }}
+\newcommand{\oxy}    {\mbox{O$_2$ }}
+\newcommand{\htoo}   {\mbox{H$_2$O }}
+\newcommand{\prot}   {\mbox{H$^+$ }}
+Denne reaktion blev opdaget af Briggs og Rauscher i 1972
+\cite{BriggsRauscher} og kan betragtes som en
+``mellemting'' mellem Bray-Liebhafsky-reaktionen og
+BZ-reaktionen, idet den prepareres ved at blande de
+reagenser, der deltager i disse to reaktioner. Den totale
+st{\o}kiometri for Briggs-Rauscher-reaktionen er beskrevet
+ved
+
+\begin{eqnarray}
+&\iodat +~2~\htooto +~\malon +~\prot \rightleftharpoons&\nonumber\\
+&\maloni +~2~\oxy +~3~\htoo&
+\end{eqnarray}
+}
+
+Reaktionen finder alts{\aa} sted i sur opl{\o}sning med
+Mn(II)-ioner som katalysator. Briggs-Rauscher-reaktionen
+kan ogs{\aa} fungere med andre substrater, idet malonsyre
+kan udskiftes med 2,4-pentadion. Ligeledes kan Ce(IV)-ioner
+ogs{\aa} anvendes som katalysator. To n{\ae}sten identiske
+reaktionsmekanismer for Briggs-Rauscher-reaktionen blev
+uafh{\ae}ngigt af hinanden foresl{\aa}et i 1982
+\cite{BriggsModel1,BriggsModel2}.
+
+\subsection{Oxidation af carbonmonooxid}
+{
+\newcommand{\oxy}    {\mbox{O$_2$ }}
+\newcommand{\coto}    {\mbox{CO$_2$ }}
+\newcommand{\co}    {\mbox{CO }}
+Oscillerende kemiske reaktioner kendes ogs{\aa} i
+heterogene medier, hvor et af de mest velstuderede
+tilf{\ae}lde er oxidationen af \co p{\aa} en Pt-overflade
+\cite{CO-Oscillator}.
+
+\begin{equation}
+  2~\co +~\oxy \stackrel{{\rm Pt}}{\rightleftharpoons} 2~\coto
+\end{equation}
+
+Ved hj{\ae}lp af lav energi elektron diffraktion (LEED) har
+man i dette system yderligere kunnet observere dannelse af
+b{\o}lgefronter og spiralm{\o}nstrer p{\aa} den
+p{\aa}g{\ae}ldende Pt-overflade \cite{CO-Oscillator}.
+
+\vspace{4.0mm}
+Denne reaktion er dog ikke den eneste kendte kemiske
+oscillator, der finder sted under heterogene forhold, idet
+man ogs{\aa} tidligere har observeret svingninger i
+dekompositionen af gasformig N$_2$O p{\aa} en CuO overflade
+\cite{Hugo}.
+}
+
+\subsection{Forbr{\ae}nding af hydrogen}
+{
+\newcommand{\oxy}    {\mbox{O$_2$ }}
+\newcommand{\htoo}  {\mbox{H$_2$O }}
+\newcommand{\brint}  {\mbox{H$_2$ }}
+Den klasssike gasfaseforbr{\ae}ndingsproces 
+
+\begin{equation}
+  2~\brint +~\oxy \rightleftharpoons 2~\htoo
+\end{equation}
+
+har vist sig at oscillere, hvis denne studeres i et
+CSTR-kammer under ikke-konstante temperaturforhold
+\cite{HydrogenOxygen1}. En r{\ae}kke af de intermedi{\ae}re
+reaktioner, der indg{\aa}r i forbr{\ae}ndingprocessen, er
+exoterme: Da temperaturen ikke er konstant under
+fors{\o}gsbetingelserne vil de intermedi{\ae}re
+reaktioner v{\ae}re autokatalytiske, idet en for{\o}gelse
+af temperaturen svarer til en yderligere for{\o}gelse af
+reaktionshastigheden. Simuleringer af dette system er
+blandt andet foretaget ved hj{\ae}lp af den s{\aa}kaldte
+Baldwin-Walker model, der indeholder ikke mindre end 35
+forskellige elementarreaktioner \cite{HydrogenOxygen1}.
+
+\vspace{4.0mm}
+Eksperimentelt har reaktionen vist sig at v{\ae}re yderst
+kontrolabel og har blandt andet givet anledning til nogle
+af de mest pr{\ae}cise studier af Hopfbifurkationer i
+kemiske reaktioner, der frem til idag er foretaget
+\cite{HydrogenOxygen2}.
+}
+
+\subsection{Oxidation af benzaldehyd}
+{
+\newcommand{\benzal} {\mbox{BzH }}
+\newcommand{\benzso} {\mbox{BzOH }}
+\newcommand{\oxy}    {\mbox{O$_{2_{{\rm (g)}}}$ }}
+Luftens oxygen kan oxidere benzaldehyd til benzosyre efter
+reaktionsligningen
+
+\begin{equation}
+ 2~\benzal +~\oxy \rightleftharpoons 2~\benzso
+\end{equation}
+
+Under normale omst{\ae}ndigheder er reaktionen uhyre
+langsom, men til\-s{\ae}ttes Co(II)-ioner eller
+Br$^-$-ioner som katalysator i koncentreret eddikkesyre ved
+70$^\circ$C observeres oscillationer mellem en lyser{\o}d
+til en grumset gr{\o}n farve svarende til de to forskellige
+oxidationstrin Co(II) og Co(III) for cobalt
+\cite{BenzAldehyd}. }
+
+\subsection{Svovloscillatorer}
+{
+\newcommand{\iodat}  {\mbox{IO$_3^-$ }}
+\newcommand{\bromat} {\mbox{BrO$_3^-$ }}
+\newcommand{\oxy}    {\mbox{O$_2$ }}
+\newcommand{\htoo}   {\mbox{H$_2$O }}
+\newcommand{\prot}   {\mbox{H$^+$ }}
+\newcommand{\thio}   {\mbox{SCN$^-$ }}
+\newcommand{\iodid}  {\mbox{I$^-$ }}
+\newcommand{\sofire} {\mbox{SO$_4^{2-}$ }}
+\newcommand{\cyanid} {\mbox{CN$^-$ }}
+\newcommand{\brom}   {\mbox{Br$_2$ }}
+\newcommand{\hs}     {\mbox{HS$^-$ }}
+De bedst unders{\o}gte kemiske oscillatorer involverer
+prim{\ae}rt forskellige oxyhalogener, men idag kendes
+ogs{\aa} en del oscillerende reaktioner, hvor svovl spiller
+en v{\ae}sentlig rolle. De fleste af disse oscillatorer har
+vist sig at v{\ae}re baseret p{\aa} en kompliceret kinetik,
+der idag endnu ikke er fuldt ud forst{\aa}et. Eksempelvis
+kan n{\ae}vnes iodat-thiocyanat \cite{ThioCyanat} og
+bromat-sulfid \cite{BromatSulfid} oscillatoren, hvis
+st{\o}kiometri respeketivt angives som
+
+\begin{eqnarray}
+  \iodat +~\thio +~\htoo & \rightleftharpoons & 
+  \iodid +~\sofire +~\cyanid + 2~\prot \\
+  5~\hs + 8~\bromat + 3~\prot & \rightleftharpoons &
+  5~\sofire +~4~\brom + 4~\htoo
+\end{eqnarray}
+
+I iodat-thiocyanat oscillatoren kan iodat og thiocyanat
+respektivt udskiftes med bromat og thiourinstof. 
+
+\vspace{4.0mm}
+Udover disse har methylenbl{\aa}t-O$_2$-HS$^-$ oscillatoren
+ogs{\aa} v{\ae}ret genstand for megen opm{\ae}rksomhed i de
+seneste {\aa}r. Den totale st{\o}kiometri for denne
+reaktion beskriver den methylenbl{\aa}t katalyserede
+oxidation af hydrogensulfid, hvorunder forskellige
+svovlholdige produkter dannes. Oxygen omdannes bl.a.\
+til vand og hydrogenperoxid, hvor specielt sidstn{\ae}vnte
+spiller en vigtig rolle for selve reaktionsforl{\o}bet,
+idet denne deltager i en autokatalytisk intermedi{\ae}r
+reaktion \cite{KemiskProjekt}.
+
+\vspace{4.0mm}
+Til sidst b{\o}r ogs{\aa} n{\ae}vnes den s{\aa}kaldte Mason
+reaktion, der beskriver den autokatalytiske dekomposition
+af en vandig opl{\o}sning af dithionit, S$_2$O$_4^{2-}$,
+til bisulfitioner, HSO$_3^{2-}$
+\cite{Dithionit1,Dithionit2}.
+}
+
+\subsection{Biokemiske oscillatorer}
+{
+\newcommand{\oxy}    {\mbox{O$_2$ }}
+\newcommand{\htoo}   {\mbox{H$_2$O }}
+\newcommand{\prot}   {\mbox{H$^+$ }}
+Der kendes idag to biokemiske reaktioner, der begge kan
+udvise forskellige former for oscillationer: {\em
+peroxidase reaktionen\/} og {\em glycolysen\/}
+\cite{BioChaos}. Peroxidase reaktionen beskriver
+reduktionen af oxygen til vand katalyseret af enzymet
+peroxidase med NADH som elektron donor
+
+\begin{equation}
+ \oxy +~2~{\rm NADH} +~2~\prot \rightleftharpoons
+ 2~\htoo +~2~{\rm NAD}^+
+\end{equation}
+
+Peroxidase reaktionen har v{\ae}ret unders{\o}gt i
+s{\aa}vel en CSTR-opstilling \cite{Per1}, som i en
+eksperimentel ops{\ae}tning, hvor kun substratet NADH
+tilf{\o}res \cite{Per2}. Oscillationer kan observeres dels
+spektrofotometrisk ved m{\aa}ling af
+koncentrations{\ae}ndringer i NADH eller en form af
+enzymet, og dels med en oxygen selektiv elektrode til
+bestemmelse af oxygenkoncentrationen.
+
+\vspace{4.0mm}
+Glycolysen, der er navnet for den anaerobe del af den
+metabolistiske nedbrydelse af glycose i bl.a.\ den
+menneskelige organisme, er den eneste kendte biokemiske
+reaktion, der udviser oscillationer {\em in vivo\/} (dette
+f{\ae}nomen kendes f.eks.\ ikke fra peroxidase reaktionen).
+Skematisk kan glycolysen bekrives som
+
+\vspace{4.0mm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Skematisk fremstilling af glycolysen
+%% makroer     : PSTricks, PST-Node, FancyBox
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+ \begin{pspicture}(0,2)(14,9)
+%  \psgrid[](0,2)(0,2)(14,9)
+  \psset{arrowinset=0}
+  \rput[cl]{*0}( 2.0,8.0){\ovalnode{A1}{Glycogen}}
+  \rput[cr]{*0}(12.0,8.0){\ovalnode{A2}{Glucose}}
+  \rput[cc]{*0}( 7.0,7.0){\ovalnode{A3}{Glucose-6-P}}
+  \rput[cc]{*0}(12.0,7.0){\circlenode{A4}{\scriptsize ATP}}
+  \rput[cc]{*0}( 9.0,6.2){\circlenode{A5}{\scriptsize ATP}}
+  \rput[cc]{*0}(10.5,5.0){\circlenode{A6}{\scriptsize 4 ATP}}
+  \rput[cc]{*0}( 3.0,4.0){\ovalnode{A7}{2 Pyruvat}}
+  \rput[cc]{*0}( 7.0,3.8){\ovalnode{A7}{2 M{\ae}lkesyre}}
+  \rput[cc]{*0}(11.0,3.6){\ovalnode{A7}{2 Lactat}}
+  \psline[arrowsize=1.5pt 2.25,linearc=0.25,linewidth=1.2pt]{->}
+  (3.1,7.6)(3.1,7.0)(5.4,7.0)
+  \psline[arrowsize=1.5pt 2.25,linearc=0.25,linewidth=1.2pt]{->}
+  (11.0,7.7)(11.0,7.0)(8.6,7.0)
+  \psline[arrowsize=1.5pt 2.25,linewidth=1.2pt]{->}(11.5,7.0)(11.0,7.0)
+  \psline[arrowsize=1.5pt 2.25,linearc=0.25,linewidth=1.2pt]{->}
+  (7.0,6.7)(7.0,6.2)(3.0,6.2)(3.0,4.6)
+  \psline[arrowsize=1.5pt 2.25,linearc=0.25,linewidth=1.2pt]{->}
+  (3.0,5.2)(3.0,5.0)(9.8,5.0)
+  \psline[arrowsize=1.5pt 2.25,linewidth=1.2pt]{->}(8.5,6.2)(7.0,6.2)
+  \psline[arrowsize=1.5pt 2.25,linewidth=1.2pt]{->}(4.35,4.0)(5.4,4.0)
+  \psline[arrowsize=1.5pt 2.25,linewidth=1.2pt]{->}(8.65,3.83)(9.8,3.83)
+  \psline[arrowsize=1.5pt 2.25,linewidth=1.2pt]{->}(3.0,3.6)(3.0,3.0)
+  \rput[tc]{*0}(3.0,2.8){\em til citronsyrecyklus}
+ \end{pspicture}
+\end{center}
+
+\vspace{4.0mm}
+Oscillationer i glycolysen studeres analogt med peroxidase
+systemet ved spektrofotometrisk at m{\aa}le NADH
+koncentrationen. Udtages pr{\o}ver under
+oscillationsforl{\o}bet kan man udfra biokemiske
+analysemetoder rekonstruere koncentrationsforl{\o}bet for
+en r{\ae}kke stoffer, der deltager i glycolysen, f.eks.\
+ATP og glucose-6-P.
+
+\vspace{4.0mm}
+Der har i litteraturen forekommet en del spekulationer
+over, hvilken rolle oscillationerne i glycolysen spiller
+for den levende organisme. Idag hersker der dog en vis
+enighed om, at oscillationerne ikke i sig selv tjener nogen
+funktion, men derimod er et resultat af samspillet mellem
+den feedbackregulering, der afbalancerer dannelse af
+forskelige intermediater og glykolytisk produceret ATP
+\cite{BioChaos}. }
+
+\subsection{Klassifikation af kemiske oscillatorer}
+Kemiske oscillationer kan til en vis grad opdeles i et
+hierarki, der ofte kaldes en {\em taxonomi\/}. En s{\aa}dan
+ordning er eksempelvis beskrevet i \cite{Taxonomy}, hvorfra
+figur~\ref{fig:Taxonomi} ogs{\aa} stammer. Figuren
+opsummerer alle de reaktioner, der er gennemg{\aa}et i
+dette afsnit og inkluderer ogs{\aa} enkelte reaktioner, der
+ikke er gennemg{\aa}et. Disse er medtaget for helhedens
+skyld.
+
+\vspace{4.0mm}
+Vi vil i l{\o}bet af de n{\ae}ste kapitler redeg{\o}re for
+et udvalg af de vigtigste metoder og det teoretiske
+grundlag, der idag danner rammen for at skabe en bredere
+forst{\aa}else og indsigt i den dynamiske natur, der
+karakteriserer s{\aa}danne reaktioner.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Taxonomisk oversigt over oscillerende
+%%               kemiske reaktioner
+%% makroer     : PSTricks, PST-Node, FancyBox
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\capfont}{\bf}
+\begin{landfloat}{figure}{\rotateright}
+\footnotesize
+\newgray{middlegray}{0.6}
+\begin{center}
+ \begin{pspicture}(1,0)(21,12)
+%  \psgrid[](1,0)(1,0)(21,12)
+  %%%%%%%%%%%%%%%%%%%%%%%%% bromat %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \psset{fillcolor=gray}
+  \rput[cc]{*0}( 6.7,11.2){\ovalnode*{A1}{Bromat (BrO$_3^-$)}}
+  \rput[cc]{*0}( 3.9,10.1){\rnode{A2}{\psframebox*{$+$ katalysator}}}
+  \rput[cc]{*0}( 8.7,10.1){\rnode{A3}{\psframebox*{$\div$ katalysator}}}
+  \rput[cc]{*0}( 3.4, 8.7){\rnode{A4}{\psframebox*{
+    \parbox[c]{1.4cm}{BrO$_3^-$ $+$ \\ Br$^-$ $+$ \\ M$^+$}}}}
+  \rput[cc]{*0}(10.65,8.7){\rnode{A7}{\psframebox*{
+    \parbox[c]{1.4cm}{BrO$_3^-$ $+$ \\ Br$^-$ $+$ \\ ClO$_2^-$}}}}
+  \rput[cc]{*0}(5.9,8.9){\rnode{A5}{\psframebox*{
+    \parbox[c]{1.4cm}{BrO$_3^-$ $+$ \\ R(Ar)}}}}
+  \rput[cc]{*0}(8.4,8.9){\rnode{A6}{\psframebox*{
+    \parbox[c]{1.4cm}{BrO$_3^-$ $+$ \\ I$^-$}}}}
+  \rput[cc]{*0}(3.4,6.9){\rnode{A8}{\psframebox*{
+    \parbox[c]{1.4cm}{BrO$_3^-$ $+$ \\ M$^+$ $+$ \\ R(Uorg)}}}}
+  \rput[cc]{*0}(5.9,6.9){\rnode{A9}{\psframebox*{
+    \parbox[c]{1.4cm}{BrO$_3^-$ $+$ \\ M$^+$ $+$ \\ R(Org)}}}}
+  \rput[cc]{*0}(8.4,6.9){\rnode{A10}{\psframebox*{
+    \parbox[c]{1.4cm}{BrO$_3^-$ $+$ \\ ClO$_2^-$ $+$ \\ R}}}}
+  %%%%%%%%%%%%%%%%%%%%%%%%% chlorit %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \psset{fillcolor=lightgray}
+  \rput[cc]{*0}(15.3,11.2){\ovalnode*{B1}{Chlorit (ClO$_2^-$)}}
+  \rput[cc]{*0}(16.4, 8.7){\rnode{B3}{\psframebox*{
+    \parbox[c]{1.4cm}{ClO$_2^-$ $+$ \\ svovlfor- \\ bindelser}}}}
+  \rput[cc]{*0}(14.1,8.9){\rnode{B2}{\psframebox*{
+    \parbox[c]{1.4cm}{ClO$_2^-$ $+$ \\ I$^-$}}}}
+  \rput[cc]{*0}(11.8, 6.9){\rnode{B4}{\psframebox*{
+    \parbox[c]{1.4cm}{ClO$_2^-$ $+$ \\ IO$_3^-$ $+$ \\ R(Uorg)}}}}
+  \rput[cc]{*0}(14.1, 6.9){\rnode{B5}{\psframebox*{
+    \parbox[c]{1.4cm}{ClO$_2^-$ $+$ \\ I$^-$ $+$ \\ R(Org)}}}}
+  \rput[cc]{*0}(16.4, 6.9){\rnode{B6}{\psframebox*{
+    \parbox[c]{1.4cm}{ClO$_2^-$ $+$ \\ I$^-$ $+$ \\ Ox}}}}
+  \rput[cc]{*0}(18.9, 6.9){\rnode{B7}{\psframebox*{
+    \parbox[c]{1.4cm}{ClO$_2^-$ $+$ \\ S$_2$O$_3^{2-}$ $+$ \\ Ox}}}}
+  %%%%%%%%%%%%%%%%%%%%%%%%% carbon %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \psset{fillcolor=white}
+  \rput[cc]{*0}( 6.1,5.0){\ovalnode{C1}{Carbon}}
+  \rput[tc]{*0}( 3.4,4.1){\rnode{C2}{\psframebox{
+    \parbox[c]{1.6cm}{R(Org) $+$\\O$_2$ $+$\\Co$^{2+}$$+$\\ Br$^-$}}}}
+  \rput[tc]{*0}( 5.9,4.1){\rnode{C3}{\psframebox{
+    \parbox[c]{1.9cm}{Biokemiske \\ reaktioner}}}}
+  %%%%%%%%%%%%%%%%%%%%%%%%% iodat %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \psset{fillcolor=middlegray}
+  \rput[cc]{*0}(10.3,5.0){\ovalnode*{D1}{Iodat (IO$_3^-$)}}
+  \rput[tc]{*0}( 9.0,4.1){\rnode{D2}{\psframebox*{
+    \parbox[c]{1.4cm}{IO$_3^-$ $+$\\H$_2$O$_2$}}}}
+  \rput[tc]{*0}(11.5,4.1){\rnode{D3}{\psframebox*{
+    \parbox[c]{1.6cm}{IO$_3^-$ $+$\\SO$_3^{2-}$ $+$\\Fe(CN)$_6^{4-}$}}}}
+  \rput[cc]{*0}(11.5,1.7){\ovalnode*{D4}{Overgangsmetal}}
+  \rput[bc]{*0}(11.5,0.0){\rnode{D5}{\psframebox*{
+    \parbox[c]{1.6cm}{MnO$_4^-$ $+$\\H$_2$O$_2$}}}}
+  %%%%%%%%%%%%%%%%%%%%%%%%% svovl %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \psset{fillcolor=white}
+  \rput[cc]{*0}(17.0,5.0){\ovalnode{E1}{Svovl}}
+  \rput[tc]{*0}(14.5,4.1){\rnode{E2}{\psframebox{
+    \parbox[c]{1.4cm}{H$_2$O$_2$ $+$\\S$^{2-}$}}}}
+  \rput[tc]{*0}(17.0,4.1){\rnode{E3}{\psframebox{
+    \parbox[c]{1.4cm}{H$_2$O$_2$ $+$\\S$_2$O$_3^{2-}$
+                      $+$\\eller \\SNC$^-$ $+$\\Cu$^{2+}$}}}}
+  \rput[tc]{*0}(19.5,4.1){\rnode{E4}{\psframebox{
+    \parbox[c]{1.4cm}{MB$^+$ $+$\\O$_2$ $+$\\S$^{2-}$ $+$\\SO$_3^{2-}$}}}}
+  %%%%%%%%%%%%%%%%%%%%%%%%% A nodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \ncline{A4}{A8}
+  \ncline{A4}{A9}
+  \ncline{A7}{A10}
+  \psline(3.4,9.38)(3.4,9.82) % trouble with the nodes
+  \psline(8.4,9.38)(8.4,9.82) % trouble with the nodes
+  \ncdiag[angleA=-170,angleB=90,arm=0]{A1}{A2}
+  \ncdiag[angleA= -10,angleB=90,arm=0]{A1}{A3}
+  \ncdiag[angleA= 180,angleB=90,arm=0]{A3}{A5}
+  \ncdiag[angleA=   0,angleB=90,arm=0]{A3}{A7}
+  %%%%%%%%%%%%%%%%%%%%%%%%% B nodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \ncline{B2}{B4}
+  \ncline{B2}{B5}
+  \ncline{B2}{B6}
+  \ncdiag[angleA=   0,angleB=90,arm=0]{B3}{B7}
+  \ncdiag[angleA=-140,angleB=90,arm=0]{B1}{B2}
+  \ncdiag[angleA= -40,angleB=90,arm=0]{B1}{B3}
+  %%%%%%%%%%%%%%%%%%%%%%%%% C nodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \ncline{C1}{C2}
+  \psline(6.1,4.108)(6.1,4.8) % trouble with the nodes
+  %%%%%%%%%%%%%%%%%%%%%%%%% D nodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \ncline{D4}{D5}
+  \ncline[linestyle=dashed,dash=2.5pt 0.7pt]{D3}{D4}
+  \ncdiag[angleA=-140,angleB=90,arm=0]{D1}{D2}
+  \ncdiag[angleA= -40,angleB=90,arm=0]{D1}{D3}
+  %%%%%%%%%%%%%%%%%%%%%%%%% E nodes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \ncdiag[angleA=-140,angleB=90,arm=0]{E1}{E2}
+  \ncdiag[angleA= -90,angleB=90,arm=0]{E1}{E3}
+  \ncdiag[angleA= -40,angleB=90,arm=0]{E1}{E4}
+  %%%%%%%%%%%%%%%%%%%%%% mixed nodes %%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \ncangle[angleA=180,angleB=180,
+           arm=7.9,linestyle=dashed,dash=2.5pt 0.7pt]{A2}{D4}
+  \ncbar[angleA=90,
+         arm=0.2,linestyle=dashed,dash=2.5pt 0.7pt]{A10}{B6}
+  \ncangle[angleA=0,angleB=180,
+           arm=0,linestyle=dashed,dash=2.5pt 0.7pt]{A10}{B4}
+  \ncdiag[angleA=-90,angleB= 90,
+          linestyle=dashed,dash=2.5pt 0.7pt,arm=0]{B4}{D1}
+  \ncdiag[angleA=  0,angleB=170,
+          linestyle=dashed,dash=2.5pt 0.7pt,arm=0]{D4}{E3}
+  \ncdiag[angleA=-90,angleB= 90,
+          linestyle=dashed,dash=2.5pt 0.7pt,arm=0]{A9}{C2}
+  %%%%%%%%%%%%%%%%%%%%%% text %%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \rput[tl]{*0}(1.4,1.4){\scriptsize\begin{minipage}{8cm}
+   R = reduktant, R(Uorg) = uorganisk reduktant, R(or) =
+   organisk reduktant, R(Ar) = aromatisk reduktant, Ox =
+   oxidant, MB = methylenbl{\aa}t, M$^+$ = metalion
+   katalysator, Svovl = S$_2$O$_3^{2-}$, SNC$^-$, ell.\
+   thiourinstof.
+
+   \vspace{2.0mm}
+   {\bf Note}: Fuldt optrukne linier forbinder kemiske
+   systemer inden for den samme gruppe af oscillatorer.
+   Punkterede linier forbinder grupper med visse f{\ae}lles
+   egenskaber.
+  \end{minipage}}
+ \end{pspicture}
+\end{center}
+\caption{\protect\capsize}
+\label{fig:Taxonomi}
+\end{landfloat}
+\renewcommand{\capfont}{\rm}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,493 @@
+% Sidst opdateret: 13/1 1994
+\chapter{Perturbation af station{\ae}re tilstande}
+\label{cha:PertStat}
+I kapitel \ref{cha:Quench} har vi beskrevet en succesrig
+metode til at f{\aa} information ud af periodiske
+tilstande. I dette kapitel vil vi se p{\aa} station{\ae}re
+tilstande og den information, som vi kan f{\aa} ud af dem
+[\citen{pertstat1,pertstat2}].
+
+\section{Bestemmelse af Jacobimatricen}
+\label{Pert:jac}
+Kinetikken for et kemisk system er givet ved den kinetiske
+ligning
+
+\begin{equation}
+  \frac{d {\vec{c}} }{dt} = \vec{f}( \vec{c} ).
+  \label{Pert:KinEq}
+\end{equation}
+
+Vi vil se p{\aa} en station{\ae}r tilstand for et kemisk
+system, der beskrives af ligning~\ref{Pert:KinEq}. Den
+station{\ae}re tilstand kalder vi $\vec{c}^S$ og der g{\ae}lder
+$\vec{f}( \vec{c} ^S) = 0$. Vi vil foretage en perturbation af
+systemet, dvs.\ vi {\o}nsker at fjerne os fra det
+station{\ae}re punkt. Men perturbationen skal v{\ae}re
+lille, s{\aa} vi kan linearisere ligning~\ref{Pert:KinEq}. Vi
+definerer nu $\delta \vec{c}$ som afvigelsen fra det
+station{\ae}re punkt, dvs.\
+
+\begin{equation}
+\delta \vec{c} \equiv \vec{c} - \vec{c}^S.
+\end{equation}
+
+Vores linearisering bliver da (ved en Taylorudvikling til
+1.\ orden)
+
+\begin{equation}
+\label{Pert:Lin}
+\frac{d\delta c_i}{dt} = \sum_{j=1}^n \left.\frac{\partial
+f_i}{\partial c_j}\right|_{\vec{c}^S} \delta c_j.
+\end{equation}
+
+De partielle afledede af $\vec{f}$ mht.\ $\vec{c}$ er
+indeholdt i Jacobimatricen, $\matrix{J}$. Vi kan ogs{\aa}
+skrive ligning \ref{Pert:KinEq} p{\aa} matrixform
+
+\[
+\frac{d\delta\vec{c}}{dt} = \matrix{J}(\vec{c}^S)\delta\vec{c}.
+\]
+
+Som vi skal se,  er det muligt at bestemme $\matrix{J}$
+eksperimentelt. Vi er dog n{\o}dsaget at g{\o}re en
+antagelse, som n\ae sten aldrig vil holde i en
+eksperimentel sammenh{\ae}ng. Vi antager, at vi er i stand
+til at m{\aa}le koncentrationen af alle de $n$
+indg{\aa}ende stoffer. Der er flere grunde til at denne
+antagelse ikke altid vil v{\ae}re opfyldt. For det f{\o}rste
+kan et stof v{\ae}re til stede i meget lave
+koncentrationer, som er under detektionsgr{\ae}nsen for det
+eksperimentelle udstyr. For det andet er det ikke altid
+muligt at m{\aa}le koncentrationen af et stof: Radikaler
+vil give problemer, og ved en fotometrisk m{\aa}ling kan to
+stoffer absorbere ved samme b{\o}lgel{\ae}ngde.
+
+\vspace{4.0mm}
+Den eksperimentelt fundne Jacobimatrix kan bruges til to
+ting. Som vi skal se i et senere afsnit, kan mekanismen for
+reaktionen findes vha.\ denne matrix. For det andet kan
+modeller sammenlignes med eksperimenterne ved at udregne
+Jacobimatricen for dem i det station{\ae}re punkt.
+
+\vspace{4.0mm}
+Der findes to metoder til at bestemme Jacobimatricen, og vi
+vil i de n{\ae}ste to afsnit beskrive dem.
+
+\subsection{Initielle h{\ae}ldninger}
+Vi antager, at systemet er i en station{\ae}r tilstand, og
+vi adderer nu en m{\ae}ngde af det $k$'te stof. Henfaldet
+tilbage til den station{\ae}re tilstand er givet ved
+ligningen
+
+\begin{equation}
+  \frac{\delta c_i}{dt} = \frac{\partial f_i}{\partial c_k}\delta c_k.
+\end{equation}
+
+Men ligningen g{\ae}lder kun for tidspunktet for
+pertubationen, dvs.\ $t=0$. H{\ae}ldningen i $t=0$ giver
+derved den $k$'te s{\o}jle i Jacobimatricen. Vi skal
+alts{\aa} lave $n$ af disse pertubationsfors{\o}g (et for
+hvert stof) for at f{\aa} hele Jacobimatricen.
+
+\subsection{Mindste-kvadrater}
+Hvis vi laver en perturbation, som er lille, vil systemet
+vende tilbage til den oprindelige tilstand, hvis der er
+tale om et stabilt station{\ae}rt punkt. Vi vil derfor
+foretage m{\aa}linger af koncentrationen efter
+perturbationen, indtil systemet igen er i det
+station{\ae}re punkt. Vi udf{\o}rer et endeligt antal
+m{\aa}linger, $N$, og nummererer dem ved $l = 1, \ldots,
+N$. Vi vil antage, at vi udf{\o}rer mange m{\aa}linger i
+forhold til dimensionen af koncentrationsrummet ($N \gg
+n$). Vi har med andre ord tidsr{\ae}kken $\vec{c}^{(l)}$.
+M{\aa}lingerne foretages med afstandene $\Delta t^{(l)}$.
+Vi kan samle tidsr{\ae}kken til en matrix $\matrix{U}$ ved
+$U_{il} = c_i^{(l)}$. I stedet for at se p{\aa} de
+``absolutte'' koncentrationer, kan vi se p{\aa} afvigelsen
+fra det station{\ae}re punkt. Disse afvigelser kan ligesom
+de ``absolutte'' koncentrationer samles i en matrix, dvs.\
+$\delta U_{il} = U_{il} - c_i^S$. Ved lineariseringen i
+ligning \ref{Pert:Lin} approksimeres de tidsafledede
+$\frac{d\delta c_i(t)}{dt}$ med $\frac{d\delta
+\matrix{U}}{dt}$, der kan findes ved en differenskvotient
+
+\[
+\frac{d\delta U_{il}}{dt} \approx \frac{d\delta U_{i(l+1)}-\delta
+U_{il}}{\Delta t^{(l)}}.
+\]
+Ligning \ref{Pert:Lin} kan derfor tiln{\ae}rmes med 
+
+\begin{equation}
+\frac{d\delta \matrix{U}}{dt} = \matrix{J} \delta\matrix{U},
+\end{equation}
+
+hvor kun matricen $\matrix{J}$ er ukendt. Vi kan ikke finde
+Jacobimatricen eksakt, men kan minimere fejlen i
+l{\o}sningen ved at l{\o}se problemet
+
+\begin{equation}
+\label{Pert:Min}
+  \min_{\matrix{J}} \|\matrix{J}\delta\matrix{U}-\frac{\delta\matrix{U}}{dt}\|,
+\end{equation}
+
+hvor $\|\cdot\|$ er en passende norm. L{\o}sningen til
+ligning \ref{Pert:Min} kan findes vha.\ ``mindste-kvadrat''
+metoden, som er relativ let at implementere. Vi er
+n{\o}dsaget til at benytte os af ``mindste-kvadrat''
+metoden, fordi vi har flere ligninger end ubekendte. Men
+lad os se p{\aa}, hvordan vi kan implementere en l\o
+sningsmetode. Vi begynder med at transponere vort problem.
+Derved f{\aa}r vi
+
+\begin{equation}
+  \min_{\matrix{J}^T} \|\delta\matrix{U}^T\matrix{J}^T-\frac{\delta\matrix{U}^T}{dt}\|,
+\end{equation}
+idet vi har brugt regnereglen $(\matrix{A}\matrix{B})^T =
+\matrix{B}^T\matrix{A}^T$. Ser vi nu p{\aa} den $j$'te s{\o}jle, f{\aa}s
+$n$ ligninger p{\aa} formen
+
+\begin{equation}
+  \min_{(\matrix{J}^T)_j} \left\|\delta\matrix{U}^T(\matrix{J}^T)_j -
+  \left(\left(\frac{d\delta\matrix{U}}{dt}\right)^T\right)_j \right\|.
+\end{equation}
+
+Vi har omskrevet problemet til formen
+$\min_{\vec{x}}\|\matrix{A}\vec{x}-\vec{b}\|$. Dette
+minimeringsproblem kan l{\o}ses vha.\ {\em singular-value
+decomposition} [\citen{NumRec} s.\ 59--70]. Ved at benytte
+rutinerne fra [\citen{NumRec}] kan vi reducere problemet
+til f{\o}lgende ``program'':
+
+\begin{tabbing}
+{\tt svdcmp}($\delta\matrix{U}^t$, $N$, $n$, $w$, $v$) \\
+for \= $j = 1,\ldots, n$:\\
+\> {\tt svbksb}($\delta\matrix{U}^t$, $w$, $v$, $N$, $n$,
+$\left(\left(\frac{d\delta\matrix{U}}{dt}\right)^t\right)_j$,
+$(\matrix{J}^t)_j$)
+\end{tabbing}
+
+hvor {\tt svdcmp} og {\tt svbksb} er to rutiner fra
+[\citen{NumRec}]. Det skal bem{\ae}rkes, at
+$\delta\matrix{U}^t$ b{\aa}de er inddata og uddata fra {\tt
+svdcmp}. Den f{\o}rste rutine udf{\o}rer selve {\em
+singular value-decomposition}, men den anden rutine
+l{\o}ser et problem p{\aa} formen
+$\min_{\vec{x}}\|\matrix{A}\vec{x}-\vec{b}\|$. De to
+rutiner arbejder p{\aa} en m{\aa}de som en almindelig
+LU-faktorisering med efterf{\o}lgende forl{\ae}ns- og
+bagl{\ae}nssubstitution.
+
+\vspace{4.0mm}
+Der findes ogs{\aa} en anden m{\aa}de at implementerer
+problemet p{\aa}. Vi kan skrive afvigelsen fra det
+station{\ae}re punkt som
+
+\begin{equation}
+  \label{pert:ikkelin}
+  \delta c_i(t) = \sum_{j=1}^n a_jv_i^je^{\lambda_j t},
+\end{equation}
+
+for $i=1,\ldots,n$. Parametrene $a_j$ er konstanter, mens
+$v_i^j$ er den $j$'te egenv{\ae}rdi til Jacobimatricen og
+$\lambda_j$ er den tilh{\o}rende egenv{\ae}rdi. Hvis vi
+s{\ae}tter $w_{ij} = a_jv_i^j$, kan Jacobimatricen
+udtrykkes som
+
+\begin{equation}
+  \matrix{J} = \matrix{W}\matrix{\Lambda}\matrix{W}^{-1},
+\end{equation}
+
+hvor $\matrix{\Lambda}$ er matricen
+
+\[
+  \matrix{\Lambda} = \left(
+  \begin{array}{ccc}
+    \lambda_1 & & \\
+     & \ddots &  \\
+     & & \lambda_n 
+  \end{array}
+  \right).
+\]
+
+Ideen er, at matricerne $\matrix{W}$ og $\matrix{\Lambda}$
+findes vha.\ den eksperimentelle tidsr{\ae}kke. Vi er
+n{\o}dsaget til at lave en ikke-line{\ae}r tiln{\ae}rmelse
+til den {\o}nskede funktion, alts{\aa} ligning
+\ref{pert:ikkelin}. Dette kan g{\o}res vha.\ Levenberg-Marquardts
+metode [\citen{NumRec} s.\ 683--688]. En brugbar algoritme er
+
+\begin{tabbing}
+for \= $i=1,\ldots,n$: \\
+\> gen\= tag  \\
+\>\> {\tt mrqmin}($t$, $\delta c_i(t)$, $\vec{w}^i$,
+$\lambda_1,\ldots,\lambda_n$) \\
+\> indtil konvergens \\
+$\matrix{J}=\matrix{W}\matrix{\Lambda}\matrix{W}^{-1}$
+\end{tabbing}
+
+I stedet for at udregne Jacobimatricen direkte som den
+sidste linie antyder, er det bedre at l{\o}se ligningssystemet
+$\matrix{J}\matrix{W}=\matrix{\Lambda}\matrix{W}$, idet det aldrig 
+er en god ide at invertere matricer numerisk.
+
+\vspace{4.0mm}
+Generelt kan man sige, at begge metoder er sv{\ae}re at
+f{\aa} til at give gode v{\ae}rdier. Men den f{\o}rste
+({\em singular value-decomposition}) er ofte d{\aa}rligere
+end den sidste. Et andet problem er naturligvis, at
+perturbationen skal v{\ae}re lille, men man kan ikke p{\aa}
+forh{\aa}nd vide, hvor stor en perturbation man kan tillade
+sig.
+
+\vspace{4.0mm}
+Chevalier {\em et al.} viser i [\citen{pertstat1}] deres
+arbejde med den sidste metode. De har set p{\aa}
+DOP-modellen, som er en model af oxidation af \chem{NADH}.
+Den er
+
+\begin{eqnarray*}
+A + B + X &\rightarrow& 2X \\
+2X &\rightarrow& 2Y \\
+A + B + Y &\rightarrow& 2X \\
+Z &\rightarrow& P \\
+Y &\rightarrow& Q \\
+X_0 &\rightarrow& X \\
+A_0 &\rightarrow& A \\
+B_0 &\rightarrow& B \\
+\end{eqnarray*}
+
+hvor $A = \chem{O_2}$, $B=\chem{NADH}$, $X$ og $Y$ er
+radikaler. Kun $A$, $B$, $X$ og $Y$ er dynamiske variable.
+Et af de station{\ae}re punkter er 
+
+\begin{equation}
+(A,B,X,Y) = (0.85106, 57.146, 0.01539, 0.17996). 
+\end{equation}
+
+I det vi kun ser p{\aa} fortegnene af
+elementerne i Jacobimatricen, er den
+
+\[
+  \matrix{J} = \left( 
+  \begin{array}{cccc}
+    - & - & - & - \\
+    - & - & - & - \\
+    + & + & - & + \\
+    - & - & + & - \\
+  \end{array}
+  \right),
+\]
+
+mens ved en perturbation f{\aa}s
+
+\[
+  \matrix{J} = \left(
+  \begin{array}{cccc}
+    - & - & - & - \\
+    - & - & + & - \\
+    + & + & - & + \\
+    - & - & + & - \\
+  \end{array}
+  \right).
+\]
+
+Som det ses, s{\aa} er der \'{e}t af elementerne, som har
+det gale fortegn. Metoden er p{\aa} m{\aa}de ingen helt sikker, men
+den er i stand til at give mere end et fingerpeg om
+fortegnene.
+
+\vspace{4.0mm}
+Vi har ogs{\aa} fors{\o}gt os med at beregne Jacobimatricen
+ud fra perturbationseksperimenter. Vi har dog holdt os til
+en model. Som numerisk metode har vi valgt at benytte metoden 
+som er baseret p{\aa} {\em Singular-value Decomposition\/}.
+Figur~\ref{pert:Oregon} viser en perturbation af Oregonatoren.
+Det staton{\ae}re punkt er $\vec{c}^S = ([Y], [X], [Z]) =
+(2.17\cdot 10{-7}, 3.199\cdot 10^{-8}, 1.74\cdot 10^{-7})$.
+Vores perturbation er i $X$-retningen. Jacobimatricen er
+for modellen (p{\aa} symbolsk form)
+
+\[
+  \matrix{J} = \left(
+  \begin{array}{ccc}
+    - & - & + \\
+    - & - & 0 \\
+    0 & + & - 
+  \end{array}
+  \right),
+\]
+
+mens Jacobimatricen, beregnet p{\aa} baggrund af
+perturbationseksperimentet, er
+
+\[
+  \matrix{J} = \left(
+  \begin{array}{ccc}
+    - & - & + \\
+    - & - & - \\
+    - & + & -
+  \end{array}
+  \right).
+\]
+
+Elementet $J_{23}$ er omkring en faktor 10 mindre end de
+andre elementer, s{\aa} det er rimeligt at sige, at det er
+nul. Som vi ser, stemmer Jacobimatricen fra
+perturbationseksperientet n{\ae}sten overens med
+Jacobimatricen fra modellen.
+
+\boxfigure{tbp}{\textwidth}{
+ \begin{center}
+  \begin{pspicture}(0,5)(14,11.4)
+%   \psgrid[](0,5)(0,5)(14,11.4)
+   \rput[cc]{*0}(7.0,8.3){\input{poregon}}
+   \psline[arrowinset=0]{->}(2.43,6.78)(2.43,10.7)
+   \rput[ct]{*0}(5.1,6.1){\footnotesize [Br$^-$]}
+   \rput[cl]{*0}( 10,6.4){\footnotesize [HBrO$_2$]}
+   \rput[cr]{*0}(2.3,8.6){\footnotesize [Ce$^{4+}$]}
+   \rput[cl]{*0}(9,9.4){
+    \tiny [Br$^-$] $\in [2.16\cdot 10^{-7};2.21\cdot 10^{-7}]$}
+   \rput[cl]{*0}(9,9.0){
+    \tiny [HBrO$_2$] $\in [3.0\cdot 10^{-8};3.5\cdot 10^{-8}]$}
+   \rput[cl]{*0}(9,8.6){
+    \tiny [Ce$^{4+}$] $\in [0;1.9\cdot 10^{-7}]$}
+  \end{pspicture}
+ \end{center}
+}
+{
+\caption{\protect\capsize
+En perturbation af Oregonatoren relakserer tilbage til det
+station{\ae}re punkt. Intervallerne angiver max.\ og min.\
+v{\ae}rdierne for de respektive akser.}
+\label{pert:Oregon}
+}
+
+I {\aa}bne systemer sker der en tilf{\o}relse af stof
+udenfra. Den type eksperimenter udf{\o}res som
+reglen i en CSTR. Derfor m{\aa} ligning \ref{Pert:KinEq}
+{\ae}ndres til
+
+\begin{equation}
+\label{Pert:CSTR}
+\frac{d\vec{c}}{dt} = \vec{f}(\vec{c}) + j_0(\vec{c}^0 - \vec{c}),
+\end{equation}
+
+hvor $j_0$ er den reciprokke residenstid, og $\vec{c}^0$ er
+indf{\o}relseskoncentrationerne. Ved en station{\ae}r
+tilstand {\ae}ndres indf{\o}relse af stof $k$ med $\delta
+c_k^0$. Efter en transient indtr{\ae}der en ny
+station{\ae}r tilstand. Den relative {\ae}ndring i
+koncentrationen er $\frac{\delta c_i^s}{\delta c_k^0}$, der
+kan tiln{\ae}rmes med $\frac{d c_i^s}{d c_k^0}$. Vi kan
+udregne Jacobimatricens elementer i $\vec{c}^0$ ved
+
+\begin{equation}
+\frac{d f_i}{d c_k^0} = \sum_{m=1}^n \underbrace{\frac{\partial f_i}{\partial
+c_m^s}}_{J_{im}} \underbrace{\frac{d c_m^s}{d c_k^0}}_{\Delta c_{mk}} +
+\underbrace{\frac{\partial f_i}{\partial c_k^0}}_{j_0} = 0,
+\end{equation}
+
+eller p{\aa} matrixform
+
+\begin{equation}
+\Delta\matrix{c} = -j_0\matrix{J}^{-1}.
+\end{equation}
+
+Med andre ord: Jacobimatricen kan findes ved {\ae}ndring af
+ind\-f{\o}d\-nings\-kon\-cen\-tra\-tionen af stoffer og
+kendskab til residenstiden.
+ 
+\section{Mekanismen}
+Det er et ganske ambi{\o}st projekt at finde en mekanisme
+til et reaktionssystem, som udviser den type opf{\o}rsler,
+som denne afhandling omhandler. Men det er dog muligt at
+n{\ae}rme sig et resultat, som vi skal se i dette afsnit.
+Vi vil antage, at hastighedslovene for mekanismen er
+potenslove. Som vi s{\aa} i afsnit \ref{Pert:jac} er det
+muligt at finde Jacobimatricen i et station{\ae}rt punkt
+ved eksperimenter. Ud fra Jacobimatricen f{\aa}r vi en del
+information. Element $(i,j)$ i Jacobimatricen beskriver sig
+om stofferne $i$ og $j$. Denne information er summeret i
+tabellen nedenfor
+
+\vspace{0.15cm}
+\begin{tabular}[h]{cl}
+Jacobimatricen & Egenskab \\ \hline
+$J_{ii} > 0$    & direkte autokatalyse \\
+$J_{ii} = 0$    & produktionen opvejer forbruget af stof $i$ \\
+$J_{ii} < 0$    & en af f{\o}lgende muligheder \\
+                & \begin{minipage}[t]{5cm}
+                  \begin{enumerate}
+                     \item ingen direk\-te autokatalyse
+                     \item forbruget af det $i$'te stof do\-mi\-ne\-rer
+                  \end{enumerate} 
+                  \end{minipage} \\
+$J_{ij} > 0$    & stof $i$ produceres udfra stof $j$ \\
+$J_{ij} = 0$    & ingen reaktion, hvor stof $i$ producerer stof $j$ \\
+$J_{ij} < 0$    & stof $i$ forbruges og $j$ ``deltager'' \\ \hline
+\end{tabular}
+\vspace{0.15cm}
+
+Ved at bruge disse ``regler'', kan vi udlede en mulig
+mekanisme for systemet.
+
+\vspace{4.0mm}
+Vi vil vise metodens styrke ved at bruge den p{\aa}
+Brusselatoren. Brusselatoren er givet ved fire reaktioner
+[\citen{Marek2}]
+
+\begin{subequations}
+\begin{eqnarray}
+A &\rightarrow& X \label{brusA} \\
+B+X &\rightarrow& Y + D \label{brusB} \\
+2X + Y &\rightarrow& 3X \label{brusC} \\
+X &\rightarrow& E \label{brusD}
+\end{eqnarray}
+\end{subequations}
+som svarer til to koblede differentialligninger
+
+\begin{eqnarray}
+\frac{dX}{dt} &=& A - (B+1)X + X^2Y \\
+\frac{dY}{dt} &=& BX - X^2Y.
+\end{eqnarray}
+
+Det station{\ae}re punkt er $\vec{c}^S = (A, \frac{B}{A}$).
+Vi er ogs{\aa} i stand til at udregne Jacobimatricen eksakt
+i det station{\ae}re punkt
+
+\[
+  \matrix{J} = \left( 
+  \begin{array}{cc}
+  B-1 & A^2 \\
+  -B  & -A^2
+  \end{array}
+  \right).
+\]
+
+Vi vil antage, at $B>1$, samt at Jacobimatricen symbolsk
+kan skrives som
+
+\[
+\matrix{J} = \left(
+\begin{array}{cc}
++ & + \\
+- & -
+\end{array} 
+\right),
+\]
+
+hvor ``$+$'' betyder en positiv v{\ae}rdi og ``$-$''
+betyder en negativ v{\ae}rdi. Elementet $J_{11}$ viser, at
+der i Brusselatoren forekommer en reaktion med direkte
+autokatalyse af $X$. Dette er reaktion \ref{brusC}. At $X$
+produceres ud fra $Y$ svarer til den informationen, der er
+indeholdt i elementet $J_{12}$, mens $J_{21}$
+fort{\ae}ller, at $X$ forbruges under deltagelse af $Y$
+svarende til reaktion \ref{brusB}.
+
+\vspace{4.0mm}
+I [\citen{pertstat1}] vises, at en st{\o}rre model ogs{\aa}
+kan udledes fra Jacobimatricen. Her er der igen tale om
+DOP-modellen. Chevalier {\em et al.} er i stand til
+redeg{\o}re for reaktionerne ud fra elementerne i
+Jacobimatricen.

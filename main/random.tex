@@ -1,0 +1,67 @@
+% GNUPLOT: LaTeX using TEXDRAW macros
+\begin{texdraw}
+\normalsize
+\ifx\pathDEFINED\relax\else\let\pathDEFINED\relax
+ \def\QtGfr{\ifx (\TGre \let\YhetT\cpath\else\let\YhetT\relax\fi\YhetT}
+ \def\path (#1 #2){\move (#1 #2)\futurelet\TGre\QtGfr}
+ \def\cpath (#1 #2){\lvec (#1 #2)\futurelet\TGre\QtGfr}
+\fi
+\drawdim pt
+\setunitscale 0.24
+\linewd 3
+\textref h:L v:C
+\path (132 51)(132 489)
+\linewd 4
+\path (132 94)(147 94)
+\path (795 94)(780 94)
+\move (115 94)\textref h:R v:C \htext{{\footnotesize$2.2$}}
+\path (132 183)(147 183)
+\path (795 183)(780 183)
+\move (115 183)\htext{{\footnotesize$2.6$}}
+\path (132 273)(147 273)
+\path (795 273)(780 273)
+\move (115 273)\htext{{\footnotesize$3.0$}}
+\path (132 363)(147 363)
+\path (795 363)(780 363)
+\move (115 363)\htext{{\footnotesize$3.4$}}
+\path (132 452)(147 452)
+\path (795 452)(780 452)
+\move (115 452)\htext{{\footnotesize$3.8$}}
+\path (198 51)(198 66)
+\path (198 489)(198 474)
+\move (198 17)\textref h:C v:C \htext{{\footnotesize$10$}}
+\path (333 51)(333 66)
+\path (333 489)(333 474)
+\move (333 17)\htext{{\footnotesize$30$}}
+\path (467 51)(467 66)
+\path (467 489)(467 474)
+\move (467 17)\htext{{\footnotesize$50$}}
+\path (601 51)(601 66)
+\path (601 489)(601 474)
+\move (601 17)\htext{{\footnotesize$70$}}
+\path (735 51)(735 66)
+\path (735 489)(735 474)
+\move (735 17)\htext{{\footnotesize$90$}}
+\path (132 51)(795 51)(795 489)(132 489)(132 51)
+\linewd 3
+\path (132 227)(132 227)(138 425)(145 207)(152 249)(159 192)
+\cpath (165 446)(172 57)(179 310)(186 120)(192 221)
+\cpath (198 358)(205 75)(212 452)(219 123)(225 120)
+\cpath (232 288)(239 319)(246 310)(252 170)(259 224)
+\cpath (266 180)(273 381)(279 183)(286 83)(293 231)
+\cpath (299 432)(306 471)(312 345)(319 428)(326 51)
+\cpath (333 256)(339 288)(346 402)(353 168)(360 489)
+\cpath (366 186)(373 318)(380 321)(387 144)(393 445)
+\cpath (400 186)(407 117)(413 201)(420 222)(426 337)
+\cpath (433 386)(440 319)(447 287)(453 255)(460 341)
+\cpath (467 195)(474 472)(480 214)(487 471)(494 53)
+\cpath (501 280)(507 171)(514 60)(520 314)(527 141)
+\cpath (534 441)(540 76)(547 166)(554 185)(561 448)
+\cpath (567 272)(574 366)(581 177)(588 436)(594 351)
+\cpath (601 255)(608 478)(615 396)(621 218)(628 152)
+\cpath (634 208)(641 183)(648 348)(654 371)(661 303)
+\cpath (668 418)(675 224)(681 415)(688 426)(695 130)
+\cpath (702 471)(708 240)(715 282)(722 78)(729 458)
+\cpath (735 444)(741 390)(748 228)(755 357)(762 390)
+\cpath (768 231)(775 105)(782 266)(789 149)(795 440)
+\end{texdraw}

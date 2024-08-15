@@ -1,0 +1,1050 @@
+\chapter{Poincar\'{e}afbild\-ningen}
+Vi har tidligere set eksempler p{\aa}, hvorledes oscillerende
+egenskaber ved den generelle kinetiske ligning
+
+\begin{equation}
+ \dot{\bf c} = {\bf f}({\bf c},\mu)
+ \label{eq:GenKin}
+\end{equation}
+
+kan diskuteres ved at betragte l{\o}sninger
+repr{\ae}senteret ved tidsr{\ae}kker eller banekurver i
+faserummet. Da ligning~\ref{eq:GenKin} sj{\ae}ldent kan
+l{\o}ses analytisk, vil disse to repr{\ae}sentationsformer
+oftest v{\ae}re bestemt ved numerisk integration.
+
+\vspace{2.5mm}
+{\O}nsker man at illustrere et givet systems opf{\o}rsel i
+faserummet opst{\aa}r der dog et problem, n{\aa}r dettes
+dimension er st{\o}rre end $3$, idet vi ikke l{\ae}ngere
+fysisk vil kunne visualisere de tilh{\o}rende banekurver.
+En metode, der elegant omg{\aa}r dette problem, er i 1899
+udviklet af den franske matematiker og videskabsteoretiker
+Henri Poincar\'{e} \cite{PoinOrig}. I stedet for direkte at
+betragte selve banekurvernes forl{\o}b i faserummet
+l{\o}ste Poincar\'{e} problemet ved at indskr{\ae}nke sig
+til at betragte banekurvernes {\em sk{\ae}ringer} med et
+passende plan i det p{\aa}g{\ae}ldende faserum. Herved
+reduceres beskrivelsen af det dynamiske system fra
+dimensionen $n$ til $n-1$.
+
+\vspace{2.5mm}
+Denne id\'{e} kan formuleres pr{\ae}cist ved hj{\ae}lp af
+den s{\aa}kaldte Poincar\'{e}afbild\-ning, der har fundet
+grobund som et yderst anvendeligt v{\ae}rkt{\o}j i studiet
+af dynamiske systemer. I det f{\o}lgende vil vi teoretisk
+redeg{\o}re for Poincar\'{e}\-afbild\-ningens vigtigste
+egenskaber, hvorp{\aa} vi viser dennes anvendelse i en
+analyse af torusbifurkationer i den koblede Brusselator
+model. Til sidst illustreres hvorledes Poincar\'{e}
+afbild\-ningen kan udnyttes til at unders{\o}ge
+eksperimentelle data.
+
+\section{Diskrete afbild\-ninger}
+\label{sec:DiskMap}
+Indledningsvis reserverer vi plads til en diskussion af det
+diskrete dynamiske system
+
+\begin{equation}
+ {\bf x}_{n+1} = {\bf f}({\bf x}_n)
+ \label{eq:DiskGen}
+\end{equation}
+
+da vi i den egentlige analyse af Poincar\'{e}afbild\-ningen
+vil udnytte visse egen\-skaber ved denne type af
+afbild\-ninger.
+
+\vspace{4.0mm}
+Lad ${\bf x}_f$ v{\ae}re et fikspunkt for
+ligning~\ref{eq:DiskGen}, dvs.\ ${\bf f}({\bf x}_f) = {\bf
+x}_f$. Idet vi nu perturberer ${\bf x}_f$ med st{\o}rrelsen
+$\delta{\bf x}$, vil vi, ved at studere dynamikken for
+${\bf f}({\bf x}_f+\delta{\bf x})$, formulere de
+line{\ae}re stabilitetskriterier for fikspunktet ${\bf
+x}_f$. Hertil betragter vi ${\bf f}^n({\bf x}_f+\delta{\bf
+x})$, der ved Taylorudvikling til 1.\ orden samt anvendelse
+af k{\ae}dereglen giver
+
+\begin{eqnarray}
+{\bf f}^n({\bf x}_f+\delta{\bf x}) & \simeq &
+{\bf f}^n({\bf x}_f) +
+\left.
+ \frac{\partial {\bf f}^n}{\partial {\bf x}}
+\right|_{{\bf x}_f} \negsp\delta{\bf x} \nonumber\\
+                                   & \simeq &
+{\bf x}_f +
+\left(
+ \left.
+  \frac{\partial {\bf f}}{\partial {\bf x}}
+ \right|_{{\bf x}_f}
+\right)^{\!\!\! n}\delta{\bf x} \nonumber\\
+                                   & \simeq &
+{\bf x}_f + {\bf J}^n\delta{\bf x}
+\end{eqnarray}
+
+hvor ${\bf J}$ er Jacobimatricen for funktionen ${\bf
+f}({\bf x})$ udviklet i fikspunktet ${\bf x}_f$. Nu
+antages, at ${\bf J}$ kan diagonaliseres som ${\bf J} =
+{\bf U}^{-1}{\bf \Lambda}{\bf U}$, hvor ${\bf \Lambda}$ er
+en diagonal matrix med egenv{\ae}rdierne
+$\lambda_1,\ldots,\lambda_n$ i diagonalen. Da kan ${\bf
+f}^n({\bf x}_f+\delta{\bf x})$ udtrykkes som
+
+\begin{eqnarray}
+{\bf f}^n({\bf x}_f+\delta{\bf x}) & \simeq & 
+{\bf x}_f + ({\bf U}^{-1}{\bf \Lambda}
+{\bf U})^n\delta{\bf x} \nonumber\\
+& \simeq & 
+{\bf x}_f + \underbrace{
+ ({\bf U}^{-1}{\bf \Lambda}{\bf U})
+ ({\bf U}^{-1}{\bf \Lambda}{\bf U})
+ \cdots
+ ({\bf U}^{-1}{\bf \Lambda}{\bf U})}_{\mbox{$n$ gange}}
+\delta{\bf x}\nonumber\\
+& \simeq & 
+{\bf x}_f + {\bf U}^{-1}{\bf \Lambda}^n{\bf U}
+\delta{\bf x}\nonumber\\
+{\bf f}^n({\bf x}_f+\delta{\bf x}) & \simeq & 
+{\bf x}_f + {\bf U}^{-1} 
+\left[ 
+ \begin{array}{ccc} \lambda_1 & & \\
+         & \ddots &    \\
+         & & \lambda_n 
+ \end{array}
+\right]^n {\bf U} \delta{\bf x}
+\end{eqnarray}
+
+Da fikspunktet ${\bf x}$ er stabilt, n{\aa}r kravet $\lim_{n
+\rightarrow \infty} ||{\bf f}^n({\bf x}_f+\delta{\bf x})||
+= 0$ er opfyldt, ser vi, at de line{\ae}re
+stabilitetskriterier for ${\bf x}_f$ bliver
+
+\begin{itemize}
+ \item ${\bf x}_f$ {\bf stabil}\\
+ Egenv{\ae}rdierne $\lambda_1,\ldots,\lambda_n$ for ${\bf J}$ 
+ opfylder: $|\lambda_j|<1$ for alle $j = 1,\ldots,n$.
+ \item ${\bf x}_f$ {\bf ustabil}\\
+ Mindst \'{e}n af egenv{\ae}rdierne $\lambda_1,\ldots,\lambda_n$ 
+ for ${\bf J}$ opfylder: $|\lambda_j|>1$ for $j = 1,\ldots,n$.
+\end{itemize}
+
+Efter fasts{\ae}ttelsen af disse generelle
+stabilitetskriterier er vi nu rustet til at g{\aa} i krig
+med selve Poincar\'{e}afbild\-ningen
+
+\section{Poincar\'{e}afbild\-ningen}
+Vi betragter nu det kontinuerte dynamiske system
+
+\begin{equation}
+ \dot{\bf c} = {\bf f}({\bf c},\mu)
+ \label{eq:GenKin2}
+\end{equation}
+
+svarende til vores s{\ae}dvanlige kintiske ligning. Lad os
+antage, at der til denne ligning findes en
+periodisk\footnote{Faktisk beh{\o}ver l{\o}sningen ikke
+n{\o}dvendigvis at v{\ae}re periodisk, men blot
+begr{\ae}nset i faserummet, hvilket vi da ogs{\aa} i det
+f{\o}lgende skal se eksempler p{\aa} i form af kaotisk
+opf{\o}rsel.} l{\o}sning $\varphi_t({\bf c}_p)$.
+L{\o}sninger i n{\ae}rheden af denne angives ved
+$\varphi_t({\bf c})$. Nu v{\ae}lger vi s{\aa} et hyperplan
+$\Omega$ i faserummet defineret ved afbild\-ningen $S: \R^n
+\mapsto \R$
+
+\begin{equation}
+ \Omega = \{{\bf c} = c_1,\ldots,c_n \in \R^n 
+ | S(c_1,\ldots,c_n) = 0\}
+\end{equation}
+
+s{\aa}ledes at f{\o}lgende to krav er opfyldt
+
+\begin{itemize}
+ \item $\varphi_t({\bf c})$ sk{\ae}rer altid $\Omega$ transversalt
+ \item $\varphi_t({\bf c})$ returnere altid til $\Omega$ i samme
+ retning.
+\end{itemize}
+
+Lad os betragte et punkt ${\bf c} \in \Omega$ og definere
+{\em returneringsafbild\-ningen} $T_\Omega({\bf c}):
+\R\times\Omega \mapsto \R$ som den tid det tager
+$\varphi_t({\bf c})$ at returnere til hyperplanet $\Omega$.
+$T_\Omega$ afbild\-er alts{\aa} et givet punkt fra
+Poincar\'{e}planet p{\aa} det tidsrum, det tager for
+punktet at returnere til Poincar\'{e}planet under
+bev{\ae}gelsen $\varphi_t({\bf c})$. Formelt har vi
+
+\begin{equation}
+ \varphi_{T_\Omega({\bf c})}({\bf c}) \in \Omega
+ \mbox{\ n{\aa}r\ }
+ {\bf c} \in \Omega
+\end{equation}
+
+Ved hj{\ae}lp af returneringsafbild\-ningen $T_\Omega$ kan vi
+nu definere Poincar\'{e}\-afbild\-\-ningen $P: \Omega \mapsto
+\Omega$ som
+
+\begin{equation}
+ P({\bf c}) = \varphi_{T_\Omega({\bf c})}({\bf c})
+ \mbox{\ hvor\ }
+ {\bf c} \in \Omega
+\end{equation}
+
+Uden bevis angiver vi nu f{\o}lgende egenskaber ved
+Poincar\'{e}\-afbild\-\-ningen
+
+\begin{itemize}
+  \item Lad ${\bf c}_p \in \Omega$ og lad $\varphi_t({\bf
+  c}_p)$ v{\ae}re $T$-periodisk, da g{\ae}lder ${\bf c}
+  \rightarrow {\bf c}_p \Rightarrow T_\Omega({\bf c})
+  \rightarrow T$. Ydermere ser vi, at der m{\aa} g{\ae}lde
+  $P({\bf c}_p)={\bf c}_p$, hvorfor punktet ${\bf c}_p$
+  p{\aa} banekurven for den periodiske l{\o}sning vil
+  v{\ae}re fikspunkt for Poincar\'{e}afbild\-ningen $P$ (se
+  figur~\ref{fig:PoinScheme}a).
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \item Lad ${\bf c}_p \in \Omega$ og lad $\varphi_t({\bf
+  c}_p)$ v{\ae}re en resonant bev{\ae}gelse p{\aa} en torus
+  med to fundamentalfrekvenser $\omega_1$ og $\omega_2$.
+  Dermed findes $p$ og $q$ s{\aa} $\frac{p}{q} =
+  \frac{\omega_1}{\omega_2}$, hvorfor punktet ${\bf c}_p$
+  vil v{\ae}re et fikspunkt for den $q$ gange iterede
+  Poincar\'{e}afbild\-ning: $P^q({\bf c}_p)={\bf c}_p$.
+  P{\aa} Poincar\'{e}planet svarer dette til $q$ punkter
+  p{\aa} en cirkelperiferi (se
+  figur~\ref{fig:PoinScheme}b).
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \item Lad ${\bf c}_p \in \Omega$ og lad $\varphi_t({\bf
+  c}_p)$ v{\ae}re en kvasiperiodisk bev{\ae}gelse p{\aa} en
+  torus med to rationelt uafh{\ae}ngige
+  fundamentalfrekvenser $\omega_1$ og $\omega_2$.
+  Bev{\ae}g\-el\-sen p{\aa} torusen er t{\ae}t og
+  dynamikken p{\aa} det tilh{\o}rende Poincar\'{e}plan vil
+  derfor ogs{\aa} v{\ae}re t{\ae}t p{\aa} cirkelperiferien
+  (se figur~\ref{fig:PoinScheme}c).
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \item Lad ${\bf c} \in \Omega$ og lad $\varphi_t({\bf
+  c})$ v{\ae}re en l{\o}sning til et dynamisk system med en
+  kaotisk dynamik. Da vil dynamikken p{\aa} det
+  tilh{\o}rende Poincar\'{e}plan finde sted p{\aa} en
+  fraktal tiltr{\ae}kker (se figur~\ref{fig:PoinScheme}d).
+\end{itemize}
+
+I det vi henviser til resultaterne fra
+afsnit~\ref{sec:DiskMap}, ser vi, at en periodisk
+l{\o}sning til ligning~\ref{eq:GenKin2} netop er stabil,
+n{\aa}r samtlige egenv{\ae}rdier knyttet til
+lineariseringen af Poincar\'{e}afbild\-ningen $P$ er numerisk
+mindre end $1$. Betragter vi specielt Jacobimatricen
+forbundet med denne linearisering, er denne pr.\ definition
+givet som
+
+\begin{equation}
+ \left.\frac{\partial P}{\partial {\bf c}}\right|_{{\bf c}_p} =
+ \left.\frac{\partial \varphi_t({\bf c})}
+            {\partial {\bf c}}\right|_{{\bf c}_p,t=T} 
+\end{equation}
+
+hvoraf vi ser, at den lineariserede
+Poincar\'{e}afbild\-ning netop kan betragtes som
+restriktionen af monodromimatricen ${\bf M}(T)$ til
+Poincar\'{e}planet $\Omega$. Stabilitets\-overvejelserne
+for Poincar\'{e}afbild\-ningen bliver derfor identiske med
+de resultater, der afledtes ved hj{\ae}lp af
+monodromimatricen. Poincar\'{e}afbild\-ningens $n-1$
+egenv{\ae}rdier er alts{\aa} identiske med de $n-1$
+Floquetmultiplikatorer, der svarer til de perturbationer,
+der ikke er i gr{\ae}nsecyklusens retning.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Fire typiske attraktorer p{\aa} Poincareplan
+%% dat         : fig71.ps
+%% makroer     : PSTricks, PST-Plot, EPSF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{tbp}{\textwidth}
+{
+\begin{center}
+ \begin{pspicture}(0,0)(14,10)
+% \psgrid(0,0)(0,0)(14,10)
+ \psline(1,1)(13,1)(13,9)(1,9)(1,1)
+ \psline(7,1)(7,9)
+ \psline(1,5)(13,5)
+ \rput[cc]{*0}(1.5,8.5){\footnotesize a)}
+ \rput[cc]{*0}(6.5,8.5){\footnotesize $\Omega$}
+ \rput[cc]{*0}(7.5,8.5){\footnotesize b)}
+ \rput[cc]{*0}(12.5,8.5){\footnotesize $\Omega$}
+ \rput[cc]{*0}(1.5,4.5){\footnotesize c)}
+ \rput[cc]{*0}(6.5,4.5){\footnotesize $\Omega$}
+ \rput[cc]{*0}(7.5,4.5){\footnotesize d)}
+ \rput[cc]{*0}(12.5,4.5){\footnotesize $\Omega$}
+ \rput[cc]{*-22}( 4,3){\psellipse(0,0)(1.8,1)}
+ \rput[cc]{* 15}(10,7){\psellipse[linestyle=dotted](0,0)(1.5,1)}
+
+ \pscircle*[](4,7){0.075}
+ \rput[tl]{*0}(4.1,6.9){\footnotesize ${\bf c}_p$}
+ \psplot[plotpoints=30,linestyle=dotted,origin={-4,-7}]{-2.3}{2.3}{0.14 x 3 exp mul}
+ \parametricplot[plotpoints=30,linestyle=dotted,origin={-4,-7}]{-1.8}{1.8}
+ {0.14 t 3 exp mul 0.7 mul 0.7 t mul add 0.14 t 3 exp mul 1.2 mul -1.2 t mul add}
+ \rput[cc]{*0}(10,3.3){\epsfxsize=6cm\epsfysize=4cm\epsffile{fig71.ps}}
+\end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize
+Fire typiske former for dynamik p{\aa} et Poincar\'{e}plan: a)
+Et fikspunkt p{\aa} Poincar\'{e}planet svarer til, at systemet
+bev{\ae}ger sig p{\aa} en gr{\ae}nsecyklus i faserummet. b)
+En bev{\ae}gelse p{\aa} en fasel{\aa}st torus i faserummet
+viser sig p{\aa} Poincar\'{e}planet som diskrete punkter p{\aa}
+periferien af en cirkel/ellipse. c) Er bev{\ae}gelsen
+derimod kvasiperiodisk bliver cirklen/ellipsen kontinuert,
+da dynamikken nu er t{\ae}t p{\aa} den p{\aa}g{\ae}ldende
+torus. d) En kaotisk dynamik i faserummet vil give
+anledning til en m{\ae}ngde af punkter p{\aa}
+Poincar\'{e}planet med en fraktal dimension.}
+\label{fig:PoinScheme}
+}
+
+\vspace{4.0mm}
+En analytisk udregning af Poincar\'{e}afbild\-ningen for et
+givet dynamisk system er sj{\ae}ldent mulig, da dette
+mindst kr{\ae}ver at det dynamiske system kan l{\o}ses
+analytisk. I stedet kan problemstillingen angribes via
+numeriske metoder. Da egenskaberne ved
+Poincar\'{e}\-afbild\-ningen kan afledes numerisk ved at
+udregne monodromimatricen \cite{SpecRapport,Marek,Marek2},
+er man dog oftest kun interesseret i at bestemme
+sk{\ae}ringen mellem en given banekurve og
+Poincar\'{e}planet $\Omega$. En beskrivelse af en r{\ae}kke
+numeriske algoritmer til at l{\o}se dette problem kan
+f.eks.\ findes i \cite{Marek2,Henon,LorenzPoin}.
+
+\vspace{4.0mm}
+F{\o}r vi pr{\ae}senterer et eksempel p{\aa} Poincar\'{e}
+afbild\-ningens anvendelse i kemien, vil vi, for at
+klarg{\o}re de hidtil indf{\o}rte begreber, diskutere et
+simpelt eksempel, der kan angribes analytisk og
+forh{\aa}bentlig bringer de fleste ting p{\aa} plads. Lad
+os igen betragte normalformen for den superkritiske
+Hopfbifurkation
+
+\begin{equation}
+ \begin{array}{lll}
+  \dot{x} & = & x(\mu - (x^2 + y^2)) - \omega y\\
+  \dot{y} & = & y(\mu - (x^2 + y^2)) + \omega x
+ \end{array}
+ \label{eq:SuperHopf2}
+\end{equation}
+
+Vi har tidligere set, at ligning~\ref{eq:SuperHopf2} har en
+stabil periodisk l{\o}sning for $\mu>0$, hvorfor vi
+{\o}nsker at bestemme en Poincar\'{e}afbild\-ning for dette
+system med s{\ae}rlig henblik p{\aa} at beskrive dynamikken
+i n{\ae}rheden af den periodiske l{\o}sning. Indf{\o}res
+pol{\ae}re koordinater, transformeres
+ligning~\ref{eq:SuperHopf2} til systemet
+
+\begin{equation}
+ \begin{array}{lll}
+  \dot{r}      & = & r(\mu-r^2)\\
+  \dot{\theta} & = & \omega
+ \end{array}
+ \label{eq:SuperHopfPol}
+\end{equation}
+
+hvor $r$ og $\theta$ angiver henholdsvis radial- og
+angul{\ae}rv{\ae}rdi i den pol{\ae}re basis. Dette
+differentialligningssystem har som generel l{\o}sning
+
+\begin{subequations}
+ \begin{eqalignno}
+ r(t)       &= 
+ \sqrt{\frac{\mu}{1-[1-\frac{\mu}{r_0^2}]e^{-2\mu t}}},
+ \mbox{\ }\mbox{\ } r_0^2 = x_0^2 + y_0^2 \\
+ \theta (t) &= 
+ \omega t + \theta_0,
+ \mbox{\ }\mbox{\ } \theta_0 = \arctan \frac{y_0}{x_0}
+ \end{eqalignno}
+\label{eq:PolSolut}
+\end{subequations}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Poincare afbild\-ning for superkritisk Hopf
+%% plt         : fig72.plt
+%% dat         : fig72.dat
+%% tex         : fig72.ps
+%% type        : PSTricks, EPSF
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{tbp}{\textwidth}
+{
+\begin{center}
+  \begin{pspicture}(0,0)(13.4,7)
+%  \psgrid[](0,0)(0,0)(13.4,7)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(6.5,1.0)(6.5,6.2)
+   \psline[linewidth=0.8pt,arrowinset=0]{->}(2.0,3.4)(12.0,3.4)
+   \pscircle*[](  8.53,3.4){0.07}
+   \pscircle*[](  9.07,3.4){0.07}
+   \pscircle*[]( 11.07,3.4){0.07}
+   \rput[bl]{*0}( 8.63,3.5){\scriptsize $x_3$}
+   \rput[bl]{*0}( 9.17,3.5){\scriptsize $x_2$}
+   \rput[bl]{*0}(11.17,3.5){\scriptsize $x_1$}
+   \rput[bl]{*0}( 5.40,3.8){\scriptsize $\gamma$}
+   \rput[cl]{*0}( 9.60,0.4){\scriptsize $[x(t),y(t)]$}
+   \rput[cl]{*0}(12.20,3.4){\footnotesize $x$}
+   \rput[cb]{*0}( 6.50,6.3){\footnotesize $y$}
+   \rput[bl]{*0}(0.12,0.22){%
+                           \epsfxsize= 12.00cm 
+                           \epsfysize=  6.19cm 
+                           \epsffile{fig72.ps}}
+  \end{pspicture}
+\end{center}
+}
+{
+\caption{\protect\capsize
+Figuren illustrerer, hvorledes en Poincar\'{e}afbild\-ning
+kan konstrueres for den superkritiske Hopfbifurkation.
+Poincar\'{e}planet $\Omega$ v{\ae}lges som den positive
+$x$-akse, hvorved systemets diskrete dynamik p{\aa} dette
+underrum kan studeres kvantitativt. Punkterne $x_1$, $x_2$,
+$x_3$ og $x_4$ udg{\o}r de f{\o}rste fire punkter i
+f{\o}lgen af iterater for Poincar\'{e}afbild\-ningen. Denne
+har gr{\ae}nsev{\ae}rdien $\protect\sqrt{\mu}$, svarende
+til gr{\ae}nsecyklusens sk{\ae}ring med $\Omega$.}
+\label{fig:SuperHopfSchem}
+}
+
+Vi v{\ae}lger nu Poincar\'{e}planet $\Omega$ som den
+positive $x$-akse ($\Omega = \R^+\verb+\+{\ 0}\ $) og {\o}nsker
+at beskrive udviklingen af et vilk{\aa}rligt punkt $x_0 \in
+\Omega$ under den dermed definerede Poincar\'{e}afbild\-ning
+(se figur~\ref{fig:SuperHopfSchem} for en skematisk
+illustration af $\Omega$). Perioden $T$ for en svingning er
+$\frac{2\pi}{\omega}$ og begyndelsesbetingelserne findes
+som $x_0=r_0$ samt $\theta_0=0$ (da $y_0=0$). Derfor er den
+diskrete dynamik p{\aa} $\Omega$ givet ved f{\o}lgende
+Poincar\'{e}afbild\-ning $P(x_n)$
+
+\begin{equation}
+ x_{n+1} = P(x_n) = 
+ \sqrt{\frac{\mu}{1-[1-\frac{\mu}{x_n^2}]e^{-\frac{4\pi\mu}{\omega}}}}
+\end{equation}
+
+Vi har tidligere vist, at ligning~\ref{eq:SuperHopf2} har 
+den periodiske l{\o}sning
+
+\begin{subequations}
+ \begin{eqalignno}
+  x(t) &= \sqrt{\mu} \cos (\omega t + \theta_0)\\
+  y(t) &= \sqrt{\mu} \sin (\omega t + \theta_0)
+ \end{eqalignno}
+ \label{eq:HopfNormSolut}
+\end{subequations}
+
+Vi ser, at denne l{\o}sning antager v{\ae}rdien
+$\sqrt{\mu}$ under dennes sk{\ae}ring med
+Poin\-car\'{e}\-planet $\Omega$, hvorfor $x_0=\sqrt{\mu}$
+er et fikspunkt for Poincar\'{e}afbild\-ningen. (Den
+samvittighedsfulde l{\ae}ser b{\o}r checke, at $x_0 =
+\sqrt{\mu}$ faktisk er et fikspunkt for $P(x_n)$).
+Kvalitativt kan dynamikken p{\aa} $\Omega$ alts{\aa}
+illustreres som f{\o}lgende
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Kvalitativ Illustration af bev{\ae}gelse
+%%               p{\aa} 1-dimensionalt Poincare plan for superkritisk
+%%               Hopf bifurkation
+%% makroer     : PSTricks, PST-Plot
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{center}
+ \begin{pspicture}(0,0)(14,3)
+%  \psgrid[](0,0)(0,0)(14,3)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(1.8,1.0)(11.8,1.0)
+  \pscircle*[]( 2.8,1.0){0.07}
+  \pscircle*[]( 5.8,1.0){0.07}
+  \pscircle*[]( 7.8,1.0){0.07}
+  \pscircle*[]( 9.1,1.0){0.07}
+  \pscircle*[]( 9.8,1.0){0.07}
+  \pscircle*[](10.8,1.0){0.07}
+  \rput[tc]{*0}( 2.8,0.8){\footnotesize $r_1$}
+  \rput[tc]{*0}( 5.8,0.8){\footnotesize $r_2$}
+  \rput[tc]{*0}( 7.8,0.8){\footnotesize $r_3$}
+  \rput[tc]{*0}( 9.1,0.8){\footnotesize $r_4$}
+  \rput[tc]{*0}( 9.8,0.8){\footnotesize $r_5$}
+  \rput[tc]{*0}(10.8,0.8){\footnotesize $r_f$}
+  \rput[cc]{*0}(10.3,1.1){\footnotesize $\ldots$}
+  \rput[cc]{*0}(12.0,1.0){\footnotesize $\Omega$}
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(4.29,1.6)(4.4,1.6)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(6.79,1.45)(6.9,1.45)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(8.50,1.3)(8.55,1.3)
+  \psline[linewidth=0.8pt,arrowinset=0]{->}(9.55,1.2)(9.60,1.2)
+  \parametricplot[origin={-2.8,-1.0},linewidth=0.8pt]{0.0}{3.0}
+   {t -4 0.6 mul 3 dup mul div t dup mul mul
+       4 0.6 mul 3 div t mul add}
+  \parametricplot[origin={-5.8,-1.0},linewidth=0.8pt]{0.0}{2.0}
+   {t -4 0.45 mul 2 dup mul div t dup mul mul
+       4 0.45 mul 2 div t mul add}
+  \parametricplot[origin={-7.8,-1.0},linewidth=0.8pt]{0.0}{1.3}
+   {t -4 0.3 mul 1.3 dup mul div t dup mul mul
+       4 0.3 mul 1.3 div t mul add}
+  \parametricplot[origin={-9.1,-1.0},linewidth=0.8pt]{0.0}{0.7}
+   {t -4 0.2 mul 0.7 dup mul div t dup mul mul
+       4 0.2 mul 0.7 div t mul add}
+ \end{pspicture}
+\end{center}
+
+Udfra dette {\o}nsker vi nu at bestemme lineariseringen af
+$P(x_n)$ i punktet $P(x_0 = \sqrt{\mu})$ og sammenligne
+dennes egenv{\ae}rdi med den v{\ae}rdi, vi tidligere fandt
+for den ikke-trivielle Floquetmultiplikator for
+ligning~\ref{eq:SuperHopf2}. Bestemmer vi den afledede
+$P'(x_n)$, finder vi
+
+\begin{equation}
+ P'(x_0) = 
+ \sqrt{\frac{\mu}{1-[1-\frac{\mu}{x_0^2}]e^{-\frac{4\pi\mu}{\omega}}}}
+ \mu^{-\frac{3}{2}} x_0^{-3}e^{-\frac{4\pi\mu}{\omega}}
+\end{equation}
+
+Ved inds{\ae}ttelse af $x_0=\sqrt{\mu}$ f{\aa}s
+
+\begin{equation}
+ \left.P'(x_0)\right|_{\sqrt{\mu}} = e^{-\frac{4\pi\mu}{\omega}}
+\end{equation}
+
+der jo pr{\ae}cis var den v{\ae}rdi for den tilsvarende
+Floquetmultiplikator, vi tid\-ligere bestemte under
+anvendelse af Abels identitet.
+
+
+\section{Anvendelse af Poincar\'{e}afbild\-ningen i kemiske modeller}
+\label{PoincareApplied}
+Efter dette meget skematiske eksempel {\o}nsker vi nu at
+diskutere, hvorledes Poincar\'{e}afbild\-ningen kan
+anvendes til at studere torusbifurkationer i kemiske
+reaktioner. Vi har tidligere i afsnit~\ref{sec:TorusBif}
+diskuteret, hvordan to successive torus\-bifurkationer giver
+anledning til kaotisk opf{\o}rsel i den koblede
+Brusselatormodel, analogt med det tidligere omtalte
+Ruelle-Takens-Newhouse teorem. Det viser sig, at en
+geometrisk forst{\aa}else af dette f{\ae}nomen bedst kommer
+til sin ret ved at studere Poincar\'{e}afbild\-ninger.
+
+\vspace{4.0mm}
+En r{\ae}kke ``fornuftige'' v{\ae}rdier for
+diffusionskonstanten $D_1$ udv{\ae}lges nu i intervallet
+$[0.05206;0.05295]$ og den hertil svarende stabile
+tiltr{\ae}kkers egenskaber studeres ved hj{\ae}lp af en
+Poincar\'{e}afbild\-ning. N{\aa}r vi bev{\ae}ger os ned
+igennem det n{\ae}vnte interval, vil en r{\ae}kke
+torusbifurkationer for{\aa}rsage, at f{\o}lgende sekvens af
+stabile tiltr{\ae}kkere observeres
+
+\begin{itemize}
+  \item kvasiperiodisk tiltr{\ae}kker
+  \item $3T$-periodisk tiltr{\ae}kker
+  \item kvasiperiodisk tiltr{\ae}kker
+  \item kaotisk tiltr{\ae}kker
+\end{itemize}
+
+I samtlige af disse parameteromr{\aa}der er foretaget en
+numerisk integration, resulterende i en banekurve p{\aa} en
+af de respektive tiltr{\ae}kkere (hvis de valgte
+begyndelsesbetingelser ikke ligger p{\aa} tiltr{\ae}kkeren, da
+integreres indtil dette er tilf{\ae}ldet og det sidst
+integrerede punkt v{\ae}lges som begyndelsesbetingelse for en
+ny integration). Ved integrationen udregnes st{\o}rrelsen
+
+
+\begin{equation}
+  H({\bf c}) = \langle {\bf h},{\bf c}-{\bf c}_{\Omega} \rangle,
+  \label{eq:PoincareSign}
+\end{equation}
+
+hvor ${\bf h}$ er en normalvektor til Poincar\'{e}planet
+${\bf c}_\Omega$. Et fortegnsskift for $H$ indikerer
+alts{\aa}, at banekurven har ``krydset'' Poincar\'{e}planet
+og et ${\bf c}^*\in\Omega$ kan approksimeres yderligere via
+line{\ae}r interpolation. M{\ae}ngden af disse punkter $\{
+{\bf c}^*_1, {\bf c}^*_2, \ldots\ \}$ udg{\o}r systemets
+diskrete banekurve p{\aa} det tilh{\o}rende
+Poincar\'{e}\-plan for den integrerede banekurve.
+Poincar\'{e}afbild\-ningen h{\o}rende til de fire
+tilf{\ae}lde fremg{\aa}r af figur~\ref{fig:PoinPlot}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Diagrammer til Poincareafbild\-ninger for
+%%               koblet Brusselator underg{\aa}ende successive
+%%               torusbifurkationer
+%% type        : PSTricks, Fotokopi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\footnotesize
+\renewcommand{\capfont}{\bf}
+\begin{figure}[tbp]
+ \begin{center}
+  \psset{xunit=0.93cm,yunit=0.93cm}
+  \begin{pspicture}(0,0)(14,9.33)
+%   \psgrid(0,0)(0,0)(14,9.33)
+    %%%%%%%%%%%%%%%%%%%%%%%%% axis %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psline{-}(4.66,0.00)(0.00,0.00)(0.00,4.66)
+    \psline[origin={-4.66,0}](4.66,0.00)(0.00,0.00)(0.00,4.66)
+    \psline[origin={-9.32,0}](4.66,4.66)(4.66,0.00)(0.00,0.00)(0.00,4.66)
+    \psline[origin={0,-4.66}](4.66,0.00)(0.00,0.00)(0.00,4.66)
+                             (4.66,4.66)(4.66,0.00)
+    \psline[origin={-4.66,-4.66}](4.66,0.00)(0.00,0.00)(0.00,4.66)
+                                 (4.66,4.66)(4.66,0.00)
+    \psline[origin={-9.32,-4.66}](4.66,0.00)(0.00,0.00)(0.00,4.66)
+                                 (4.66,4.66)(4.66,0.00)
+    %%%%%%%%%%%%%%%%%%%%%%%%% xtics 1 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    \psset{origin={-4.66,0}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    \psset{origin={-9.32,0}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    %%%%%%%%%%%%%%%%%%%%%%%%% xtics 2 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psset{origin={0,-4.66}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    \psset{origin={-4.66,-4.66}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    \psset{origin={-9.32,-4.66}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    %%%%%%%%%%%%%%%%%%%%%%%%% xtics 3 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psset{origin={0,-4.56}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    \psset{origin={-4.66,-4.56}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    \psset{origin={-9.32,-4.56}}
+    \psline(0.93,0.00)(0.93,0.1)\psline(1.87,0.00)(1.87,0.1)
+    \psline(2.80,0.00)(2.80,0.1)\psline(3.73,0.00)(3.73,0.1)
+    %%%%%%%%%%%%%%%%%%%%%%%%% ytics 1 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psset{origin={0,0}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    \psset{origin={0,-4.66}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    %%%%%%%%%%%%%%%%%%%%%%%%% ytics 2 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psset{origin={-4.66,0}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    \psset{origin={-4.66,-4.66}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    %%%%%%%%%%%%%%%%%%%%%%%%% ytics 3 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psset{origin={-4.56,0}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    \psset{origin={-4.56,-4.66}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    %%%%%%%%%%%%%%%%%%%%%%%%% ytics 4 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psset{origin={-9.32,0}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    \psset{origin={-9.32,-4.66}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    %%%%%%%%%%%%%%%%%%%%%%%%% ytics 5 %%%%%%%%%%%%%%%%%%%%%%%%%%
+    \psset{origin={-9.23,0}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    \psset{origin={-9.23,-4.66}}
+    \psline(0.00,0.93)(0.10,0.93)\psline(0.00,1.87)(0.10,1.87)
+    \psline(0.00,2.80)(0.10,2.80)\psline(0.00,3.73)(0.10,3.73)
+    %%%%%%%%%%%%%%%%%%%%%%%%% x symbols %%%%%%%%%%%%%%%%%%%%%%%%
+    \rput[tc](0.93,-.1){\footnotesize $1$}
+    \rput[tc](1.87,-.1){\footnotesize $2$}
+    \rput[tc](2.80,-.1){\footnotesize $3$}
+    \rput[tc](3.73,-.1){\footnotesize $4$}
+    \rput[tc](5.59,-.1){\footnotesize $1$}
+    \rput[tc](6.53,-.1){\footnotesize $2$}
+    \rput[tc](7.46,-.1){\footnotesize $3$}
+    \rput[tc](8.39,-.1){\footnotesize $4$}
+    \rput[tc](10.25,-.1){\footnotesize $1$}
+    \rput[tc](11.19,-.1){\footnotesize $2$}
+    \rput[tc](12.12,-.1){\footnotesize $3$}
+    \rput[tc](13.05,-.1){\footnotesize $4$}
+    %%%%%%%%%%%%%%%%%%%%%%%%% y symbols %%%%%%%%%%%%%%%%%%%%%%%%
+    \rput[rc](-.1,0.93){\footnotesize $1$}
+    \rput[rc](-.1,1.87){\footnotesize $2$}
+    \rput[rc](-.1,2.80){\footnotesize $3$}
+    \rput[rc](-.1,3.73){\footnotesize $4$}
+    \rput[rc](-.1,5.59){\footnotesize $1$}
+    \rput[rc](-.1,6.53){\footnotesize $2$}
+    \rput[rc](-.1,7.46){\footnotesize $3$}
+    \rput[rc](-.1,8.39){\footnotesize $4$}
+    %%%%%%%%%%%%%%%%%%%%% other symbols %%%%%%%%%%%%%%%%%%%%%%%%
+    \rput[cc]( 4.20,8.86){\footnotesize a)}
+    \rput[cc]( 8.86,8.86){\footnotesize b)}
+    \rput[cc](13.52,8.86){\footnotesize c)}
+    \rput[cc]( 4.20,4.20){\footnotesize d)}
+    \rput[cc]( 8.86,4.20){\footnotesize e)}
+    \rput[cc](13.52,4.20){\footnotesize f)}
+    \rput[tc]( 4.40,-.1){\footnotesize $x_1$}
+    \rput[tc]( 9.06,-.1){\footnotesize $x_1$}
+    \rput[tc](13.72,-.1){\footnotesize $x_1$}
+    \rput[rc](-.1, 4.40){\footnotesize $x_2$}
+    \rput[rc](-.1, 9.06){\footnotesize $x_2$}
+  \end{pspicture}
+ \end{center}
+ \caption{\protect\capsize
+ Overgang fra torus til kaos i den koblede Brusselatormodel
+ illustreret ved hj{\ae}lp af Poincar\'{e}afbild\-ninger. a)
+ Torus, $D_1$ = 0.05247. b) Kvasiperiodisk bev{\ae}gelse med
+ rotationstal $\frac{1}{3}$, $D_1$ = 0.05245. c) Torus,
+ $D_1$ = 0.05242. d) Kaotisk tiltr{\ae}kker (bem{\ae}rk
+ desintegration af torusen), $D_1$ = 0.0523. e) Kaotisk
+ tiltr{\ae}kker, $D_1$ = 0.0522. f) Kaotisk tiltr{\ae}kker, $D_1$ =
+ 0.0521. Figuren stammer fra \protect\cite{Marek2}.}
+ \label{fig:PoinPlot}
+\end{figure}
+\normalsize
+\renewcommand{\capfont}{\rm}
+
+\vspace{4.0mm}
+I figur~\ref{fig:PoinPlot}a ses, hvorledes bev{\ae}gelsen i
+faserummet resulterer i en lukket kurve p{\aa} Poincar\'{e}
+planet, hvilket jo netop er {\ae}kvivalent med, at
+bev{\ae}gelsen p{\aa} tiltr{\ae}kkeren er t{\ae}t p{\aa} en
+torus (svarende til forekomsten af to rationelt
+uaf\-h{\ae}ng\-ige vinkelfrekvenser). For lidt lavere
+v{\ae}rdier af $D_1$ (figur~\ref{fig:PoinPlot}b)
+fasel{\aa}ser bev{\ae}gelsen p{\aa} torusen og banekurven
+p{\aa} Poincar\'{e}planet udg{\o}res nu af et diskret
+s{\ae}t best{\aa}ende af tre punkter (faktisk svarer dette
+til et rotationstal\footnote{Begrebet ``rotationstal''
+stammer fra teorien for s{\aa}kaldte 1-dimensionale
+cirkelafbild\-ninger. Denne teori har i b{\aa}de kemi og
+fysik vist sig meget fyldestg{\o}rende med hensyn til at
+beskrive dynamiske systemer, hvis dynamik er karakteriseret
+ved to eller flere vinkelfrekvenser. For en definition af
+``rotationstallet'' $\rho$ samt en god introduktion til
+``cirkelafbild\-ninger'' se f.eks.\
+\protect\cite{Devaney}.} $\rho =\frac{1}{3}$).
+
+\vspace{4.0mm}
+I figur~\ref{fig:PoinPlot}c ses, hvorledes bev{\ae}gelsen
+atter bliver kvasiperiodisk. For endnu lavere v{\ae}rdier
+af $D_1$ dannes en slags ``vinger'' eller foldninger p{\aa}
+torusen (figur~\ref{fig:PoinPlot}d), idet denne n{\ae}rmest
+s{\o}nderrives. I figur~\ref{fig:PoinPlot}e-f er torusen
+fuld\-st{\ae}n\-dig destrueret og bev{\ae}gelsen i
+faserummet er nu kaotisk, hvorfor dynamikken p{\aa}
+Poincar\'{e}planet nu finder sted p{\aa} en fraktal
+tiltr{\ae}kker. Den kaotiske opf{\o}rsel introduceres
+alts{\aa} i dette tilf{\ae}lde via en desintegration af den
+torus, hvorp{\aa} dynamikken finder sted.
+
+\vspace{4.0mm}
+Vi har alts{\aa} set, hvordan studiet af et dynamisk system
+og en fortolkning af en parameters indflydelse p{\aa}
+dettes dynamik kan anskueligg{\o}res p{\aa} en visuelt let
+forst{\aa}elig m{\aa}de ved at betragte systemets
+opf{\o}rsel p{\aa} et Poincar\'{e}plan. I
+afsnit~\ref{sec:TorusBif} unders{\o}gte vi den samme
+opf{\o}rsel ved blot at betragte en r{\ae}kke tilh{\o}rende
+tidsr{\ae}kker. Sammenlignes denne metode med den netop
+gennem\-g{\aa}ede, ser vi tydeligt, at de konklusioner, der
+kan drages ved blot at unders{\o}ge en tidsserie, er langt
+svagere end den information, der tilvejebringes ved at
+studere Poincar\'{e}\-afbild\-ninger. Eksempelvis er det ikke
+umiddelbart muligt at drage nogle konklusioner om, hvorvidt
+en bev{\ae}gelse er kvasiperiodisk eller fasel{\aa}st ved
+blot at studere numerisk integrerede tidsr{\ae}kker.
+
+\section{P{\aa}visning af deterministisk kaos i
+eksperimentel data}
+\label{sec:ExperimentalPoin}
+
+Efter dette modeleksempel {\o}nsker vi nu at diskutere,
+hvordan Poincar\'{e}\-afbild\-ninger kan anvendes til at
+analysere data fra eksperimentelle m{\aa}linger p{\aa}
+kemiske systemer. Situationen her er ganske anderledes, da
+vi her, imods{\ae}t\-ning til modelberegninger, meget
+sj{\ae}ldent er i stand til at m{\aa}le koncentrationen af
+samtlige stoffer, der er involverede i den
+p{\aa}g{\ae}ldende reaktion. Dette problem kan dog p{\aa}
+en bekvem m{\aa}de l{\o}ses ved i stedet at betragte
+s{\aa}kaldte {\em rekonstruktioner\/} af faserummet.
+S{\aa}danne rekonstruktioner kr{\ae}ver udelukkende, at
+koncentrationen af et enkelt stof kan m{\aa}les
+eksperimentelt.
+
+\vspace{4.0mm}
+I \cite{Swinney} er en r{\ae}kke eksperimentelle
+tidsr{\ae}kker fra BZ-reaktionen blevet unders{\o}gt ved
+hj{\ae}lp af s{\aa}danne rekonstruktioner. BZ-reaktionen er
+blevet unders{\o}gt i en CSTR-opstilling, hvor
+koncentrationen af Br$^-$-ioner m{\aa}les ved hj{\ae}lp af
+en bromidelektrode. Under passende fors{\o}gsbetingelser
+observeredes en r{\ae}kke uregelm{\ae}ssige svingninger.
+S{\aa}danne svingninger var p{\aa} dav{\ae}rende tidspunkt
+(1982) velkendte i BZ-reaktionen, hvorimod der endnu
+herskede tvivl om, hvorvidt disse beskrev s{\aa}kaldt
+deterministisk kaos. Videre var det uklart, om den
+underliggende dynamik bag en s{\aa}dan tidsr{\ae}kke
+skyldtes en bev{\ae}gelse p{\aa} en s{\aa}kaldt {\em
+strange attractor\/}.
+
+\vspace{4.0mm}
+I ovenn{\ae}vnte artikel beskrives, hvorledes
+bev{\ae}gelsen i det oprindelige faserum kan rekonstrueres
+ud fra disse uregelm{\ae}ssige svingninger. Kalder vi
+koncentrationen af Br$^-$-ioner til tidspunktet $t$ i en
+s{\aa}dan tidsr{\ae}kke for $B(t)$, da kan tidsr{\ae}kken bekvemt
+angives ved hj{\ae}lp af f{\o}lgen $B(t_i)_{i \in \{ 1,2,\:
+\ldots \} }$. Udfra denne f{\o}lge konstrueres nu et
+s{\ae}t af vektorer i et $m$-dimensionalt faserum som
+
+\begin{equation}
+  \left[ B(t_i), B(t_i+T), \ldots, B(t_i + (m-1)T) \right]
+  \label{eq:ReconVector}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Figurer fra Physica 8D, 257, 1983
+%% plt         : -------
+%% dat         : -------
+%% tex         : -------
+%% type        : Fotokopi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\boxfigure{tbp}{\textwidth}
+{
+ \vspace{12cm}
+}
+{
+\caption{\protect\capsize
+a) 3-dimensional rekonstruktion af en kaotisk
+tiltr{\ae}kker foretaget ud fra en tidsr{\ae}kke m{\aa}lt
+p{\aa} BZ-reaktionen. b) 2-dimensional projektion af
+tiltr{\ae}kkeren fra a). c) 1-dimensional afbildning
+konstrueret ved at plotte de ordnede par $(x_i,x_{i+1})$
+svarende til de succesive v{\ae}rdier, der fremkommer ved
+banekurvens sk{\ae}ring med den stiblede linie i b).
+Samtlige figure stammer fra \protect\cite{Swinney}.
+}
+\label{fig:PoincarePlots}
+}
+
+hvor $t_i = i \Delta t$, $i = 1, \ldots, \infty$.
+St{\o}rrelsen $T$ kaldes {\em en tidsforskydning\/}. Lad nu
+$n$ v{\ae}re dimensionen af det faserum, der beskriver
+dynamikken af det oprindelige kemiske system (vi antager,
+at der indg{\aa}r n dynamiske stoffer i den kemiske
+reaktion). Hvis den nye dimension $m$ opfylder $m \geq
+2n+1$, da vil denne rekonstruerede banekurve have de samme
+topologiske egenskaber som den banekurve, der beskriver
+systemts opf{\o}rsel i det virkelige $n$-dimensionale
+kemi\-ske faserum. Vi siger, at faseportr{\ae}ttet knyttet
+til en s{\aa}dan rekonstruktion udg{\o}r en indlej\-ring
+for den oprindelige tiltr{\ae}kker.
+
+\vspace{4.0mm}
+Som tidligere n{\ae}vnt i afsnit 1.2 betyder dette, at
+karakteristiske eksponenter som egenv{\ae}rdier,
+Floquetmultiplikatorer og Lyapunoveksponter vil v{\ae}re
+bevaret under en s{\aa}dan rekonstruktion. Bev{\ae}gelsen
+p{\aa} en given stabil tiltr{\ae}kker (gr{\ae}nsecyklus,
+torus, kaotisk tiltr{\ae}kker, etc.) i det rekonstruerede
+rum vil alts{\aa} v{\ae}re sammenlignelig med den
+tilsvarende bev{\ae}gelse i det oprindelige faserum.
+
+\vspace{4.0mm}
+Med hensyn til BZ-reaktionen s{\aa} skaber en s{\aa}dan
+rekonstruktion dog en r{\ae}kke umiddelbare problemer.
+Denne reaktion menes idag at involvere ikke mindre end
+ca.\ 30 dynamiske stoffer, hvilket betyder, at
+rekonstruktionen skulle foretages i et 61-dimensionalt
+faserum. Heldigvis kan $m$ dog godt v{\ae}lges betydeligt
+mindre uden at systemets v{\ae}sentligste egenskaber mistes
+ved en rekonstruktion. Eksempelvis vil simple svingninger i
+et h{\o}jdimensionalt system som BZ-reaktionen stadig
+v{\ae}re bevaret ved en 2-dimensional rekonstruktion, da de
+tilh{\o}rende banekurver vil v{\ae}re lukkede.
+
+\vspace{4.0mm}
+P{\aa} baggrund af s{\aa}danne overvejelser har man i
+\cite{Swinney} indskr{\ae}nket sig til at studere
+3-dimensionale rekonstruktioner af de m{\aa}lte
+tidsr{\ae}kke. En s{\aa}dan rekonstruktion af en kaotisk
+tiltr{\ae}kker er vist i figur~\ref{fig:PoincarePlots}a.
+Udfra denne v{\ae}lger man nu et 2-dimensionalt
+Poincar\'{e}plan s{\aa}ledes, at banekurverne sk{\ae}rer
+dette tranversalt. Selve Poincar\'{e}planet og dets
+gennemsk{\ae}ringer af den rekonstruerede banekurve
+fremg{\aa}r af figur~\ref{fig:PoincarePlots}b.
+
+\vspace{4.0mm}
+Lad os nu betragte et punkt $x_1$ p{\aa} Poincar\'{e}planet.
+N{\aa}r banekurven har sk{\aa}ret Poincar\'{e}planet i $x_1$,
+bev{\ae}ger denne sig videre ud p{\aa} tiltr{\ae}kkeren og
+returnerer til planet i et punkt $x_2$. Til ethvert punkt
+p{\aa} Poincar\'{e}planet kan vi alts{\aa} entydigt knytte et
+returneringspunkt. Punktet $x_1$ definerer alts{\aa} en
+f{\o}lge af s{\aa}danne successive returneringspunkter som
+
+\begin{equation}
+  \left[ (x_1,x_2), (x_2,x_3), (x_3,x_4), \ldots \right]
+\end{equation}
+
+Plotter vi nu dette s{\ae}t punkter $(x_i,x_{i+1})$, ses
+disse umiddelbart at ligge p{\aa} en parametriserbar kurve,
+som illustreret i figur~\ref{fig:PoincarePlots}c. Vi ser
+med andre ord, at de uregelm{\ae}ssige svingninger, der her
+er beskrevet for BZ-reaktionen, ikke er af tilf{\ae}ldig
+natur, men derimod har en deterministisk karakter, da
+disses egenskaber kan beskrives ved en kontinuert funktion.
+Med andre ord kan ovenst{\aa}ende s{\ae}t af
+returneringspunkter angives ved en punktf{\o}lge $(x_i)$,
+s{\aa}ledes at de enkelte punkter rekursivt er givet som
+$x_{i+1} = f(x_i)$, hvor $f$ alts{\aa} er en kontinuert
+funktion.
+
+\vspace{4.0mm}
+Denne egenskab ved Poincar\'{e}afbild\-ningen er i
+\cite{Swinney} yderligere blevet anvendt til at bestemme
+Lyapunoveksponenten for $f$, der tilmed vil v{\ae}re den
+st{\o}rste for det p{\aa}g{\ae}ldende datas{\ae}t. Denne
+approksimeres ved at ``fitte'' punkterne i
+figur~\ref{fig:PoincarePlots} til en kubisk spline.
+Lyapunoveksponenten $\lambda$ for en 1-dimensional
+afbild\-ning er defineret som
+
+\begin{equation}
+  \lambda = \lim_{N \rightarrow \infty} 
+            \sum_{i=1}^N \ln |f'(x_i)|
+  \label{eq:LyaExp}
+\end{equation}
+
+hvorfor differentialkvotienten $f'(x_i)$ kan udregnes ved
+hj{\ae}lp af den kubiske spline og Lyapunoveksponenten
+$\lambda$ kan hermed bestemmes. Udfra datas{\ae}ttet er
+denne fundet til 
+
+\begin{equation}
+  \lambda = 0.3 \pm 0.1
+\end{equation}
+
+Da deterministisk kaos altid indeb{\ae}rer, at en eller
+flere Lyapunoveksponenter er strengt st{\o}rre end nul, er
+dette yderligere evidens for forekomsten af denne type kaos
+i de beskrevne uregelm{\ae}ssige svingninger.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Skematisk 1D-Poincare funktion
+%% plt         : fig33.plt
+%% dat         : fig33.dat
+%% tex         : fig33.tex
+%% type        : TeXDraw
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\capfont}{\bf}
+\begin{figure}[t]
+ \begin{minipage}{6cm}
+  \input{fig73}
+ \end{minipage}
+ \ \hfill \
+ \protect\vspace{-0.5cm}
+ \begin{minipage}{7cm}
+  \caption{\protect\capsize
+   Den viste graf illu\-strerer en ske\-ma\-tisk
+   frem\-stil\-ling af funktionen $f$, der be\-skri\-ver
+   Poincar\'{e}afbild\-ningen i det re\-kon\-stru\-erede
+   faserum. Ved en gentagen foldning og str{\ae}kning af de
+   tre intervaller $I_1$, $I_2$ og $I_3$ genereres en
+   kaotisk dynamik for de successive iterater af $f$. En
+   dynamik med disse egenskaber siges at finde sted p{\aa}
+   en ``strange attractor''.\protect\vspace*{\fill}}
+ \end{minipage}
+ \label{fig:StrechFold}
+ \normalsize
+\vspace{5mm}
+\end{figure}
+\renewcommand{\capfont}{\rm}
+
+\vspace{4.0mm}
+Sluttelig vil vi vise, hvorledes man kan drage yderligere
+konklusioner ved\-r{\o}rende den tiltr{\ae}kker, hvorp{\aa}
+dynamikken for BZ-reaktionen foreg{\aa}r. Lad os betragte
+funktionen $f$, s{\aa}ledes som denne skematisk er gengivet
+i figur~\ref{fig:StrechFold}. Heraf fremg{\aa}r, at $f$
+beskriver en surjektiv afbild\-ning af et interval $I$
+p{\aa} $I$. Opdel nu $I$ i tre disjunkte delintervaller
+$I_1$, $I_2$ og $I_3$ som vist i
+figur~\ref{fig:StrechFold}. Lad os unders{\o}ge billedet
+af disse tre delintervaller under $f$. Udfra en rent
+grafisk argumentation f{\aa}s
+
+\begin{subequations}
+ \begin{eqalignno}
+  f(I_1) &= I_1 \cup I_2 \cup I_3\\
+  f(I_2) &= I_3\\
+  f(I_3) &= I_1 \cup I_2
+ \end{eqalignno}
+ \label{eq:SubIntervalImage}
+\end{subequations}
+
+Dette betyder, at intervallet $I$ samtidig
+str{\ae}kkes og foldes under afbild\-ningen $f$. Skematisk
+kan dette angives som
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% figur
+%%
+%% beskrivelse : Illustration af foldning og str{\ae}kning 
+%%               for 1D-afbild\-ning i Swinneys artikel
+%% type        : PSTricks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{4.0mm}
+\begin{center}
+  \begin{pspicture}(0,0)(5,3)
+%   \psgrid[subgriddiv=1,griddots=10,gridlabels=7pt](0,0)(0,0)(5,3)
+    \psline[linewidth=0.8pt]{|-|}(0,0)(5,0)
+    \psline[linearc=0.2,linewidth=0.8pt]{|-|}(0,1.7)(5,1.7)(5,1.3)(2.5,1.3)
+    \psline[linewidth=0.8pt]{|-|}(0,3)(5,3)
+    \psline[linewidth=0.8pt,arrowinset=0]{->}(1,2.7)(1,2.0)
+    \psline[linewidth=0.8pt,arrowinset=0]{->}(1,1.2)(1,0.5)
+    \psline[linewidth=0.8pt,arrowinset=0](0.75,3.1)(0.75,2.9)
+    \psline[linewidth=0.8pt,arrowinset=0](2.5,3.1)(2.5,2.9)
+    \psline[linewidth=0.8pt,arrowinset=0](2.5,1.8)(2.5,1.6)
+    \psline[linewidth=0.8pt,arrowinset=0](2.5,-.1)(2.5,.1)
+    \rput[bc]{*0}(0.45,3.1){\footnotesize $I_1$}
+    \rput[bc]{*0}(1.63,3.1){\footnotesize $I_2$}
+    \rput[bc]{*0}(3.75,3.1){\footnotesize $I_3$}
+    \rput[lc]{*0}(1.3,2.35){\footnotesize str{\ae}kning}
+    \rput[lc]{*0}(1.3,0.75){\footnotesize foldning}
+  \end{pspicture}
+\end{center}
+
+\vspace{4.0mm}
+Betragter vi en iteration af intervallet $I$ under $f$, vil
+dette foldes og str{\ae}kkes p{\aa} en yderst kompliceret
+m{\aa}de, der visuelt minder om den gentagne foldning og
+udruling af wienerbr{\o}dsdej. Kvalitativt betyder dette,
+at punkter t{\ae}t p{\aa} hinanden vil fjerne sig fra
+hinanden med en eksponentiel hastighed. En tiltr{\ae}kker med
+s{\aa}danne egenskaber kaldes en {\em strange attractor\/}.
+Vi ser, at den dynamik, der karakteriserer de n{\ae}vnte
+tidsr{\ae}kker for BZ-reaktionen, svarer til en
+bev{\ae}gelse p{\aa} en strange attractor.
+
+
+

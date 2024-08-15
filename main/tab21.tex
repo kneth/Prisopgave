@@ -1,0 +1,59 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%     forward FKN-rateconstants          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+  \newcommand{\fkar}{$2.1$}
+  \newcommand{\fkbr}{$2   \times 10^{9} $}
+  \newcommand{\fkcr}{$1   \times 10^{4} $}
+  \newcommand{\fkdr}{$6.5 \times 10^{5} $}
+  \newcommand{\fker}{$4   \times 10^{7} $}
+  \newcommand{\fkfr}{$1   \times 10^{4} $}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%     backward FKN-rateconstants         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+  \newcommand{\fkal}{$1   \times 10^{4}  $}
+  \newcommand{\fkbl}{$5.0 \times 10^{-5} $}
+  \newcommand{\fkcl}{$2   \times 10^{7}  $}
+  \newcommand{\fkdl}{$2.4 \times 10^{7}  $}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%     forward FF-rateconstants           %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+  \newcommand{\ffar}{$2                  $}
+  \newcommand{\ffbr}{$3    \times 10^{6} $}
+  \newcommand{\ffcr}{$42                 $}
+  \newcommand{\ffdr}{$8    \times 10^{4} $}
+  \newcommand{\ffer}{$3    \times 10^{3} $}
+  \newcommand{\fffr}{$42   \times 10^{4} $}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+%     backward FF-rateconstants          %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+  \newcommand{\ffal}{$3.2                 $}
+  \newcommand{\ffbl}{$2    \times 10^{-5} $}
+  \newcommand{\ffcl}{$4.2  \times 10^{7}  $}
+  \newcommand{\ffdl}{$8.9  \times 10^{3}  $}
+  \newcommand{\ffel}{$1    \times 10^{-8} $}
+  
+  \newcommand{\lra}{\longrightarrow}
+  \newcommand{\lla}{\longleftarrow}
+  \newcommand{\rlh}{\rightleftharpoons}
+  \newcommand{\arrx}{\multicolumn{1}{|c|}{$\lra$}}
+  \newcommand{\arry}{\multicolumn{1}{|c|}{$\lla$}}
+  \footnotesize
+  
+  \begin{tabular}{|c|rcl|l|l|l|l|c|c|c|}     \cline{5-8}\cline{5-8}
+   \multicolumn{4}{c}{} & \multicolumn{4}{|c|}{Hastighedskonstanter} & \multicolumn{3}{c}{}                  \\ \cline{5-11}
+   \multicolumn{4}{c}{} & \multicolumn{2}{|c|}{FKN}  & \multicolumn{2}{|c|}{FF} & \multicolumn{3}{|c|}{Model}\\ \hline
+   Nr.& \multicolumn{3}{|c|}{Reaktion}  & \arrx & \arry & \arrx & \arry & M3    & M4    & M5       \\ \hline
+   R1 & A + Y + 2H & $\rlh$ & X + U     & \fkar & \fkal & \ffar & \ffal & $\lra$ & $\lra$ & $\rlh$ \\ \hline
+   R2 & X + Y + H  & $\rlh$ & 2U        & \fkbr & \fkbl & \ffbr & \ffbl & $\lra$ & $\lra$ & $\rlh$ \\ \hline
+   R3 & A + X + H  & $\rlh$ & 2W + K    & \fkcr & \fkcl & \ffcr & \ffcl &       &       & $\rlh$   \\ \hline
+   R4 & W + C + H  & $\rlh$ & X + Z     & \fkdr & \fkdl & \ffdr & \ffdl &       &       & $\rlh$   \\ \hline
+   R5 & 2X         & $\rlh$ & U + A + H & \fker &       & \ffer & \ffel & $\lra$ & $\lra$ & $\rlh$ \\ \hline
+   R6 & A + X + H  & $\rlh$ & 2X + 2Z   & \fkfr &       & \fffr &       & $\lra$ & $\lra$ &        \\ \hline
+   R7 & Z          & $\rlh$ & gY + C    &       &       &       &       & $\lra$ & $\lra$ & $\lra$ \\ \hline
+   R8 & U          & $\rlh$ & Y         &       &       &       &       &       & $\lra$ &         \\ \hline
+   R9 & U          & $\rlh$ & P         &       &       &       &       &       & $\lra$ &         \\ \hline\hline
+  \end{tabular}
+ \normalsize

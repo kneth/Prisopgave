@@ -1,0 +1,57 @@
+% GNUPLOT: LaTeX using TEXDRAW macros
+\begin{texdraw}
+\normalsize
+\ifx\pathDEFINED\relax\else\let\pathDEFINED\relax
+ \def\QtGfr{\ifx (\TGre \let\YhetT\cpath\else\let\YhetT\relax\fi\YhetT}
+ \def\path (#1 #2){\move (#1 #2)\futurelet\TGre\QtGfr}
+ \def\cpath (#1 #2){\lvec (#1 #2)\futurelet\TGre\QtGfr}
+\fi
+\drawdim pt
+\setunitscale 0.24
+\linewd 3
+\textref h:L v:C
+\path (132 132)(795 132)
+\path (132 51)(132 489)
+\linewd 4
+\path (132 61)(147 61)
+\path (795 61)(780 61)
+\move (115 61)\textref h:R v:C \htext{{\footnotesize$-0.2$}}
+\path (132 132)(147 132)
+\path (795 132)(780 132)
+\move (115 132)\htext{{\footnotesize$0.0$}}
+\path (132 204)(147 204)
+\path (795 204)(780 204)
+\move (115 204)\htext{{\footnotesize$0.2$}}
+\path (132 275)(147 275)
+\path (795 275)(780 275)
+\move (115 275)\htext{{\footnotesize$0.4$}}
+\path (132 345)(147 345)
+\path (795 345)(780 345)
+\move (115 345)\htext{{\footnotesize$0.6$}}
+\path (132 417)(147 417)
+\path (795 417)(780 417)
+\move (115 417)\htext{{\footnotesize$0.8$}}
+\path (132 488)(147 488)
+\path (795 488)(780 488)
+\move (115 488)\htext{{\footnotesize$1.0$}}
+\path (297 51)(297 66)
+\path (297 489)(297 474)
+\move (297 17)\textref h:C v:C \htext{{\footnotesize$10$}}
+\path (464 51)(464 66)
+\path (464 489)(464 474)
+\move (464 17)\htext{{\footnotesize$20$}}
+\path (630 51)(630 66)
+\path (630 489)(630 474)
+\move (630 17)\htext{{\footnotesize$30$}}
+\path (132 51)(795 51)(795 489)(132 489)(132 51)
+\linewd 3
+\path (132 489)(132 489)(148 60)(165 189)(181 74)(198 135)
+\cpath (215 153)(231 112)(248 150)(264 113)(281 162)
+\cpath (297 77)(314 168)(331 132)(348 131)(364 152)
+\cpath (381 105)(397 120)(414 125)(430 132)(447 181)
+\cpath (464 126)(480 168)(497 118)(513 123)(530 97)
+\cpath (546 162)(563 94)(579 189)(597 51)(613 129)
+\cpath (630 122)(646 83)(663 173)(679 106)(696 192)
+\cpath (712 109)(729 129)(746 109)(762 153)(779 162)
+\cpath (795 115)(795 115)
+\end{texdraw}
